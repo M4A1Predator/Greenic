@@ -39,18 +39,18 @@
 								<div class="latest-tweets-inner">
 									<i class="fa fa-twitter"></i>
 									<p>
-										<a href="<?=base_url()?>mats/#">@Greenic.co</a>
+										<a href="#">@Greenic.co</a>
 										ผักอินทรีย์ 100% ต้องที่นี่ที่เดียว
-										<a href="<?=base_url()?>mats/#">http://t.co/sBav7dm</a>
+										<a href="#">http://t.co/sBav7dm</a>
 										<small class="twitter-time">2 hours ago</small>
 									</p>
 								</div>
 								<div class="latest-tweets-inner">
 									<i class="fa fa-twitter"></i>
 									<p>
-										<a href="<?=base_url()?>mats/#">@Greenic.co</a>
+										<a href="#">@Greenic.co</a>
 										เกษตรอินทรีย์ ซื้อง่าย ขายคล่อง ต้องที่นี่
-										<a href="<?=base_url()?>mats/#">http://t.co/sBav7dm</a>
+										<a href="#">http://t.co/sBav7dm</a>
 										<small class="twitter-time">4 hours ago</small>
 									</p>
 								</div>
@@ -64,16 +64,16 @@
 							<address class="md-margin-bottom-40">
 								<i class="fa fa-home"></i>365/0123 บางมด ทุ่งครุ กรุงเทพมหานคร 10140 <br>
 								<i class="fa fa-phone"></i>Phone: 083 000 9691 <br>
-								<i class="fa fa-globe"></i>Website: <a href="<?=base_url()?>mats/#">www.greenic.co</a> <br>
+								<i class="fa fa-globe"></i>Website: <a href="#">www.greenic.co</a> <br>
 								<i class="fa fa-envelope"></i>Email: <a href="<?=base_url()?>mats/mailto:info@anybiz.com">support@greenic.co</a>
 							</address>
 
 							<!-- Social Links -->
 							<ul class="social-icons">
-								<li><a href="<?=base_url()?>mats/#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
-								<li><a href="<?=base_url()?>mats/#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
-								<li><a href="<?=base_url()?>mats/#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
-								<li><a href="<?=base_url()?>mats/#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>
+								<li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
+								<li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
+								<li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
+								<li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>
 							</ul>
 							<!-- End Social Links -->
 						</div>
@@ -84,7 +84,7 @@
 
 			<div class="copyright">
 				<div class="container">
-					<p class="text-center">2016 © All Rights Reserved. Developer by <a target="_blank" href="<?=base_url()?>mats/#">Greenic.co</a></p>
+					<p class="text-center">2016 © All Rights Reserved. Developer by <a target="_blank" href="#">Greenic.co</a></p>
 				</div>
 			</div><!--/copyright-->
 		</div>
@@ -115,8 +115,12 @@
 	<script type="text/javascript" src="<?=base_url()?>mats/assets/js/app.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/assets/js/plugins/fancy-box.js"></script>
 	<script type="text/javascript" src="<?=base_url()?>mats/assets/js/plugins/style-switcher.js"></script>
+    
+    <!-- Greenic JS -->
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/base.js"></script>
+    <!-- /GreenicJS -->
 
-<script type="text/javascript">
+    <script type="text/javascript">
 		jQuery(document).ready(function() {
 			App.init();
 			FancyBox.initFancybox();

@@ -30,7 +30,7 @@
 
 								<!-- Archives -->
 								<li class="dropdown mega-menu-fullwidth">
-									<a href="<?=base_url()?>mats/javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+									<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
 										ประเภทสินค้า
 									</a>
 									<ul class="dropdown-menu">
@@ -42,35 +42,35 @@
 															<h2><a href="<?=base_url()?>mats/category.php?name=vegetable">ผักอินทรีย์ (140)</a></h2>
 															<ul class="dropdown-link-list">
                                                                 <!-- ประเภทยอดนิยม 7 อันดับ-->
-																<li><a href="<?=base_url()?>mats/#">ผักบุ้ง (30)</a></li>
-																<li><a href="<?=base_url()?>mats/#">ถั่วฝักยาว (20)</a></li>
-																<li><a href="<?=base_url()?>mats/#">มะเขือเทศ (10)</a></li>
-																<li><a href="<?=base_url()?>mats/#">พริก (10)</a></li>
-																<li><a href="<?=base_url()?>mats/#">คะน้า (30)</a></li>
-																<li><a href="<?=base_url()?>mats/#">กะหล่ำปลี (5)</a></li>
-																<li><a href="<?=base_url()?>mats/#">ผักสลัด (10)</a></li>
+																<li><a href="#">ผักบุ้ง (30)</a></li>
+																<li><a href="#">ถั่วฝักยาว (20)</a></li>
+																<li><a href="#">มะเขือเทศ (10)</a></li>
+																<li><a href="#">พริก (10)</a></li>
+																<li><a href="#">คะน้า (30)</a></li>
+																<li><a href="#">กะหล่ำปลี (5)</a></li>
+																<li><a href="#">ผักสลัด (10)</a></li>
                                                               
 															</ul>
 														</div>
 														<div class="col-md-4 md-margin-bottom-30">
 															<h2><a href="<?=base_url()?>mats/category.php?name=fruit">ผลไม้อินทรีย์ (25)</a></h2>
 															<ul class="dropdown-link-list">
-																<li><a href="<?=base_url()?>mats/#">องุ่น</a></li>
-																<li><a href="<?=base_url()?>mats/#">สตอเบอรี่</a></li>
-																<li><a href="<?=base_url()?>mats/#">มะม่วง</a></li>
-																<li><a href="<?=base_url()?>mats/#">สัปปะรด</a></li>
-																<li><a href="<?=base_url()?>mats/#">ส้มโอ</a></li>
-																<li><a href="<?=base_url()?>mats/#">ชมพู่</a></li>
-																<li><a href="<?=base_url()?>mats/#">แตงโม</a></li>
+																<li><a href="#">องุ่น</a></li>
+																<li><a href="#">สตอเบอรี่</a></li>
+																<li><a href="#">มะม่วง</a></li>
+																<li><a href="#">สัปปะรด</a></li>
+																<li><a href="#">ส้มโอ</a></li>
+																<li><a href="#">ชมพู่</a></li>
+																<li><a href="#">แตงโม</a></li>
 															</ul>
 														</div>
 														<div class="col-md-4 md-margin-bottom-30">
 															<h2><a href="<?=base_url()?>mats/category.php?name=animal">สัตว์อินทรีย์ (10)</a></h2>
 															<ul class="dropdown-link-list">
-																<li><a href="<?=base_url()?>mats/#">ปลาาดุก (4)</a></li>
-																<li><a href="<?=base_url()?>mats/#">กบ (2)</a></li>
-																<li><a href="<?=base_url()?>mats/#">ไก่ (2)</a></li>
-																<li><a href="<?=base_url()?>mats/#">หมู (2)</a></li>
+																<li><a href="#">ปลาาดุก (4)</a></li>
+																<li><a href="#">กบ (2)</a></li>
+																<li><a href="#">ไก่ (2)</a></li>
+																<li><a href="#">หมู (2)</a></li>
 															</ul>
 														</div>
 													</div>
@@ -83,7 +83,7 @@
 
 								<!-- Lifestyle -->
 								<li class="dropdown mega-menu-fullwidth">
-									<a href="<?=base_url()?>mats/javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+									<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
 										บทความ
 									</a>
 									<ul class="dropdown-menu">
@@ -107,7 +107,7 @@
 																	<h3><a href="<?=base_url()?>mats/blog_single.html">You CAN be sensitive to gluten without having coeliac disease, study finds</a></h3>
 																	<ul class="blog-thumb-info">
 																		<li>Mar 6, 2015</li>
-																		<li><a href="<?=base_url()?>mats/#"><i class="fa fa-eye"></i> 0</a></li>
+																		<li><a href="#"><i class="fa fa-eye"></i> 0</a></li>
 																	</ul>
 																</div>
 															</div>
@@ -122,7 +122,7 @@
 																	<h3><a href="<?=base_url()?>mats/blog_single.html">Starbucks is introducing new coffee</a></h3>
 																	<ul class="blog-thumb-info">
 																		<li>Mar 6, 2015</li>
-																		<li><a href="<?=base_url()?>mats/#"><i class="fa fa-eye"></i> 0</a></li>
+																		<li><a href="#"><i class="fa fa-eye"></i> 0</a></li>
 																	</ul>
 																</div>
 															</div>
@@ -137,7 +137,7 @@
 																	<h3><a href="<?=base_url()?>mats/blog_single.html">The benefits of tea</a></h3>
 																	<ul class="blog-thumb-info">
 																		<li>Mar 6, 2015</li>
-																		<li><a href="<?=base_url()?>mats/#"><i class="fa fa-eye"></i> 0</a></li>
+																		<li><a href="#"><i class="fa fa-eye"></i> 0</a></li>
 																	</ul>
 																</div>
 															</div>
@@ -153,7 +153,7 @@
 																	<h3><a href="<?=base_url()?>mats/blog_single.html">Salted dessert recipes that walk the fine line of...</a></h3>
 																	<ul class="blog-thumb-info">
 																		<li>Mar 6, 2015</li>
-																		<li><a href="<?=base_url()?>mats/#"><i class="fa fa-eye"></i> 0</a></li>
+																		<li><a href="#"><i class="fa fa-eye"></i> 0</a></li>
 																	</ul>
 																</div>
 															</div>
@@ -168,7 +168,7 @@
 																	<h3><a href="<?=base_url()?>mats/blog_single.html">Why your next glass of orange juice will cost you more</a></h3>
 																	<ul class="blog-thumb-info">
 																		<li>Mar 6, 2015</li>
-																		<li><a href="<?=base_url()?>mats/#"><i class="fa fa-eye"></i> 0</a></li>
+																		<li><a href="#"><i class="fa fa-eye"></i> 0</a></li>
 																	</ul>
 																</div>
 															</div>
@@ -183,7 +183,7 @@
 																	<h3><a href="<?=base_url()?>mats/blog_single.html">Why your next glass of orange juice will cost you more</a></h3>
 																	<ul class="blog-thumb-info">
 																		<li>Mar 6, 2015</li>
-																		<li><a href="<?=base_url()?>mats/#"><i class="fa fa-eye"></i> 0</a></li>
+																		<li><a href="#"><i class="fa fa-eye"></i> 0</a></li>
 																	</ul>
 																</div>
 															</div>
@@ -197,7 +197,7 @@
 									</ul>
 								</li>
                                 <li class="notic">
-									<a href="<?=base_url()?>mats/#" class=""  data-toggle="modal" data-target="#notic" >แจ้งเตือน (10)</a>
+									<a href="#" class=""  data-toggle="modal" data-target="#notic" >แจ้งเตือน (10)</a>
                                     
 								</li>	
 							</ul>
