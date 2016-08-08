@@ -61,7 +61,10 @@ $route['main'] = 'main/Home';
 $route['sos'] = 'Sight/page';
 
 // Control routes
-$route['verify_account/(:num)/(:any)'] = 'main/Sigh_up/verify_account';
+$route['check_exist_email_pro'] = 'main/Sign_up/check_unique_email';
+$route['regis_pro'] = 'main/Sign_up/sign_up_pro';
+$route['verify_account/(:num)/(:any)'] = 'main/Sign_up/verify_account';
+
 
 // Test routes
 $route['test'] = 'main/Home/test';

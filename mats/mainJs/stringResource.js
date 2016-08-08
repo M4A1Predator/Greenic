@@ -1,0 +1,1 @@
+var emailHaveBeenUsedError = 'อีเมลล์ถูกใช้สมัครไปแล้ว';

@@ -53,6 +53,11 @@
             foreach($status_arr as $status){
                 echo var_dump($status).'<br/>';
             }
+            //echo var_dump($status_arr);
+            echo '--------------------------------<br/>';
+            $where_assoc = array('member_email' => 'm1@gnc.com');
+            $member_arr = $this->Member->get_filter('member_email', $where_assoc);
+            echo var_dump($member_arr);
             echo '--------------------------------<br/>';
         }
         

@@ -253,6 +253,7 @@ xsigin/signup popup
 .cd-form .cd-error-message.is-visible {
   opacity: 1;
   visibility: visible;
+  font-size: 9pt;
   -webkit-transition: opacity 0.2s 0, visibility 0 0;
   -moz-transition: opacity 0.2s 0, visibility 0 0;
   transition: opacity 0.2s 0, visibility 0 0;
@@ -419,4 +420,22 @@ xsigin/signup popup
 	position: absolute;
 	top: 11px;
 	left: 0;
+}
+.cd-form input[type=button] {
+  padding: 16px 0;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 200;
+  background: #333;
+  font-size: 16px;
+  border: none;
+  text-transform: uppercase;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 }

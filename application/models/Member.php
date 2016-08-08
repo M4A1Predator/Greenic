@@ -205,8 +205,6 @@
                 return NULL;
             }
             
-            
-            
             // Verify password
             $verify_password = password_verify($password, $member['member_password']);
             if(!$verify_password){

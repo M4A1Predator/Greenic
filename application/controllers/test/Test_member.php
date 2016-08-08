@@ -33,7 +33,7 @@
         function add_member(){
             $name = 'นาย ก';
             $email = 'm1@gnc.com';
-            $password = 'zxczxc';
+            $password = 'zxczxc zx';
             
             //$this->db->trans_start(TRUE);
             $added_member = $this->Member->add_member($name, $email, $password);

@@ -2,7 +2,7 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
 
     // On start
-    class Sigh_up extends CI_Controller{
+    class Sign_up extends CI_Controller{
         
         function __construct(){
             parent::__construct();
@@ -19,7 +19,7 @@
             
         }
         
-        function sign_up(){
+        function sign_up_pro(){
             /*
              *  Sign up
              *  Add member to database
@@ -28,12 +28,22 @@
             
             // Set up form validation
             $this->form_validation->set_rules('fullname', 'fullname', 'required');
-            $this->form_validation->set_rules('email', 'email', 'required|valid_email');
-            $this->form_validation->set_rules('password', 'password', 'required|regex_match[/[a-zA-Z0-9!@#$%&.,:*\-\]\[\/]/]');
+            $this->form_validation->set_rules('email', 'email', 'required|valid_email|is_unique[member.member_email]');
+            $this->form_validation->set_rules('password', 'password', 'required|regex_match[/[a-zA-Z0-9!@#$%&.,:*\-\]\[\/]/]|min_length[8]');
+            
+            // Prepare result assoc
+            $result_assoc = array();
             
             // Validate form
             if($this->form_validation->run() == FALSE){
-                return 0;
+                $error_assoc = array(
+                                'status' => 'error',
+                                'error' => form_error('email')
+                            );
+                $error_json = json_encode($error_assoc);
+                
+                $result_assoc['result'] = 0;
+                $result_assoc['error'] = 'form error';
             }
             
             // Get input
@@ -44,14 +54,27 @@
             // Add member to database
             // Create member assoc
             $add_result = $this->Member->add_member($fullname, $email, $password);
+            
+            // get added member
+            $added_member = $add_result;
+            
+            // Send confirm email
+            $send_result = $this->send_confirm_email($added_member);
+            
+            // Check add result, success or not
             if($add_result == FALSE){
-                return 0;
+                $result_assoc['result'] = 0;
+                $result_assoc['error'] = 'error';
+            }else{
+                $result_assoc['result'] = 0;
+                $result_assoc['error'] = 'error';
             }
             
-            // After added, send confirm email
-            $member_assoc = $add_result;
+            // Build json
+            $result_json = json_encode($result_assoc);
             
-            
+            // Response json
+            echo $result_json;
         }
         
         function send_confirm_email($member){
@@ -72,8 +95,10 @@
             $content .= '<a href="'.$confirm_url.'">'.$confirm_url.'</a>';
             
             // Prepare email
-            $from = 'predatorkpop@gmail.com';
+            $from = $this->config->item('smtp_user');
             $to = 'tssniper3@gmail.com';
+            //$to = $member['member_email'];
+            
             $this->email->set_newline("\r\n");
             $this->email->from($from, 'Greenic');
             $this->email->to($to);
@@ -132,6 +157,43 @@
             
             // redirect
             redirect('/main/');
+            
+        }
+        
+        function check_unique_email(){
+            /*
+             *  Check is email unique
+             */
+            
+            // Set rule
+            $this->form_validation->set_rules('email', 'email', 'required|valid_email');
+            
+            // Check input
+            if($this->form_validation->run() == FALSE){
+                echo null;
+                return;
+            }
+            
+            // Prepare result assoc
+            $result_assoc = array();
+            
+            // Get input
+            $email = $this->input->post('email');
+            
+            // Check email by get member
+            $where_assoc = array('member_email' => $email);
+            $member_arr = $this->Member->get_filter('member_email', $where_assoc);
+            
+            // If get member means email have been used
+            if($member_arr){
+                $result_assoc['result'] = FALSE;
+            }else{
+                $result_assoc['result'] = TRUE;
+            }
+            
+            // Transform to JSON
+            $result_json = json_encode($result_assoc);
+            echo $result_json;
             
         }
         

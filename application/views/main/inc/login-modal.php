@@ -21,7 +21,7 @@
 
                 <p class="fieldset">
                     <label class="image-replace cd-password" for="signin-password">Password</label>
-                    <input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="รหัสผ่าน">
+                    <input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="รหัสผ่าน">
                     <a href="javascript:void(0);" class="hide-password">Hide</a>
                     <span class="cd-error-message">กรุณากรอกรหัสผ่านให้ถูกต้อง!</span>
                 </p>
@@ -63,9 +63,9 @@
 
                 <p class="fieldset">
                     <label class="image-replace cd-password" for="signup-password">Password</label>
-                    <input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="รหัสผ่าน">
+                    <input class="full-width has-padding has-border" id="signup-password" type="password"  placeholder="รหัสผ่าน">
                     <a href="javascript:void(0);" class="hide-password">Hide</a>
-                    <span class="cd-error-message">กรุณากรอกรหัสผ่านให้ถูกต้อง!</span>
+                    <span class="cd-error-message" id="signup-password-error-msg">กรุณากรอกรหัสผ่านให้ถูกต้อง ขั้นต่ำ 8 ตัวอักษร!</span>
                 </p>
 
                 <p class="fieldset">
