@@ -97,6 +97,7 @@
             // Prepare email
             $from = $this->config->item('smtp_user');
             $to = 'tssniper3@gmail.com';
+            //$to = 'tssniper3@greenic.co';
             //$to = $member['member_email'];
             
             $this->email->set_newline("\r\n");
@@ -146,7 +147,8 @@
             
             // Prepare update data
             $update_assoc = array(  'member_verify_time' => $current_datetime,
-                                    'member_token' => NULL
+                                    'member_token' => NULL,
+                                    'member_status_id' => 1
                                   );
             
             // Update member

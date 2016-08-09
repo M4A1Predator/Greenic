@@ -132,8 +132,8 @@
             $where_member_normal['member_type_name'] = $this->Member_type->member_normal;
             $member_type = $this->Member_type->get_filter_single('*', $where_member_normal, null);
             
-            // Get status default status is normal, ID = 1
-            $status_id = 1;
+            // Get status default status is non-verify, ID = 6
+            $status_id = 6;
             
             // Genearate token to confirmation
             $token = $this->generate_token();
@@ -222,6 +222,37 @@
             
             // Return member assoc
             return $member;
+        }
+        
+        function get_member_session_data_by_id($member_id){
+            /*
+             *  Get member data(type, status) by member id
+             *
+             *  @param  int     member id
+             *
+             */
+            // Get member data from email
+            $where_assoc = array();
+            $where_assoc['member_id'] = $member_id;
+            // Join member type and status
+            $join_member_type = $this->CI->gnc_query->get_join_table_assoc('member_type', 'member.member_type_id = member_type.member_type_id');
+            $join_status = $this->CI->gnc_query->get_join_table_assoc('status', 'member.member_status_id = status.status_id');
+            $join_array = [$join_member_type, $join_status];
+            $member = $this->get_filter_single('*', $where_assoc, $join_array, 'array');
+            
+            // Check if not found member
+            if(!$member){
+                return NULL;
+            }
+            
+            // Unset unneccessary values
+            unset($member['member_password']);
+            unset($member['member_token']);
+            
+            // Return member assoc
+            return $member;
+            
+            
         }
         
     }

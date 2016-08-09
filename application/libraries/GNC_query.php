@@ -3,6 +3,10 @@
     
     class GNC_Query {
         
+        function __construct(){
+            
+        }
+        
         function get_join_table_assoc($table, $condition, $option=''){
             /*
              *  Get join table assoc to use with get_filter in model

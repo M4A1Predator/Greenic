@@ -61,6 +61,8 @@ $route['main'] = 'main/Home';
 $route['sos'] = 'Sight/page';
 
 // Control routes
+$route['sign_in'] = 'main/Authentication/authen';
+$route['sign_out'] = 'main/Authentication/sign_out';
 $route['check_exist_email_pro'] = 'main/Sign_up/check_unique_email';
 $route['regis_pro'] = 'main/Sign_up/sign_up_pro';
 $route['verify_account/(:num)/(:any)'] = 'main/Sign_up/verify_account';
@@ -80,6 +82,8 @@ $route['test/crypt2'] = 'test/Test_member/random_string';
 $route['test/member_login'] = 'test/Test_member/login';
 $route['test/send_email'] = 'test/Test_member/send_email';
 $route['test/time'] = 'test/Test_member/get_time';
+
+$route['test/session'] = 'test/Test_session';
 
 // No data
 //$route['(.*)'] = 'sight';

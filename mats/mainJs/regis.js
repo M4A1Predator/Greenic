@@ -34,25 +34,23 @@ function is_unique_email(email){
         url: webUrl + 'check_exist_email_pro',
         data: param
     }).success(function (data){
-        console.log(data);
-        if (data === null) {
-            return;
-        }
-        
-        if (data.result === false) {
+        jsonData = JSON.parse(data);
+        //console.log(jsonData);
+        if (jsonData.result === false) {
             $('#signup-email-error-msg').html(emailHaveBeenUsedError);
             $('#signup-email-error-msg').addClass("is-visible");
         }else{
+            changeButtonProcessStatus();
             sendRegisData();
         }
     });
 }
 
 function regis() {
-    console.log('fullname = ' + fullName.val());
-    console.log('email = ' + email.val());
-    console.log('password = ' + password.val());
-    console.log(acceptTerm.prop('checked'));
+    //console.log('fullname = ' + fullName.val());
+    //console.log('email = ' + email.val());
+    //console.log('password = ' + password.val());
+    //console.log(acceptTerm.prop('checked'));
     
     // Validate name
     if (fullName.val().length === 0) {
@@ -64,6 +62,7 @@ function regis() {
     
     // Validate email
     if (!validateEmail(email.val())) {
+        $('#signup-email-error-msg').html(emailWrongPatternError);
         $('#signup-email-error-msg').addClass("is-visible");
         return;
     }else{
@@ -88,7 +87,7 @@ function regis() {
 
 function sendRegisData() {
     
-    console.log('sendRegisData');
+    //console.log('sendRegisData');
     
     param = {
         'email' : email.val(),
@@ -101,13 +100,24 @@ function sendRegisData() {
         url: webUrl + 'regis_pro',
         data: param
     }).success(function (data){
-        if (data.result === false) {
+        jsonData = JSON.parse(data);
+        if (jsonData.result === false) {
+            failedRegis();
             return;
         }
         
         location.replace(webUrl);
-        
     });
+}
+
+function failedRegis() {
+    
+}
+
+function changeButtonProcessStatus() {
+    console.log('regis success');
+    signUpBtn.prop('disabled', true);
+    signUpBtn.val(processingText);
 }
 
 

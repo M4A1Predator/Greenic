@@ -25,7 +25,7 @@
             <!--สินค้ามาใหม่-->
             <div class="headline-center margin-bottom-20">
 					<h2>สินค้า <span class="color-green">เกษตรอินทรีย์</span> มาใหม่</h2>
-				</div>{elapsed_time}
+				</div>
             <?php $this->load->view( 'main/inc/fillter.php' )?>
 			<div class="row">
 				<!-- Begin Easy Block -->

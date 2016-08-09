@@ -16,23 +16,25 @@
                 <p class="fieldset">
                     <label class="image-replace cd-email" for="signin-email">E-mail</label>
                     <input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="อีเมล์">
-                    <span class="cd-error-message">กรุณากรอกชื่อผู้ใช้งานให้ถูกต้อง!</span>
+                    <span class="cd-error-message" id="signin-email-error-msg">กรุณากรอกอีเมลล์ผู้ใช้งานให้ถูกต้อง!</span>
                 </p>
 
                 <p class="fieldset">
                     <label class="image-replace cd-password" for="signin-password">Password</label>
                     <input class="full-width has-padding has-border" id="signin-password" type="password"  placeholder="รหัสผ่าน">
                     <a href="javascript:void(0);" class="hide-password">Hide</a>
-                    <span class="cd-error-message">กรุณากรอกรหัสผ่านให้ถูกต้อง!</span>
+                    <span class="cd-error-message" id="signin-password-error-msg">กรุณากรอกรหัสผ่านให้ถูกต้อง!</span>
                 </p>
 
                 <p class="fieldset">
                     <input type="checkbox" id="remember-me" checked>
                     <label for="remember-me">จำฉันไว้ในระบบ</label>
                 </p>
+                
+                <span id="signin-error-msg"></span>
 
                 <p class="fieldset">
-                    <input class="full-width" type="submit" value="เข้าสู่ระบบ">
+                    <input class="full-width" type="button" id="signin-btn" value="เข้าสู่ระบบ">
                 </p>
             </form>
 

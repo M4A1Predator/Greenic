@@ -77,6 +77,7 @@ $config['url_suffix'] = '';
 |
 */
 $config['language']	= 'english';
+$config['web_language'] = 'thai';
 //$config['language']	= 'thai';
 
 /*

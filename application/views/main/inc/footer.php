@@ -5,9 +5,9 @@
 						<!-- About -->
 						<div class="col-md-3 md-margin-bottom-40">
 							<a href="<?=base_url()?>mats/index.html"><img id="logo-footer" class="footer-logo" src="<?=base_url()?>mats/assets/img/logo1-default.png" alt=""></a>
-							<p class="margin-bottom-20">ตลาดซื้อขายผลิตเกษตรอินทรีย์แนวใหม่ ซื้อขายสะดวก มั่นใจยิ่งขึ้น ด้วยระบบไทม์ไลน์ติดตามการผลิต
+							<p class="margin-bottom-20">ตลาดซื้อขายผลิตเกษตรอินทรีย์แนวใหม่ ซื้อขายสะดวก มั่นใจยิ่งขึ้น ด้วยระบบไทม์ไลน์ติดตามการผลิต 
 </p>
-
+                            Render in {elapsed_time}
 							<form class="footer-subsribe">
 								<div class="input-group">
 									<input type="text" class="form-control" placeholder="กรอกอีเมล์ของคุณ">
