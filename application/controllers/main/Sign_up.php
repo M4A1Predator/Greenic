@@ -2,7 +2,7 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
 
     // On start
-    class Sign_up extends CI_Controller{
+    class Sign_up extends MY_Controller{
         
         function __construct(){
             parent::__construct();
@@ -44,6 +44,8 @@
                 
                 $result_assoc['result'] = 0;
                 $result_assoc['error'] = 'form error';
+                echo 0;
+                return;
             }
             
             // Get input
@@ -51,9 +53,32 @@
             $email = $this->input->post('email');
             $password = $this->input->post('password');
             
+            // Get firstname and lastname
+            $fullname = $fullname.trim(' ');
+            $name_list = explode(' ', $fullname);
+            if(!$name_list){
+                echo 0;
+                return;
+            }
+            
+            // Prepare firstname and lastname
+            $firstname = NULL;
+            $lastname = NULL;
+            
+            // If name list has 2 or morethan 2, set first is firstname and last is last name
+            if(count($name_list) >= 2){
+                $lastname = $name_list[count($name_list) - 1];
+                $firstname = $name_list[0];
+            // If has only one element, set only firstname
+            }else{
+                $firstname = $name_list[0];
+            }
+            
+            
             // Add member to database
             // Create member assoc
-            $add_result = $this->Member->add_member($fullname, $email, $password);
+            //$add_result = $this->Member->add_member($fullname, $email, $password);
+            $add_result = $this->Member->add_member($firstname, $lastname, $email, $password);
             
             // get added member
             $added_member = $add_result;
@@ -127,7 +152,7 @@
             $where_assoc = array(
                             'member_id' => $member_id
                         );
-            $member = $this->Member->get_filter_single('member_name, member_email, member_token', $where_assoc, null, 'array');
+            $member = $this->Member->get_filter_single('member_firstname, member_lastname, member_email, member_token', $where_assoc, null, 'array');
             if($member == FALSE){
                 return;
             }

@@ -1,7 +1,7 @@
 <?php
     // On start
     
-    class Member_type extends GNC_Model{
+    class Member_type extends MY_Model{
         
         public $member_admin = 'admin';
         public $member_normal = 'normal';

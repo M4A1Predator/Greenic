@@ -1,7 +1,7 @@
 <?php
     // On start
     
-    class Status extends GNC_Model{
+    class Status extends MY_Model{
         
         public $table = 'status';
         

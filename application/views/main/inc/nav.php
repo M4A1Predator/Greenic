@@ -10,7 +10,7 @@
 						</button>
 
 						<div class="navbar-brand">
-							<a href="<?=base_url()?>mats/index.php?status=login">
+							<a href="<?=base_url().$this->lang->line('main')?>">
 								<img src="<?=base_url()?>mats/assets/img/logo1-default.png" alt="Logo">
 							</a>
 						</div>

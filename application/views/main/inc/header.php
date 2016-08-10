@@ -19,7 +19,12 @@
             <?php if($this->gnc_authen->is_sign_in()){?>
 			<div class="col-sm-6 col-xs-12 clearfix text-center">
 				<ul class="topbar-list top-log-reg pull-right">
-					<li class="home"><a href="<?=base_url()?>mats/userDetail.php?status=login" data-toggle="tooltip" title="คลิกเพื่อแก้ไข้ข้อมูล"><i class="fa fa-user" aria-hidden="true"></i> สวัสดีคุณ: <?=$this->session->userdata('member_name')?></a> ( <a href="<?=base_url().$this->lang->line('sign_out_uri')?>"><?=$this->lang->line('sign_out_text')?></a> )</li>
+					<li class="home">
+                        <a href="<?=base_url().$this->lang->line('my_account')?>" data-toggle="tooltip" title="คลิกเพื่อแก้ไข้ข้อมูล">
+                            <i class="fa fa-user" aria-hidden="true"></i> สวัสดีคุณ: <?=$this->session->userdata('member_firstname')?>
+                        </a>
+                        ( <a href="<?=base_url().$this->lang->line('sign_out_uri')?>"><?=$this->lang->line('sign_out_text')?></a> )
+                    </li>
 					<li class=""><a href="<?=base_url()?>mats/chatMain.php?status=login"><i class="fa fa-comment" aria-hidden="true"></i> กล่องแชท</a></li>
                     <?php if($this->session->userdata('member_type_name') == $this->Member_type->member_normal){ ?>
                     <li class=""><a href="<?=base_url()?>mats/addProject.php?status=login"><i class="fa fa-plus" aria-hidden="true"></i> สร้างโปรเจ็ค</a></li>

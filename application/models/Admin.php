@@ -1,7 +1,7 @@
 <?php
     // On start
     
-    class Admin extends GNC_Model{
+    class Admin extends MY_Model{
         
         public $table = 'admin';
         

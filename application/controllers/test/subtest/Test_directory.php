@@ -1,8 +1,6 @@
 <?php
-    defined('BASEPATH') OR exit('No direct script access allowed');
-
     // On start
-    class Test_session extends MY_Controller{
+    class Test_directory extends MY_Controller{
         
         function __construct(){
             parent::__construct();
@@ -11,6 +9,7 @@
             $this->load->helper('test/test_helper');
             
             // Load library
+            $this->load->library('email');
             
             // Load model
             
@@ -19,12 +18,6 @@
         }
         
         function index(){
-            
-            $data = $this->session->userdata();
-            
-            print_assoc($data);
-            
+            echo 'Test sub directory';
         }
-        
-        
     }

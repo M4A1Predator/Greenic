@@ -2,7 +2,7 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
     // On start
     
-    class Member extends GNC_Model{
+    class Member extends MY_Model{
         
         public $table = 'member';
         
@@ -111,11 +111,12 @@
             return $added_data_assoc;
         }
         
-        function add_member($name, $email, $password, $address=''){
+        function add_member($firstname, $lastname, $email, $password, $address=''){
             /*
              *  Add member to system
              *
-             *  @param  string  fullname
+             *  @param  string  firstname
+             *  @param  string  lastname
              *  @param  string  email use to login
              *  @param  string  password
              *  @param  string  address
@@ -140,7 +141,8 @@
             
             // Prepare assoc to insert
             $insert_assoc = array();
-            $insert_assoc['member_name'] = $name;
+            $insert_assoc['member_firstname'] = $firstname;
+            $insert_assoc['member_lastname'] = $lastname;
             $insert_assoc['member_email'] = $email;
             $insert_assoc['member_token'] = $token;
             $insert_assoc['member_password'] = $hash_password;
@@ -164,8 +166,28 @@
         }
         
         
-        function get_member_by_id($member_id){
+        function get_member_by_id($member_id, $result_type='object'){
+            /*
+             *  Get member data by id
+             *
+             *  @param  int     member id
+             *  
+             */
             
+            // Set where clause
+            $where_assoc = array();
+            $where_assoc['member_id'] = $member_id;
+            
+            // Get member
+            $member = $this->get_filter_single('*', $where_assoc, null, $result_type);
+            
+            if(is_array($member)){
+                unset($member['password']);
+            }else{
+                $member->password = null;
+            }
+            
+            return $member;
         }
         
         

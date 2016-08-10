@@ -1,6 +1,6 @@
 <?php
     // On start
-    class Test_project_type extends CI_Controller{
+    class Test_project_type extends MY_Controller{
         
         function __construct(){
             parent::__construct();

@@ -91,3 +91,9 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 |
 */
 defined('ENVIRONMENT')          OR define('ENVIRONMENT', 'production');
+/*
+|
+|   FILE OPTION
+|
+*/
+defined('MEMBER_IMAGE_PATH')          OR define('MEMBER_IMAGE_PATH', 'files/member/images/');

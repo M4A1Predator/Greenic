@@ -52,4 +52,20 @@
             $this->CI->session->set_userdata($member);
         }
         
+        function redirect_if_not_sign_in($uri='main/'){
+            /*
+             *  Redirect to given uri
+             *  If not sign in
+             *
+             *  @param  string  uri
+             *  
+             */
+            
+            // Check if not sign in
+            if(!$this->is_sign_in()){
+                // Redirect
+                redirect($uri);
+            }
+        }
+        
     }

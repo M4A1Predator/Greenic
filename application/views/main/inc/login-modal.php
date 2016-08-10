@@ -56,6 +56,12 @@
                     <input class="full-width has-padding has-border" id="signup-fullname" type="text" placeholder="ชื่อ-นามสกุล">
                     <span class="cd-error-message" id="signup-fullname-error-msg">กรุณากรอกชื่อผู้ใช้งานให้ถูกต้อง!</span>
                 </p>
+                
+                <!--<p class="fieldset">
+                    <label class="image-replace cd-username" for="signup-username">Lastname</label>
+                    <input class="full-width has-padding has-border" id="signup-lastname" type="text" placeholder="นามสกุล">
+                    <span class="cd-error-message" id="signup-fullname-error-msg">กรุณากรอกนามสกุล</span>
+                </p>-->
 
                 <p class="fieldset">
                     <label class="image-replace cd-email" for="signup-email">E-mail</label>
