@@ -13,8 +13,12 @@
             // Load library
             $this->load->library('form_validation');
             $this->load->library('upload');
+            $this->load->library('image_lib');
             
             // Load model
+            $this->load->model('address/Province');
+            $this->load->model('address/District');
+            $this->load->model('address/Sub_district');
             
             // Do filter
             
@@ -42,9 +46,14 @@
                 return;
             }
             
+            // Load neccessary data
+            // Load provinces
+            $province_arr = $this->Province->get_filter();
+            
             // Set data
             $data_assoc = array();
             $data_assoc['member'] = $member;
+            $data_assoc['province_arr'] = $province_arr;
             
             
             // Load view
@@ -83,31 +92,72 @@
             $email = $this->input->post('email');
             
             if(array_key_exists('member_image', $_FILES)){
+                
+                // Resize image
+                $resize_config = array();
+                $resize_config['image_library'] = 'gd2';
+                $resize_config['source_image'] = $_FILES['member_image']['tmp_name'];
+                $resize_config['create_thumb'] = FALSE;
+                $resize_config['maintain_ratio'] = TRUE;
+                $resize_config['width']  = 250;
+                //$resize_config['height']  = 50;
+                $this->image_lib->initialize($resize_config);
+                $this->image_lib->resize();
+                
+                $image_content = file_get_contents($_FILES['member_image']['tmp_name']);
+                echo strlen(base64_encode($image_content));
+                
+                return;
                 // Set upload image config
-                $config = array();
-                $config['upload_path'] = MEMBER_IMAGE_PATH;
-                $config['allowed_types'] = 'gif|jpg|png|jpeg';
-                $config['remove_spaces'] = true;
-                $config['max_size']	= '4048';
-                $config['max_width']  = '2100';
-                $config['max_height']  = '2100';
-                $config['file_name'] = '';
-                $config['overwrite'] = TRUE;
-                $fieldname = 'member_image';  //input tag name
-                
-                if(file_exists($dealer['dealer_picture'])){
-                    unlink($dealer['dealer_picture']);
-                }
-                
-                $this->upload->initialize($config);
-                if(!$this->upload->do_upload($fieldname)){
-                    //echo "test".$this->upload->display_errors();
-                    $this->session->set_flashdata('msgprofile', 'ไฟล์รูปภาพไม่ถูกต้อง');
-                    echo "<script>window.history.back();</script>";
-                    return;
-                }
-                $ud = $this->upload->data();
+                //$config = array();
+                //$config['upload_path'] = MEMBER_IMAGE_PATH;
+                //$config['allowed_types'] = 'gif|jpg|png|jpeg';
+                //$config['remove_spaces'] = true;
+                //$config['max_size']	= '4048';
+                //$config['max_width']  = '2100';
+                //$config['max_height']  = '2100';
+                //$config['file_name'] = '';
+                //$config['overwrite'] = TRUE;
+                //$fieldname = 'member_image';  //input tag name
+                //
+                //if(file_exists($this->){
+                //    unlink($dealer['dealer_picture']);
+                //}
+                //
+                //$this->upload->initialize($config);
+                //if(!$this->upload->do_upload($fieldname)){
+                //    //echo "test".$this->upload->display_errors();
+                //    $this->session->set_flashdata('msgprofile', 'ไฟล์รูปภาพไม่ถูกต้อง');
+                //    echo "<script>window.history.back();</script>";
+                //    return;
+                //}
+                //$ud = $this->upload->data();
             }
+            
+            // Prepare member data
+            $member_data = array();    
+            $member_data['member_firstname'] = $firstname;
+            $member_data['member_lastname'] = $lastname;
+            $member_data['member_address'] = $address;
+            $member_data['member_province'] = $province;
+            $member_data['member_district'] = $district;
+            $member_data['member_sub_district'] = $sub_district;
+            
+            // Update member
+            $where_assoc = array();
+            $where_assoc['member_id'] = $this->session->userdata('member_id');
+            $update_result = $this->Member->update($where_assoc, $member_data);
+            
+            // Check update result
+            if($update_result == FALSE){
+                echo 0;
+                return;
+            }
+            
+            // Reset session data
+            $this->gnc_authen->reset_session_member();
+            
+            echo 1;
             
         }
     }

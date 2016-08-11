@@ -27,7 +27,7 @@
                     </li>
 					<li class=""><a href="<?=base_url()?>mats/chatMain.php?status=login"><i class="fa fa-comment" aria-hidden="true"></i> กล่องแชท</a></li>
                     <?php if($this->session->userdata('member_type_name') == $this->Member_type->member_normal){ ?>
-                    <li class=""><a href="<?=base_url()?>mats/addProject.php?status=login"><i class="fa fa-plus" aria-hidden="true"></i> สร้างโปรเจ็ค</a></li>
+                    <li class=""><a href="<?=base_url().$this->lang->line('add_project')?>"><i class="fa fa-plus" aria-hidden="true"></i> สร้างโปรเจ็ค</a></li>
                     <?php }else{ ?>
 					<!--เริ่ม..ถ้ามีโปรเจ็ก 1 โปรเจ็คขึ้นไปจึงจะแสดง-->
 					<li class=""><a href="<?=base_url()?>mats/userProject.php?status=login"><i class="fa fa-product-hunt" aria-hidden="true"></i> โปรเจ็คของคุณ</a></li>

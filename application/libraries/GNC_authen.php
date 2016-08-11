@@ -38,7 +38,7 @@
              */
             
             // Get member id from session
-            $member_id = $this->session->userdata('member_id');
+            $member_id = $this->CI->session->userdata('member_id');
             
             // Re-get member data
             $member = $this->CI->Member->get_member_session_data_by_id($member_id);

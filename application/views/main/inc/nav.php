@@ -21,7 +21,7 @@
 						<div class="res-container">
 							<ul class="nav navbar-nav">
 								<li class="">
-									<a href="<?=base_url()?>mats/index.php" class="" data-toggle="">หน้าแรก</a>
+									<a href="<?=base_url().$this->lang->line('main')?>" class="" data-toggle="">หน้าแรก</a>
 								</li>
 
 								<li class="">
