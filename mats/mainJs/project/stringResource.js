@@ -1,0 +1,3 @@
+var optionSelectCategoryText = 'เลือกชนิด';
+var optionSelectBreedText = 'เลือกสายพันธ์';
+var optionSelectNoBreed = 'ไม่มีสายพันธุ์';

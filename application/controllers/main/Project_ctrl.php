@@ -25,11 +25,39 @@
              *  Load add project page
              */
             
-            // Load view
-            $this->load->view('main/addProject');
+            // Get step from uri
+            $step = $this->uri->segment(2, 'step1');
             
+            // Prepare data
+            $data_assoc = array();
+            $data_assoc['step'] = $step;
+            
+            // Check step and load data
+            if($step == 'step1'){
+                
+                // Load project types
+                $project_type_arr = $this->Project_type->get_filter();
+                
+                // Set data
+                $data_assoc['project_type_arr'] = $project_type_arr;
+                
+            }
+
+            // Load view
+            $this->load->view('main/addProject', $data_assoc);
             // flush
             ob_flush();
+            
+        }
+        
+        function add_project_step1_pro(){
+            /*
+             *  Process add project step1 data
+             *  keep data into session
+             *  
+             */
+            
+            // Set form rules
             
         }
         

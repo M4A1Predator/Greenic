@@ -62,7 +62,7 @@ $route['sos'] = 'Sight/page';
 
 $route['my_account'] = 'main/Member_ctrl/member_detail_page';
 
-$route['add_project'] = 'main/Project_ctrl/add_project_page';
+$route['add_project/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/add_project_page';
 
 // Control routes
 $route['sign_in'] = 'main/Authentication/authen';
@@ -72,6 +72,11 @@ $route['regis_pro'] = 'main/Sign_up/sign_up_pro';
 $route['verify_account/(:num)/(:any)'] = 'main/Sign_up/verify_account';
 $route['edit_my_account_pro'] = 'main/Member_ctrl/edit_member_pro';
 
+$route['get_categories_ajax'] = 'main/Category_ctrl/get_categories_ajax';
+$route['member_add/categor_ajax'] = 'main/Category_ctrl/add_category_member_ajax';
+$route['member/add_farm_ajax'] = 'main/Farm_ctrl/add_farm_ajax';
+
+$route['get_provinces_ajax'] = 'main/Address_ctrl/get_provinces_ajax';
 $route['get_district_pro'] = 'main/Address_ctrl/get_district';
 $route['get_sub_district_pro'] = 'main/Address_ctrl/get_sub_district';
 

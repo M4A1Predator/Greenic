@@ -14,36 +14,29 @@
 								<section class="col-md-2 col-sm-4">
                                             <label class="label"><strong>ประเภท</strong></label>
 										<label class="select">
-											<select name="gender">
+											<select name="project_type" id="project_type">
 												<option value="0" selected="" disabled="">เลือกประเภท</option>
-												<option value="CATED0001">ผัก</option>
-												<option value="CATE0008">ผลไม้</option>
-												<option value="CATE0025">สัตว์</option>
+												<option value="<?=$project_type_arr[0]->project_type_id?>">ผัก</option>
+												<option value="<?=$project_type_arr[1]->project_type_id?>">ผลไม้</option>
+												<option value="<?=$project_type_arr[2]->project_type_id?>">สัตว์</option>
 											</select>
 											<i></i>
 										</label>
 								</section>
                                 <section class="col-md-2 col-sm-4">
-                                            <label class="label"><strong>ชนิด</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addSubCategory" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
+                                    <label class="label"><strong>ชนิด</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addSubCategory" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
 										<label class="select">
-											<select name="gender">
+											<select name="category" id="project_category">
 												<option value="0" selected="" disabled="">เลือกชนิด</option>
-												<option value="CATED0001">ผักคะน้า</option>
-												<option value="CATE0008">ผักบุ้ง</option>
-												<option value="CATE0025">ถั่วฝักยาว</option>
 											</select>
 											<i></i>
-										</label>
+									</label>
 								</section>
                                 <section class="col-md-2 col-sm-4">
                                             <label class="label"><strong>สายพันธุ์</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addBreed" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
 										<label class="select">
 											<select name="gender">
-												<option value="0" disabled="">เลือกสายพันธุ์</option>
-												<option value="CATED0001">ผักบุ้งไทย</option>
-												<option value="CATE0008">ผักบุ้งจีน</option>
-												<option value="CATE0025">ผักบุ้งฝรั่ง</option>
-                                                <option value="CATE0025" selected="" >ไม่มีสายพันธุ์</option>
+                                                <option value="0" selected="" >ไม่มีสายพันธุ์</option>
 											</select>
 											<i></i>
 										</label>
@@ -67,8 +60,6 @@
 									<textarea rows="4" name="projectName" id="projectName"></textarea>
 								</label>
 							</section>
-                            
-
                             
 						</fieldset>
 

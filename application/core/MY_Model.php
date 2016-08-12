@@ -77,7 +77,9 @@
             }
             
             // Set up query offset
-            $this->db->offset($offset);
+            if($offset != NULL){
+                $this->db->offset($offset);
+            }
             
             // Set up query limit
             if($limit){

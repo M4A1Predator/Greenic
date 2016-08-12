@@ -47,4 +47,10 @@
 
 	<!-- CSS Customization -->
 	<link rel="stylesheet" href="<?=base_url()?>mats/assets/css/custom.css">
+    
+    <!-- JS Global Compulsory -->
+<!--	<script type="text/javascript" src="<?=base_url()?>mats/assets/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>mats/assets/plugins/jquery/jquery-migrate.min.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>mats/assets/plugins/bootstrap/js/bootstrap.min.js"></script>-->
+    
 </head>

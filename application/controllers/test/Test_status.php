@@ -46,7 +46,7 @@
             
             $join_assoc = $this->gnc_query->get_join_table_assoc('member', 'member.member_status_id = status.status_id', 'left');
             
-            $status_arr = $this->Status->get_filter('status.status_name, member.member_id', $where_assoc, [$join_assoc], 'status.status_name ASC', 1, 5);
+            $status_arr = $this->Status->get_filter('status.status_name, member.member_id', $where_assoc, [$join_assoc], 'status.status_name ASC', null, 5);
             
             echo 'Has results'.'<br/>';
             

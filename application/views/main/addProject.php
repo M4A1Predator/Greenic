@@ -5,18 +5,12 @@
 		<?php 
             $this->load->view( 'main/inc/header.php' );
             $this->load->view( 'main/inc/search.php' );
-        
-             if(isset($_GET['step'])){
-                 $step=$_GET['step'];
-             }else{
-                 $step="no";
-             }
             
-            if($step==1){
+            if($step=='step1'){
                 $this->load->view( 'main/page/addProjectPage1.php' ); 
-            }else if($step==2){
+            }else if($step=='step2'){
                 $this->load->view( 'main/page/addProjectPage2.php' ); 
-            }else if($step==3){
+            }else if($step=='step3'){
                 $this->load->view( 'main/page/addProjectPage3.php' ); 
             }else{
                 $this->load->view( 'main/page/addProjectPage1.php' ); 
@@ -25,4 +19,11 @@
             $this->load->view( 'main/inc/footer.php' );
             
         ?>
-
+        
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/stringResource.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addProject1.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addCategory.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addSubCategory.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addFarm.js"></script>
+        
