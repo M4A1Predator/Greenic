@@ -10,6 +10,7 @@
             // Load helper
             
             // Load library
+            $this->load->library('form_validation');
             
             // Load model
             
@@ -26,6 +27,19 @@
              */
             // Check login
             $this->gnc_authen->redirect_if_not_sign_in();
+            
+            // Set form rules
+            $this->form_validation->set_rules('farm_name', 'farm_name', 'required');
+            $this->form_validation->set_rules('province', 'province', 'required');
+            $this->form_validation->set_rules('district', 'district', 'required');
+            $this->form_validation->set_rules('sub_district', 'sub_district', 'required');
+            $this->form_validation->set_rules('farm_address', 'farm_address', 'required');
+            
+            // Validate form
+            if($this->form_validation->run() == FALSE){
+                echo 0;
+                return;
+            }
             
             // Get address data
             $province = $this->input->post('province');
@@ -61,6 +75,32 @@
             }
             
             echo 1;
+            
+        }
+        
+        function get_member_farms_ajax(){
+            /*
+             *  Get member farms by member id
+             */
+            if($this->gnc_authen->is_sign_in() == FALSE){
+                return;
+            }
+            
+            // Get member id
+            $member_id = $this->session->userdata('member_id');
+            
+            // Get farms
+            $where_assoc = array();
+            $where_assoc['farm_member_id'] = $member_id;
+            $where_assoc['farm_status_id'] = 1;
+            //$join_status = $this->gnc_query->get_join_table_assoc('status', 'farm.farm_status_id = status.status_id');
+            //$join_arr = [$join_status];
+            $farm_arr = $this->Farm->get_filter('*', $where_assoc, null, null, 0, null, 'array');
+            
+            // Encode JSON
+            $farm_arr_json = json_encode($farm_arr, JSON_UNESCAPED_UNICODE);
+            
+            echo $farm_arr_json;
             
         }
         

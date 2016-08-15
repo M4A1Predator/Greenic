@@ -26,6 +26,7 @@ function addCategory() {
         }
         
         getCategory();
+        $('#addSubCategory').modal('hide');
         
     });
     

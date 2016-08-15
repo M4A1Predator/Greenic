@@ -65,6 +65,7 @@
             if(!$this->is_sign_in()){
                 // Redirect
                 redirect($uri);
+                return FALSE;
             }
         }
         

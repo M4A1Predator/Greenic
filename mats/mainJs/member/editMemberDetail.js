@@ -21,7 +21,7 @@ function getDistrict() {
     console.log('Pro id ' + province.val());
     $.ajax({
         type: 'POST',
-        url: webUrl + 'get_district_pro',
+        url: webUrl + 'get_districts_ajax',
         data: {'province_id': province.val()},
         success: function(data){
             jsonData = JSON.parse(data);

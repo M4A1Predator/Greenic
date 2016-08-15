@@ -7,7 +7,7 @@
 								<label class="label"><strong>ชื่อสินค้าของคุณ</strong></label>
 								<label class="input">
 									<i class="icon-append fa fa-tag"></i>
-									<input type="text" name="projectName" id="projectName">
+									<input type="text" name="projectName" id="project_name">
 								</label>
 							</section>
                             <div class="row">
@@ -44,11 +44,11 @@
 								<section class="col-md-6">
                                         <label class="label"><strong>ฟาร์มที่ทำ</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addFarm" type="button">เพิ่มฟาร์มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
 										<label class="select">
-											<select name="gender">
+											<select name="selectFarm" id="select_farm">
 												<option value="0" selected="" disabled="">เลือกฟาร์ม</option>
-												<option value="FID0001">ไร่ชายเขา (อ.เมืองนครนายก จ.นครนายก)</option>
+		<!--										<option value="FID0001">ไร่ชายเขา (อ.เมืองนครนายก จ.นครนายก)</option>
 												<option value="FID0008">บ้านไร่คันนา (อ.ปากพลี จ.นครนายก)</option>
-												<option value="FID0025">สวนสุขภาพมานีร่า (อ.บ้านนา จ.นครนายก)</option>
+												<option value="FID0025">สวนสุขภาพมานีร่า (อ.บ้านนา จ.นครนายก)</option>-->
 											</select>
 											<i></i>
 										</label>
@@ -57,14 +57,14 @@
 							<section>
 								<label class="label"><strong>ข้อมูลเกี่ยวกับสินค้า</strong></label>
 								<label class="textarea">
-									<textarea rows="4" name="projectName" id="projectName"></textarea>
+									<textarea rows="4" name="projectName" id="project_detail"></textarea>
 								</label>
 							</section>
                             
 						</fieldset>
 
 						<footer>
-							<a href="addProject.php?step=2"class="button">ขั้นตอนต่อไป <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+							<a href="#" id="add_project1_btn" class="button">ขั้นตอนต่อไป <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
 						</footer>
 
 						
