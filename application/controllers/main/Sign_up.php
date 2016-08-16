@@ -116,6 +116,7 @@
             
             // Email content
             $content = 'Confirm account<br/>';
+            $content .= 'สวัสดีคุณ ' + $member['member_firstname'] + '<br/>';
             $content .= 'Go to confirm link<br/>';
             $content .= '<a href="'.$confirm_url.'">'.$confirm_url.'</a>';
             

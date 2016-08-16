@@ -73,6 +73,7 @@ $route['verify_account/(:num)/(:any)'] = 'main/Sign_up/verify_account';
 $route['edit_my_account_pro'] = 'main/Member_ctrl/edit_member_pro';
 
 $route['get_categories_ajax'] = 'main/Category_ctrl/get_categories_ajax';
+$route['get_all_units_ajax'] = 'main/Product_ctrl/get_all_units_ajax';
 $route['member/get_farms_ajax'] = 'main/Farm_ctrl/get_member_farms_ajax';
 $route['member_add/category_ajax'] = 'main/Category_ctrl/add_category_member_ajax';
 $route['member/add_farm_ajax'] = 'main/Farm_ctrl/add_farm_ajax';

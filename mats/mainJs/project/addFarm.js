@@ -91,6 +91,7 @@ function addFarm() {
     }).success(function (data){
         console.log(data);
         $('#addFarm').modal('hide');
+        setFarmOption();
     });
     
 }

@@ -46,6 +46,9 @@
              *  Add category by member
              *
              */
+            if($this->gnc_authen->is_sign_in() == FALSE){
+                return;
+            }
             
             // Get project type id and category name
             $project_type_id = $this->input->post('project_type_id');
