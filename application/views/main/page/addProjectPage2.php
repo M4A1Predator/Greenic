@@ -46,12 +46,16 @@
                             <section>
 								<label class="label"><strong>ช่องทางการจัดส่ง</strong></label>
 								<div class="inline-group">
-									<label class="checkbox shipmentWay"><input type="checkbox" name="checkbox-inline"><i></i>ไปรษณีย์ไทย</label>
-									<label class="checkbox shipmentWay"><input type="checkbox" name="checkbox-inline"><i></i>kerry express</label>
-                                    <label class="checkbox shipmentWay"><input type="checkbox" name="checkbox-inline"><i></i>จัดส่งเองถึงที่</label>
-									<label class="checkbox shipmentWay"><input type="checkbox" name="checkbox-inline"><i></i>บริษัทขนส่งเอกชนอื่นๆ</label>
-                                    <label class="checkbox shipmentWay"><input type="checkbox" name="checkbox-inline"><i></i>ตามตกลง</label>
-                                    <label class="checkbox shipmentWay"><input type="checkbox" name="checkbox-inline"><i></i>มารับเอง</label>
+                                    <?php foreach($shipment_arr as $shipment){ ?>
+                                    <label class="checkbox"><input type="checkbox" class="shipmentWay" name="smw<?=$shipment['shipment_id']?>"><i></i><?=$shipment['shipment_name']?></label>
+                                    <?php } ?>
+                                    
+<!--									<label class="checkbox"><input type="checkbox" id="ems" class="shipmentWay" name=""><i></i>ไปรษณีย์ไทย</label>-->
+<!--									<label class="checkbox"><input type="checkbox" class="shipmentWay" name="checkbox-inline"><i></i>kerry express</label>-->
+<!--                                    <label class="checkbox"><input type="checkbox" class="shipmentWay" name="checkbox-inline"><i></i>จัดส่งเองถึงที่</label>-->
+<!--									<label class="checkbox"><input type="checkbox" class="shipmentWay" name="checkbox-inline"><i></i>บริษัทขนส่งเอกชนอื่นๆ</label>-->
+<!--                                    <label class="checkbox"><input type="checkbox" class="shipmentWay" name="checkbox-inline"><i></i>ตามตกลง</label>-->
+<!--                                    <label class="checkbox"><input type="checkbox" class="shipmentWay" name="checkbox-inline"><i></i>มารับเอง</label>-->
 								</div>
 							</section>
                             

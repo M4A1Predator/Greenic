@@ -43,6 +43,12 @@
                 $data_assoc['project_type_arr'] = $project_type_arr;
                 
             }else if($step == 'step2'){
+                // Load shiplments
+                $shipment_arr = $this->Shipment->get_filter('*', null, null, null, null, null, 'array');
+                
+                // Set data
+                $data_assoc['shipment_arr'] = $shipment_arr;
+            }else if($step == 'step3'){
                 
             }
 
@@ -96,6 +102,68 @@
             //echo var_dump($this->session->flashdata());
             echo 1;
         
+        }
+        
+        
+        function add_project_step2_ajax(){
+            /*
+             *  Process add project step2 data
+             *  keep data into session
+             *  
+             */
+            $this->form_validation->set_rules('unit_id', 'unit_id', 'required|numeric');
+            $this->form_validation->set_rules('ppu', 'ppu', 'required|numeric');
+            $this->form_validation->set_rules('quantity', 'quantity', 'required|numeric');
+            $this->form_validation->set_rules('lowest_order', 'lowest_order', 'required|numeric');
+            $this->form_validation->set_rules('sell_date', 'sell_date', 'required');
+            
+            // Validate form
+            if($this->form_validation->run() == FALSE){
+                echo 0;
+                return;
+            }
+            
+            // Get data
+            $shipment = $this->input->post('shipment');
+            $unit_id = $this->input->post('unit_id');
+            $ppu = $this->input->post('ppu');
+            $quantity = $this->input->post('quantity');
+            $lowest_order = $this->input->post('lowest_order');
+            $sell_date = $this->input->post('sell_date');
+            
+            // Set flash data for step2
+            $step2_data = array();
+            $step2_data['add_project_unit_id'] = $unit_id;
+            $step2_data['add_project_ppu'] = $ppu;
+            $step2_data['add_project_quantity'] = $quantity;
+            $step2_data['add_project_lowest_order'] = $lowest_order;
+            $step2_data['add_project_sell_date'] = $sell_date;
+            $step2_data['add_project_shipment'] = $shipment;
+            
+            // Set flash data
+            $this->session->set_flashdata($step2_data);
+            
+            //echo json_encode($this->session->flashdata(), JSON_UNESCAPED_UNICODE);
+            //echo var_dump($this->session->flashdata());
+            echo 1;
+        }
+        
+        
+        function add_project_step3_ajax(){
+            /*
+             *  Add project step3
+             *  
+             */
+            
+            // Check if has image by key
+            if(array_key_exists('array_key_exists', $_FILES) == FALSE){
+                echo 0;
+                return;
+            }
+            
+            // Upload cover image
+            
+            
         }
         
         

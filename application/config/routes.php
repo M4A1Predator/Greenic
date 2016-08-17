@@ -78,6 +78,8 @@ $route['member/get_farms_ajax'] = 'main/Farm_ctrl/get_member_farms_ajax';
 $route['member_add/category_ajax'] = 'main/Category_ctrl/add_category_member_ajax';
 $route['member/add_farm_ajax'] = 'main/Farm_ctrl/add_farm_ajax';
 $route['member/add_project_step1_ajax'] = 'main/Project_ctrl/add_project_step1_ajax';
+$route['member/add_project_step2_ajax'] = 'main/Project_ctrl/add_project_step2_ajax';
+$route['member/add_project_step3_ajax'] = 'main/Project_ctrl/add_project_step3_ajax';
 
 $route['get_all_provinces_ajax'] = 'main/Address_ctrl/get_all_provinces_ajax';
 $route['get_districts_ajax'] = 'main/Address_ctrl/get_districts_ajax';

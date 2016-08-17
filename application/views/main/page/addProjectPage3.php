@@ -10,7 +10,7 @@
                     <label class="label"><strong>รูปประกอบ (รูปหลัก 1 รูป)</strong></label>
                     <section>
                         <label for="file" class="input input-file state-success">
-                            <div class="button state-success"><input type="file" name="file" multiple="" onchange="this.parentNode.nextSibling.value = this.value" class="valid">เลือกไฟล์</div><input type="text" placeholder="กรุณาเลือกไฟล์" readonly="" class="valid">
+                            <div class="button state-success"><input type="file" id="coverImage" name="file" multiple="" onchange="this.parentNode.nextSibling.value = this.value;" class="valid">เลือกไฟล์</div><input type="text" placeholder="กรุณาเลือกไฟล์" readonly="" class="valid">
                         </label>
                     </section>
                 </section>
@@ -26,14 +26,14 @@
             
 
             <section>
-                <label class="checkbox"><input type="checkbox" name="agree"><i></i>ยอมรับเงื่อนไงและข้อตกลงของ Greenic</label>
+                <label class="checkbox"><input type="checkbox" id="agree" name="agree"><i></i>ยอมรับเงื่อนไงและข้อตกลงของ Greenic</label>
                 <small><a href="#"><i class="fa fa-file-text" aria-hidden="true"></i> คลิกอ่านที่นี่เพื่ออ่านเงื่อนไขและข้อตกลงของ Greenic</a></small>
             </section>
             
         </fieldset>
 
         <footer>
-            <button type="submit" class="button">สร้างโปรเจ็ค <i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button type="submit" id="addProject3Btn" class="button">สร้างโปรเจ็ค <i class="fa fa-plus" aria-hidden="true"></i></button>
         </footer>
 
         <div class="message">

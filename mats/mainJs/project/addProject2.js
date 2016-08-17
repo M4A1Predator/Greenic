@@ -37,16 +37,38 @@ function changeUnit() {
     productUnitArr.html(unitName);
 }
 
-function addProject2() {
+function addProject2(e) {
+    e.preventDefault();
     
     param = {
         'unit_id' : selectUnit.val(),
         'ppu' : ppu.val(),
-        'qunatity' : quantity.val(),
+        'quantity' : quantity.val(),
         'lowest_order' : lowestOrder.val(),
         'sell_date' : sellDate.val()
     };
     
-    console.log($('.shipmentWay option:[index=1]');
+    shipmentDict = {};
+    
+    $('.shipmentWay').each(function (index){
+        //console.log(index);
+        //param[$(this).prop('name')] = $(this).prop('checked');
+        shipmentDict[index] = $(this).prop('checked');
+    });
+    param.shipment = shipmentDict;
+    //console.log(param);
+    
+    $.ajax({
+        type : 'POST',
+        url : webUrl + 'member/add_project_step2_ajax',
+        data : param
+    }).success(function (data){
+        if (data != "1") {
+            return;
+        }
+        
+        location.replace(webUrl + 'add_project/step3');
+        
+    });
     
 }

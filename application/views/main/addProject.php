@@ -30,6 +30,8 @@
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addFarm.js"></script>
         <?php }else if($step=='step2'){ ?>
             <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addProject2.js"></script>
+        <?php }else if($step=='step3'){ ?>
+            <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addProject3.js"></script>
         <?php } ?>
         
         

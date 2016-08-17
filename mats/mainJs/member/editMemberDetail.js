@@ -77,7 +77,7 @@ function saveDetail(e) {
     
     uploadImage = image.prop('files')[0];
     if (uploadImage) {
-        console.log(uploadImage);
+        //console.log(uploadImage);
     }
     formData = new FormData();
     formData.append('firstname', firstname.val());

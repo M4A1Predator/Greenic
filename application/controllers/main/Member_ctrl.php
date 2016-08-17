@@ -55,7 +55,6 @@
             $data_assoc['member'] = $member;
             $data_assoc['province_arr'] = $province_arr;
             
-            
             // Load view
             $this->load->view('main/userDetail', $data_assoc);
             ob_flush();
