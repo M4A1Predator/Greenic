@@ -97,9 +97,8 @@
             $step1_data['add_project_detail'] = $project_detail;
             
             // Set as flash data
-            $this->session->set_flashdata($step1_data);
-            
-            //echo var_dump($this->session->flashdata());
+            $this->session->set_userdata($step1_data);
+
             echo 1;
         
         }
@@ -141,10 +140,9 @@
             $step2_data['add_project_shipment'] = $shipment;
             
             // Set flash data
-            $this->session->set_flashdata($step2_data);
+            $this->session->set_userdata($step2_data);
             
             //echo json_encode($this->session->flashdata(), JSON_UNESCAPED_UNICODE);
-            //echo var_dump($this->session->flashdata());
             echo 1;
         }
         
@@ -156,15 +154,43 @@
              */
             
             // Check if has image by key
-            if(array_key_exists('array_key_exists', $_FILES) == FALSE){
+            if(array_key_exists('cover_image', $_FILES) == FALSE){
                 echo 0;
                 return;
             }
             
-            // Upload cover image
+            // Add project to DB
             
+            // Prepare data
+            
+            
+            // Upload cover image
+            // Set upload image config
+            /*
+            $config = array();
+            $config['upload_path'] = PROJECT_IMAGE_PATH;
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['remove_spaces'] = true;
+            $config['max_size']	= '4048';
+            $config['max_width']  = '2100';
+            $config['max_height']  = '2100';
+            $config['file_name'] = '';
+            $config['overwrite'] = TRUE;
+            $fieldname = 'member_image';  //input tag name
+            
+            // Delete if file is exist
+            if(file_exists($this->){
+                unlink($dealer['dealer_picture']);
+            }
+            
+            $this->upload->initialize($config);
+            if(!$this->upload->do_upload($fieldname)){
+                //echo "test".$this->upload->display_errors();
+                $this->session->set_flashdata('msgprofile', 'ไฟล์รูปภาพไม่ถูกต้อง');
+                echo "<script>window.history.back();</script>";
+                return;
+            }
+            $ud = $this->upload->data();*/
             
         }
-        
-        
     }

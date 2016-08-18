@@ -102,6 +102,7 @@ $route['test/send_email'] = 'test/Test_member/send_email';
 $route['test/time'] = 'test/Test_member/get_time';
 
 $route['test/session'] = 'test/Test_session';
+$route['test/flashdata'] = 'test/Test_session/flashdata';
 $route['subtest'] = 'test/subtest/Test_directory';
 
 // No data

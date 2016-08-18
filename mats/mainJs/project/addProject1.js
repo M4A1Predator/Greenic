@@ -44,7 +44,6 @@ function setFarmOption(){
         url : webUrl + 'member/get_farms_ajax',
     }).success(function (data){
         jsonData = JSON.parse(data);
-        console.log(jsonData);
         jsonData.forEach(function (farm){
             projectFarm.append('<option value="'+ farm.farm_id +'">' + farm.farm_name + '</option>');
         });
@@ -54,6 +53,8 @@ function setFarmOption(){
 
 function addProject1(e){
     e.preventDefault();
+    
+    console.log('add');
     
     param = {
         "type_id" : projectType.val(),
@@ -72,7 +73,7 @@ function addProject1(e){
         if (data == "0") {
             return;
         }
-        
+        console.log(data);
         location.replace(webUrl + 'add_project/step2');
     });
     

@@ -7,6 +7,10 @@ addProject3Btn.click(addProject3);
 function addProject3(e) {
     e.preventDefault();
     
+    if (agree.prop('checked') === false) {
+        return;
+    }
+    
     uploadImage = coverImage.prop('files')[0];
 
     formData = new FormData();
@@ -24,6 +28,8 @@ function addProject3(e) {
             if (data != '1') {
                 return;
             }
+            
+            location.replace(webUrl);
         }
     });
 }

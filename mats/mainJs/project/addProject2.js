@@ -12,6 +12,30 @@ setUnitOption();
 selectUnit.change(changeUnit);
 addProject2Btn.click(addProject2);
 
+function getDateString(dateString) {
+    var re = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
+    if(re.test(dateString) === false){
+        return false;
+    }
+    
+    dateArray = dateString.split('/');
+    
+    for (i=0; i<dateArray.length; i++) {
+        if (isNaN(dateArray[i])) {
+            return false;
+        }
+    }
+    
+    date = new Date();
+    date.setDate(dateArray[0]);
+    date.setMonth(parseInt(dateArray[1]) - 1);
+    date.setFullYear( parseInt(dateArray[2]) - 543);
+    
+    dateStringMySQL = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    
+    return dateStringMySQL;
+}
+
 function setUnitOption(){
     selectUnit.empty();
     selectUnit.append('<option value="0" selected="" disabled="">เลือกหน่วย</option>');
@@ -40,12 +64,18 @@ function changeUnit() {
 function addProject2(e) {
     e.preventDefault();
     
+    dateString = getDateString(sellDate.val());
+    
+    if(dateString === null){
+        return;
+    }
+    
     param = {
         'unit_id' : selectUnit.val(),
         'ppu' : ppu.val(),
         'quantity' : quantity.val(),
         'lowest_order' : lowestOrder.val(),
-        'sell_date' : sellDate.val()
+        'sell_date' : dateString
     };
     
     shipmentDict = {};
@@ -57,7 +87,7 @@ function addProject2(e) {
     });
     param.shipment = shipmentDict;
     //console.log(param);
-    
+
     $.ajax({
         type : 'POST',
         url : webUrl + 'member/add_project_step2_ajax',
@@ -66,9 +96,7 @@ function addProject2(e) {
         if (data != "1") {
             return;
         }
-        
         location.replace(webUrl + 'add_project/step3');
-        
     });
     
 }

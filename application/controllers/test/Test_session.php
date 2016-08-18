@@ -26,5 +26,11 @@
             
         }
         
+        function flashdata(){
+            $data = $this->session->flashdata('add_project_name');
+            $this->session->set_flashdata($data);
+            echo var_dump($data);
+        }
+        
         
     }
