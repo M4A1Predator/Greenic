@@ -24,10 +24,13 @@ function addProject3(e) {
         contentType: false,
         data: formData,
         success: function(data){
-            console.log(data);
-            if (data != '1') {
+            //console.log(data);
+            if (data != "1") {
+                console.log(data);
+                console.log('not ok');
                 return;
             }
+            
             location.replace(webUrl);
         }
     });

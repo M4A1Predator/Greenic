@@ -12,6 +12,8 @@
             
             // Load library
             $this->load->library('form_validation');
+            $this->load->library('image_lib');
+            $this->load->library('upload');
             
             // Load model
             
@@ -68,6 +70,9 @@
              *  keep data into session
              *  
              */
+            if($this->gnc_authen->is_sign_in() == FALSE){
+                return;
+            }
             
             // Set form rules
             $this->form_validation->set_rules('type_id', 'type_id', 'required|numeric');
@@ -113,6 +118,10 @@
              *  keep data into session
              *  
              */
+            if($this->gnc_authen->is_sign_in() == FALSE){
+                return;
+            }
+            
             $this->form_validation->set_rules('unit_id', 'unit_id', 'required|numeric');
             $this->form_validation->set_rules('ppu', 'ppu', 'required|numeric');
             $this->form_validation->set_rules('quantity', 'quantity', 'required|numeric');
@@ -142,7 +151,7 @@
             $step2_data['add_project_sell_date'] = $sell_date;
             $step2_data['add_project_shipment'] = $shipment;
             
-            // Set flash data
+            // Set session
             $this->session->set_userdata($step2_data);
             
             //echo json_encode($this->session->flashdata(), JSON_UNESCAPED_UNICODE);
@@ -155,17 +164,29 @@
              *  Add project step3
              *  
              */
-            
-            // Check if has image by key
-            if(array_key_exists('cover_image', $_FILES) == FALSE){
-                echo 0;
+            if($this->gnc_authen->is_sign_in() == FALSE){
                 return;
             }
             
+            // Check if has image by key
+            if(array_key_exists('cover_image', $_FILES) == FALSE){
+                echo 'no image';
+                return;
+            }
+            
+            // Check file type
+            // Get file type
+            $cover_image_ext = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
+            $cover_image_type = $_FILES['cover_image']['type'];
+            // File muse be image
+            if(strpos($cover_image_type, 'image') !== 0){
+                echo 'type error';
+                return;
+            }
             // Add project to DB
             
             // Prepare data
-            //$this->db->trans_start(TRUE);
+            
             $project_data_assoc = array();
             $project_data_assoc['project_name'] = $this->session->userdata('add_project_name');
             $project_data_assoc['project_detail'] = $this->session->userdata('add_project_detail');
@@ -177,36 +198,92 @@
             $project_data_assoc['project_unit_id'] = $this->session->userdata('add_project_unit_id');
             $project_data_assoc['project_farm_id'] = $this->session->userdata('add_project_farm_id');
             
+            // Get generated unique id
+            $uq_id = uniqid();
+            $hash_uq_id = hash('sha1', $uq_id);
+            // Set image name and path
+            $cover_image_name = 'prm_'.$this->session->userdata('member_id').'_'.$hash_uq_id.'.'.$cover_image_ext;
+            $cover_image_path = PROJECT_IMAGE_PATH;
+            $project_data_assoc['project_cover_image_path'] = $cover_image_path.$cover_image_name;
+            
             // Add project
-            $added_project = $this->Project->add_project($project_data_assoc);
+            //$this->db->trans_start(TRUE);
+            $this->db->trans_begin();
+            $added_project_id = $this->Project->add_project($project_data_assoc);
             //$this->db->trans_complete();
-            // Upload cover image
-            // Set upload image config
-            /*
-            $config = array();
-            $config['upload_path'] = PROJECT_IMAGE_PATH;
-            $config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $config['remove_spaces'] = true;
-            $config['max_size']	= '4048';
-            $config['max_width']  = '2100';
-            $config['max_height']  = '2100';
-            $config['file_name'] = '';
-            $config['overwrite'] = TRUE;
-            $fieldname = 'member_image';  //input tag name
             
-            // Delete if file is exist
-            if(file_exists($this->){
-                unlink($dealer['dealer_picture']);
-            }
-            
-            $this->upload->initialize($config);
-            if(!$this->upload->do_upload($fieldname)){
-                //echo "test".$this->upload->display_errors();
-                $this->session->set_flashdata('msgprofile', 'ไฟล์รูปภาพไม่ถูกต้อง');
-                echo "<script>window.history.back();</script>";
+            if($added_project_id == NULL){
+                echo 'add failed';
+                $this->db->trans_rollback();
                 return;
             }
-            $ud = $this->upload->data();*/
             
+            // Upload cover image
+            // Resize image
+            $resize_config['image_library'] = 'gd2';
+            $resize_config['source_image'] = $_FILES['cover_image']['tmp_name'];
+            $resize_config['create_thumb'] = FALSE;
+            $resize_config['maintain_ratio'] = TRUE;
+            $resize_config['width']         = 1660;
+            $resize_config['height']       = 440;
+            
+            $this->image_lib->initialize($resize_config);
+            $this->image_lib->resize();
+            
+            // Set upload image config
+            $upload_config = array();
+            $upload_config['upload_path'] = $cover_image_path;
+            $upload_config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $upload_config['remove_spaces'] = true;
+            $upload_config['max_size']	= '4048';
+            $upload_config['max_width']  = '2100';
+            $upload_config['max_height']  = '2100';
+            $upload_config['file_name'] = $cover_image_name;
+            $upload_config['overwrite'] = TRUE;
+            $fieldname = 'cover_image';  //input tag name
+            
+            // Check upload result
+            $this->upload->initialize($upload_config);
+            if(!$this->upload->do_upload($fieldname)){
+                echo 'cant upload'.$this->upload->display_errors();
+                $this->db->trans_rollback();
+                return;
+            }
+            
+            // Get uploaded data
+            $ud = $this->upload->data();
+            
+            // Complete DB transaction
+            //$this->db->trans_complete();
+            $this->db->trans_commit();
+            
+            // Clear session data
+            // Get session keys
+            $session_key_arr = array_keys($this->session->userdata());
+            foreach($session_key_arr as $session_key){
+                if(strpos($session_key, 'add_project') === 0){
+                    $this->session->mark_as_flash($session_key);
+                }
+            }
+            $this->check_first_project();
+            
+            echo 1;
         }
+        
+        
+        function check_first_project(){
+            /*
+             *  If this is first project
+             *  Then change member type
+             *
+             */
+            
+            
+            // Change member type if first project
+            if($this->session->userdata('member_type_name') == $this->Member_type->member_normal){
+                $this->Member->change_member_type($this->session->userdata('member_id'), $this->Member_type->member_farmer_id);
+                $this->gnc_authen->reset_session_member();
+            }
+        }
+        
     }

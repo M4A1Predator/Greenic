@@ -273,7 +273,29 @@
             
             // Return member assoc
             return $member;
+        }
+        
+        function  change_member_type($member_id, $new_member_type_id){
+            /*
+             *  change member type by id
+             *
+             *  @param  int member id
+             *  @param  int new member type id from member type model
+             *
+             */
             
+            // Set where assoc
+            $where_assoc = array();
+            $where_assoc['member_id'] = $member_id;
+            
+            // Set update data assoc
+            $data_assoc = array();
+            $data_assoc['member_type_id'] = $new_member_type_id;
+            
+            // Update
+            $update_result = $this->update($where_assoc, $data_assoc);
+            
+            return $update_result;
             
         }
         

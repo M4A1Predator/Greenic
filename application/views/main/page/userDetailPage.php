@@ -180,6 +180,28 @@
                     </label>
                 </section>
             </div>
+            <div class="row">
+                <section class="col-md-6 col-sm-6">
+                    <label class="label"><strong>รหัสผ่านใหม่ *เว้นไว้ถ้าไม่ต้องการเปลี่ยน</strong></label>
+                    <label class="input">
+                        <input type="password" id="projectName">
+                    </label>
+                </section>
+                <section class="col-md-6 col-sm-6">
+                    <label class="label"><strong>ยืนยันรหัสผ่านใหม่ *เว้นไว้ถ้าไม่ต้องการเปลี่ยน</strong></label>
+                    <label class="input">
+                        <input type="password" id="projectName">
+                    </label>
+                </section>
+            </div>
+            <div class="row">
+                <section class="col-md-6 col-sm-6">
+                    <label class="label"><strong>รหัสผ่าน</strong></label>
+                    <label class="input">
+                        <input type="password" id="projectName">
+                    </label>
+                </section>
+            </div>
             
         </fieldset>
 

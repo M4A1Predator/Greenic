@@ -157,6 +157,6 @@
             $this->gnc_authen->reset_session_member();
             
             echo 1;
-            
         }
+        
     }

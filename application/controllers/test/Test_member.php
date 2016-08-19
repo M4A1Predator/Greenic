@@ -115,5 +115,14 @@
             echo $date;
         }
         
+        function change_type(){
+            echo $this->session->userdata('member_type_name').'<br/>';
+            echo $this->Member_type->member_normal.'<br/>';
+            echo var_dump($this->session->userdata('member_type_name') == $this->Member_type->member_normal).'<br/>';
+            if($this->session->userdata('member_type_name') == $this->Member_type->member_normal){
+                echo $this->Member->change_member_type($this->session->userdata('member_id'), $this->Member_type->member_farmer_id);
+            }
+            echo $this->Member->change_member_type($this->session->userdata('member_id'), $this->Member_type->member_farmer_id);
+        }
         
     }

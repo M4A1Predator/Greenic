@@ -100,6 +100,7 @@ $route['test/crypt2'] = 'test/Test_member/random_string';
 $route['test/member_login'] = 'test/Test_member/login';
 $route['test/send_email'] = 'test/Test_member/send_email';
 $route['test/time'] = 'test/Test_member/get_time';
+$route['test/member/change_type'] = 'test/Test_member/change_type';
 
 $route['test/session'] = 'test/Test_session';
 $route['test/flashdata'] = 'test/Test_session/flashdata';
