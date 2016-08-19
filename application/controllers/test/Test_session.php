@@ -27,9 +27,8 @@
         }
         
         function flashdata(){
-            $data = $this->session->flashdata('add_project_name');
-            $this->session->set_flashdata($data);
-            echo var_dump($data);
+            $this->session->set_userdata('op', 'adsd');
+            echo $this->session->mark_as_flash('op');
         }
         
         

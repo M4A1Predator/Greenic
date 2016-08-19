@@ -26,6 +26,9 @@
              *  Load add project page
              */
             
+            // Check is sign in
+            $this->gnc_authen->redirect_if_not_sign_in();
+            
             // Get step from uri
             $step = $this->uri->segment(2, 'step1');
             
@@ -162,8 +165,21 @@
             // Add project to DB
             
             // Prepare data
+            //$this->db->trans_start(TRUE);
+            $project_data_assoc = array();
+            $project_data_assoc['project_name'] = $this->session->userdata('add_project_name');
+            $project_data_assoc['project_detail'] = $this->session->userdata('add_project_detail');
+            $project_data_assoc['project_selldate'] = $this->session->userdata('add_project_sell_date');
+            $project_data_assoc['project_quantity'] = $this->session->userdata('add_project_quantity');
+            $project_data_assoc['project_ppu'] = $this->session->userdata('add_project_ppu');
+            $project_data_assoc['project_lowest_order'] = $this->session->userdata('add_project_lowest_order');
+            $project_data_assoc['project_category_id'] = $this->session->userdata('add_project_category_id');
+            $project_data_assoc['project_unit_id'] = $this->session->userdata('add_project_unit_id');
+            $project_data_assoc['project_farm_id'] = $this->session->userdata('add_project_farm_id');
             
-            
+            // Add project
+            $added_project = $this->Project->add_project($project_data_assoc);
+            //$this->db->trans_complete();
             // Upload cover image
             // Set upload image config
             /*

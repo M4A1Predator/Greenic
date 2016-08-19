@@ -28,7 +28,6 @@ function addProject3(e) {
             if (data != '1') {
                 return;
             }
-            
             location.replace(webUrl);
         }
     });

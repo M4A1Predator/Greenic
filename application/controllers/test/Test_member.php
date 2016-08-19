@@ -31,9 +31,9 @@
         }
         
         function add_member(){
-            $name = 'นาย ก';
+            $name = 'เดนนิส ฟนาติก';
             $email = 'm1@gnc.com';
-            $password = 'zxczxc zx';
+            $password = 'zxczxczxc';
             
             //$this->db->trans_start(TRUE);
             $added_member = $this->Member->add_member($name, $email, $password);
