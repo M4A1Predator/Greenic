@@ -30,7 +30,7 @@
                     <li class=""><a href="<?=base_url().$this->lang->line('add_project')?>"><i class="fa fa-plus" aria-hidden="true"></i> สร้างโปรเจ็ค</a></li>
                     <?php }else if($this->session->userdata('member_type_name') == $this->Member_type->member_farmer || $this->session->userdata('member_type_name') == $this->Member_type->member_admin){ ?>
 					<!--เริ่ม..ถ้ามีโปรเจ็ก 1 โปรเจ็คขึ้นไปจึงจะแสดง-->
-					<li class=""><a href="<?=base_url()?>mats/userProject.php?status=login"><i class="fa fa-product-hunt" aria-hidden="true"></i> โปรเจ็คของคุณ</a></li>
+					<li class=""><a href="<?=base_url()?>my_projects"><i class="fa fa-product-hunt" aria-hidden="true"></i> โปรเจ็คของคุณ</a></li>
                     <?php } ?>
 					
 				</ul>

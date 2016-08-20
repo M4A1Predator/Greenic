@@ -50,7 +50,7 @@
                <div class="row">
                    <div class="col-md-12">
                        <label class="select">
-                           <select name="category">
+                           <select name="category" id="addCategoryType">
                                <option value="0" selected="" disabled="">เลือกประเภท</option>
                                <option value="1">ผัก</option>
                                <option value="2">ผลไม้</option>
@@ -59,17 +59,14 @@
                            <i></i>
                        </label>
                        <label class="select">
-                           <select name="subcategory">
+                           <select name="subcategory" id="masterCategory">
                                <option value="0" selected="" disabled="">เลือกชนิด</option>
-                               <option value="CATED0001">ผักคะน้า</option>
-                               <option value="CATE0008">ผักบุ้ง</option>
-                               <option value="CATE0025">ถั่วฝักยาว</option>
                            </select>
                            <i></i>
                        </label>
                        <section>
                            <label class="input">
-                               <input type="text" name="categoryName" id="categoryName" placeholder="กรอกขื่อสายพันธ์">
+                               <input type="text" name="categoryName" id="subCategory" placeholder="กรอกขื่อสายพันธ์">
                            </label>
                        </section>
                    </div>
@@ -77,7 +74,7 @@
            </div>
            <div class="modal-footer">
                <button type="button" class="btn-u btn-u-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> ยกเลิก</button>
-               <button type="button" class="btn-u btn-u-primary"><i class="fa fa-plus"></i> เพิ่ม</button>
+               <button type="button" id="addSubCategoryBtn" class="btn-u btn-u-primary"><i class="fa fa-plus"></i> เพิ่ม</button>
            </div>
            </form>
        </div>

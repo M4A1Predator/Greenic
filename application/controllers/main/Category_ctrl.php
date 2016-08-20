@@ -52,6 +52,7 @@
             
             // Get project type id and category name
             $project_type_id = $this->input->post('project_type_id');
+            $category_master_id = $this->input->post('category_master_id');
             $category_name = $this->input->post('category_name');
             // trim space
             $category_name = $category_name.trim(' ');
@@ -60,6 +61,10 @@
             $category_data = array();
             $category_data['category_project_type_id'] = $project_type_id;
             $category_data['category_name'] = $category_name;
+            // If this is sub category
+            if($category_master_id){
+                $category_data['category_master_id'] = $category_master_id;
+            }
             
             // Add category
             $add_result = $this->Category->add($category_data);

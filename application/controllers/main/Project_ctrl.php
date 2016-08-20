@@ -71,6 +71,7 @@
              *  
              */
             if($this->gnc_authen->is_sign_in() == FALSE){
+                echo 0;
                 return;
             }
             
@@ -119,6 +120,7 @@
              *  
              */
             if($this->gnc_authen->is_sign_in() == FALSE){
+                echo 0;
                 return;
             }
             
@@ -165,6 +167,7 @@
              *  
              */
             if($this->gnc_authen->is_sign_in() == FALSE){
+                echo 0;
                 return;
             }
             
@@ -286,4 +289,41 @@
             }
         }
         
+        function manage_project_page(){
+            /*
+             *  Load manage project page
+             *
+             */
+            
+            $this->load->view('main/userProject');
+            
+        }
+        
+        function get_member_projects_ajax(){
+            /*
+             *  Get member projects
+             *
+             */
+            
+            // check login
+            if($this->gnc_authen->is_sign_in() == FALSE){
+                echo 0;
+                return;
+            }
+            
+            // Set form rules
+            $this->form_validation->set_rules('type_id', 'type_id', 'required|numeric');
+            //$this->form_validation->set_rules('category_id', 'category_id', 'required|numeric');
+            $this->form_validation->set_rules('farm_id', 'farm_id', 'required|numeric');
+            
+            // Get and set input data
+            $type_id = $this->input->post('type_id');
+            $farm_id = $this->input->post('farm_id');
+            
+            $member_id = $this->session->userdata('member_id');
+            
+            // Set where clause
+            
+            
+        }
     }

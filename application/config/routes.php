@@ -63,6 +63,7 @@ $route['sos'] = 'Sight/page';
 $route['my_account'] = 'main/Member_ctrl/member_detail_page';
 
 $route['add_project/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/add_project_page';
+$route['my_projects'] = 'main/Project_ctrl/manage_project_page';
 
 // Control routes
 $route['sign_in'] = 'main/Authentication/authen';
@@ -75,6 +76,7 @@ $route['edit_my_account_pro'] = 'main/Member_ctrl/edit_member_pro';
 $route['get_categories_ajax'] = 'main/Category_ctrl/get_categories_ajax';
 $route['get_all_units_ajax'] = 'main/Product_ctrl/get_all_units_ajax';
 $route['member/get_farms_ajax'] = 'main/Farm_ctrl/get_member_farms_ajax';
+$route['member/get_projects_ajax'] = 'main/Project_ctrl/get_member_projects_ajax';
 $route['member_add/category_ajax'] = 'main/Category_ctrl/add_category_member_ajax';
 $route['member/add_farm_ajax'] = 'main/Farm_ctrl/add_farm_ajax';
 $route['member/add_project_step1_ajax'] = 'main/Project_ctrl/add_project_step1_ajax';

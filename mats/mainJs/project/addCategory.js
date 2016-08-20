@@ -2,7 +2,11 @@ var selectProjectType = $('#add_project_type');
 var newCategory = $('#add_category');
 var addCategoryBtn = $('#add_category_btn');
 
+var subCategory = $('#subCategory');
+var addSubCategoryBtn = $('#addSubCategoryBtn');
+
 addCategoryBtn.click(addCategory);
+addSubCategoryBtn.click(addSubCategory);
 
 function addCategory() {
     
@@ -33,5 +37,38 @@ function addCategory() {
 }
 
 function addSubCategory(){
+    
+    if (!projectCateogry.val()) {
+        return;
+    }
+    
+    if (!projectType.val()) {
+        return;
+    }
+    
+    console.log(projectCateogry.find('option:selected').text());
+    
+    param = {
+        'category_name' : subCategory.val(),
+        'category_master_id' : projectCateogry.val(),
+        'project_type_id' : projectType.val(),
+    };
+    
+    //console.log(param);
+    
+    $.ajax({
+        type: 'POST',
+        url: webUrl + 'member_add/category_ajax',
+        data: param
+    }).success(function (data){
+        console.log(data);
+        if (data != '1') {
+            return;
+        }
+        
+        //getCategory();
+        $('#addBreed').modal('hide');
+        
+    });
     
 }
