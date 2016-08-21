@@ -21,6 +21,7 @@
         ?>
         
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/validateHelper.js"></script>
         
         <?php if($step=='step1'){?>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/stringResource.js"></script>

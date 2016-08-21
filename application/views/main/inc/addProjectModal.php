@@ -11,13 +11,8 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <label class="select">
-                                <select name="category" id="add_project_type">
-                                    <option value="0" selected="">เลือกประเภท</option>
-                                    <option value="1">ผัก</option>
-                                    <option value="2">ผลไม้</option>
-                                    <option value="3">สัตว์</option>
-                                </select>
+                            <label class="input">
+                                <input class="projectType" value="" disabled="">
                                 <i></i>
                             </label>
                             <section>
@@ -49,19 +44,12 @@
            <div class="modal-body">
                <div class="row">
                    <div class="col-md-12">
-                       <label class="select">
-                           <select name="category" id="addCategoryType">
-                               <option value="0" selected="" disabled="">เลือกประเภท</option>
-                               <option value="1">ผัก</option>
-                               <option value="2">ผลไม้</option>
-                               <option value="3">สัตว์</option>
-                           </select>
-                           <i></i>
-                       </label>
-                       <label class="select">
-                           <select name="subcategory" id="masterCategory">
-                               <option value="0" selected="" disabled="">เลือกชนิด</option>
-                           </select>
+                       <label class="input">
+                            <input class="projectType" value="" disabled="">
+                            <i></i>
+                        </label>
+                       <label class="input">
+                           <input class="masterCategory" value="" disabled="" />
                            <i></i>
                        </label>
                        <section>

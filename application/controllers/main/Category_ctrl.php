@@ -32,6 +32,8 @@
             // Get categories
             $where_assoc = array();
             $where_assoc['category_project_type_id'] = $project_type_id;
+            // Category must not have master category
+            $where_assoc['category_master_id'] = NULL;
             $category_arr = $this->Category->get_filter('*', $where_assoc, null, null, 0, null, 'array');
             
             // JSON encode
@@ -39,6 +41,28 @@
             
             echo $category_arr_json;
             
+        }
+        
+        function get_sub_categories_ajax($category_master_id){
+            /*
+             *  Get sub categoryies by master category id
+             *  to be used by Ajax
+             *
+             *  @param  int     project type id
+             *  @param  int     master category id
+             *  
+             */
+            // Get sub catagories
+            $where_assoc = array();
+            //$where_assoc['category_type_id'] = $type_id;
+            $where_assoc['category_master_id'] = $category_master_id;
+            
+            $category_arr = $this->Category->get_filter('*', $where_assoc, null, null, 0, null, 'array');
+            
+            //JSON encode
+            $category_arr_json = json_encode($category_arr, JSON_UNESCAPED_UNICODE);
+            
+            echo $category_arr_json;
         }
         
         function add_category_member_ajax(){

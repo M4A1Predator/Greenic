@@ -5,3 +5,12 @@ function validateDateFormat(dateString) {
     }
     return true;
 }
+
+function validateRequiredValue(valueArray){
+    for(i=0;i<valueArray.length;i++){
+        value = valueArray[i].trim();
+        if (value === "") {
+            return false;
+        }
+    }
+}

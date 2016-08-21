@@ -1,18 +1,27 @@
 var projectType = $('#project_type');
 var projectCateogry = $('#project_category');
+var selectSubCategory = $('#selectSubCategory');
 var projectFarm = $('#select_farm');
 var projectName = $('#project_name');
 var projectDetail = $('#project_detail');
 var addProject1Btn = $('#add_project1_btn');
 
+var projectTypeText = $('.projectType');
+var masterCategoryText = $('.masterCategory');
+
 setFarmOption();
 projectType.change(getCategory);
+projectCateogry.change(setSubCategoryOption);
 addProject1Btn.click(addProject1);
 
 function getCategory() {
     
+    projectTypeText.val(projectType.find('option:selected').text());
+    
     projectCateogry.empty();
     projectCateogry.append('<option value="0">' + optionSelectCategoryText + '</option>');
+    
+    setSubCategoryOption();
     
     param = {
         'project_type_id' : projectType.val()
@@ -34,10 +43,33 @@ function refreshCategoryOption(categoryArray) {
     });
 }
 
+function setSubCategoryOption() {
+    
+    if (!projectType.val() || !projectCateogry.val()) {
+        return;
+    }
+    
+    masterCategoryText.val(projectCateogry.find('option:selected').text());
+    
+    selectSubCategory.empty();
+    selectSubCategory.append('<option value="0">' + optionSelectNoBreed + '</option>');
+    
+    $.ajax({
+        type : 'POST',
+        url : webUrl + 'get_sub_categories_ajax/' + projectCateogry.val(),
+    }).success(function (data){
+        jsonData = JSON.parse(data);
+        jsonData.forEach(function (category){
+            selectSubCategory.append('<option value="'+ category.category_id +'">' + category.category_name + '</option>');
+        });
+    });
+    
+}
+
 function setFarmOption(){
     
     projectFarm.empty();
-    projectFarm.append('<option value="0" selected="" disabled="">เลือกฟาร์ม</option>');
+    projectFarm.append('<option value="0" selected="" disabled="">' + optionSelectFarmText + '</option>');
     
     $.ajax({
         type : 'GET',
@@ -53,17 +85,21 @@ function setFarmOption(){
 
 function addProject1(e){
     e.preventDefault();
-    
-    console.log('add');
+
+    categoryId = projectCateogry.val();
+    if (selectSubCategory.val() !== "" || !selectSubCategory.val()) {
+        categoryId = selectSubCategory.val();
+    }
     
     param = {
         "type_id" : projectType.val(),
-        "category_id" : projectCateogry.val(),
+        "category_id" : categoryId,
         //"sub_category_id" : ,
         "farm_id" : projectFarm.val(),
         "project_name" : projectName.val(),
         "project_detail" : projectDetail.val()
     };
+    //console.log(param);
     
     $.ajax({
         type : 'POST',
@@ -76,5 +112,4 @@ function addProject1(e){
         console.log(data);
         location.replace(webUrl + 'add_project/step2');
     });
-    
 }

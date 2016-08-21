@@ -15,7 +15,7 @@
                                             <label class="label"><strong>ประเภท</strong></label>
 										<label class="select">
 											<select name="project_type" id="project_type">
-												<option value="0" selected="" disabled="">เลือกประเภท</option>
+												<option value="" selected="" disabled="">เลือกประเภท</option>
 												<option value="<?=$project_type_arr[0]->project_type_id?>">ผัก</option>
 												<option value="<?=$project_type_arr[1]->project_type_id?>">ผลไม้</option>
 												<option value="<?=$project_type_arr[2]->project_type_id?>">สัตว์</option>
@@ -27,7 +27,7 @@
                                     <label class="label"><strong>ชนิด</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addSubCategory" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
 										<label class="select">
 											<select name="category" id="project_category">
-												<option value="0" selected="" disabled="">เลือกชนิด</option>
+												<option value="" selected="" disabled="">เลือกชนิด</option>
 											</select>
 											<i></i>
 									</label>
@@ -35,8 +35,8 @@
                                 <section class="col-md-2 col-sm-4">
                                             <label class="label"><strong>สายพันธุ์</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addBreed" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
 										<label class="select">
-											<select name="gender">
-                                                <option value="0" selected="" >ไม่มีสายพันธุ์</option>
+											<select name="gender" id="selectSubCategory">
+                                                <option value="" selected="" >ไม่มีสายพันธุ์</option>
 											</select>
 											<i></i>
 										</label>
@@ -45,10 +45,7 @@
                                         <label class="label"><strong>ฟาร์มที่ทำ</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addFarm" type="button">เพิ่มฟาร์มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
 										<label class="select">
 											<select name="selectFarm" id="select_farm">
-												<option value="0" selected="" disabled="">เลือกฟาร์ม</option>
-		<!--										<option value="FID0001">ไร่ชายเขา (อ.เมืองนครนายก จ.นครนายก)</option>
-												<option value="FID0008">บ้านไร่คันนา (อ.ปากพลี จ.นครนายก)</option>
-												<option value="FID0025">สวนสุขภาพมานีร่า (อ.บ้านนา จ.นครนายก)</option>-->
+												<option value="" selected="" disabled="">เลือกฟาร์ม</option>
 											</select>
 											<i></i>
 										</label>

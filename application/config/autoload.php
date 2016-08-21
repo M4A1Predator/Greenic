@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session', 'GNC_Query', 'GNC_authen');
+$autoload['libraries'] = array('database', 'session', 'GNC_query', 'GNC_authen');
 
 /*
 | -------------------------------------------------------------------
