@@ -42,7 +42,7 @@
             return $this->get_result($query, $result_type);
         }
         
-        function get_filter($select='*', $where_assoc=array(), $join_assoc_array=array(), $order=null,  $offset=0, $limit=null, $result_type='object'){
+        function get_filter($select='*', $where_assoc=array(), $join_assoc_array=array(), $order=null,  $offset=0, $limit=null, $result_type='object', $data=array()){
             /*
              *  Get filtered rows
              *  set $this->table before use this function
@@ -62,7 +62,18 @@
                 $select = '*';
             }
             $this->db->select($select);
-            $this->db->from($this->table);
+            
+            // Set up from table
+            if(!isset($data['use_view']) || $data['use_view'] === FALSE){
+                $this->db->from($this->table);
+            }else{
+                if(isset($this->view)){
+                    $this->db->from($this->view);
+                }else{
+                    $this->db->from($this->table);
+                }
+            }
+            
             
             // Set up query join table
             if($join_assoc_array){
@@ -180,6 +191,14 @@
             $update_result = $this->db->update($this->table);
             
             return $update_result;
+            
+        }
+        
+        function test(){
+            if(isset($this->view)){
+                //echo $this->view;
+                $this->table = 'view';
+            }
             
         }
         

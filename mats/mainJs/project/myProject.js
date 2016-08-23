@@ -1,10 +1,10 @@
 
 var selectFarm = $('#selectFarm');
 var selectType = $('#selectType');
-
+var projectList = $('.projectList');
 setFarmOption();
-selectFarm.change(changeFarm);
-selectType.change(changeType);
+selectFarm.change(setProjectsList);
+selectType.change(setProjectsList);
 
 function setFarmOption() {
     
@@ -33,6 +33,19 @@ function changeType() {
 function setProjectsList() {
     farmId = selectFarm.val();
     typeId = selectType.val();
+
+    param = {
+        'type_id' : typeId,
+        'farm_id' : farmId
+    };
     
-    
+    $.ajax({
+        type : 'POST',
+        url : webUrl + 'member/get_projects_ajax',
+        data : param,
+    }).success(function (data){
+        console.log(data);
+        jsonData = JSON.parse(data);
+        projectList.empty();
+    });
 }

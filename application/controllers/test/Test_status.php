@@ -74,5 +74,10 @@
                
         }
         
+        function assoc(){
+            $data['rekt'] = TRUE;
+            echo var_dump((bool)isset($data['rekt']));
+        }
+        
         
     }

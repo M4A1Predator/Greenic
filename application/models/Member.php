@@ -5,6 +5,7 @@
     class Member extends MY_Model{
         
         public $table = 'member';
+        public $view = 'member_view';
         
         private $password_hash_cost = 12;
         private $password_hash_option = array('cost' => 12);

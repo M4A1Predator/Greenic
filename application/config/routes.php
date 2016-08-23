@@ -63,7 +63,7 @@ $route['sos'] = 'Sight/page';
 $route['my_account'] = 'main/Member_ctrl/member_detail_page';
 
 $route['add_project/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/add_project_page';
-$route['my_projects'] = 'main/Project_ctrl/manage_project_page';
+$route['my_projects'] = 'main/Project_ctrl/member_projects_page';
 
 // Control routes
 $route['sign_in'] = 'main/Authentication/authen';

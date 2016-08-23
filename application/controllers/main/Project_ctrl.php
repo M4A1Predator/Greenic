@@ -289,7 +289,7 @@
             }
         }
         
-        function manage_project_page(){
+        function member_projects_page(){
             /*
              *  Load manage project page
              *
@@ -316,14 +316,37 @@
             //$this->form_validation->set_rules('category_id', 'category_id', 'required|numeric');
             $this->form_validation->set_rules('farm_id', 'farm_id', 'required|numeric');
             
+            // Validate form
+            if($this->form_validation->run() == FALSE){
+                echo 0;
+                return;
+            }
+            
             // Get and set input data
-            $type_id = $this->input->post('type_id');
-            $farm_id = $this->input->post('farm_id');
+            $type_id = intval($this->input->post('type_id'));
+            $farm_id = intval($this->input->post('farm_id'));
             
             $member_id = $this->session->userdata('member_id');
             
             // Set where clause
+            $where_assoc = array();
+            $where_assoc['farm_member_id'] = $member_id;
+            // if id = 0, means get all ids
+            if($type_id !== 0){
+                $where_assoc['category_project_type_id'] = $type_id;
+            }
             
+            if($farm_id !== 0){
+                $where_assoc['project_farm_id'] = $farm_id;
+            }
+            
+            // Get projects array
+            $project_arr = $this->Project->get_filter('*', $where_assoc, null, null, null, null, 'array', array('use_view' => TRUE));
+            
+            // Encode JSON
+            $project_arr_json = json_encode($project_arr, JSON_UNESCAPED_UNICODE);
+            
+            echo $project_arr_json;
             
         }
     }

@@ -6,6 +6,7 @@
     class Project extends MY_Model{
         
         public $table = 'project';
+        public $view = 'project_view';
         
         function __construct(){
             parent::__construct();

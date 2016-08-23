@@ -23,8 +23,7 @@
              </select>                                                    
          </div>
      </div>
-     <div class="row">
-
+     <div class="row projectList">
          <div class="col-md-3 col-sm-6 md-margin-bottom-40">
              <div class="easy-block-v2">
                  <img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0003.jpg">
