@@ -349,4 +349,23 @@
             echo $project_arr_json;
             
         }
+        
+        function view_project_page($project_id){
+            /*
+             * Open Project page
+             *
+             * @param   int     Project ID
+             *
+             */
+            
+            // Check login
+            $is_login = $this->gnc_authen->is_sign_in();
+            
+            // Get data
+            $member_id = $this->session->userdata('member_id');
+            
+            // Load view
+            $this->load->view('main/singleProduct');
+            
+        }
     }
