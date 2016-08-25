@@ -52,7 +52,7 @@ function setSubCategoryOption() {
     masterCategoryText.val(projectCateogry.find('option:selected').text());
     
     selectSubCategory.empty();
-    selectSubCategory.append('<option value="0">' + optionSelectNoBreed + '</option>');
+    selectSubCategory.append('<option value="">' + optionSelectNoBreed + '</option>');
     
     $.ajax({
         type : 'POST',
@@ -87,7 +87,7 @@ function addProject1(e){
     e.preventDefault();
 
     categoryId = projectCateogry.val();
-    if (selectSubCategory.val() !== "" || !selectSubCategory.val()) {
+    if (selectSubCategory.val() !== "") {
         categoryId = selectSubCategory.val();
     }
     
@@ -100,7 +100,7 @@ function addProject1(e){
         "project_detail" : projectDetail.val()
     };
     //console.log(param);
-    
+
     $.ajax({
         type : 'POST',
         url : webUrl + 'member/add_project_step1_ajax',

@@ -2,6 +2,7 @@ var selectUnit = $('#select_unit');
 var ppu = $('#ppu');
 var quantity = $('#quantity');
 var lowestOrder = $('#lowest_order');
+var startDate = $('#startDate');
 var sellDate = $('#sell_date');
 
 var productUnitArr = $('.pUnit');
@@ -64,9 +65,10 @@ function changeUnit() {
 function addProject2(e) {
     e.preventDefault();
     
-    dateString = getDateString(sellDate.val());
+    sellDateString = getDateString(sellDate.val());
+    startDateString = getDateString(startDate.val());
     
-    if(dateString === null){
+    if(sellDateString === null){
         return;
     }
     
@@ -75,18 +77,20 @@ function addProject2(e) {
         'ppu' : ppu.val(),
         'quantity' : quantity.val(),
         'lowest_order' : lowestOrder.val(),
-        'sell_date' : dateString
+        'start_date' : startDateString,
+        'sell_date' : sellDateString
     };
     
     shipmentDict = {};
     
     $('.shipmentWay').each(function (index){
-        //console.log(index);
-        //param[$(this).prop('name')] = $(this).prop('checked');
-        shipmentDict[index] = $(this).prop('checked');
+        nameArray = $(this).prop('name');
+        shipmentId = nameArray[nameArray.length - 1] + "";
+        shipmentDict[shipmentId] = $(this).prop('checked');
     });
     param.shipment = shipmentDict;
     //console.log(param);
+    //return;
 
     $.ajax({
         type : 'POST',
@@ -94,6 +98,7 @@ function addProject2(e) {
         data : param
     }).success(function (data){
         if (data != "1") {
+            console.log(data);
             return;
         }
         location.replace(webUrl + 'add_project/step3');

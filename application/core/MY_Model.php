@@ -171,6 +171,22 @@
             
         }
         
+        function add_multiple($data_arr){
+            /*
+             *  Insert multiple rows
+             *  @param  array   Array of data
+             *
+             *  @return int     number of inserted row
+             *  
+             */
+            
+            // Insert data
+            $insert_result = $this->db->insert_batch($this->table, $data_arr);
+            
+            // return insert result
+            return $insert_result;
+        }
+        
         function update($where_assoc, $data_assoc){
             /*
              *  Update rows

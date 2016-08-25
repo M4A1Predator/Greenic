@@ -35,6 +35,13 @@
 											<input type="text" name="minOrder" id="lowest_order" placeholder="10">
 										</label>
 								</section>
+                                <section class="col-md-2 col-sm-4">
+                                        <label class="label"><strong>วันที่เริ่มทำ</strong></label>
+										<label class="input">
+										<i class="icon-append fa fa-calendar"></i>
+										<input type="text" name="date" id="startDate" placeholder="เช่น 10/05/2559" class="hasDatepicker">
+									</label>
+								</section>
                                 <section class="col-md-4 col-sm-8">
                                         <label class="label"><strong>วันที่พร้อมจำหน่าย <span style="color:red">(โดยประมาณ)</span></strong></label>
 										<label class="input">
@@ -47,7 +54,7 @@
 								<label class="label"><strong>ช่องทางการจัดส่ง</strong></label>
 								<div class="inline-group">
                                     <?php foreach($shipment_arr as $shipment){ ?>
-                                    <label class="checkbox"><input type="checkbox" class="shipmentWay" name="smw<?=$shipment['shipment_id']?>"><i></i><?=$shipment['shipment_name']?></label>
+                                    <label class="checkbox"><input type="checkbox" class="shipmentWay" name="smw-<?=$shipment['shipment_id']?>"><i></i><?=$shipment['shipment_name']?></label>
                                     <?php } ?>
                                     
 <!--									<label class="checkbox"><input type="checkbox" id="ems" class="shipmentWay" name=""><i></i>ไปรษณีย์ไทย</label>-->

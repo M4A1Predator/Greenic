@@ -65,7 +65,7 @@
                     <a href="#"><i class="fa fa-cogs"></i> กำลังผลิต: <?=$project->project_quantity?> <?=$project->project_unit_name?></a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-truck"></i> การจัดส่ง: โปรดติดต่อasdsadsdsd</a>
+                    <a href="#"><i class="fa fa-truck"></i> การจัดส่ง: <span id="shipmentWay">โปรดติดต่อasdsadsdsd</span></a>
                 </li>
                 <li class="list-group-item">
                     <a href="#"><i class="fa fa-calendar"></i> พร้อมจำหน่าย: <?=display_date($project->project_selldate)?></a>

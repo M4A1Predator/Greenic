@@ -77,6 +77,7 @@ $route['edit_my_account_pro'] = 'main/Member_ctrl/edit_member_pro';
 $route['get_categories_ajax'] = 'main/Category_ctrl/get_categories_ajax';
 $route['get_sub_categories_ajax/(:num)'] = 'main/Category_ctrl/get_sub_categories_ajax/$1';
 $route['get_all_units_ajax'] = 'main/Product_ctrl/get_all_units_ajax';
+$route['get_project_shipments_ajax/(:num)'] = 'main/Shipment_ctrl/get_project_shipments_ajax/$1';
 $route['member/get_farms_ajax'] = 'main/Farm_ctrl/get_member_farms_ajax';
 $route['member/get_projects_ajax'] = 'main/Project_ctrl/get_member_projects_ajax';
 $route['member_add/category_ajax'] = 'main/Category_ctrl/add_category_member_ajax';

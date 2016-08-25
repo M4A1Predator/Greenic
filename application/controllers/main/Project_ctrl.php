@@ -128,6 +128,7 @@
             $this->form_validation->set_rules('ppu', 'ppu', 'required|numeric');
             $this->form_validation->set_rules('quantity', 'quantity', 'required|numeric');
             $this->form_validation->set_rules('lowest_order', 'lowest_order', 'required|numeric');
+            $this->form_validation->set_rules('start_date', 'start_date', 'required');
             $this->form_validation->set_rules('sell_date', 'sell_date', 'required');
             
             // Validate form
@@ -142,7 +143,16 @@
             $ppu = $this->input->post('ppu');
             $quantity = $this->input->post('quantity');
             $lowest_order = $this->input->post('lowest_order');
+            $start_date = $this->input->post('start_date');
             $sell_date = $this->input->post('sell_date');
+            
+            // Filter only selected shipment methods
+            $shipment_arr = array();
+            foreach($shipment as $id => $val){
+                if($val == 'true'){
+                    $shipment_arr[] = $id;
+                }
+            }
             
             // Set flash data for step2
             $step2_data = array();
@@ -151,7 +161,8 @@
             $step2_data['add_project_quantity'] = $quantity;
             $step2_data['add_project_lowest_order'] = $lowest_order;
             $step2_data['add_project_sell_date'] = $sell_date;
-            $step2_data['add_project_shipment'] = $shipment;
+            $step2_data['add_project_start_date'] = $start_date;
+            $step2_data['add_project_shipment'] = $shipment_arr;
             
             // Set session
             $this->session->set_userdata($step2_data);
@@ -193,6 +204,7 @@
             $project_data_assoc = array();
             $project_data_assoc['project_name'] = $this->session->userdata('add_project_name');
             $project_data_assoc['project_detail'] = $this->session->userdata('add_project_detail');
+            $project_data_assoc['project_startdate'] = $this->session->userdata('add_project_start_date');
             $project_data_assoc['project_selldate'] = $this->session->userdata('add_project_sell_date');
             $project_data_assoc['project_quantity'] = $this->session->userdata('add_project_quantity');
             $project_data_assoc['project_ppu'] = $this->session->userdata('add_project_ppu');
@@ -220,6 +232,24 @@
                 $this->db->trans_rollback();
                 return;
             }
+            
+            // Add shipment methods
+            $shipment_arr = $this->session->userdata('add_project_shipment');
+            // Create product shipment data
+            $shipment_data_arr = array();
+            foreach($shipment_arr as $shipment_id){
+                $shipment_data_arr[] = array(
+                                'product_shipment_project_id' => $added_project_id,
+                                'product_shipment_shipment_id' => $shipment_id
+                            );
+            }
+            // Add product shipment data to DB
+            $added_product_shipment_rows = $this->Product_shipment->add_multiple($shipment_data_arr);
+            
+            //echo var_dump($shipment_data_arr);
+            //echo "added ".$this->Product_shipment->add_multiple($shipment_data_arr);
+            //$this->db->trans_rollback();
+            //return;
             
             // Upload cover image
             // Resize image

@@ -25,14 +25,6 @@ function setFarmOption() {
     
 }
 
-function changeFarm() {
-    
-}
-
-function changeType() {
-    
-}
-
 function setProjectsList() {
     farmId = selectFarm.val();
     typeId = selectType.val();
@@ -47,7 +39,7 @@ function setProjectsList() {
         url : webUrl + 'member/get_projects_ajax',
         data : param,
     }).success(function (data){
-        console.log(data);
+        //console.log(data);
         jsonData = JSON.parse(data);
         projectList.empty();
         
