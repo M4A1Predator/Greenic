@@ -1,36 +1,38 @@
 		<div class="breadcrumbs">
 			<div class="container">
-				<h1 class="pull-left">ผักบุ้งจีนเฟส#1</h1>
+				<h1 class="pull-left"><?=$project->project_name?>#1</h1>
 				<ul class="pull-right breadcrumb">
 					<li><a href="index.php">หน้าแรก</a></li>
-					<li><a href="category.php?name=vegetable">ผักอินทรีย์</a></li>
-                    <li><a href="subCategory.php">ผักบุ้ง</a></li>
-					<li class="active">ผักบุ้งจีนเฟส#2</li>
+					<li><a href="category.php?name=vegetable"><?=$project->project_type_name?></a></li>
+                    <li><a href="subCategory.php"><?=$project->category_name?></a></li>
+					<li class="active"><?=$project->project_name?>#2</li>
 				</ul>
 			</div>
 		</div>
-<div class="search-block parallaxBg" style="background-position: 50% 16px;background: url(<?=base_url()?>mats/assets/img/project-bg-1.jpg) 50% 0 repeat fixed;">
+<div class="search-block parallaxBg" style="background-position: 50% 16px;background: url(<?=base_url().$project->project_cover_image_path?>) 50% 0 repeat fixed;">
     <div class="container">
         <div class="col-md-6 col-md-offset-3">
-            <h1>ผักบุ้งจีนเฟส#2</h1>
+            <h1><?=$project->project_name?></h1>
             <div class="profile-blog">
                 <img class="rounded-x" style="max-width:100px;" src="<?=base_url()?>mats/assets/img/testimonials/img1.jpg" alt="">
                 <div class="coverDetail">
-                    <strong class="coverProfile">เกษตรกร: สมปอง มุ่งทำกิน</strong> <br>
-                    <a class="farmProfile"><i class="fa fa-map-signs" aria-hidden="true"></i> ไร่ลุงแดง</a> <br>
-                    <?php if(isset($_GET['follow'])=="yes"){?>
-                    <a href="singleProduct.php" class="btn-u btn-u-xs btn-u-blue"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามฟาร์ม</a>
-                    <?php }else{ ?>
-                    <a href="singleProduct.php?follow=yes" class="btn-u btn-u-xs btn-u-dark"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามฟาร์ม</a>
-                    <?php } ?>
-                    <?php if(isset($_GET['kaset'])=="yes"){?>
-                    <a href="singleProduct.php" class="btn-u btn-u-xs btn-u-red"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามเกษตรกร</a>
-                    <?php }else{ ?>
-                    <a href="singleProduct.php?follow=yes&kaset=yes" class="btn-u btn-u-xs btn-u-default"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามเกษตรกร</a>
+                    <strong class="coverProfile">เกษตรกร: <?=$project->member_firstname?> <?=$project->member_lastname?></strong> <br>
+                    <a class="farmProfile"><i class="fa fa-map-signs" aria-hidden="true"></i> <?=$project->farm_name?></a> <br>
+                    <?php if(!$is_owner){?>
+                        <?php if($is_follow_project){?>
+                        <a href="singleProduct.php" class="btn-u btn-u-xs btn-u-blue"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามฟาร์ม</a>
+                        <?php }else{ ?>
+                        <a href="singleProduct.php?follow=yes" class="btn-u btn-u-xs btn-u-dark"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามฟาร์ม</a>
+                        <?php } ?>
+                        <?php if(isset($_GET['kaset'])=="yes"){?>
+                        <a href="singleProduct.php" class="btn-u btn-u-xs btn-u-red"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามเกษตรกร</a>
+                        <?php }else{ ?>
+                        <a href="singleProduct.php?follow=yes&kaset=yes" class="btn-u btn-u-xs btn-u-default"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามเกษตรกร</a>
+                        <?php } ?>
                     <?php } ?>
                     
                     <br>
-                    <span class="coverLocation"><i class="fa fa-map-marker"></i> ปากช่อง, นครราชศรีมา</span>
+                    <span class="coverLocation"><i class="fa fa-map-marker"></i> <?=$project->farm_district?>, <?=$project->farm_province?></span>
                 </div>
             </div>
         </div>
@@ -44,10 +46,10 @@
             <img class="img-responsive" src="<?=base_url()?>mats/assets/img/verify.png" alt="">
             <div class="information">
                 <strong><i class="fa fa-info-circle" aria-hidden="true"></i> ข้อมูล</strong>
-                <p>ผักบุ้งจีน เป็นพืชที่อยู่ในวงศ์ผักบุ้ง (Convolvulaceae) มีชื่อทางวิทยาศาสตร์ว่า Ipomoea aquatica Forsk. Var. reptan เป็นพืชที่พบทั่วไปในเขตร้อน และเป็นผักที่คนไทยนิยมนำมาประกอบอาหารเช่นเดียวกับผักบุ้งไทย ผักบุ้งจีนมีใบสีเขียว ก้านใบมีสีเหลืองหรือขาว ก้านดอกและดอกมีสีขาว</p>
+                <p><?=$project->project_detail?></p>
             </div>
             <div class="price margin-bottom-20">
-                <a class="btn-u btn-brd btn-u btn-u-lg subCate">60 บาท/กิโลกรัม</a>
+                <a class="btn-u btn-brd btn-u btn-u-lg subCate"><?=$project->project_ppu?> บาท/<?=$project->project_unit_name?></a>
                 <!--กรณีของหมด-->
                 <a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>
             </div>
@@ -60,13 +62,13 @@
                                 <?php } ?>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-cogs"></i> กำลังผลิต: 1 ตัน</a>
+                    <a href="#"><i class="fa fa-cogs"></i> กำลังผลิต: <?=$project->project_quantity?> <?=$project->project_unit_name?></a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-truck"></i> การจัดส่ง: โปรดติดต่อ</a>
+                    <a href="#"><i class="fa fa-truck"></i> การจัดส่ง: โปรดติดต่อasdsadsdsd</a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-calendar"></i> พร้อมจำหน่าย: 5/4/2559</a>
+                    <a href="#"><i class="fa fa-calendar"></i> พร้อมจำหน่าย: <?=display_date($project->project_selldate)?></a>
                 </li>
                 <li class="list-group-item">
                     <div class="text-center star margin-bottom-10">
@@ -75,64 +77,67 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
                 <i class="fa fa-star-half-o" aria-hidden="true"></i>
                 <i class="fa fa-star-o" aria-hidden="true"></i><br>
+                <?php if($is_sign_in && !$is_owner){ ?>
                 <button class="btn-u rounded btn-u-primary" data-toggle="modal" data-target="#voteForm" type="button"><i class="fa fa-star" aria-hidden="true"></i> โหวต</button>
-                            <div class="modal fade" id="voteForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <form action="#" class="sky-form">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <h4 class="modal-title" id="myModalLabel4">โหวตสินค้านี้</h4>
+                <?php } ?>
+                
+                <div class="modal fade" id="voteForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="#" class="sky-form">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title" id="myModalLabel4">โหวตสินค้านี้</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="rating">
+                                            <input type="radio" name="stars-rating" id="stars-rating-5">
+                                            <label for="stars-rating-5"><i class="fa fa-star"></i></label>
+                                            <input type="radio" name="stars-rating" id="stars-rating-4">
+                                            <label for="stars-rating-4"><i class="fa fa-star"></i></label>
+                                            <input type="radio" name="stars-rating" id="stars-rating-3">
+                                            <label for="stars-rating-3"><i class="fa fa-star"></i></label>
+                                            <input type="radio" name="stars-rating" id="stars-rating-2">
+                                            <label for="stars-rating-2"><i class="fa fa-star"></i></label>
+                                            <input type="radio" name="stars-rating" id="stars-rating-1">
+                                            <label for="stars-rating-1"><i class="fa fa-star"></i></label>
+                                            <a>เลือกระดับคะแนน (1-5)</a>
                                         </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="rating">
-                                                        <input type="radio" name="stars-rating" id="stars-rating-5">
-                                                        <label for="stars-rating-5"><i class="fa fa-star"></i></label>
-                                                        <input type="radio" name="stars-rating" id="stars-rating-4">
-                                                        <label for="stars-rating-4"><i class="fa fa-star"></i></label>
-                                                        <input type="radio" name="stars-rating" id="stars-rating-3">
-                                                        <label for="stars-rating-3"><i class="fa fa-star"></i></label>
-                                                        <input type="radio" name="stars-rating" id="stars-rating-2">
-                                                        <label for="stars-rating-2"><i class="fa fa-star"></i></label>
-                                                        <input type="radio" name="stars-rating" id="stars-rating-1">
-                                                        <label for="stars-rating-1"><i class="fa fa-star"></i></label>
-                                                        <a>เลือกระดับคะแนน (1-5)</a>
-                                                    </div>
-                                                    <section>
-                                                        <label class="label">ความคิดเห็น</label>
-                                                        <label class="input">
-                                                            <i class="icon-append fa fa-comment"></i>
-                                                            <input type="text" name="subject" id="subject">
-                                                        </label>
-                                                    </section>
-                                                    <div class="row">
-                                                        <section class="col col-6">
-                                                            <label class="label">วันที่ซื้อของ</label>
-                                                            <label class="input">
-                                                                <i class="icon-append fa fa-calendar"></i>
-                                                                <input type="text" name="date" id="date" placeholder="เช่น 10 มกราคม 2559">
-                                                            </label>
-                                                        </section>
-                                                        <section class="col col-6">
-                                                            <label class="label">จำนวนที่ซื้อ</label>
-                                                            <label class="input">
-                                                                <input type="text" name="total" placeholder="เช่น 20 กิโลกรัม">
-                                                            </label>
-                                                        </section>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <section>
+                                            <label class="label">ความคิดเห็น</label>
+                                            <label class="input">
+                                                <i class="icon-append fa fa-comment"></i>
+                                                <input type="text" name="subject" id="subject">
+                                            </label>
+                                        </section>
+                                        <div class="row">
+                                            <section class="col col-6">
+                                                <label class="label">วันที่ซื้อของ</label>
+                                                <label class="input">
+                                                    <i class="icon-append fa fa-calendar"></i>
+                                                    <input type="text" name="date" id="date" placeholder="เช่น 10 มกราคม 2559">
+                                                </label>
+                                            </section>
+                                            <section class="col col-6">
+                                                <label class="label">จำนวนที่ซื้อ</label>
+                                                <label class="input">
+                                                    <input type="text" name="total" placeholder="เช่น 20 กิโลกรัม">
+                                                </label>
+                                            </section>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn-u btn-u-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>ยกเลิก</button>
-                                            <button type="button" class="btn-u btn-u-primary"><i class="fa fa-star"></i> โหวต</button>
-                                        </div>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn-u btn-u-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>ยกเลิก</button>
+                                <button type="button" class="btn-u btn-u-primary"><i class="fa fa-star"></i> โหวต</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <button class="btn-u rounded btn-u-dark" data-toggle="modal" data-target="#voteResult" type="button"><i class="fa fa-list" aria-hidden="true"></i> ผลโหวต</button>        
                             <div class="modal fade" id="voteResult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog">
@@ -269,6 +274,7 @@
                     <div class="tab-content">
                         <div id="timeline" class="profile-edit tab-pane fade active in">
                             <div class="margin-bottom-40">
+                            <?php if($is_owner){ ?>
                             <button class="btn-u btn-u-lg rounded-4x btn-full" data-toggle="modal" data-target="#updateForm" type="button">อัพเดท <i class="fa fa-plus" aria-hidden="true"></i></button>
                             <div class="modal fade" id="updateForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog">
@@ -299,8 +305,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php } ?>
                         </div>
-                            <ul class="timeline-v2">
+                    <ul class="timeline-v2">
                     <li>
                         <time class="cbp_tmtime" datetime=""><span>10/4/2559</span> <span>มกราคม</span></time>
                         <i class="cbp_tmicon rounded-x hidden-xs"></i>

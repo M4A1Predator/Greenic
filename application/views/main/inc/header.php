@@ -24,6 +24,7 @@
                             <i class="fa fa-user" aria-hidden="true"></i> สวัสดีคุณ: <?=$this->session->userdata('member_firstname')?>
                         </a>
                         ( <a href="<?=base_url().$this->lang->line('sign_out_uri')?>"><?=$this->lang->line('sign_out_text')?></a> )
+                        <!--<a href="<?=base_url().$this->lang->line('sign_out_uri')?>"><i class="fa fa-sign-out"></i></a>-->
                     </li>
 					<li class=""><a href="<?=base_url()?>mats/chatMain.php?status=login"><i class="fa fa-comment" aria-hidden="true"></i> กล่องแชท</a></li>
                     <li class=""><a href="<?=base_url().$this->lang->line('add_project')?>"><i class="fa fa-plus" aria-hidden="true"></i> สร้างโปรเจ็ค</a></li>

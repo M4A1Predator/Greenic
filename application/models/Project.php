@@ -12,6 +12,20 @@
             parent::__construct();
         }
         
+        function get_project_by_id($project_id, $result_type='object', $use_view=FALSE){
+            // Get project
+            $where_assoc = array();
+            $where_assoc['project_id'] = $project_id;
+            
+            // Get project data from view
+            $project_arr = $this->Project->get_filter('*', $where_assoc, null, null, null, null, 'object', array('use_view' => $use_view));
+            if(count($project_arr) !== 1){
+                return NULL;
+            }
+            return $project_arr[0];
+            
+        }
+        
         function add_project($data_assoc){
             /*
              *  Add project to DB

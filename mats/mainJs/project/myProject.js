@@ -2,7 +2,10 @@
 var selectFarm = $('#selectFarm');
 var selectType = $('#selectType');
 var projectList = $('.projectList');
+
 setFarmOption();
+setProjectsList();
+
 selectFarm.change(setProjectsList);
 selectType.change(setProjectsList);
 

@@ -359,13 +359,34 @@
              */
             
             // Check login
-            $is_login = $this->gnc_authen->is_sign_in();
+            $is_sign_in =$this->gnc_authen->is_sign_in();
             
-            // Get data
-            $member_id = $this->session->userdata('member_id');
+            // Get project
+            $project = $this->Project->get_project_by_id($project_id, 'object', TRUE);
+            if(!$project){
+                redirect('404_override');
+                return;
+            }
+            
+            // Set view data
+            $data_assoc = array();
+            $data_assoc['project'] = $project;
+            $data_assoc['is_sign_in'] = $is_sign_in;
+            $data_assoc['is_owner'] = FALSE;
+            $data_assoc['is_follow_project'] = FALSE;
+            $data_assoc['is_follow_farmer'] = FALSE;
+            //echo var_dump($project->project_unit_name);
+            //return;
+            // Check if project owner
+            if($is_sign_in){
+                $member_id = $this->session->userdata('member_id');
+                if($project->farm_member_id === $member_id){
+                    $data_assoc['is_owner'] = TRUE;
+                }
+            }
             
             // Load view
-            $this->load->view('main/singleProduct');
+            $this->load->view('main/singleProduct', $data_assoc);
             
         }
     }
