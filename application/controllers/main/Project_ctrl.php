@@ -407,10 +407,10 @@
             $data_assoc['is_owner'] = FALSE;
             $data_assoc['is_follow_project'] = FALSE;
             $data_assoc['is_follow_farmer'] = FALSE;
-            //echo var_dump($project->project_unit_name);
-            //return;
-            // Check if project owner
+
+            // If sign in
             if($is_sign_in){
+                // Check if project owner
                 $member_id = $this->session->userdata('member_id');
                 if($project->farm_member_id === $member_id){
                     $data_assoc['is_owner'] = TRUE;
