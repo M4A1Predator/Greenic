@@ -1,14 +1,15 @@
-		<div class="breadcrumbs">
-			<div class="container">
-				<h1 class="pull-left"><?=$project->project_name?>#1</h1>
-				<ul class="pull-right breadcrumb">
-					<li><a href="index.php">หน้าแรก</a></li>
-					<li><a href="category.php?name=vegetable"><?=$project->project_type_name?></a></li>
-                    <li><a href="subCategory.php"><?=$project->category_name?></a></li>
-					<li class="active"><?=$project->project_name?>#2</li>
-				</ul>
-			</div>
-		</div>
+<div class="breadcrumbs">
+    <input type="hidden" id="projectId" value="<?=$project->project_id?>"/>
+    <div class="container">
+        <h1 class="pull-left"><?=$project->project_name?>#1</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="index.php">หน้าแรก</a></li>
+            <li><a href="category.php?name=vegetable"><?=$project->project_type_name?></a></li>
+            <li><a href="subCategory.php"><?=$project->category_name?></a></li>
+            <li class="active"><?=$project->project_name?>#2</li>
+        </ul>
+    </div>
+</div>
 <div class="search-block parallaxBg" style="background-position: 50% 16px;background: url(<?=base_url().$project->project_cover_image_path?>) 50% 0 repeat fixed;">
     <div class="container">
         <div class="col-md-6 col-md-offset-3">
@@ -51,7 +52,7 @@
             <div class="price margin-bottom-20">
                 <a class="btn-u btn-brd btn-u btn-u-lg subCate"><?=$project->project_ppu?> บาท/<?=$project->project_unit_name?></a>
                 <!--กรณีของหมด-->
-                <a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>
+                <!--<a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>-->
             </div>
             <ul class="list-group sidebar-nav-v1 margin-bottom-10" id="sidebar-nav-1">
                 <li class="list-group-item">

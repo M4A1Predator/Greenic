@@ -370,14 +370,16 @@
                 $where_assoc['project_farm_id'] = $farm_id;
             }
             
+            // Set order
+            $order_by = 'project_time DESC';
+            
             // Get projects array
-            $project_arr = $this->Project->get_filter('*', $where_assoc, null, null, null, null, 'array', array('use_view' => TRUE));
+            $project_arr = $this->Project->get_filter('*', $where_assoc, null, $order_by, null, null, 'array', array('use_view' => TRUE));
             
             // Encode JSON
             $project_arr_json = json_encode($project_arr, JSON_UNESCAPED_UNICODE);
             
             echo $project_arr_json;
-            
         }
         
         function view_project_page($project_id){

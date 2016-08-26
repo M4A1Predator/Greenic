@@ -93,6 +93,7 @@ $route['get_sub_district_pro'] = 'main/Address_ctrl/get_sub_district';
 
 // Test routes
 $route['test'] = 'main/Home/test';
+$route['test/gen'] = 'test/Test_general/test';
 $route['test/status'] = 'test/Test_status/show_status';
 $route['test/project_type'] = 'test/Test_project_type/test_project_type';
 $route['test/status_filter'] = 'test/Test_status/filter_status';

@@ -29,7 +29,12 @@
              */
             
             // Get shipment methods
+            $shipment_arr = $this->Product_shipment->get_product_shipment_by_project_id($project_id, 'array');
             
+            // Encode JSON
+            $shipment_arr_json = json_encode($shipment_arr, JSON_UNESCAPED_UNICODE);
+            
+            echo $shipment_arr_json;
         }
         
         
