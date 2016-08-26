@@ -22,13 +22,12 @@
              *
              *  @return int insert id
              */
-            
             // Prepare data
             $data_assoc = array();
             $data_assoc['project_post_project_id'] = $project_id;
             $data_assoc['project_post_caption'] = $caption;
             $data_assoc['project_post_detail'] = $detail;
-            $data_assoc['image'] = $image;
+            $data_assoc['project_post_image'] = $image;
             
             // Add to DB
             $add_result = $this->add($data_assoc);
@@ -37,7 +36,7 @@
             if($add_result == FALSE){
                 return NULL;
             }
-            
+  
             // return insert id
             return $this->db->insert_id();
         }

@@ -20,8 +20,9 @@
         }
         
         function test(){
-            $n = $this->Product_shipment->get_product_shipment_by_project_id(18);
-            echo json_encode($n, JSON_UNESCAPED_UNICODE);
+            //$n = $this->Product_shipment->get_product_shipment_by_project_id(18);
+            //echo json_encode($n, JSON_UNESCAPED_UNICODE);
+            echo var_dump($this->input->post('rekt'));
         }
         
         

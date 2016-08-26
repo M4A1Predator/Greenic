@@ -4,7 +4,7 @@
         <h1 class="pull-left"><?=$project->project_name?>#1</h1>
         <ul class="pull-right breadcrumb">
             <li><a href="index.php">หน้าแรก</a></li>
-            <li><a href="category.php?name=vegetable"><?=$project->project_type_name?></a></li>
+            <li><a href="category.php?name=vegetable"><?=get_project_type_thai_text($project->category_project_type_id)?></a></li>
             <li><a href="subCategory.php"><?=$project->category_name?></a></li>
             <li class="active"><?=$project->project_name?>#2</li>
         </ul>
@@ -74,75 +74,75 @@
                     <a href="#"><i class="fa fa-calendar"></i> พร้อมจำหน่าย: <?=display_date($project->project_selldate)?></a>
                 </li>
                 <li class="list-group-item">
-                    <div class="text-center star margin-bottom-10">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                <i class="fa fa-star-o" aria-hidden="true"></i><br>
-                <?php if($is_sign_in && !$is_owner){ ?>
-                <button class="btn-u rounded btn-u-primary" data-toggle="modal" data-target="#voteForm" type="button"><i class="fa fa-star" aria-hidden="true"></i> โหวต</button>
-                <?php } ?>
+                <div class="text-center star margin-bottom-10">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i><br>
+                    <?php if($is_sign_in && !$is_owner){ ?>
+                    <button class="btn-u rounded btn-u-primary" data-toggle="modal" data-target="#voteForm" type="button"><i class="fa fa-star" aria-hidden="true"></i> โหวต</button>
+                    <?php } ?>
                 
-                <div class="modal fade" id="voteForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <form action="#" class="sky-form">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title" id="myModalLabel4">โหวตสินค้านี้</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="rating">
-                                            <input type="radio" name="stars-rating" id="stars-rating-5">
-                                            <label for="stars-rating-5"><i class="fa fa-star"></i></label>
-                                            <input type="radio" name="stars-rating" id="stars-rating-4">
-                                            <label for="stars-rating-4"><i class="fa fa-star"></i></label>
-                                            <input type="radio" name="stars-rating" id="stars-rating-3">
-                                            <label for="stars-rating-3"><i class="fa fa-star"></i></label>
-                                            <input type="radio" name="stars-rating" id="stars-rating-2">
-                                            <label for="stars-rating-2"><i class="fa fa-star"></i></label>
-                                            <input type="radio" name="stars-rating" id="stars-rating-1">
-                                            <label for="stars-rating-1"><i class="fa fa-star"></i></label>
-                                            <a>เลือกระดับคะแนน (1-5)</a>
-                                        </div>
-                                        <section>
-                                            <label class="label">ความคิดเห็น</label>
-                                            <label class="input">
-                                                <i class="icon-append fa fa-comment"></i>
-                                                <input type="text" name="subject" id="subject">
-                                            </label>
-                                        </section>
-                                        <div class="row">
-                                            <section class="col col-6">
-                                                <label class="label">วันที่ซื้อของ</label>
+                    <div class="modal fade" id="voteForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form action="#" class="sky-form">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title" id="myModalLabel4">โหวตสินค้านี้</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="rating">
+                                                <input type="radio" name="stars-rating" id="stars-rating-5">
+                                                <label for="stars-rating-5"><i class="fa fa-star"></i></label>
+                                                <input type="radio" name="stars-rating" id="stars-rating-4">
+                                                <label for="stars-rating-4"><i class="fa fa-star"></i></label>
+                                                <input type="radio" name="stars-rating" id="stars-rating-3">
+                                                <label for="stars-rating-3"><i class="fa fa-star"></i></label>
+                                                <input type="radio" name="stars-rating" id="stars-rating-2">
+                                                <label for="stars-rating-2"><i class="fa fa-star"></i></label>
+                                                <input type="radio" name="stars-rating" id="stars-rating-1">
+                                                <label for="stars-rating-1"><i class="fa fa-star"></i></label>
+                                                <a>เลือกระดับคะแนน (1-5)</a>
+                                            </div>
+                                            <section>
+                                                <label class="label">ความคิดเห็น</label>
                                                 <label class="input">
-                                                    <i class="icon-append fa fa-calendar"></i>
-                                                    <input type="text" name="date" id="date" placeholder="เช่น 10 มกราคม 2559">
+                                                    <i class="icon-append fa fa-comment"></i>
+                                                    <input type="text" name="subject" id="subject">
                                                 </label>
                                             </section>
-                                            <section class="col col-6">
-                                                <label class="label">จำนวนที่ซื้อ</label>
-                                                <label class="input">
-                                                    <input type="text" name="total" placeholder="เช่น 20 กิโลกรัม">
-                                                </label>
-                                            </section>
+                                            <div class="row">
+                                                <section class="col col-6">
+                                                    <label class="label">วันที่ซื้อของ</label>
+                                                    <label class="input">
+                                                        <i class="icon-append fa fa-calendar"></i>
+                                                        <input type="text" name="date" id="date" placeholder="เช่น 10 มกราคม 2559">
+                                                    </label>
+                                                </section>
+                                                <section class="col col-6">
+                                                    <label class="label">จำนวนที่ซื้อ</label>
+                                                    <label class="input">
+                                                        <input type="text" name="total" placeholder="เช่น 20 กิโลกรัม">
+                                                    </label>
+                                                </section>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-u btn-u-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>ยกเลิก</button>
+                                    <button type="button" class="btn-u btn-u-primary"><i class="fa fa-star"></i> โหวต</button>
+                                </div>
+                                </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn-u btn-u-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>ยกเลิก</button>
-                                <button type="button" class="btn-u btn-u-primary"><i class="fa fa-star"></i> โหวต</button>
-                            </div>
-                            </form>
                         </div>
                     </div>
-                </div>
-                <button class="btn-u rounded btn-u-dark" data-toggle="modal" data-target="#voteResult" type="button"><i class="fa fa-list" aria-hidden="true"></i> ผลโหวต</button>        
-                    <div class="modal fade" id="voteResult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <button class="btn-u rounded btn-u-dark" data-toggle="modal" data-target="#voteResult" type="button"><i class="fa fa-list" aria-hidden="true"></i> ผลโหวต</button>        
+                        <div class="modal fade" id="voteResult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <form action="#" class="sky-form">
@@ -247,7 +247,7 @@
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
             
                 </li>
             </ul>
@@ -256,11 +256,6 @@
             
             <div class="text-center"><img style="max-width:100%;" src="<?=base_url()?>mats/assets/img/ads-300.jpg"></div>
 
-        
-
-        
-
-            
         </div>
         <!--End Left Sidebar-->
 
@@ -311,63 +306,63 @@
                             </div>
                             <?php } ?>
                         </div>
-                    <ul class="timeline-v2">
-                    <li>
-                        <time class="cbp_tmtime" datetime=""><span>10/4/2559</span> <span>มกราคม</span></time>
-                        <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                        <div class="cbp_tmlabel">
-                            <h2>เริ่มเห็นความสำเร็จแล้วครับ กำลังงอกงาม</h2>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0003.jpg" alt="">
-                                    <div class="margin-bottom-20"></div>
+                        <ul class="timeline-v2" id="timelineList">
+                            <!--<li>
+                                <time class="cbp_tmtime" datetime=""><span>10/4/2559</span> <span>มกราคม</span></time>
+                                <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                <div class="cbp_tmlabel">
+                                    <h2>เริ่มเห็นความสำเร็จแล้วครับ กำลังงอกงาม</h2>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0003.jpg" alt="">
+                                            <div class="margin-bottom-20"></div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>เย่! ออกหน่อแล้วครับสวยงามอย่าบอกใครเชียว ใครสนใจอย่าลืมกดติดตามไว้นะครับ ปลูกไม่เยอะครับรับทักแชทมาจองกันไว้ก่อนได้ลยขายจำกัดแค่ 100 กิโลเท่านั้นนะครับ</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <p>เย่! ออกหน่อแล้วครับสวยงามอย่าบอกใครเชียว ใครสนใจอย่าลืมกดติดตามไว้นะครับ ปลูกไม่เยอะครับรับทักแชทมาจองกันไว้ก่อนได้ลยขายจำกัดแค่ 100 กิโลเท่านั้นนะครับ</p>
+                            </li>
+                            <li>
+                                <time class="cbp_tmtime" datetime=""><span>5/4/2559</span> <span>มกราคม</span></time>
+                                <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                <div class="cbp_tmlabel">
+                                    <h2>รดน้ำเบาๆก่อนทานข้าว</h2>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0002.jpg" alt="">
+                                            <div class="margin-bottom-20"></div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>ก่อนไปกินข้าววันนี้แวะรดน้ำให้มันหน่อยจะได้ออกมาเติบโตงดงาม น่ารับประทานครับ ใครสนใจอย่าลืมกดติดตามไว้นะครับ ปลูกไม่เยอะครับรับทักแชทมาจองกันไว้ก่อนได้ลยขายจำกัดแค่ 100 กิโลเท่านั้นนะครับ</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <time class="cbp_tmtime" datetime=""><span>5/4/2559</span> <span>มกราคม</span></time>
-                        <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                        <div class="cbp_tmlabel">
-                            <h2>รดน้ำเบาๆก่อนทานข้าว</h2>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0002.jpg" alt="">
-                                    <div class="margin-bottom-20"></div>
+                            </li>
+                            <li>
+                                <time class="cbp_tmtime" datetime=""><span>1/4/2559</span> <span>มกราคม</span></time>
+                                <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                                <div class="cbp_tmlabel">
+                                    <h2>วันนี้ฤกษ์งามยามดี เลยลงเมล็ดซะเลย</h2>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0001.jpg" alt="">
+                                            <div class="margin-bottom-20"></div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>เริ่มลงเมล็ดแล้วครับผักบุ้งจีนปลอดสารพิษ 100% ใครสนใจอย่าลืมกดติดตามไว้นะครับ ปลูกไม่เยอะครับรับทักแชทมาจองกันไว้ก่อนได้ลยขายจำกัดแค่ 100 กิโลเท่านั้นนะครับ</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <p>ก่อนไปกินข้าววันนี้แวะรดน้ำให้มันหน่อยจะได้ออกมาเติบโตงดงาม น่ารับประทานครับ ใครสนใจอย่าลืมกดติดตามไว้นะครับ ปลูกไม่เยอะครับรับทักแชทมาจองกันไว้ก่อนได้ลยขายจำกัดแค่ 100 กิโลเท่านั้นนะครับ</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <time class="cbp_tmtime" datetime=""><span>1/4/2559</span> <span>มกราคม</span></time>
-                        <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                        <div class="cbp_tmlabel">
-                            <h2>วันนี้ฤกษ์งามยามดี เลยลงเมล็ดซะเลย</h2>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0001.jpg" alt="">
-                                    <div class="margin-bottom-20"></div>
-                                </div>
-                                <div class="col-md-12">
-                                    <p>เริ่มลงเมล็ดแล้วครับผักบุ้งจีนปลอดสารพิษ 100% ใครสนใจอย่าลืมกดติดตามไว้นะครับ ปลูกไม่เยอะครับรับทักแชทมาจองกันไว้ก่อนได้ลยขายจำกัดแค่ 100 กิโลเท่านั้นนะครับ</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                            <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">เก่ากว่านี้ <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
+                            </li>-->
+                        </ul>
+                        <button type="button" id="getOlderBtn" class="btn-u btn-u-default btn-u-sm btn-block">เก่ากว่านี้ <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
                         </div>
 
                         <div id="photo" class="profile-edit tab-pane fade">
                             <h2 class="heading-md">รูปภาพทั้งหมดของโปรเจ็คนี้</h2>
                             <br>
-                             <div class="row  margin-bottom-30">
+                            <div class="row  margin-bottom-30" id="projectPictures">
                                 <div class="col-sm-4 sm-margin-bottom-30">
                                     <a href="assets/img/main/img2.jpg" rel="gallery1" class="fancybox img-hover-v1" title="Image 1">
                                         <span><img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0001.jpg" alt=""></span>
@@ -384,7 +379,6 @@
                                     </a>
                                 </div>
                             </div>
-                           
                             
                         </div>
                     </div>

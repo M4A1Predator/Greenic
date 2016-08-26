@@ -25,8 +25,8 @@ function updateTimeline(){
     
     formData = new FormData();
     formData.append('project_id', projectId.val());
-    formData.append('post_caption', postCaption);
-    formData.append('post_detail', postDetail);
+    formData.append('post_caption', postCaption.val());
+    formData.append('post_detail', postDetail.val());
     formData.append('post_image', postImage);
     
     $.ajax({
@@ -37,11 +37,13 @@ function updateTimeline(){
         contentType: false,
         data: formData,
         success: function(data){
-            //console.log(data);
             if (data != "1") {
                 console.log(data);
                 return;
             }
+            
+            location.reload();
+            
         }
     });
     

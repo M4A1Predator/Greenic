@@ -118,6 +118,7 @@
     
     <!-- Greenic JS -->
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/base.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/helper.js"></script>
     <!-- /GreenicJS -->
 
     <script type="text/javascript">
