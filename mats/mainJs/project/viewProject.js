@@ -8,8 +8,11 @@ var getOlderBtn = $('#getOlderBtn');
 
 var projectPictures = $('#projectPictures');
 
+var projectPostArray = [];
+
 setShipment();
-setTimeline();
+//setTimeline();
+getProjectPost();
 
 getOlderBtn.click(setTimeline);
 
@@ -38,11 +41,10 @@ function setShipment() {
     });
 }
 
-function setTimeline(){
-    
+function getProjectPost(){
     param = {
         'project_id' : projectId.val(),
-        'post_limit' : postLimit,
+        //'post_limit' : postLimit,
         'post_offset' : postOffset,
     };
     
@@ -57,35 +59,57 @@ function setTimeline(){
         }
         
         jsonData = JSON.parse(data);
+        projectPostArray = jsonData;
         
-        jsonData.forEach(function (projectPost){
-
-            content = '<li>' + 
-                        '<time class="cbp_tmtime" datetime=""><span>' + getDateFromMySqlDateText(projectPost.project_post_time) + '</span> <span>' + getMonthThaiText(projectPost.project_post_time) + '</span></time>' + 
-                        '<i class="cbp_tmicon rounded-x hidden-xs"></i>' + 
-                        '<div class="cbp_tmlabel">' + 
-                            '<h2>' + projectPost.project_post_caption + '</h2>' + 
-                            '<div class="row">' +
-                                '<div class="col-md-12">' +
-                                    '<img class="img-responsive" src="' + webUrl + projectPost.project_post_image + '" alt="">' + 
-                                    '<div class="margin-bottom-20"></div>' +
-                                '</div>' +
-                                '<div class="col-md-12">' +
-                                    '<p>' + projectPost.project_post_detail + '</p>' + 
-                                '</div>' +
-                            '</div>' +
-                        '</div>' +
-                    '</li>';
-            
-            timelineList.append(content);
-        });
         if (jsonData.length > 0) {
             postOffset += postLimit;
         }
         
+        setTimeline(jsonData.length);
+        setProjectPictures();
+        
     });
 }
 
+function setTimeline(limit){
+    
+    for (i=0;i<limit;i++) {
+        projectPost = projectPostArray[i];
+        
+        content = '<li>' + 
+                '<time class="cbp_tmtime" datetime=""><span>' + getDateFromMySqlDateText(projectPost.project_post_time) + '</span> <span>' + getMonthThaiText(projectPost.project_post_time) + '</span></time>' + 
+                '<i class="cbp_tmicon rounded-x hidden-xs"></i>' + 
+                '<div class="cbp_tmlabel">' + 
+                    '<h2>' + projectPost.project_post_caption + '</h2>' + 
+                    '<div class="row">' +
+                        '<div class="col-md-12">' +
+                            '<img class="img-responsive" src="' + webUrl + projectPost.project_post_image + '" alt="">' + 
+                            '<div class="margin-bottom-20"></div>' +
+                        '</div>' +
+                        '<div class="col-md-12">' +
+                            '<p>' + projectPost.project_post_detail + '</p>' + 
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</li>';
+    
+        timelineList.append(content);
+    }
+}
+
 function setProjectPictures(){
+    projectPostArray.forEach(function (projectPost){
+        content = '<div class="col-sm-4 sm-margin-bottom-30">' + 
+                    '<a href="assets/img/main/img2.jpg" rel="gallery1" class="fancybox img-hover-v1" title="' + projectPost.project_post_caption + '">' + 
+                        '<span><img class="img-responsive" src="' + webUrl + projectPost.project_post_image + '" alt=""></span>' +
+                    '</a>' +
+                '</div>';
+        
+        projectPictures.append(content);
+        
+    });
+    
+    
+    
     
 }

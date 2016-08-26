@@ -72,17 +72,6 @@
             $post_image_location = PROJECT_IMAGE_PATH.'posts/';
             $post_image_path = $post_image_location.$post_image_name;
             
-            // Resize image
-            $resize_config['image_library'] = 'gd2';
-            $resize_config['source_image'] = $post_image['tmp_name'];
-            $resize_config['create_thumb'] = FALSE;
-            $resize_config['maintain_ratio'] = TRUE;
-            $resize_config['width']         = 1000;
-            $resize_config['height']       = 600;
-            
-            $this->image_lib->initialize($resize_config);
-            $this->image_lib->resize();
-            
             // Set upload image config
             $upload_config = array();
             $upload_config['upload_path'] = $post_image_location;
@@ -104,6 +93,17 @@
             
             // Get uploaded data
             $ud = $this->upload->data();
+            
+            // Resize image
+            $resize_config['image_library'] = 'gd2';
+            $resize_config['source_image'] = $post_image_path;
+            $resize_config['create_thumb'] = FALSE;
+            $resize_config['maintain_ratio'] = TRUE;
+            $resize_config['width']         = 1000;
+            $resize_config['height']       = 600;
+            
+            $this->image_lib->initialize($resize_config);
+            $this->image_lib->resize();
             
             // Add post data
             $added_post_id = $this->Project_post->add_project_post($project_id, $post_caption, $post_detail, $post_image_path);
@@ -143,9 +143,9 @@
             if($post_offset == NULL){
                 $post_offset = 0;
             }
-            if($post_limit == NULL){
-                $post_limit = 5;
-            }
+            //if($post_limit == NULL){
+            //    $post_limit = 5;
+            //}
             
             // Get porject posts
             // Set where

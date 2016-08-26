@@ -363,21 +363,11 @@
                             <h2 class="heading-md">รูปภาพทั้งหมดของโปรเจ็คนี้</h2>
                             <br>
                             <div class="row  margin-bottom-30" id="projectPictures">
-                                <div class="col-sm-4 sm-margin-bottom-30">
+                                <!--<div class="col-sm-4 sm-margin-bottom-30">
                                     <a href="assets/img/main/img2.jpg" rel="gallery1" class="fancybox img-hover-v1" title="Image 1">
                                         <span><img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0001.jpg" alt=""></span>
                                     </a>
-                                </div>
-                                <div class="col-sm-4 sm-margin-bottom-30">
-                                    <a href="assets/img/main/img4.jpg" rel="gallery1" class="fancybox img-hover-v1" title="Image 2">
-                                        <span><img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0002.jpg" alt=""></span>
-                                    </a>
-                                </div>
-                                <div class="col-sm-4">
-                                    <a href="assets/img/main/img5.jpg" rel="gallery1" class="fancybox img-hover-v1" title="Image 3">
-                                        <span><img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0003.jpg" alt=""></span>
-                                    </a>
-                                </div>
+                                </div>-->
                             </div>
                             
                         </div>
