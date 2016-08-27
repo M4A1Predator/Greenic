@@ -5,18 +5,12 @@
 		<?php 
             $this->load->view( 'main/inc/header.php');
             $this->load->view( 'main/inc/search.php');
-        
-             if(isset($_GET['step'])){
-                 $step=$_GET['step'];
-             }else{
-                 $step="no";
-             }
             
-            if($step==1){
+            if($step=='step1'){
                 $this->load->view( 'main/page/editProjectPage1.php'); 
-            }else if($step==2){
+            }else if($step=='step2'){
                 $this->load->view( 'main/page/editProjectPage2.php'); 
-            }else if($step==3){
+            }else if($step=='step3'){
                 $this->load->view( 'main/page/editProjectPage3.php'); 
             }else{
                 $this->load->view( 'main/page/editProjectPage1.php'); 

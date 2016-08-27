@@ -24,10 +24,11 @@
 			</div>
             <!--สินค้ามาใหม่-->
             <div class="headline-center margin-bottom-20">
-					<h2>สินค้า <span class="color-green">เกษตรอินทรีย์</span> มาใหม่</h2>
-				</div>
+                <h2>สินค้า <span class="color-green">เกษตรอินทรีย์</span> มาใหม่</h2>
+            </div>
             <?php $this->load->view( 'main/inc/fillter.php' )?>
-			<div class="row">
+            <div>
+			<div class="row" id="lastProjects">
 				<!-- Begin Easy Block -->
 				<div class="col-md-3 col-sm-6">
 					<div class="easy-block-v2">
@@ -99,81 +100,7 @@
 				</div>
 				<!-- End Begin Easy Block -->
 			</div>
-            <div class="row">
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-default">มาใหม่</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0005.jpg">
-						<h3>ผักบุ้งจีน ในยางรถ</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> ผัก / ผักบุ้ง</li>
-							<li><span class="color-green">ราคา:</span> 60 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> ไร่ลุงแดง</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บ้านนา, นครนายก</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-default">มาใหม่</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0006.jpg">
-						<h3>ผักบุ้งจีน ปลอดสาร</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> ผัก / ผักบุ้ง</li>
-							<li><span class="color-green">ราคา:</span> 60 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> ไร่ลุงแดง</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บึงกุ่ม,กรุงเทพมหานคร</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-default">มาใหม่</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/A002.jpg">
-						<h3>ปลาดุกอินทรีย์ 100%</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> สัตว์ / ปลาดุก</li>
-							<li><span class="color-green">ราคา:</span> 70 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> บ่อปลาท่าดี</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บึงกุ่ม,กรุงเทพมหานคร</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-default">มาใหม่</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/A001.jpg">
-						<h3>ปลาดุกในบ่อซีเมนต์</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> สัตว์ / ปลาดุก</li>
-							<li><span class="color-green">ราคา:</span> 60 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> ฟิชชิ่งฟาร์ม</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บ้านนา, นครนายก</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-			</div>
-             
-             <!--สินค้ามาใหม่-->
+            </div><!--สินค้ามาใหม่-->
 		</div>
         <!--สินค้ายอดนิยม-->
         <div class="parallax-team parallaxBg" style="background-position: 50% 33px;">

@@ -46,6 +46,7 @@ function setProjectsList() {
         jsonData.forEach(function (project){
             
             projectUrl = webUrl + 'project/' + project.project_id;
+            editProjectUrl = webUrl + 'my_project/' + project.project_id + '/step1';
             
             content = '<div class="col-md-3 col-sm-6 md-margin-bottom-40">' +
                 '<div class="easy-block-v2">' +
@@ -58,7 +59,7 @@ function setProjectsList() {
                         '<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> ' + project.farm_district + ', ' + project.farm_province + '</li>' +
                     '</ul>' +
                     '<a href="' + projectUrl + '" class="btn-u btn-u-sm">ดูโปรเจ็คนี้</a>' + 
-                    '<a href="editProject.php" class="btn-u btn-u-blue btn-u-sm"><i class="fa fa-pencil"></i></a> ' + 
+                    '<a href="' + editProjectUrl + '" class="btn-u btn-u-blue btn-u-sm"><i class="fa fa-pencil"></i></a> ' + 
                     '<a class="btn-u btn-u-red btn-u-sm"><i class="fa fa-trash-o"></i></a>' + 
                 '</div>' +
             '</div>';

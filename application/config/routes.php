@@ -65,6 +65,7 @@ $route['my_account'] = 'main/Member_ctrl/member_detail_page';
 $route['add_project/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/add_project_page';
 $route['my_projects'] = 'main/Project_ctrl/member_projects_page';
 $route['project/(:num)'] = 'main/Project_ctrl/view_project_page/$1';
+$route['my_project/(:num)/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/edit_project_page/$1/$2';
 
 // Control routes
 $route['sign_in'] = 'main/Authentication/authen';
@@ -74,6 +75,7 @@ $route['regis_pro'] = 'main/Sign_up/sign_up_pro';
 $route['verify_account/(:num)/(:any)'] = 'main/Sign_up/verify_account';
 $route['edit_my_account_pro'] = 'main/Member_ctrl/edit_member_pro';
 
+$route['get_last_projects_ajax'] = 'main/Home/get_last_projects_ajax';
 $route['get_categories_ajax'] = 'main/Category_ctrl/get_categories_ajax';
 $route['get_sub_categories_ajax/(:num)'] = 'main/Category_ctrl/get_sub_categories_ajax/$1';
 $route['get_all_units_ajax'] = 'main/Product_ctrl/get_all_units_ajax';

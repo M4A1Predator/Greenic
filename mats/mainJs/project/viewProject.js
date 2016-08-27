@@ -61,19 +61,19 @@ function getProjectPost(){
         jsonData = JSON.parse(data);
         projectPostArray = jsonData;
         
-        if (jsonData.length > 0) {
-            postOffset += postLimit;
-        }
+        //if (jsonData.length > 0) {
+        //    postOffset += postLimit;
+        //}
         
-        setTimeline(jsonData.length);
+        setTimeline(postOffset, jsonData.length);
         setProjectPictures();
         
     });
 }
 
-function setTimeline(limit){
+function setTimeline(offset, limit){
     
-    for (i=0;i<limit;i++) {
+    for (i=offset;i<limit;i++) {
         projectPost = projectPostArray[i];
         
         content = '<li>' + 

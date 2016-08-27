@@ -319,6 +319,42 @@
             }
         }
         
+        function edit_project_page($project_id, $step){
+            /*
+             *  Load edit project page
+             *
+             *  @param  int project id
+             *  @param  string  step
+             *  
+             */
+            // Check is sign in
+            $this->gnc_authen->redirect_if_not_sign_in();
+            
+            // Prepare data
+            $data_assoc = array();
+            $data_assoc['step'] = $step;
+            
+            // Check step and load data
+            if($step == 'step1'){
+                
+                // Load project types
+                $project_type_arr = $this->Project_type->get_filter();
+                
+                // Set data
+                $data_assoc['project_type_arr'] = $project_type_arr;
+                
+            }else if($step == 'step2'){
+        
+            }else if($step == 'step3'){
+                
+            }
+
+            // Load view
+            $this->load->view('main/editProject', $data_assoc);
+            // flush
+            ob_flush();
+        }
+        
         function member_projects_page(){
             /*
              *  Load manage project page
@@ -326,7 +362,7 @@
              */
             
             $this->load->view('main/userProject');
-            
+            ob_flush();
         }
         
         function get_member_projects_ajax(){
@@ -421,4 +457,6 @@
             $this->load->view('main/singleProduct', $data_assoc);
             
         }
+    
+    
     }
