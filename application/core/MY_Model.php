@@ -154,6 +154,24 @@
             return null;
         }
         
+        function get_filter_count($select='*', $where_assoc=array(), $join_assoc_array=array(), $order=null,  $offset=0, $limit=null, $result_type='object', $data=array()){
+            /*
+             *  Get row number of query
+             *
+             */
+            
+            // Execute query
+            $result = $this->get_filter($select, $where_assoc, $join_assoc_array, $order,  $offset, $limit, $result_type, $data);
+            
+            // Return size
+            if(!$result){
+                return 0;
+            }
+            
+            return count($result);
+            
+        }
+        
         function add($data_assoc){
             /*
              *  Insert row

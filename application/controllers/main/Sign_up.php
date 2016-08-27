@@ -98,6 +98,9 @@
             // Build json
             $result_json = json_encode($result_assoc);
             
+            // Set session need verify data
+            $this->session->set_userdata('need_verify_email', TRUE);
+            
             // Response json
             echo $result_json;
         }
@@ -183,8 +186,11 @@
                 return;
             }
             
+            // Set session
+            $this->session->set_userdata('verify_email', $member['member_email']);
+            
             // redirect
-            redirect('/main/');
+            redirect('/verify_email_success');
             
         }
         
@@ -225,5 +231,43 @@
             
         }
         
+        function confirm_email_page(){
+            /*
+             *  Load confirm email page
+             *
+             */
+            
+            // Check login
+            if($this->gnc_authen->is_sign_in()){
+                redirect('/main/');
+                return;
+            }
+            
+            // Prepare data
+            $data_asocc = array();
+            
+            // Check verified email
+            // If session has no verify email value, then set is_verify to FALSE
+            if(!$this->session->userdata('verify_email')){
+                
+                // Must go to after registered only
+                if(!$this->session->userdata('need_verify_email')){
+                    redirect('/main/');
+                    return;
+                }
+                
+                $data_asocc['is_verify'] = FALSE;
+            // Otherwise, set is_veryfy TRUE and make verify email to be flash data
+            }else{
+                $data_asocc['is_verify'] = TRUE;
+                $this->session->mark_as_flash('verify_email');
+            }
+            
+            // Load view
+            $this->load->view('main/email', $data_asocc);
+            
+            
+            
+        }
         
     }

@@ -8,3 +8,9 @@ var signinFailed = 'อีเมลล์หรือรหัสผ่านไ
 
 var monthThaiTextArray = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฏาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
 var projectTypeThaiText = ['ผัก', 'ผลไม้', 'สัตว์'];
+
+var projectTypeThaiDict = {
+    'vegetable' : 'ผัก',
+    'fruit' : 'ผลไม้',
+    'animal' : 'สัตว์',
+};

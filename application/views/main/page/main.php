@@ -30,74 +30,7 @@
             <div>
 			<div class="row" id="lastProjects">
 				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-default">มาใหม่</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/F004.jpg">
-						<h3>ฝรั่งไทย</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> ผลไม้ / ฝรั่ง</li>
-							<li><span class="color-green">ราคา:</span> 80 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> ไร่ลุงแดง</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> โคราช, นครราชสีมา</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-default">มาใหม่</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/F005.jpg">
-						<h3>ชมพู่แดง</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> ผลไม้ / ชมพู่</li>
-							<li><span class="color-green">ราคา:</span> 60 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> ไร่ลุงแดง</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บ้านนา, นครนายก</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-default">มาใหม่</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0003.jpg">
-						<h3>ผักบุ้งจีนเฟส#2</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> ผัก / ผักบุ้ง</li>
-							<li><span class="color-green">ราคา:</span> 60 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> ไร่ลุงแดง</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> ปากพลี, นครนายก</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-default">มาใหม่</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0004.jpg">
-						<h3>ผักบุ้งจีน พื้นที่ปิด</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> ผัก / ผักบุ้ง</li>
-							<li><span class="color-green">ราคา:</span> 80 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> ไร่ลุงแดง</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> โคราช, นครราชสีมา</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
+                <!-- Project Block -->
 				<!-- End Begin Easy Block -->
 			</div>
             </div><!--สินค้ามาใหม่-->
@@ -108,7 +41,7 @@
 				<div class="title-box-v2">
 					<h2>สินค้า <span class="color-green">เกษตรอินทรีย์</span> ยอดนิยม</h2>
 				</div>
-                <div class="row">
+                <div class="row" id="popProjects">
 				<!-- Begin Easy Block -->
 				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
 					<div class="easy-block-v2">
@@ -181,81 +114,7 @@
 				</div>
 				<!-- End Begin Easy Block -->
 			</div>
-                <div class="row">
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-default">มาใหม่</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/A002.jpg">
-						<h3>ปลาดุกอินทรีย์ 100%</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> สัตว์ / ปลาดุก</li>
-							<li><span class="color-green">ราคา:</span> 70 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> บ่อปลาท่าดี</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บึงกุ่ม,กรุงเทพมหานคร</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-default">มาใหม่</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/A001.jpg">
-						<h3>ปลาดุกในบ่อซีเมนต์</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> สัตว์ / ปลาดุก</li>
-							<li><span class="color-green">ราคา:</span> 60 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> ฟิชชิ่งฟาร์ม</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บ้านนา, นครนายก</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-red">ยอดนิยม</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0008.jpg">
-						<h3>เมล่อนอินทรีย์</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> ผัก / เมล่อน</li>
-							<li><span class="color-green">ราคา:</span> 350 บาท/ใบ</li>
-                            <li><span class="color-green">ฟาร์ม:</span> ไร่ลุงแดง</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> ปากพลี, นครนายก</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-
-				<!-- Begin Easy Block -->
-				<div class="col-md-3 col-sm-6">
-					<div class="easy-block-v2">
-                        <a href="singleProduct.php" class="linkFull"></a>
-						<div class="easy-bg-v2 rgba-red">ยอดนิยม</div>
-						<img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0011.jpg">
-						<h3>ปลานิลแดงในบ่อซีเมน</h3>
-						<ul class="list-unstyled">
-							<li><span class="color-green">ประเภท:</span> ผัก / ปลานิลแดง</li>
-							<li><span class="color-green">ราคา:</span> 100 บาท/กิโลกรัม</li>
-                            <li><span class="color-green">ฟาร์ม:</span> ไร่ลุงแดง</li>
-							<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> โคราช, นครราชสีมา</li>
-						</ul>
-						<a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
-					</div>
-				</div>
-				<!-- End Begin Easy Block -->
-			</div>
-				
-				</div>
+            </div>
 			</div>
         <!--สินค้ายอดนิยม-->
 		

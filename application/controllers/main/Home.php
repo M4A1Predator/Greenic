@@ -67,6 +67,31 @@
             echo $project_arr_json;
         }
         
+        function get_popular_projects_ajax(){
+            /*
+             *  Get request for popular projects
+             *
+             */
+            
+            // Get data
+            $limit = $this->input->get('limit');
+            
+            // Get highest view project
+            // Set where
+            $where_assoc = array();
+            
+            // Set order
+            $order_by = 'project_view DESC';
+            
+            // Get projects
+            $project_arr = $this->Project->get_filter('*', $where_assoc, null, $order_by, null, $limit, 'array', array('use_view' => TRUE));
+            
+            // JSON encode
+            $project_arr_json = json_encode($project_arr, JSON_UNESCAPED_UNICODE);
+            
+            echo $project_arr_json;
+        }
+        
         function test(){
             echo 'test';
         }

@@ -106,7 +106,7 @@ function sendRegisData() {
             return;
         }
         
-        location.replace(webUrl);
+        location.replace(webUrl + 'please_confirm_email');
     });
 }
 

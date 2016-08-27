@@ -60,6 +60,9 @@ $route['index'] = 'main/Home';
 $route['main'] = 'main/Home';
 $route['sos'] = 'Sight/page';
 
+$route['please_confirm_email'] = 'main/Sign_up/confirm_email_page';
+$route['verify_email_success'] = 'main/Sign_up/confirm_email_page';
+
 $route['my_account'] = 'main/Member_ctrl/member_detail_page';
 
 $route['add_project/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/add_project_page';
@@ -76,6 +79,7 @@ $route['verify_account/(:num)/(:any)'] = 'main/Sign_up/verify_account';
 $route['edit_my_account_pro'] = 'main/Member_ctrl/edit_member_pro';
 
 $route['get_last_projects_ajax'] = 'main/Home/get_last_projects_ajax';
+$route['get_popular_projects_ajax'] = 'main/Home/get_popular_projects_ajax';
 $route['get_categories_ajax'] = 'main/Category_ctrl/get_categories_ajax';
 $route['get_sub_categories_ajax/(:num)'] = 'main/Category_ctrl/get_sub_categories_ajax/$1';
 $route['get_all_units_ajax'] = 'main/Product_ctrl/get_all_units_ajax';
