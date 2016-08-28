@@ -35,21 +35,13 @@
              *  Get last projects to display in home page
              *  
              */
-            
-            // Load library
-            $this->load->library('form_validation');
-            
-            // Create form rules
-            $this->form_validation->set_rules('limit', 'limit', 'numeric');
-            
-            // Validate form
-            if($this->form_validation->run() == FALSE){
+            // Get data
+            //$limit = $this->input->post('limit');
+            $limit = $this->input->get('limit');
+            if(!is_numeric($limit)){
                 echo 0;
                 return;
             }
-            
-            // Get data
-            $limit = $this->input->post('limit');
             
             // Get last projects
             // Set where

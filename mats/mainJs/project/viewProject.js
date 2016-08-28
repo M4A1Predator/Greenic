@@ -94,6 +94,11 @@ function setTimeline(offset, limit){
             '</li>';
     
         timelineList.append(content);
+        
+        if (i >= projectPostArray.length - 1) {
+            getOlderBtn.hide();
+        }
+        
     }
 }
 

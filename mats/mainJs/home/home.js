@@ -6,14 +6,12 @@ setPopProjects();
 
 function setLastProjects() {
     
-    param = {
-        'limit' : 8,
-    };
+    limit = 8;
     
     $.ajax({
-        type : 'POST',
+        type : 'GET',
         url : webUrl  + 'get_last_projects_ajax',
-        data : param,
+        data : 'limit=' + limit,
     }).success(function (data){
         jsonData = JSON.parse(data);
         

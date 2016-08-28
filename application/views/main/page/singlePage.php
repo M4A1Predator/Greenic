@@ -5,6 +5,9 @@
         <ul class="pull-right breadcrumb">
             <li><a href="index.php">หน้าแรก</a></li>
             <li><a href="category.php?name=vegetable"><?=get_project_type_thai_text($project->category_project_type_id)?></a></li>
+            <?php if($project->category_master_name){ ?>
+            <li><a href="subCategory.php"><?=$project->category_master_name?></a></li>
+            <?php } ?>
             <li><a href="subCategory.php"><?=$project->category_name?></a></li>
             <li class="active"><?=$project->project_name?>#2</li>
         </ul>
