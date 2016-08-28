@@ -1,5 +1,5 @@
 <div class="row fillterBar margin-bottom-20">
-    <div class="col-xs-4 col-md-9"><?=$msg?>
+    <div class="col-xs-4 col-md-9"><?=isset($msg)?>
         <button class="btn-u rounded btn-u-dark" data-toggle="modal" data-target="#fillterBox" type="button"><i class="fa fa-filter" aria-hidden="true"></i> กรองสินค้า</button>        
                                     <div class="modal fade bs-example-modal-sm" id="fillterBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog modal-sm">

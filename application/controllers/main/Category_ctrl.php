@@ -19,6 +19,23 @@
             
         }
         
+        function view_category_page($project_type_name){
+            /*
+             *  Load category project type page
+             *
+             *  @param  string  project type name
+             *  
+             */
+            
+            // Prepare data
+            $data_assoc = array();
+            $data_assoc['project_type_name'] = $project_type_name;
+            
+            // Load view
+            $this->load->view('main/category', $data_assoc);
+            
+        }
+        
         function get_categories_ajax(){
             /*
              *  Get categories
@@ -99,6 +116,34 @@
             }
             
             echo 1;
+        }
+        
+        function get_last_projects_ajax(){
+            /*
+             *  Get projects by category
+             *
+             */
+            
+            // Get data
+            $project_type_id = $this->input->get('project_type_id');
+            $limit = $this->input->get('limit');
+            
+            // Set where
+            $where_assoc = array();
+            $where_assoc['category_project_type_id'] = $project_type_id;
+            
+            // Get projects
+            // Set order by
+            $order_by = 'project_time DESC';
+            
+            // Get projects
+            $project_arr = $this->Project->get_filter('*', $where_assoc, null, $order_by, null, $limit, 'array', array('use_view' => TRUE));
+            
+            // JSON encode
+            $project_arr_json = json_encode($project_arr, JSON_UNESCAPED_UNICODE);
+            
+            echo $project_arr_json;
+            
         }
         
         

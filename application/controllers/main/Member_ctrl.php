@@ -67,7 +67,7 @@
              */
             
             // Set validate rules
-            $this->form_validation->set_rules('firstname', 'firstname', 'required');
+            $this->form_validation->set_rules('firstname', 'firstname', 'required|trim');
             $this->form_validation->set_rules('lastname', 'lastname', 'required');
             $this->form_validation->set_rules('address', 'address');
             $this->form_validation->set_rules('province', 'province');
@@ -134,7 +134,7 @@
             }
             
             // Prepare member data
-            $member_data = array();    
+            $member_data = array();
             $member_data['member_firstname'] = $firstname;
             $member_data['member_lastname'] = $lastname;
             $member_data['member_address'] = $address;

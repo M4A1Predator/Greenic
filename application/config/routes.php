@@ -70,6 +70,8 @@ $route['my_projects'] = 'main/Project_ctrl/member_projects_page';
 $route['project/(:num)'] = 'main/Project_ctrl/view_project_page/$1';
 $route['my_project/(:num)/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/edit_project_page/$1/$2';
 
+$route['category/([a-zA-Z0-9]{0,})'] = 'main/Category_ctrl/view_category_page/$1';
+
 // Control routes
 $route['sign_in'] = 'main/Authentication/authen';
 $route['sign_out'] = 'main/Authentication/sign_out';
@@ -99,6 +101,7 @@ $route['get_all_provinces_ajax'] = 'main/Address_ctrl/get_all_provinces_ajax';
 $route['get_districts_ajax'] = 'main/Address_ctrl/get_districts_ajax';
 $route['get_sub_district_pro'] = 'main/Address_ctrl/get_sub_district';
 
+$route['category/get_last_projects_ajax'] = 'main/Category_ctrl/get_last_projects_ajax';
 
 // Test routes
 $route['test'] = 'main/Home/test';

@@ -99,8 +99,8 @@ function saveDetail(e) {
         contentType: false,
         data: formData,
         success: function(data){
-            console.log(data);
-            if (data == '0') {
+            if (data !== '1') {
+                console.log(data);
                 return;
             }
             

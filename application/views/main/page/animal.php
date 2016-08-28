@@ -13,7 +13,7 @@
 					<div class="service-block service-block-brown service-or">
 						<div class="service-bg"></div>
 						<img src="<?=base_url()?>mats/assets/img/fish.png">
-						<h2 class="heading-md"><a class="cate-link" href="category.php?name=animal">สัตว์อินทรีย์ (10)</a></h2>
+						<h2 class="heading-md"><a class="cate-link" href="<?=base_url().$this->lang->line('project_animal')?>">สัตว์อินทรีย์ (10)</a></h2>
 					</div>
 				</div>
 				
@@ -21,14 +21,14 @@
 					<div class="service-block service-block-default service-or">
 						<div class="service-bg"></div>
 						<img src="<?=base_url()?>mats/assets/img/veg-not.png">
-						<h2 class="heading-md"><a class="cate-link-not" href="category.php?name=vegetable">ผักอินทรีย์ (140)</a></h2>
+						<h2 class="heading-md"><a class="cate-link-not" href="<?=base_url().$this->lang->line('project_vegetable')?>">ผักอินทรีย์ (140)</a></h2>
 					</div>
 				</div>
                 <div class="col-md-3 col-xs-6">
 					<div class="service-block service-block-default service-or">
 						<div class="service-bg"></div>
 						<img src="<?=base_url()?>mats/assets/img/fruit-not.png">
-						<h2 class="heading-md"><a class="cate-link-not" href="category.php?name=fruit">ผลไม้อินทรีย์ (25)</a></h2>
+						<h2 class="heading-md"><a class="cate-link-not" href="<?=base_url().$this->lang->line('project_fruit')?>">ผลไม้อินทรีย์ (25)</a></h2>
 					</div>
 				</div>
 				<div style="clear:both"></div>
@@ -52,7 +52,7 @@
             <div class="headline-center margin-bottom-20">
 					<h2>สัตว์ <span class="color-green">อินทรีย์</span> มาใหม่</h2>
 				</div>
-            <?php $this->load->view( 'main/inc/fillter.php'?>
+            <?php $this->load->view( 'main/inc/fillter.php'); ?>
 			<div class="row">
 				<!-- Begin Easy Block -->
 				<div class="col-md-3 col-sm-6 md-margin-bottom-40">
