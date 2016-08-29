@@ -1,11 +1,49 @@
+var projectTypeId = $('#projectTypeId');
+
+var categories = $('#categories');
 var lastProjects = $('#lastProjects');
 
+setCategories();
 setLastProjects();
+
+
+function setCategories(){
+    
+    borderColorClass = 'btn-u';
+    if (projectTypeId.val() == '1') {
+        borderColorClass = 'btn-u';
+    }else if (projectTypeId.val() == '2') {
+        borderColorClass = 'btn-orange';
+    }else if (projectTypeId.val() == '3') {
+        borderColorClass = 'btn-brown';
+    }
+    
+    param = 'project_type_id=' + projectTypeId.val();
+    
+    $.ajax({
+        type : 'GET',
+        url : webUrl + 'get_categories_ajax',
+        data : param
+    }).success(function (data){
+        jsonData = JSON.parse(data);
+        
+        jsonData.forEach(function (category){
+            
+            content = '<div class="col-sm-6 col-md-3">' + 
+                '<a href="subCategory.php"  class="btn-u btn-brd  btn-u-lg subCate ' + borderColorClass + '"> ' + category.category_name + ' </a>' + 
+            '</div>';
+            
+            categories.append(content);
+            
+        });
+        
+    });
+}
 
 function setLastProjects() {
     
     param = 'limit=' + 8;
-    param += '&project_type_id=' + 1;
+    param += '&project_type_id=' + projectTypeId.val();
     
     $.ajax({
         type : 'GET',

@@ -64,6 +64,9 @@ function getProjectPost(){
         //if (jsonData.length > 0) {
         //    postOffset += postLimit;
         //}
+        if (projectPostArray.length === 0) {
+            getOlderBtn.hide();
+        }
         
         setTimeline(postOffset, jsonData.length);
         setProjectPictures();
@@ -72,6 +75,8 @@ function getProjectPost(){
 }
 
 function setTimeline(offset, limit){
+    
+    
     
     for (i=offset;i<limit;i++) {
         projectPost = projectPostArray[i];
@@ -98,7 +103,6 @@ function setTimeline(offset, limit){
         if (i >= projectPostArray.length - 1) {
             getOlderBtn.hide();
         }
-        
     }
 }
 

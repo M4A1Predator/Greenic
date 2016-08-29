@@ -31,6 +31,12 @@
             $data_assoc = array();
             $data_assoc['project_type_name'] = $project_type_name;
             
+            // Get project type id
+            $project_type_id = $this->Project_type->get_project_type_id_by_name($project_type_name);
+            
+            // Set project type id
+            $data_assoc['project_type_id'] = $project_type_id;
+            
             // Load view
             $this->load->view('main/category', $data_assoc);
             
@@ -44,7 +50,12 @@
              */
             
             // Get project type id
-            $project_type_id = $this->input->post('project_type_id');
+            // Check request type
+            if($this->request_type == 'POST'){
+                $project_type_id = $this->input->post('project_type_id');
+            }else if($this->request_type == 'GET'){
+                $project_type_id = $this->input->get('project_type_id');
+            }
             
             // Get categories
             $where_assoc = array();

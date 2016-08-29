@@ -101,6 +101,7 @@ $route['get_all_provinces_ajax'] = 'main/Address_ctrl/get_all_provinces_ajax';
 $route['get_districts_ajax'] = 'main/Address_ctrl/get_districts_ajax';
 $route['get_sub_district_pro'] = 'main/Address_ctrl/get_sub_district';
 
+$route['get_project_types_with_count_ajax'] = 'main/Project_type_ctrl/get_project_types_with_count_ajax';
 $route['category/get_last_projects_ajax'] = 'main/Category_ctrl/get_last_projects_ajax';
 
 // Test routes

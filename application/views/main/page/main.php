@@ -4,21 +4,23 @@
 					<div class="service-block service-block-green service-or">
 						<div class="service-bg"></div>
 						<img src="<?=base_url()?>mats/assets/img/veg.png">
-						<h2 class="heading-md"><a class="cate-link" href="<?=base_url().$this->lang->line('project_vegetable')?>"><?=get_project_type_thai_text(1)?></a></h2>
+						<h2 class="heading-md">
+                            <a class="cate-link" href="<?=base_url().$this->lang->line('project_vegetable')?>" id="vegetableTypeText"><?=get_project_type_thai_text(1)?></a>
+                        </h2>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6">
 					<div class="service-block service-block-orange service-or">
 						<div class="service-bg"></div>
 						<img src="<?=base_url()?>mats/assets/img/fruit.png">
-						<h2 class="heading-md"><a class="cate-link" href="<?=base_url().$this->lang->line('project_fruit')?>"><?=get_project_type_thai_text(2)?></a></h2>
+						<h2 class="heading-md"><a class="cate-link" href="<?=base_url().$this->lang->line('project_fruit')?>" id="fruitTypeText"><?=get_project_type_thai_text(2)?></a></h2>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-6">
 					<div class="service-block service-block-brown service-or">
 						<div class="service-bg"></div>
 						<img src="<?=base_url()?>mats/assets/img/fish.png">
-						<h2 class="heading-md"><a class="cate-link" href="<?=base_url().$this->lang->line('project_animal')?>"><?=get_project_type_thai_text(3)?></a></h2>
+						<h2 class="heading-md"><a class="cate-link" href="<?=base_url().$this->lang->line('project_animal')?>" id="animalTypeText"><?=get_project_type_thai_text(3)?></a></h2>
 					</div>
 				</div>
 			</div>

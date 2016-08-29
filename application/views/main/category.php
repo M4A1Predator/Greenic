@@ -7,17 +7,18 @@
             $this->load->view( 'main/inc/search.php' );
             
             if($project_type_name == "vegetable"){
-               $this->load->view( 'main/page/vegetable.php' ); 
+               
             }
             else if($project_type_name=="fruit"){
-               $this->load->view( 'main/page/fruit.php' ); 
+               
             }
             else if($project_type_name=="animal"){
-               $this->load->view( 'main/page/animal.php' ); 
+               
             }
-            
+            $this->load->view( 'main/page/categoryPage.php' );
         
             $this->load->view( 'main/inc/footer.php' );
         ?>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/category/projectList.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/category/projectTypeMenu.js"></script>
