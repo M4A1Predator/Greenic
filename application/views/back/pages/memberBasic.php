@@ -10,8 +10,8 @@
 							คำสั่งจำนวนมาก						
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-trash-o icon"></i>ลบสมาชิกอย่างถาวร</a>
-							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-pause icon"></i>ระงับการใช้งานชั่วคราว</a>
+							<a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-trash-o icon"></i>ลบสมาชิกอย่างถาวร</a>
+							<a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-pause icon"></i>ระงับการใช้งานชั่วคราว</a>
 						</div>
 					</div>
 				</h3>
@@ -62,23 +62,23 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="?page=basicDetail">
+                                        <a href="<?=base_url()?>mats/backAssets/?page=basicDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/basicMember.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
+                                            <a href="<?=base_url()?>mats/backAssets/?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
+                                        <div><a href="<?=base_url()?>mats/backAssets/?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -94,13 +94,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -115,23 +115,23 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="?page=basicDetail">
+                                        <a href="<?=base_url()?>mats/backAssets/?page=basicDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/basicMember.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
+                                            <a href="<?=base_url()?>mats/backAssets/?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
+                                        <div><a href="<?=base_url()?>mats/backAssets/?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -147,13 +147,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -168,23 +168,23 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="?page=basicDetail">
+                                        <a href="<?=base_url()?>mats/backAssets/?page=basicDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/basicMember.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
+                                            <a href="<?=base_url()?>mats/backAssets/?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
+                                        <div><a href="<?=base_url()?>mats/backAssets/?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -200,13 +200,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -221,23 +221,23 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="?page=basicDetail">
+                                        <a href="<?=base_url()?>mats/backAssets/?page=basicDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/basicMember.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
+                                            <a href="<?=base_url()?>mats/backAssets/?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
+                                        <div><a href="<?=base_url()?>mats/backAssets/?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -253,13 +253,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -274,23 +274,23 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="?page=basicDetail">
+                                        <a href="<?=base_url()?>mats/backAssets/?page=basicDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/basicMember.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
+                                            <a href="<?=base_url()?>mats/backAssets/?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
+                                        <div><a href="<?=base_url()?>mats/backAssets/?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -306,13 +306,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -324,25 +324,25 @@
                     </div>
                     <nav class="text-xs-right">
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				ก่อนหน้า
 			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="">
+                            <li class="page-item active"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				1
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				2
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				3
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				4
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				5
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				ถัดไป
 			</a> </li>
                         </ul>

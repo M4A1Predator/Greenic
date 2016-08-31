@@ -45,7 +45,7 @@
                                                             <p><b>ชื่อเกษตรกร:</b> วีรชัย สมัยนิยม</p>
                                                             <p><b>ที่อยู่ฟาร์ม:</b> 123 หมู่ 8 ซอยหลวงพ่อปากแดง ต.วังกระโจม จ.นครนายก</p>
                                                             <!--ไปหน้าโชว์ดปรเจ็คโดย fillter by ชื่อฟาร์มนั้นๆ-->
-                                                            <p><a class="btn btn-secondary btn-sm" href="?page=allProject"><i class="fa fa-th-list"></i> ดูโปรเจ็คทั้งหมดของฟาร์มนี้</a></p>
+                                                            <p><a class="btn btn-secondary btn-sm" href="<?=base_url()?>mats/backAssets/?page=allProject"><i class="fa fa-th-list"></i> ดูโปรเจ็คทั้งหมดของฟาร์มนี้</a></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -67,10 +67,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a class="btn btn-secondary-outline" href="?page=allProject"><i class="fa fa-chevron-left"></i> โปรเจ็คทั้งหมด</a> 
-                                         <a href="?page=projectEdit" class="btn btn-warning"><i class="fa fa-pencil"></i> แก้ไขข้อมูลโปรเจ็ค</a>
+                                            <a class="btn btn-secondary-outline" href="<?=base_url()?>mats/backAssets/?page=allProject"><i class="fa fa-chevron-left"></i> โปรเจ็คทั้งหมด</a> 
+                                         <a href="<?=base_url()?>mats/backAssets/?page=projectEdit" class="btn btn-warning"><i class="fa fa-pencil"></i> แก้ไขข้อมูลโปรเจ็ค</a>
                                                 <!--ลิงค์ไปหน้าไทม์ไลน์ของโปรเจ็คเลย-->
-                                                <a href="#showProjectTimeLine" class="btn btn-primary"><i class="fa fa-picture-o"></i> ดูไทม์ไลน์</a>
+                                                <a href="<?=base_url()?>mats/backAssets/#showProjectTimeLine" class="btn btn-primary"><i class="fa fa-picture-o"></i> ดูไทม์ไลน์</a>
                                     <!-- /.card-block -->
                                         </div>
                                       

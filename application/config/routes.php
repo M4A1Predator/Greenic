@@ -97,12 +97,18 @@ $route['member/add_project_step2_ajax'] = 'main/Project_ctrl/add_project_step2_a
 $route['member/add_project_step3_ajax'] = 'main/Project_ctrl/add_project_step3_ajax';
 $route['member/add_project_post_ajax'] = 'main/Project_post_ctrl/add_project_post_ajax';
 
+$route['follow_ajax'] = 'main/Follow_ctrl/add_follow_ajax';
+
 $route['get_all_provinces_ajax'] = 'main/Address_ctrl/get_all_provinces_ajax';
 $route['get_districts_ajax'] = 'main/Address_ctrl/get_districts_ajax';
 $route['get_sub_district_pro'] = 'main/Address_ctrl/get_sub_district';
 
 $route['get_project_types_with_count_ajax'] = 'main/Project_type_ctrl/get_project_types_with_count_ajax';
 $route['category/get_last_projects_ajax'] = 'main/Category_ctrl/get_last_projects_ajax';
+
+// Admin routes
+// Admin view routes
+$route['admin/sign_in'] = 'back/Admin_authentication/sign_in_page';
 
 // Test routes
 $route['test'] = 'main/Home/test';

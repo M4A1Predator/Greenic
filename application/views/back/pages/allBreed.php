@@ -5,17 +5,17 @@
                                 <div class="col-md-6">
                                     <h3 class="title">
 					สายพันธุ์ทั้งหมด
-					<a href="?page=addBreed" class="btn btn-primary btn-sm rounded-s"><i class="fa fa-plus"></i> เพิ่มสายพันธุ์ใหม่</a><!---->
+					<a href="<?=base_url()?>mats/backAssets/?page=addBreed" class="btn btn-primary btn-sm rounded-s"><i class="fa fa-plus"></i> เพิ่มสายพันธุ์ใหม่</a><!---->
                     <div class="action dropdown">
 						<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							คำสั่งจำนวนมาก
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-close icon"></i>ลบทั้งหมดที่เลือก</a>
+							<a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-close icon"></i>ลบทั้งหมดที่เลือก</a>
 						</div>
 					</div>
 				</h3>
-                                    <p class="title-description"> ผักบุ้ง <a class="btn btn-secondary-outline" href="?page=allSpecies"><i class="fa fa-chevron-left"></i> ชนิดทั้งหมด</a></p>
+                                    <p class="title-description"> ผักบุ้ง <a class="btn btn-secondary-outline" href="<?=base_url()?>mats/backAssets/?page=allSpecies"><i class="fa fa-chevron-left"></i> ชนิดทั้งหมด</a></p>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">ประเภท</div>
-                                        <div class="no-overflow"><a href="?page=allSpecies">ผัก</a></div>
+                                        <div class="no-overflow"><a href="<?=base_url()?>mats/backAssets/?page=allSpecies">ผัก</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชนิด</div>
@@ -95,10 +95,10 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=editBreed"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editBreed"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -125,7 +125,7 @@
                                     </div>
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">ประเภท</div>
-                                        <div class="no-overflow"><a href="?page=allSpecies">ผัก</a></div>
+                                        <div class="no-overflow"><a href="<?=base_url()?>mats/backAssets/?page=allSpecies">ผัก</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชนิด</div>
@@ -145,10 +145,10 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=editBreed"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editBreed"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -175,7 +175,7 @@
                                     </div>
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">ประเภท</div>
-                                        <div class="no-overflow"><a href="?page=allSpecies">ผัก</a></div>
+                                        <div class="no-overflow"><a href="<?=base_url()?>mats/backAssets/?page=allSpecies">ผัก</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชนิด</div>
@@ -195,10 +195,10 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=editBreed"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editBreed"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -225,7 +225,7 @@
                                     </div>
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">ประเภท</div>
-                                        <div class="no-overflow"><a href="?page=allSpecies">ผัก</a></div>
+                                        <div class="no-overflow"><a href="<?=base_url()?>mats/backAssets/?page=allSpecies">ผัก</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชนิด</div>
@@ -245,10 +245,10 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=editBreed"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editBreed"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -275,7 +275,7 @@
                                     </div>
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">ประเภท</div>
-                                        <div class="no-overflow"><a href="?page=allSpecies">ผัก</a></div>
+                                        <div class="no-overflow"><a href="<?=base_url()?>mats/backAssets/?page=allSpecies">ผัก</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชนิด</div>
@@ -295,10 +295,10 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=editBreed"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editBreed"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -311,25 +311,25 @@
                     </div>
                     <nav class="text-xs-right">
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				ก่อนหน้า
 			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="">
+                            <li class="page-item active"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				1
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				2
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				3
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				4
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				5
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
+                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
 				ถัดไป
 			</a> </li>
                         </ul>

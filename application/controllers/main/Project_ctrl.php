@@ -442,6 +442,7 @@
             $data_assoc['is_sign_in'] = $is_sign_in;
             $data_assoc['is_owner'] = FALSE;
             $data_assoc['is_follow_project'] = FALSE;
+            $data_assoc['is_follow_farm'] = FALSE;
             $data_assoc['is_follow_farmer'] = FALSE;
 
             // If sign in
@@ -451,6 +452,19 @@
                 if($project->farm_member_id === $member_id){
                     $data_assoc['is_owner'] = TRUE;
                 }
+                
+                // Is following this project
+                $follow_type_id_assoc = array();
+                $follow_type_id_assoc['follow_project_id'] = $project_id;
+                
+                // Get follow record
+                $follow_array = $this->Follow->get_follow_by_target_array($member_id, $follow_type_id_assoc);
+                
+                // Check what member is following
+                if($follow_array){
+                    $data_assoc['is_follow_project'] = TRUE;
+                }
+                
             }
             
             // Load view

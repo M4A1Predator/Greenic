@@ -122,7 +122,7 @@
                                        
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> บันทึก</button>
-                                            <a href="?page=allFarm" class="btn btn-danger"><i class="fa fa-times"></i> ยกเลิก</a>
+                                            <a href="<?=base_url()?>mats/backAssets/?page=allFarm" class="btn btn-danger"><i class="fa fa-times"></i> ยกเลิก</a>
                                         </div>
                                     </form>
                                 </div>

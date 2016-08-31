@@ -17,7 +17,7 @@
                                         </div>
                                         <div class="form-group">
                                             <!--ปุ่ม ผักบุ้ง เปลี่ยนตามชนิดที่คลิกเข้ามาเพิ่ม-->
-                                            <a class="btn btn-secondary-outline" href="?page=allBreed"><i class="fa fa-chevron-left"></i> ผักบุ้งทั้งหมด</a>
+                                            <a class="btn btn-secondary-outline" href="<?=base_url()?>mats/backAssets/?page=allBreed"><i class="fa fa-chevron-left"></i> ผักบุ้งทั้งหมด</a>
                                             <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> เพิ่ม</button> </div>
                                     </form>
                                 </div>

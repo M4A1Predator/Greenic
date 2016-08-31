@@ -23,3 +23,5 @@
         <?php if($is_owner){?>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/updateProject.js"></script>
         <?php } ?>
+        
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/follow.js"></script>

@@ -1,7 +1,7 @@
 <div class="breadcrumbs">
     <input type="hidden" id="projectId" value="<?=$project->project_id?>"/>
     <div class="container">
-        <h1 class="pull-left"><?=$project->project_name?>#1</h1>
+        <h1 class="pull-left"><?=$project->project_name?></h1>
         <ul class="pull-right breadcrumb">
             <li><a href="index.php">หน้าแรก</a></li>
             <li><a href="category.php?name=vegetable"><?=get_project_type_thai_text($project->category_project_type_id)?></a></li>
@@ -22,16 +22,18 @@
                 <div class="coverDetail">
                     <strong class="coverProfile">เกษตรกร: <?=$project->member_firstname?> <?=$project->member_lastname?></strong> <br>
                     <a class="farmProfile"><i class="fa fa-map-signs" aria-hidden="true"></i> <?=$project->farm_name?></a> <br>
-                    <?php if(!$is_owner){?>
-                        <?php if($is_follow_project){?>
-                        <a href="singleProduct.php" class="btn-u btn-u-xs btn-u-blue"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามฟาร์ม</a>
-                        <?php }else{ ?>
-                        <a href="singleProduct.php?follow=yes" class="btn-u btn-u-xs btn-u-dark"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามฟาร์ม</a>
-                        <?php } ?>
-                        <?php if(isset($_GET['kaset'])=="yes"){?>
-                        <a href="singleProduct.php" class="btn-u btn-u-xs btn-u-red"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามเกษตรกร</a>
-                        <?php }else{ ?>
-                        <a href="singleProduct.php?follow=yes&kaset=yes" class="btn-u btn-u-xs btn-u-default"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามเกษตรกร</a>
+                    <?php if($is_sign_in){?>
+                        <?php if(!$is_owner){?>
+                            <?php if($is_follow_farm){?>
+                            <a href="singleProduct.php" class="btn-u btn-u-xs btn-u-blue"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามฟาร์ม</a>
+                            <?php }else{ ?>
+                            <a href="singleProduct.php?follow=yes" class="btn-u btn-u-xs btn-u-dark"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามฟาร์ม</a>
+                            <?php } ?>
+                            <?php if(isset($_GET['kaset'])=="yes"){?>
+                            <a href="singleProduct.php" class="btn-u btn-u-xs btn-u-red"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามเกษตรกร</a>
+                            <?php }else{ ?>
+                            <a href="singleProduct.php?follow=yes&kaset=yes" class="btn-u btn-u-xs btn-u-default"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามเกษตรกร</a>
+                            <?php } ?>
                         <?php } ?>
                     <?php } ?>
                     
@@ -57,13 +59,16 @@
                 <!--กรณีของหมด-->
                 <!--<a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>-->
             </div>
+            
             <ul class="list-group sidebar-nav-v1 margin-bottom-10" id="sidebar-nav-1">
                 <li class="list-group-item">
-                    <?php if(!$is_owner){ ?>
-                        <?php if(isset($_GET['follow'])=="yes"){?>
-                        <a href="singleProduct.php" class="btn-u btn-u-blue"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามสินค้านี้</a>
-                        <?php }else{ ?>
-                        <a href="singleProduct.php?follow=yes" class="btn-u btn-u-dark"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามสินค้านี้</a>
+                    <?php if($is_sign_in){ ?>
+                        <?php if(!$is_owner){ ?>
+                            <?php if($is_follow_project){?>
+                            <a href="singleProduct.php" class="btn-u btn-u-blue"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามสินค้านี้</a>
+                            <?php }else{ ?>
+                            <a href="#" id="followProjectBtn" class="btn-u btn-u-dark"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามสินค้านี้</a>
+                            <?php } ?>
                         <?php } ?>
                     <?php } ?>
                 </li>
@@ -322,38 +327,6 @@
                                         </div>
                                         <div class="col-md-12">
                                             <p>เย่! ออกหน่อแล้วครับสวยงามอย่าบอกใครเชียว ใครสนใจอย่าลืมกดติดตามไว้นะครับ ปลูกไม่เยอะครับรับทักแชทมาจองกันไว้ก่อนได้ลยขายจำกัดแค่ 100 กิโลเท่านั้นนะครับ</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <time class="cbp_tmtime" datetime=""><span>5/4/2559</span> <span>มกราคม</span></time>
-                                <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                                <div class="cbp_tmlabel">
-                                    <h2>รดน้ำเบาๆก่อนทานข้าว</h2>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0002.jpg" alt="">
-                                            <div class="margin-bottom-20"></div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p>ก่อนไปกินข้าววันนี้แวะรดน้ำให้มันหน่อยจะได้ออกมาเติบโตงดงาม น่ารับประทานครับ ใครสนใจอย่าลืมกดติดตามไว้นะครับ ปลูกไม่เยอะครับรับทักแชทมาจองกันไว้ก่อนได้ลยขายจำกัดแค่ 100 กิโลเท่านั้นนะครับ</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <time class="cbp_tmtime" datetime=""><span>1/4/2559</span> <span>มกราคม</span></time>
-                                <i class="cbp_tmicon rounded-x hidden-xs"></i>
-                                <div class="cbp_tmlabel">
-                                    <h2>วันนี้ฤกษ์งามยามดี เลยลงเมล็ดซะเลย</h2>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img class="img-responsive" src="<?=base_url()?>mats/assets/img/upload/timeline/0001.jpg" alt="">
-                                            <div class="margin-bottom-20"></div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p>เริ่มลงเมล็ดแล้วครับผักบุ้งจีนปลอดสารพิษ 100% ใครสนใจอย่าลืมกดติดตามไว้นะครับ ปลูกไม่เยอะครับรับทักแชทมาจองกันไว้ก่อนได้ลยขายจำกัดแค่ 100 กิโลเท่านั้นนะครับ</p>
                                         </div>
                                     </div>
                                 </div>

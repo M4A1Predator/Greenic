@@ -2,8 +2,8 @@
                     <div class="footer-block buttons"> <img src="assets/footer-logo.png"> </div>
                     <div class="footer-block author">
                         <ul>
-                            <li> created by <a href="#">GreenicTeam</a> </li>
-                            <li> <a href="https://www4.sit.kmutt.ac.th/">SIT</a> </li>
+                            <li> created by <a href="<?=base_url()?>mats/backAssets/#">GreenicTeam</a> </li>
+                            <li> <a href="<?=base_url()?>mats/backAssets/https://www4.sit.kmutt.ac.th/">SIT</a> </li>
                         </ul>
                     </div>
                 </footer>
@@ -17,8 +17,8 @@
                                 <h4 class="modal-title">Media Library</h4> </div>
                             <div class="modal-body modal-tab-container">
                                 <ul class="nav nav-tabs modal-tabs" role="tablist">
-                                    <li class="nav-item"> <a class="nav-link" href="#gallery" data-toggle="tab" role="tab">Gallery</a> </li>
-                                    <li class="nav-item"> <a class="nav-link active" href="#upload" data-toggle="tab" role="tab">Upload</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" href="<?=base_url()?>mats/backAssets/#gallery" data-toggle="tab" role="tab">Gallery</a> </li>
+                                    <li class="nav-item"> <a class="nav-link active" href="<?=base_url()?>mats/backAssets/#upload" data-toggle="tab" role="tab">Upload</a> </li>
                                 </ul>
                                 <div class="tab-content modal-tab-content">
                                     <div class="tab-pane fade" id="gallery" role="tabpanel">

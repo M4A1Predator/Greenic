@@ -15,16 +15,16 @@
                         <ul class="nav-profile">
                             
                             <li class="profile dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="<?=base_url()?>mats/backAssets/#" role="button" aria-haspopup="true" aria-expanded="false">
                                     <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')"> </div> <span class="name">
     			      Admin
     			    </span> </a>
                                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <a class="dropdown-item" href="#"> <i class="fa fa-user icon"></i> ข้อมูลส่วนตัว </a>
-                                    <a class="dropdown-item" href="#"> <i class="fa fa-bell icon"></i> แจ้งเตือน(ใส่เผื่อไว้) </a>
-                                    <a class="dropdown-item" href="#"> <i class="fa fa-gear icon"></i> ตั้งค่าส่วนตัว </a>
+                                    <a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#"> <i class="fa fa-user icon"></i> ข้อมูลส่วนตัว </a>
+                                    <a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#"> <i class="fa fa-bell icon"></i> แจ้งเตือน(ใส่เผื่อไว้) </a>
+                                    <a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#"> <i class="fa fa-gear icon"></i> ตั้งค่าส่วนตัว </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="login.html"> <i class="fa fa-power-off icon"></i> ออกจากระบบ </a>
+                                    <a class="dropdown-item" href="<?=base_url()?>mats/backAssets/login.html"> <i class="fa fa-power-off icon"></i> ออกจากระบบ </a>
                                 </div>
                             </li>
                         </ul>

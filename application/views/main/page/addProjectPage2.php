@@ -42,7 +42,7 @@
 										<input type="text" name="date" id="startDate" placeholder="เช่น 10/05/2559" class="hasDatepicker">
 									</label>
 								</section>
-                                <section class="col-md-4 col-sm-8">
+                                <section class="col-md-2 col-sm-4">
                                         <label class="label"><strong>วันที่พร้อมจำหน่าย <span style="color:red">(โดยประมาณ)</span></strong></label>
 										<label class="input">
 										<i class="icon-append fa fa-calendar"></i>
