@@ -89,6 +89,7 @@ $route['get_project_posts_ajax'] = 'main/Project_post_ctrl/get_project_posts_aja
 $route['get_project_shipments_ajax/(:num)'] = 'main/Shipment_ctrl/get_project_shipments_ajax/$1';
 $route['member/get_farms_ajax'] = 'main/Farm_ctrl/get_member_farms_ajax';
 $route['member/get_projects_ajax'] = 'main/Project_ctrl/get_member_projects_ajax';
+$route['member/get_notifications_ajax'] = 'main/Notification_ctrl/get_notifications_ajax';
 
 $route['member_add/category_ajax'] = 'main/Category_ctrl/add_category_member_ajax';
 $route['member/add_farm_ajax'] = 'main/Farm_ctrl/add_farm_ajax';

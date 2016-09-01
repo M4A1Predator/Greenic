@@ -196,10 +196,11 @@
 										</li>
 									</ul>
 								</li>
+                                <?php if($this->is_sign_in){ ?>
                                 <li class="notic">
 									<a href="#" class=""  data-toggle="modal" data-target="#notic" >แจ้งเตือน (10)</a>
-                                    
-								</li>	
+								</li>
+                                <?php } ?>
 							</ul>
 						</div><!--/responsive container-->
 					</div><!--/navbar-collapse-->

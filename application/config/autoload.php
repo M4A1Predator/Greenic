@@ -132,4 +132,6 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('GNC_Model', 'Member', 'Farm', 'Member_type', 'Status', 'Project', 'Project_type', 'Project_post', 'Follow','Category', 'Unit', 'Shipment', 'Product_shipment');
+$autoload['model'] = array('GNC_Model', 'Member', 'Farm', 'Member_type', 'Status', 'Project', 'Project_type',
+                           'Project_post', 'Follow','Category', 'Unit', 'Shipment', 'Product_shipment', 'Activity_type'
+                           , 'Notification');

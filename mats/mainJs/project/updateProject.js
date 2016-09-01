@@ -43,8 +43,7 @@ function updateTimeline(){
             }
             
             location.reload();
-            
         }
     });
-    
 }
+
