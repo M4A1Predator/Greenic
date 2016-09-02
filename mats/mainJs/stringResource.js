@@ -14,3 +14,5 @@ var projectTypeThaiDict = {
     'fruit' : 'ผลไม้',
     'animal' : 'สัตว์',
 };
+
+var activityTypeIdDict = {"add_project": 1, "update_timeline": 2};

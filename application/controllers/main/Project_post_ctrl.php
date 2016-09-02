@@ -115,7 +115,8 @@
             echo 1;
             
             // Add notification
-            $this->Notification->check_and_add_notification($this->Activity_type->activity_type_update_timeline_id, 'project', $project_id, $project_id);
+            //$this->Notification->check_and_add_notification($this->Activity_type->activity_type_update_timeline_id, 'project', $project_id, $project_id);
+            $this->Notification->add_update_timeline_notification($added_post_id);
             
         }
         

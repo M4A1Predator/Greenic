@@ -98,6 +98,8 @@ $route['member/add_project_step2_ajax'] = 'main/Project_ctrl/add_project_step2_a
 $route['member/add_project_step3_ajax'] = 'main/Project_ctrl/add_project_step3_ajax';
 $route['member/add_project_post_ajax'] = 'main/Project_post_ctrl/add_project_post_ajax';
 
+$route['member/notice_all_notifications_ajax'] = 'main/Notification_ctrl/notice_all_notifications_ajax';
+
 $route['follow_ajax'] = 'main/Follow_ctrl/add_follow_ajax';
 
 $route['get_all_provinces_ajax'] = 'main/Address_ctrl/get_all_provinces_ajax';

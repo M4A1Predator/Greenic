@@ -113,7 +113,7 @@
 	<script type="text/javascript" src="<?=base_url()?>mats/assets/js/custom.js"></script>
 	<!-- JS Page Level -->
 	<script type="text/javascript" src="<?=base_url()?>mats/assets/js/app.js"></script>
-    <script type="text/javascript" src="<?=base_url()?>mats/assets/js/plugins/fancy-box.js"></script>
+    <!--<script type="text/javascript" src="<?=base_url()?>mats/assets/js/plugins/fancy-box.js"></script>-->
 	<script type="text/javascript" src="<?=base_url()?>mats/assets/js/plugins/style-switcher.js"></script>
     
     <!-- Greenic JS -->
@@ -124,16 +124,16 @@
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/member/checkNotice.js"></script>
     <!-- /GreenicJS -->
 
-    <script type="text/javascript">
-		jQuery(document).ready(function() {
-			App.init();
-			FancyBox.initFancybox();
-			StyleSwitcher.initStyleSwitcher();
-            OrderForm.initOrderForm();
-			ReviewForm.initReviewForm();
-			CheckoutForm.initCheckoutForm();
-		});
-	</script>
+<!--    <script type="text/javascript">-->
+<!--		jQuery(document).ready(function() {-->
+<!--			App.init();-->
+<!--			FancyBox.initFancybox();-->
+<!--			StyleSwitcher.initStyleSwitcher();-->
+<!--            OrderForm.initOrderForm();-->
+<!--			ReviewForm.initReviewForm();-->
+<!--			CheckoutForm.initCheckoutForm();-->
+<!--		});-->
+<!--	</script>-->
 
 
 <!--[if lt IE 9]>

@@ -9,7 +9,7 @@
             <li><a href="subCategory.php"><?=$project->category_master_name?></a></li>
             <?php } ?>
             <li><a href="subCategory.php"><?=$project->category_name?></a></li>
-            <li class="active"><?=$project->project_name?>#2</li>
+            <li class="active"><?=$project->project_name?></li>
         </ul>
     </div>
 </div>
@@ -79,7 +79,7 @@
                     <a href="#"><i class="fa fa-truck"></i> การจัดส่ง: <span id="shipmentWay">โปรดติดต่อasdsadsdsd</span></a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-calendar"></i> พร้อมจำหน่าย: <?=display_date($project->project_selldate)?></a>
+                    <a href="#"><i class="fa fa-calendar"></i> พร้อมจำหน่าย: <?=display_date_th($project->project_selldate)?></a>
                 </li>
                 <li class="list-group-item">
                 <div class="text-center star margin-bottom-10">
