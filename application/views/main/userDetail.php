@@ -10,7 +10,7 @@
 
             $this->load->view( 'main/inc/footer.php');
         ?>
-    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
+    <!--<script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>-->
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/member/stringResource.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/member/editMemberDetail.js"></script>
 

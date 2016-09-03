@@ -9,8 +9,6 @@
             
             $this->load->view( 'main/page/searchPage.php'); 
             
-            
-        
             $this->load->view( 'main/inc/footer.php');
             
         ?>

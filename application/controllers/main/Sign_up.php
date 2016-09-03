@@ -110,24 +110,23 @@
              *  Generate content and send confirm email to user
              *
              *  @param  string  email
-             *  @param  string  confirm token
              *  
              */
             
             // Set up url
-            $confirm_url = 'http://greenic.co/verify_account/'.$member['member_id'].'/'.$member['member_token'];
+            $confirm_url = 'https://greenic.co/verify_account/'.$member['member_id'].'/'.$member['member_token'];
             
             // Email content
             $content = 'Confirm account<br/>';
-            $content .= 'สวัสดีคุณ ' + $member['member_firstname'] + '<br/>';
+            $content .= 'สวัสดีคุณ '.$member['member_firstname'].'<br/>';
             $content .= 'Go to confirm link<br/>';
             $content .= '<a href="'.$confirm_url.'">'.$confirm_url.'</a>';
             
             // Prepare email
             $from = $this->config->item('smtp_user');
-            $to = 'tssniper3@gmail.com';
+            //$to = 'tssniper3@gmail.com';
             //$to = 'tssniper3@greenic.co';
-            //$to = $member['member_email'];
+            $to = $member['member_email'];
             
             $this->email->set_newline("\r\n");
             $this->email->from($from, 'Greenic');
@@ -265,8 +264,6 @@
             
             // Load view
             $this->load->view('main/email', $data_asocc);
-            
-            
             
         }
         

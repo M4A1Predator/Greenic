@@ -16,7 +16,7 @@
             
         ?>
         
-        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
+        <!--<script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>-->
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/stringResource.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/viewProject.js"></script>
         

@@ -46,6 +46,7 @@
             // Get last projects
             // Set where
             $where_assoc = array();
+            $where_assoc['project_status_name'] = $this->Status->status_normal;
             
             // Set order by
             $order_by = 'project_time DESC';
@@ -71,6 +72,7 @@
             // Get highest view project
             // Set where
             $where_assoc = array();
+            $where_assoc['project_status_name'] = $this->Status->status_normal;
             
             // Set order
             $order_by = 'project_view DESC';

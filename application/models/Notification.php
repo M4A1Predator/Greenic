@@ -107,7 +107,7 @@
             // Set where
             $where_assoc = array();
             $where_assoc['notification_member_id'] = $member_id;
-            //$where_assoc['notification_notice'] = 0;
+            $where_assoc['notification_notice'] = 0;
             
             // Join
             $join_activity_type = $this->CI->gnc_query->get_join_table_assoc('activity_type', 'activity_type.activity_type_id = notification.notification_activity_type_id');

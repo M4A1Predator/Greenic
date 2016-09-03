@@ -70,6 +70,7 @@ $route['my_projects'] = 'main/Project_ctrl/member_projects_page';
 $route['project/(:num)'] = 'main/Project_ctrl/view_project_page/$1';
 $route['my_project/(:num)/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/edit_project_page/$1/$2';
 
+$route['search'] = 'main/Search/search_result_page';
 $route['category/([a-zA-Z0-9]{0,})'] = 'main/Category_ctrl/view_category_page/$1';
 
 // Control routes
@@ -108,6 +109,7 @@ $route['get_sub_district_pro'] = 'main/Address_ctrl/get_sub_district';
 
 $route['get_project_types_with_count_ajax'] = 'main/Project_type_ctrl/get_project_types_with_count_ajax';
 $route['category/get_last_projects_ajax'] = 'main/Category_ctrl/get_last_projects_ajax';
+$route['category/get_popular_projects_ajax'] = 'main/Category_ctrl/get_popular_projects_ajax';
 
 // Admin routes
 // Admin view routes

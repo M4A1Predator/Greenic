@@ -122,6 +122,8 @@
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/regis.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/authen.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/member/checkNotice.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/search/search.js"></script>
     <!-- /GreenicJS -->
 
 <!--    <script type="text/javascript">-->

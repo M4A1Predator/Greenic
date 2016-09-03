@@ -23,8 +23,7 @@ function validatePassword(password) {
 }
 
 function is_unique_email(email){
-    console.log('check email======');
-    
+    //console.log('check email======');
     param = {
         'email' : email
     };
@@ -115,9 +114,7 @@ function failedRegis() {
 }
 
 function changeButtonProcessStatus() {
-    console.log('regis success');
+    //console.log('regis success');
     signUpBtn.prop('disabled', true);
     signUpBtn.val(processingText);
 }
-
-

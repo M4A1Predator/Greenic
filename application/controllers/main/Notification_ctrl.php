@@ -64,7 +64,9 @@
             // encode json
             $notification_arr_json = json_encode($notification_arr, JSON_UNESCAPED_UNICODE);
             
-            echo $notification_arr_json;
+            //echo $notification_arr_json;
+            //$this->output->set_content_type('application/json');
+            $this->output->set_output($notification_arr_json);
             
         }
         
@@ -96,7 +98,7 @@
                 echo 0;
                 return;
             }
-            echo 1;
+            $this->output->set_output(1);
         }
     
     }
