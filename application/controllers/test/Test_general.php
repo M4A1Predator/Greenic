@@ -10,6 +10,7 @@
             // Load helper
             
             // Load library
+            $this->load->library('GNC_image');
             
             // Load model
             
@@ -22,9 +23,11 @@
         function test(){
             //$n = $this->Product_shipment->get_product_shipment_by_project_id(18);
             //echo json_encode($n, JSON_UNESCAPED_UNICODE);
-            echo var_dump($this->session->userdata('rekt'));
-            echo $this->input->server('REQUEST_METHOD');
-            echo var_dump($this->is_sign_in);
+            //echo var_dump($this->session->userdata('rekt'));
+            //echo $this->input->server('REQUEST_METHOD');
+            //echo var_dump($this->is_sign_in);
+            
+            echo $this->gnc_image->default_member_img_path;
         }
         
         

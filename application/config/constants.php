@@ -96,5 +96,5 @@ defined('ENVIRONMENT')          OR define('ENVIRONMENT', 'production');
 |   FILE OPTION
 |
 */
-defined('MEMBER_IMAGE_PATH')          OR define('MEMBER_IMAGE_PATH', 'files/members/images/');
+defined('MEMBER_IMAGE_PATH')          OR define('MEMBER_IMAGE_PATH', 'files/members/');
 defined('PROJECT_IMAGE_PATH')         OR define('PROJECT_IMAGE_PATH', 'files/projects/');

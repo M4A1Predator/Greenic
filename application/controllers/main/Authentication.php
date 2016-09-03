@@ -11,6 +11,7 @@
             
             // Load library
             $this->load->library('form_validation');
+            $this->load->library('GNC_image');
             
             // Load model
             
@@ -53,6 +54,14 @@
             // Set session
             $member_session_data = array();
             $member_session_data = $member;
+            
+            // Fitler data
+            // Set defaults image if member doesn't have image profile
+            if(!$member_session_data['member_img_path']){
+                //$member_session_data['member_img_path'] = $this->gnc_image->default_member_img_path;
+                $member_session_data['member_img_path'] = get_default_member_image_path();
+            }
+            
             $this->session->set_userdata($member_session_data);
             
             // If remember sign in

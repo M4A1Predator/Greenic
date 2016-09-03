@@ -13,6 +13,10 @@ var saveBtn = $('#save-btn');
 saveBtn.click(saveDetail);
 province.change(getDistrict);
 //district.change(getSubDistrict);
+image.change(function (){
+    fileName = image.prop('files')[0].name;
+    $('#editImgName').val(fileName);
+});
 
 function getDistrict() {
     
@@ -87,6 +91,7 @@ function saveDetail(e) {
     formData.append('district', districtName);
     formData.append('sub_district', subDistrict.val());
     formData.append('email', email.val());
+    formData.append('password', $('#password').val());
     if (uploadImage) {
         formData.append('member_image', uploadImage);
     }

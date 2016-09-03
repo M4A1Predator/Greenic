@@ -18,7 +18,11 @@
         <div class="col-md-6 col-md-offset-3">
             <h1><?=$project->project_name?></h1>
             <div class="profile-blog">
-                <img class="rounded-x" style="max-width:100px;" src="<?=base_url()?>mats/assets/img/testimonials/img1.jpg" alt="">
+                <?php if($project->member_img_path){ ?>
+                <img class="rounded-x" style="max-width:100px;" src="<?=base_url().$project->member_img_path?>" alt="">
+                <?php }else{ ?>
+
+                <?php } ?>
                 <div class="coverDetail">
                     <strong class="coverProfile">เกษตรกร: <?=$project->member_firstname?> <?=$project->member_lastname?></strong> <br>
                     <a class="farmProfile"><i class="fa fa-map-signs" aria-hidden="true"></i> <?=$project->farm_name?></a> <br>

@@ -25,3 +25,9 @@
         return $type_arr[$project_type_id - 1];
         
     }
+    
+    function get_default_member_image_path(){
+        $default_member_img_path = 'files/defaults/member/user.jpg';
+        return $default_member_img_path;
+    }
+    

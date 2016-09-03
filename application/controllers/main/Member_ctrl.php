@@ -74,10 +74,18 @@
             $this->form_validation->set_rules('district', 'district');
             $this->form_validation->set_rules('sub_district', 'sub_district');
             $this->form_validation->set_rules('email', 'email', 'required|valid_email');
+            $this->form_validation->set_rules('password', 'password', 'required|regex_match[/[a-zA-Z0-9!@#$%&.,:*\-\]\[\/]/]|min_length[8]');
             
             // Validate form
             if($this->form_validation->run() == FALSE){
                 echo validation_errors();
+                return;
+            }
+            
+            // Check member password
+            $member = $this->Member->member_authentication($this->session->userdata('member_email'), $this->input->post('password'));
+            if(!$member){
+                echo '{"error": "wrong password"}';
                 return;
             }
             
@@ -90,47 +98,81 @@
             $sub_district = $this->input->post('sub_district');
             $email = $this->input->post('email');
             
-            if(array_key_exists('member_image', $_FILES)){
+            // Prepare image value;
+            $profile_image_full_path = NULL;
+            $profile_image_field = 'member_image';
+            
+            if(array_key_exists($profile_image_field, $_FILES)){
+                
+                // Load library
+                $this->load->library('upload');
+                $this->load->library('image_lib');
+                $this->load->library('GNC_image');
+                
+                $profile_image = $_FILES[$profile_image_field];
+                
+                // Get file type
+                $profile_image_ext = pathinfo($profile_image['name'], PATHINFO_EXTENSION);
+                $profile_image_type = $profile_image['type'];
+                
+                // Check file type
+                if(!$this->gnc_image->is_image_file($profile_image)){
+                    echo 'Invalid file';
+                    return;
+                }
+                
+                // Generate file name
+                $profile_image_name = $this->gnc_image->generate_file_name('mm_').'.'.$profile_image_ext;
+                $profile_image_location = MEMBER_IMAGE_PATH.'profile_imgs';
+                
+                // Set upload image config
+                $config = array();
+                $config['upload_path'] = $profile_image_location;
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                $config['remove_spaces'] = true;
+                $config['max_size']	= '20000';
+                $config['max_width']  = '3850';
+                $config['max_height']  = '3850';
+                $config['file_name'] = $profile_image_name;
+                $config['overwrite'] = TRUE;
+                $fieldname = $profile_image_field;  //input tag name
+                
+                // If has old image, then remove it
+                if($member['member_img_path']){
+                    $old_path = $member['member_img_path'];
+                    $old_full_path = getcwd().'/'.$old_path;
+                    if(file_exists($old_full_path)){
+                        unlink($old_full_path);
+                    }
+                }
+                
+                // Upload image profile
+                $this->upload->initialize($config);
+                if(!$this->upload->do_upload($fieldname)){
+                    echo 'Upload error'.$this->upload->display_errors();
+                    return;
+                }else{
+                    // Set path value
+                    $profile_image_full_path = $profile_image_location.'/'.$profile_image_name;
+                }
+                
+                // Get upload data
+                $ud = $this->upload->data();
                 
                 // Resize image
                 $resize_config = array();
                 $resize_config['image_library'] = 'gd2';
-                $resize_config['source_image'] = $_FILES['member_image']['tmp_name'];
+                $resize_config['source_image'] = $ud['full_path'];
                 $resize_config['create_thumb'] = FALSE;
                 $resize_config['maintain_ratio'] = TRUE;
                 $resize_config['width']  = 250;
-                //$resize_config['height']  = 50;
+                $resize_config['height']  = 250;
                 $this->image_lib->initialize($resize_config);
                 $this->image_lib->resize();
                 
-                $image_content = file_get_contents($_FILES['member_image']['tmp_name']);
-                echo strlen(base64_encode($image_content));
+                //$image_content = file_get_contents($_FILES['member_image']['tmp_name']);
+                //echo strlen(base64_encode($image_content));
                 
-                return;
-                // Set upload image config
-                //$config = array();
-                //$config['upload_path'] = MEMBER_IMAGE_PATH;
-                //$config['allowed_types'] = 'gif|jpg|png|jpeg';
-                //$config['remove_spaces'] = true;
-                //$config['max_size']	= '4048';
-                //$config['max_width']  = '2100';
-                //$config['max_height']  = '2100';
-                //$config['file_name'] = '';
-                //$config['overwrite'] = TRUE;
-                //$fieldname = 'member_image';  //input tag name
-                //
-                //if(file_exists($this->){
-                //    unlink($dealer['dealer_picture']);
-                //}
-                //
-                //$this->upload->initialize($config);
-                //if(!$this->upload->do_upload($fieldname)){
-                //    //echo "test".$this->upload->display_errors();
-                //    $this->session->set_flashdata('msgprofile', 'ไฟล์รูปภาพไม่ถูกต้อง');
-                //    echo "<script>window.history.back();</script>";
-                //    return;
-                //}
-                //$ud = $this->upload->data();
             }
             
             // Prepare member data
@@ -141,6 +183,9 @@
             $member_data['member_province'] = $province;
             $member_data['member_district'] = $district;
             $member_data['member_sub_district'] = $sub_district;
+            if($profile_image_full_path){
+                $member_data['member_img_path'] = $profile_image_full_path;
+            }
             
             // Update member
             $where_assoc = array();

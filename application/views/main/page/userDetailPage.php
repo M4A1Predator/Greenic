@@ -161,7 +161,10 @@
                     <label class="label"><strong>ภาพประจำตัว <small>*เว้นไว้ถ้าไม่ต้องการเปลี่ยน</small></strong></label>
                     <section>
                         <label for="file" class="input input-file state-success">
-                            <div class="button state-success"><input type="file" id="edit-img" name="file" multiple="" onchange="this.parentNode.nextSibling.value = this.value;" class="valid">เลือกไฟล์</div><input type="text" placeholder="กรุณาเลือกไฟล์" readonly="" class="valid">
+                            <div class="button state-success">
+                                <input type="file" id="edit-img" name="file" accept="image/*" class="valid">เลือกไฟล์
+                            </div>
+                            <input type="text" placeholder="กรุณาเลือกไฟล์" readonly="" id="editImgName" value="" class="valid">
                         </label>
                     </section>
                 </section>
@@ -198,7 +201,7 @@
                 <section class="col-md-6 col-sm-6">
                     <label class="label"><strong>รหัสผ่าน</strong></label>
                     <label class="input">
-                        <input type="password" id="projectName">
+                        <input type="password" id="password">
                     </label>
                 </section>
             </div>
