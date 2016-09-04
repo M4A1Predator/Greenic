@@ -8,6 +8,7 @@
     </div>
 </div>
 <input type="hidden" id="projectTypeId" value="<?=$project_type_id?>" />
+<input type="hidden" id="projectTypeName" value="<?=$project_type_name?>" />
 <div class="container content-md">
     <div class="row margin-bottom-40">
         <?php
@@ -49,7 +50,7 @@
 <div class="parallax-team parallaxBg" style="background-position: 50% 33px;">
         <div class="container content">
             <div class="title-box-v2">
-                <h2>ผัก <span class="color-red">อินทรีย์</span> ยอดนิยม</h2>
+                <h2><?=get_project_type_thai_text($project_type_id)?> <span class="color-red">อินทรีย์</span> ยอดนิยม</h2>
             </div>
             <div class="row" id="popProjects">
                 <!-- Begin Easy Block -->

@@ -51,4 +51,45 @@
             return $this->db->insert_id();
         }
         
+        
+        function get_project_by_category($filter_assoc, $result_type='object'){
+            /*
+             *  Get projects by category id
+             *
+             */
+            
+            // Get data
+            $category_id = $filter_assoc['category_id'];
+            $order_by = $filter_assoc['order_by'];
+            $offset = $filter_assoc['offset'];
+            $limit = $filter_assoc['limit'];
+            
+            // Build query
+            $this->db->select('*');
+            $this->db->from($this->view);
+            $this->db->where('category_id', $category_id);
+            $this->db->or_where('category_master_id', $category_id);
+            $this->db->order_by($order_by);
+            $this->db->offset($offset);
+            $this->db->limit($limit);
+            $query = $this->db->get();
+            
+            $result = $this->get_result($query, $result_type);
+            
+            // Build query
+            $this->db->select('*');
+            $this->db->from($this->view);
+            $this->db->where('category_id', $category_id);
+            $this->db->or_where('category_master_id', $category_id);
+            $this->db->order_by($order_by);
+            $this->db->offset($offset);
+            $this->db->limit($limit);
+            $count = $this->db->count_all_results();
+            
+            // Set return data
+            $data['result'] = $result;
+            $data['count'] = $count;
+            return $data;
+            
+        }
     }

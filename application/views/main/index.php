@@ -12,9 +12,7 @@
             
         ?>
     
-    <!--<script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>-->
-    
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/home/home.js"></script>
-    
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/search/projectFilter.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/regis.js"></script>
     

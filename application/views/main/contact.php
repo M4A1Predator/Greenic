@@ -9,9 +9,5 @@
             
             $this->load->view( 'main/page/contactPage.php'); 
             
-            
-        
             $this->load->view( 'main/inc/footer.php');
-            
         ?>
-

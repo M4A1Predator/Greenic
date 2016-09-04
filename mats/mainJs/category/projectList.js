@@ -1,13 +1,12 @@
 var projectTypeId = $('#projectTypeId');
-
 var categories = $('#categories');
+
 var lastProjects = $('#lastProjects');
 var popProjects = $('#popProjects');
 
 setCategories();
 setLastProjects();
 setPopProjects();
-
 
 function setCategories(){
     
@@ -31,8 +30,10 @@ function setCategories(){
         
         jsonData.forEach(function (category){
             
+            categoryUrl = webUrl + 'category/' + $('#projectTypeName').val() + '/' + category.category_id;
+            
             content = '<div class="col-sm-6 col-md-3">' + 
-                '<a href="subCategory.php"  class="btn-u btn-brd  btn-u-lg subCate ' + borderColorClass + '"> ' + category.category_name + ' </a>' + 
+                '<a href="' + categoryUrl  + '"  class="btn-u btn-brd  btn-u-lg subCate ' + borderColorClass + '"> ' + category.category_name + ' </a>' + 
             '</div>';
             
             categories.append(content);

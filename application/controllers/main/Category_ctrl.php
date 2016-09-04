@@ -19,7 +19,7 @@
             
         }
         
-        function view_category_page($project_type_name){
+        function view_project_type_page($project_type_name){
             /*
              *  Load category project type page
              *
@@ -39,6 +39,31 @@
             
             // Load view
             $this->load->view('main/category', $data_assoc);
+            
+        }
+        
+        function view_category_page(){
+            /*
+             *  Display category page
+             *  set up data to use in category page
+             *
+             */
+            
+            // Get project type id
+            $project_type_name = $this->uri->segment(2);
+            $project_type_id = $this->Project_type->get_project_type_id_by_name($project_type_name);
+            $category_id = $this->uri->segment(3);
+            $sub_category_id = $this->uri->segment(4, '');
+            
+            // Prepare data
+            $data_assoc = array();
+            $data_assoc['project_type_name'] = $project_type_name;
+            $data_assoc['project_type_id'] = $project_type_id;
+            $data_assoc['category_id'] = $category_id;
+            $data_assoc['subcategory'] = $sub_category_id;
+            
+            // Load view
+            $this->load->view('main/subCategory', $data_assoc);
             
         }
         
@@ -191,4 +216,69 @@
         }
         
         
+    
+        function get_projects_ajax(){
+            /*
+             *  Get projects by catgory
+             *
+             */
+            
+            // Get data
+            $limit = $this->input->get('limit');
+            $offset = $this->input->get('offset');
+            $category_id = $this->input->get('category_id');
+            $master_category_id = $this->input->get('master_category_id');
+            
+            // Set where clause
+            $filter_assoc = array();
+            $filter_assoc['limit'] = $limit;
+            $filter_assoc['offset'] = $offset;
+            
+            if($category_id){
+                $filter_assoc['category_id'] = $category_id;
+            }
+            
+            // Set order
+            $filter_assoc['order_by'] = 'project_time DESC';
+            
+            // Get projects from DB
+            $project_data = $this->Project->get_project_by_category($filter_assoc, 'array');
+            //$project_arr = $project_data['result'];
+            //$project_count = $project_data['count'];
+            
+            // Encode JSON
+            $project_arr_json = json_encode($project_data);
+            
+            $this->output->set_output($project_arr_json);
+        }
+    
+    
+        function get_filter_categories_ajax(){
+            /*
+             *  Get categories from DB
+             *
+             */
+            
+            // Get data
+            $project_type_id = $this->input->get('project_type_id');
+            $category_master_id = $this->input->get('category_master_id');
+            
+            // Set where
+            $where_assoc = array();
+            if($project_type_id){
+                $where_assoc['category_project_type_id'] = $project_type_id;
+            }
+            if($category_master_id){
+                $where_assoc['category_master_id'] = $category_master_id;
+            }
+            
+            // Get data
+            $category_arr = $this->Category->get_filter('*', $where_assoc, null, null, null, null, 'array');
+            
+            // JSON encode
+            $category_arr_json = json_encode($category_arr, JSON_UNESCAPED_UNICODE);
+            
+            $this->output->set_output($category_arr_json);
+            
+        }
     }
