@@ -20,7 +20,7 @@
                                         <p>ภาพประจำตัว<br/>
                                             <img src="assets/farmer.png" class="img-responsive"><br/>
                                     </div>
-                                    <div class="card-footer"><a href="<?=base_url()?>mats/backAssets/?page=memberEdit" class="btn btn-warning"><i class="fa fa-pencil"></i> แก้ไขข้อมูลสมาชิก</a></div>
+                                    <div class="card-footer"><a href="?page=memberEdit" class="btn btn-warning"><i class="fa fa-pencil"></i> แก้ไขข้อมูลสมาชิก</a></div>
                                 </div>
                             </div>
             </div>

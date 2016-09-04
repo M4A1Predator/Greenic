@@ -114,9 +114,21 @@ $route['category/get_popular_projects_ajax'] = 'main/Category_ctrl/get_popular_p
 $route['category/get_projects_ajax'] = 'main/Category_ctrl/get_projects_ajax';
 $route['category/get_categories_ajax'] = 'main/Category_ctrl/get_filter_categories_ajax';
 
+
+//====================================================================================================================================
 // Admin routes
 // Admin view routes
-$route['admin/sign_in'] = 'back/Admin_authentication/sign_in_page';
+$route['gnc_admin/sign_in'] = 'back/Admin_authentication/sign_in_page';
+$route['gnc_admin'] = 'back/Admin_home/home';
+
+$route['gnc_admin/members/(:any)'] = 'back/Member_set/member_list_page';
+
+// Admin view controls
+$route['gnc_admin/_sign_in_pro_ajax'] = 'back/Admin_authentication/sign_in_pro_ajax';
+$route['gnc_admin/sign_out'] = 'back/Admin_authentication/sign_out_pro';
+
+
+//====================================================================================================================================
 
 // Test routes
 $route['test'] = 'main/Home/test';

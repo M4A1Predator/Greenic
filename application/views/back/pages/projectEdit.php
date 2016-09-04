@@ -49,7 +49,7 @@
                                         </div>
                                         
                                         <div class="form-group row">
-                                            <div class="col-md-2"><label class="control-label">หน่วยที่ขาย <a href="<?=base_url()?>mats/backAssets/?page=addUnit">[เพิ่มหน่วย <i class="fa fa-plus"></i>]</a></label>
+                                            <div class="col-md-2"><label class="control-label">หน่วยที่ขาย <a href="?page=addUnit">[เพิ่มหน่วย <i class="fa fa-plus"></i>]</a></label>
                                                 <select class="form-control district">
                                                     <option>เลือกหน่วย</option>
                                                     <option value="unit001">กรัม</option>
@@ -90,7 +90,7 @@
 
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> บันทึก</button>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=allProject" class="btn btn-danger"><i class="fa fa-times"></i> ยกเลิก</a>
+                                            <a href="?page=allProject" class="btn btn-danger"><i class="fa fa-times"></i> ยกเลิก</a>
                                         </div>
                                     </form>
                                 </div>

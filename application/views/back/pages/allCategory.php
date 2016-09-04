@@ -9,9 +9,9 @@
                         </div>
                     </div>
                     <div class="card sameheight-item">
-                            <a href="<?=base_url()?>mats/backAssets/?page=allSpecies" class="btn btn-secondary  btn-lg btn-block">ผัก (120)</a>
-                            <a href="<?=base_url()?>mats/backAssets/?page=allSpecies" class="btn btn-secondary  btn-lg btn-block">ผลไม้ (82)</a>
-                            <a href="<?=base_url()?>mats/backAssets/?page=allSpecies" class="btn btn-secondary  btn-lg btn-block">สัตว์ (18)</a>
-                            <a href="<?=base_url()?>mats/backAssets/?page=allSpecies" class="btn btn-primary  btn-lg btn-block">ทั้งหมด (220)</a>
+                            <a href="?page=allSpecies" class="btn btn-secondary  btn-lg btn-block">ผัก (120)</a>
+                            <a href="?page=allSpecies" class="btn btn-secondary  btn-lg btn-block">ผลไม้ (82)</a>
+                            <a href="?page=allSpecies" class="btn btn-secondary  btn-lg btn-block">สัตว์ (18)</a>
+                            <a href="?page=allSpecies" class="btn btn-primary  btn-lg btn-block">ทั้งหมด (220)</a>
                     </div>
                 </article>

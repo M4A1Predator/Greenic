@@ -20,7 +20,7 @@
                                                     </select>
                                             
                                         </div>
-                                        <div class="form-group"> <a class="btn btn-secondary-outline" href="<?=base_url()?>mats/backAssets/?page=allSpecies"><i class="fa fa-chevron-left"></i> ชนิดทั้งหมด</a> <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> เพิ่ม</button> </div>
+                                        <div class="form-group"> <a class="btn btn-secondary-outline" href="?page=allSpecies"><i class="fa fa-chevron-left"></i> ชนิดทั้งหมด</a> <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> เพิ่ม</button> </div>
                                     </form>
                                 </div>
                             </div>

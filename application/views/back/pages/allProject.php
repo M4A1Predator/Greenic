@@ -10,8 +10,8 @@
 							คำสั่งจำนวนมาก						
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-trash-o icon"></i>ลบโปรเจ็คอย่างถาวร</a>
-							<a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-pause icon"></i>ระงับโปรเจ็คชั่วคราว</a>
+							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-trash-o icon"></i>ลบโปรเจ็คอย่างถาวร</a>
+							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-pause icon"></i>ระงับโปรเจ็คชั่วคราว</a>
 						</div>
 					</div>
 				</h3>
@@ -107,14 +107,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/?page=projectDetail">
+                                        <a href="?page=projectDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/bung.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อสินค้า</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
+                                            <a href="?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
                                                 <h4 class="item-title">ผักบุ้งจีน ปุ๋ยอินทรีย์ 100%</h4> </a>
                                         </div>
                                     </div>
@@ -133,7 +133,7 @@
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <!--คลิกที่ชื่อฟาร์มก็จะให้แสดงโปรเจ็คทั้งหมดของฟาร์มนั้นๆ-->
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สร้าง</div>
@@ -149,10 +149,10 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -167,14 +167,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/?page=projectDetail">
+                                        <a href="?page=projectDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/bung.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อสินค้า</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
+                                            <a href="?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
                                                 <h4 class="item-title">ผักบุ้งจีน ปุ๋ยอินทรีย์ 100%</h4> </a>
                                         </div>
                                     </div>
@@ -193,7 +193,7 @@
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <!--คลิกที่ชื่อฟาร์มก็จะให้แสดงโปรเจ็คทั้งหมดของฟาร์มนั้นๆ-->
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สร้าง</div>
@@ -209,10 +209,10 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -227,14 +227,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/?page=projectDetail">
+                                        <a href="?page=projectDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/bung.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อสินค้า</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
+                                            <a href="?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
                                                 <h4 class="item-title">ผักบุ้งจีน ปุ๋ยอินทรีย์ 100%</h4> </a>
                                         </div>
                                     </div>
@@ -253,7 +253,7 @@
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <!--คลิกที่ชื่อฟาร์มก็จะให้แสดงโปรเจ็คทั้งหมดของฟาร์มนั้นๆ-->
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สร้าง</div>
@@ -269,10 +269,10 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -287,14 +287,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/?page=projectDetail">
+                                        <a href="?page=projectDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/bung.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อสินค้า</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
+                                            <a href="?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
                                                 <h4 class="item-title">ผักบุ้งจีน ปุ๋ยอินทรีย์ 100%</h4> </a>
                                         </div>
                                     </div>
@@ -313,7 +313,7 @@
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <!--คลิกที่ชื่อฟาร์มก็จะให้แสดงโปรเจ็คทั้งหมดของฟาร์มนั้นๆ-->
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สร้าง</div>
@@ -329,10 +329,10 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -347,14 +347,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/?page=projectDetail">
+                                        <a href="?page=projectDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/bung.jpg)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อสินค้า</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
+                                            <a href="?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
                                                 <h4 class="item-title">ปลานิลในบ่อพลาสติก อาหารธรรมชาติ</h4> </a>
                                         </div>
                                     </div>
@@ -373,7 +373,7 @@
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <!--คลิกที่ชื่อฟาร์มก็จะให้แสดงโปรเจ็คทั้งหมดของฟาร์มนั้นๆ-->
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สร้าง</div>
@@ -389,10 +389,10 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -405,25 +405,25 @@
                     </div>
     <nav class="text-xs-right">
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				ก่อนหน้า
 			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item active"> <a class="page-link" href="">
 				1
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				2
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				3
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				4
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				5
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				ถัดไป
 			</a> </li>
                         </ul>

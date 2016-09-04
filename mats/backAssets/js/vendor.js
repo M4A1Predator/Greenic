@@ -6987,7 +6987,7 @@ jQuery.extend({
 				return ret;
 
 			} else {
-				elem.setAttribute( name, value + "" );
+				// elem.setAttribute( name, value + "" );
 				return value;
 			}
 

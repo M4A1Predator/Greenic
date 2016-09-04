@@ -198,7 +198,6 @@
                 return;
             }
             // Add project to DB
-            
             // Prepare data
             
             $project_data_assoc = array();
@@ -244,8 +243,9 @@
                             );
             }
             // Add product shipment data to DB
-            $added_product_shipment_rows = $this->Product_shipment->add_multiple($shipment_data_arr);
+            //echo var_dump($shipment_data_arr);
             
+            $added_product_shipment_rows = $this->Product_shipment->add_multiple($shipment_data_arr);
             //echo var_dump($shipment_data_arr);
             //echo "added ".$this->Product_shipment->add_multiple($shipment_data_arr);
             //$this->db->trans_rollback();

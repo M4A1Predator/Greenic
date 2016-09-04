@@ -119,6 +119,7 @@
     <!-- Greenic JS -->
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/base.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/helper.js"></script>
+    
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/regis.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/authen.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/member/checkNotice.js"></script>

@@ -61,7 +61,7 @@
             
             // Prepare assoc to insert
             $insert_assoc = array();
-            $insert_assoc['member_name'] = $name;
+            $insert_assoc['member_firstname'] = $name;
             $insert_assoc['member_email'] = $email;
             //$insert_assoc['member_token'] = $token;
             $insert_assoc['member_password'] = $hash_password;
@@ -276,7 +276,7 @@
             return $member;
         }
         
-        function  change_member_type($member_id, $new_member_type_id){
+        function change_member_type($member_id, $new_member_type_id){
             /*
              *  change member type by id
              *

@@ -11,7 +11,7 @@
                                     <form>
                                         <div class="form-group"> <label class="control-label">ชื่อหน่วย</label> 
                                         <input type="text" class="form-control boxed" placeholder="เช่น กิโลกรัม, กรัม, ตัน เป็นต้น"> </div>
-                                        <div class="form-group"> <a class="btn btn-secondary-outline" href="<?=base_url()?>mats/backAssets/?page=allUnit"><i class="fa fa-chevron-left"></i> หน่วยทั้งหมด</a> <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> เพิ่ม</button> </div>
+                                        <div class="form-group"> <a class="btn btn-secondary-outline" href="?page=allUnit"><i class="fa fa-chevron-left"></i> หน่วยทั้งหมด</a> <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> เพิ่ม</button> </div>
                                     </form>
                                 </div>
                             </div>

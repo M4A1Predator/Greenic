@@ -5,15 +5,15 @@
                                 <div class="col-md-6">
                                     <h3 class="title">
 					รายการบทความทั้งหมด
-					<a href="<?=base_url()?>mats/backAssets/?page=addArticle" class="btn btn-primary btn-sm rounded-s"><em class="fa fa-plus"></em> เพิ่มบทความ</a><!---->
+					<a href="?page=addArticle" class="btn btn-primary btn-sm rounded-s"><em class="fa fa-plus"></em> เพิ่มบทความ</a><!---->
                     <div class="action dropdown">
 						<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							คำสั่งจำนวนมาก
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#"> <i class="fa fa-eye-slash"></i>ไม่เผยแพร่ทั้งหมดที่เลือก</a>
-                            <a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#"> <i class="fa fa-eye"></i>เผยแพร่ทั้งหมดที่เลือก</a>
-							<a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-close icon"></i>ลบทั้งหมดที่เลือก</a>
+							<a class="dropdown-item" href="#"> <i class="fa fa-eye-slash"></i>ไม่เผยแพร่ทั้งหมดที่เลือก</a>
+                            <a class="dropdown-item" href="#"> <i class="fa fa-eye"></i>เผยแพร่ทั้งหมดที่เลือก</a>
+							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-close icon"></i>ลบทั้งหมดที่เลือก</a>
 						</div>
 					</div>
 				</h3>
@@ -65,14 +65,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/item-editor.html">
+                                        <a href="item-editor.html">
                                             <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/#viewArticle" target="_blank" class="">
+                                            <a href="#viewArticle" target="_blank" class="">
                                                 <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
                                         </div>
                                     </div>
@@ -100,13 +100,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/#unshow"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -121,14 +121,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/item-editor.html">
+                                        <a href="item-editor.html">
                                             <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/#viewArticle" target="_blank" class="">
+                                            <a href="#viewArticle" target="_blank" class="">
                                                 <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
                                         </div>
                                     </div>
@@ -156,13 +156,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/#show"> <i class="fa fa-eye"></i> </a>
+                                                        <a class="edit" href="#show"> <i class="fa fa-eye"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -177,14 +177,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/item-editor.html">
+                                        <a href="item-editor.html">
                                             <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/#viewArticle" target="_blank" class="">
+                                            <a href="#viewArticle" target="_blank" class="">
                                                 <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
                                         </div>
                                     </div>
@@ -212,13 +212,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/#unshow"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -233,14 +233,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/item-editor.html">
+                                        <a href="item-editor.html">
                                             <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/#viewArticle" target="_blank" class="">
+                                            <a href="#viewArticle" target="_blank" class="">
                                                 <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
                                         </div>
                                     </div>
@@ -268,13 +268,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/#unshow"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -289,14 +289,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/item-editor.html">
+                                        <a href="item-editor.html">
                                             <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/#viewArticle" target="_blank" class="">
+                                            <a href="#viewArticle" target="_blank" class="">
                                                 <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
                                         </div>
                                     </div>
@@ -324,13 +324,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/#unshow"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -345,14 +345,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/item-editor.html">
+                                        <a href="item-editor.html">
                                             <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/#viewArticle" target="_blank" class="">
+                                            <a href="#viewArticle" target="_blank" class="">
                                                 <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
                                         </div>
                                     </div>
@@ -380,13 +380,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/#unshow"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -401,14 +401,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/item-editor.html">
+                                        <a href="item-editor.html">
                                             <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/#viewArticle" target="_blank" class="">
+                                            <a href="#viewArticle" target="_blank" class="">
                                                 <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
                                         </div>
                                     </div>
@@ -436,13 +436,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/#unshow"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -457,14 +457,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/item-editor.html">
+                                        <a href="item-editor.html">
                                             <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/#viewArticle" target="_blank" class="">
+                                            <a href="#viewArticle" target="_blank" class="">
                                                 <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
                                         </div>
                                     </div>
@@ -492,13 +492,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/#unshow"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -513,14 +513,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/item-editor.html">
+                                        <a href="item-editor.html">
                                             <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/#viewArticle" target="_blank" class="">
+                                            <a href="#viewArticle" target="_blank" class="">
                                                 <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
                                         </div>
                                     </div>
@@ -548,13 +548,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/#unshow"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -569,14 +569,14 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/item-editor.html">
+                                        <a href="item-editor.html">
                                             <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/#viewArticle" target="_blank" class="">
+                                            <a href="#viewArticle" target="_blank" class="">
                                                 <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
                                         </div>
                                     </div>
@@ -604,13 +604,13 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/#unshow"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -623,25 +623,25 @@
                     </div>
                     <nav class="text-xs-right">
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				ก่อนหน้า
 			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item active"> <a class="page-link" href="">
 				1
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				2
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				3
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				4
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				5
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				ถัดไป
 			</a> </li>
                         </ul>

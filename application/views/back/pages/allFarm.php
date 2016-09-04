@@ -57,13 +57,13 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ไร่ผักลุงจอน@นครนายก</h4> </a>
+                                            <a href="?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ไร่ผักลุงจอน@นครนายก</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อฟาร์ม-->
-                                        <div><a href="<?=base_url()?>mats/backAssets/?page=allProject" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 โปรเจ็ค</a></div>
+                                        <div><a href="?page=allProject" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 โปรเจ็ค</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
@@ -73,11 +73,11 @@
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อเกษตรกร</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อเกษตรกร-->
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=allProject" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">วีรชัย สมัยนิยม</a> </div>
+                                        <div class="no-overflow"> <a href="?page=allProject" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">วีรชัย สมัยนิยม</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -93,13 +93,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editFarm" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editFarm" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -117,13 +117,13 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ไร่ผักลุงจอน@นครนายก</h4> </a>
+                                            <a href="?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ไร่ผักลุงจอน@นครนายก</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อฟาร์ม-->
-                                        <div><a href="<?=base_url()?>mats/backAssets/?page=allProject" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 โปรเจ็ค</a></div>
+                                        <div><a href="?page=allProject" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 โปรเจ็ค</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
@@ -133,11 +133,11 @@
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อเกษตรกร</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อเกษตรกร-->
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=allProject" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">วีรชัย สมัยนิยม</a> </div>
+                                        <div class="no-overflow"> <a href="?page=allProject" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">วีรชัย สมัยนิยม</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -153,13 +153,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editFarm" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editFarm" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -177,13 +177,13 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ไร่ผักลุงจอน@นครนายก</h4> </a>
+                                            <a href="?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ไร่ผักลุงจอน@นครนายก</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อฟาร์ม-->
-                                        <div><a href="<?=base_url()?>mats/backAssets/?page=allProject" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 โปรเจ็ค</a></div>
+                                        <div><a href="?page=allProject" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 โปรเจ็ค</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
@@ -193,11 +193,11 @@
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อเกษตรกร</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อเกษตรกร-->
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=allProject" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">วีรชัย สมัยนิยม</a> </div>
+                                        <div class="no-overflow"> <a href="?page=allProject" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">วีรชัย สมัยนิยม</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -213,13 +213,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editFarm" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editFarm" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -237,13 +237,13 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ไร่ผักลุงจอน@นครนายก</h4> </a>
+                                            <a href="?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ไร่ผักลุงจอน@นครนายก</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อฟาร์ม-->
-                                        <div><a href="<?=base_url()?>mats/backAssets/?page=allProject" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 โปรเจ็ค</a></div>
+                                        <div><a href="?page=allProject" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 โปรเจ็ค</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
@@ -253,11 +253,11 @@
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อเกษตรกร</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อเกษตรกร-->
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=allProject" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">วีรชัย สมัยนิยม</a> </div>
+                                        <div class="no-overflow"> <a href="?page=allProject" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">วีรชัย สมัยนิยม</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -273,13 +273,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editFarm" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editFarm" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -297,13 +297,13 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ไร่ผักลุงจอน@นครนายก</h4> </a>
+                                            <a href="?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ไร่ผักลุงจอน@นครนายก</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อฟาร์ม-->
-                                        <div><a href="<?=base_url()?>mats/backAssets/?page=allProject" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 โปรเจ็ค</a></div>
+                                        <div><a href="?page=allProject" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 โปรเจ็ค</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
@@ -313,11 +313,11 @@
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อเกษตรกร</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อเกษตรกร-->
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=allProject" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">วีรชัย สมัยนิยม</a> </div>
+                                        <div class="no-overflow"> <a href="?page=allProject" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">วีรชัย สมัยนิยม</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -333,13 +333,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=editFarm" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=editFarm" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -352,25 +352,25 @@
                     </div>
                     <nav class="text-xs-right">
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				ก่อนหน้า
 			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item active"> <a class="page-link" href="">
 				1
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				2
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				3
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				4
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				5
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				ถัดไป
 			</a> </li>
                         </ul>

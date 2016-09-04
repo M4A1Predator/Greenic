@@ -5,13 +5,13 @@
                                 <div class="col-md-6">
                                     <h3 class="title">
 					รายการหน่วยทั้งหมด
-					<a href="<?=base_url()?>mats/backAssets/?page=addUnit" class="btn btn-primary btn-sm rounded-s"><em class="fa fa-plus"></em> เพิ่มหน่วยตวงวัดสินค้า</a><!---->
+					<a href="?page=addUnit" class="btn btn-primary btn-sm rounded-s"><em class="fa fa-plus"></em> เพิ่มหน่วยตวงวัดสินค้า</a><!---->
                     <div class="action dropdown">
 						<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							คำสั่งจำนวนมาก
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-close icon"></i>ลบทั้งหมดที่เลือก</a>
+							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-close icon"></i>ลบทั้งหมดที่เลือก</a>
 						</div>
 					</div>
 				</h3>
@@ -72,8 +72,8 @@
                                             <a class="item-actions-toggle-btn"> <span class="inactive"><i class="fa fa-cog"></i></span> <span class="active"><i class="fa fa-chevron-circle-right"></i></span> </a>
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
-                                                    <li><a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
-                                                    <li><a class="edit" href="<?=base_url()?>mats/backAssets/?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
+                                                    <li><a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
+                                                    <li><a class="edit" href="?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -103,8 +103,8 @@
                                             <a class="item-actions-toggle-btn"> <span class="inactive"><i class="fa fa-cog"></i></span> <span class="active"><i class="fa fa-chevron-circle-right"></i></span> </a>
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
-                                                    <li><a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
-                                                    <li><a class="edit" href="<?=base_url()?>mats/backAssets/?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
+                                                    <li><a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
+                                                    <li><a class="edit" href="?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -134,8 +134,8 @@
                                             <a class="item-actions-toggle-btn"> <span class="inactive"><i class="fa fa-cog"></i></span> <span class="active"><i class="fa fa-chevron-circle-right"></i></span> </a>
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
-                                                    <li><a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
-                                                    <li><a class="edit" href="<?=base_url()?>mats/backAssets/?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
+                                                    <li><a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
+                                                    <li><a class="edit" href="?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -165,8 +165,8 @@
                                             <a class="item-actions-toggle-btn"> <span class="inactive"><i class="fa fa-cog"></i></span> <span class="active"><i class="fa fa-chevron-circle-right"></i></span> </a>
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
-                                                    <li><a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
-                                                    <li><a class="edit" href="<?=base_url()?>mats/backAssets/?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
+                                                    <li><a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
+                                                    <li><a class="edit" href="?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -196,8 +196,8 @@
                                             <a class="item-actions-toggle-btn"> <span class="inactive"><i class="fa fa-cog"></i></span> <span class="active"><i class="fa fa-chevron-circle-right"></i></span> </a>
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
-                                                    <li><a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
-                                                    <li><a class="edit" href="<?=base_url()?>mats/backAssets/?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
+                                                    <li><a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
+                                                    <li><a class="edit" href="?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -209,25 +209,25 @@
                     </div>
                     <nav class="text-xs-right">
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				ก่อนหน้า
 			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item active"> <a class="page-link" href="">
 				1
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				2
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				3
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				4
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				5
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				ถัดไป
 			</a> </li>
                         </ul>

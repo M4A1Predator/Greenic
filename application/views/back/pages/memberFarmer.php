@@ -10,8 +10,8 @@
 							คำสั่งจำนวนมาก						
 						</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-trash-o icon"></i>ลบสมาชิกอย่างถาวร</a>
-							<a class="dropdown-item" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-pause icon"></i>ระงับการใช้งานชั่วคราว</a>
+							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-trash-o icon"></i>ลบสมาชิกอย่างถาวร</a>
+							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-pause icon"></i>ระงับการใช้งานชั่วคราว</a>
 						</div>
 					</div>
 				</h3>
@@ -68,32 +68,32 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail">
+                                        <a href="?page=farmerDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
+                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="<?=base_url()?>mats/backAssets/?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
+                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="<?=base_url()?>mats/backAssets/?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
+                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
+                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -109,13 +109,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -130,32 +130,32 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail">
+                                        <a href="?page=farmerDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
+                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="<?=base_url()?>mats/backAssets/?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
+                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="<?=base_url()?>mats/backAssets/?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
+                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
+                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -171,13 +171,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -192,32 +192,32 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail">
+                                        <a href="?page=farmerDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
+                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="<?=base_url()?>mats/backAssets/?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
+                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="<?=base_url()?>mats/backAssets/?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
+                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
+                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -233,13 +233,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -254,32 +254,32 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail">
+                                        <a href="?page=farmerDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
+                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="<?=base_url()?>mats/backAssets/?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
+                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="<?=base_url()?>mats/backAssets/?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
+                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
+                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -295,13 +295,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -316,32 +316,32 @@
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail">
+                                        <a href="?page=farmerDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
+                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="<?=base_url()?>mats/backAssets/?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
+                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="<?=base_url()?>mats/backAssets/?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
+                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
+                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="<?=base_url()?>mats/backAssets/?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
@@ -357,13 +357,13 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="<?=base_url()?>mats/backAssets/#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="<?=base_url()?>mats/backAssets/?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -376,25 +376,25 @@
                     </div>
                     <nav class="text-xs-right">
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				ก่อนหน้า
 			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item active"> <a class="page-link" href="">
 				1
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				2
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				3
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				4
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				5
 			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="<?=base_url()?>mats/backAssets/">
+                            <li class="page-item"> <a class="page-link" href="">
 				ถัดไป
 			</a> </li>
                         </ul>

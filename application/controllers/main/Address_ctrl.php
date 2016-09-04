@@ -28,11 +28,6 @@
              *  Get provinces
              */
             
-            // Check login
-            if($this->gnc_authen->is_sign_in() == FALSE){
-                return;
-            }
-            
             // Get all provibces and sort by character
             $province_arr = $this->Province->get_filter('*', null, null, 'province_name ASC', 0, null, 'array');
             
@@ -47,10 +42,6 @@
             /*
              *  Get district by province ID
              */
-            // Check login
-            if($this->gnc_authen->is_sign_in() == FALSE){
-                return;
-            }
             
             // Get province id
             $province_id = $this->input->post('province_id');

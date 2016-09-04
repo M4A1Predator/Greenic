@@ -77,15 +77,17 @@ $(function() {
 	    rules: {
 	        username: {
 	            required: true,
+	            email: true
 	        },
 	        password: "required",
 	        agree: "required"
 	    },
 	    messages: {
 	        username: {
-	            required: "กรุณาใส่ชื่อผู้ใช้งาน",
+	            required: "Please enter username",
+	            email: "Please enter a valid email address"
 	        },
-	        password:  "กรุณาใส่รหัสผ่าน",
+	        password:  "Please enter password",
 	        agree: "Please accept our policy"
 	    },
 	    invalidHandler: function() {
