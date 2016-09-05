@@ -39,6 +39,7 @@
             $data_assoc['project_status_id'] = 1;
             
             // Check data
+            //echo var_dump($data_assoc);
             
             // Add project
             $add_result = $this->add($data_assoc);
@@ -68,7 +69,7 @@
             $this->db->select('*');
             $this->db->from($this->view);
             $this->db->where('category_id', $category_id);
-            $this->db->or_where('category_master_id', $category_id);
+            //$this->db->or_where('category_master_id', $category_id);
             $this->db->order_by($order_by);
             $this->db->offset($offset);
             $this->db->limit($limit);
@@ -82,8 +83,8 @@
             $this->db->where('category_id', $category_id);
             $this->db->or_where('category_master_id', $category_id);
             $this->db->order_by($order_by);
-            $this->db->offset($offset);
-            $this->db->limit($limit);
+            //$this->db->offset($offset);
+            //$this->db->limit($limit);
             $count = $this->db->count_all_results();
             
             // Set return data

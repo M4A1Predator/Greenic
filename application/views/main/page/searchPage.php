@@ -16,7 +16,7 @@
         <h2>ผลการค้นหา: <span class="color-green"><?php echo $keyword;?></span></h2>
 </div>
 
-<?php $this->load->view( 'main/inc/fillter.php' )?>
+<?php $this->load->view( 'main/inc/filter.php' )?>
 
 <div class="row">
     <!-- Begin Easy Block -->
@@ -70,7 +70,6 @@
     <!-- Begin Easy Block -->
     <div class="col-md-3 col-sm-6">
         <div class="easy-block-v2">
-            
             <img alt="" src="<?=base_url()?>mats/assets/img/main/img19.jpg">
             <h3>ปลานิลแดงในบ่อซีเมน</h3>
             <ul class="list-unstyled">
@@ -279,16 +278,16 @@
     <!-- End Begin Easy Block -->
 </div>
 <div class="text-center">
-                <ul class="pagination">
-                    <li><a href="#">«</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li class="active"><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
-                </ul>
-            </div>
+    <ul class="pagination">
+        <li><a href="#">«</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li class="active"><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">»</a></li>
+    </ul>
+</div>
  <!--สินค้ามาใหม่-->
 <?php }?>
 </div>

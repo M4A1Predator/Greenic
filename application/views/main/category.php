@@ -20,5 +20,6 @@
             $this->load->view( 'main/inc/footer.php' );
         ?>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
-        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/category/projectList.js"></script>
+        <!--<script type="text/javascript" src="<?=base_url()?>mats/mainJs/category/projectList.js"></script>-->
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/category/category.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/category/projectTypeMenu.js"></script>

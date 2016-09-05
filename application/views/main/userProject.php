@@ -6,10 +6,7 @@
             $this->load->view( 'main/inc/header.php');
             $this->load->view( 'main/inc/search.php');
             
-            
             $this->load->view( 'main/page/userProjectPage.php'); 
-            
-            
         
             $this->load->view( 'main/inc/footer.php');
             

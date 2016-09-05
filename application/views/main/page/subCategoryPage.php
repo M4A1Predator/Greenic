@@ -33,7 +33,7 @@
             
         </div>
         <!--เมนูย่อย-->
-        <div class="text-center"><button class="btn rounded btn-default" type="button">แสดงหมวดหมู่ย่อยเพิ่มเติม <i class="fa fa-caret-down" aria-hidden="true"></i></button></div>
+        <div class="text-center"><button class="btn rounded btn-default" id="showMoreCategoryBtn" type="button">แสดงหมวดหมู่ย่อยเพิ่มเติม <i class="fa fa-caret-down" aria-hidden="true"></i></button></div>
         <!--จบเมนูย่อย-->
     </div>
     <!--สินค้ามาใหม่-->
@@ -46,14 +46,15 @@
         <!-- End Begin Easy Block -->
     </div>
     <div class="text-center">
-        <ul class="pagination">
-            <li><a href="#">«</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li class="active"><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">»</a></li>
+        <input type="hidden" id="page" value="1">
+        <ul class="pagination" id="projectPageList">
+            <!--<li><a href="#">«</a></li>-->
+            <!--<li><a href="#">1</a></li>-->
+            <!--<li><a href="#">2</a></li>-->
+            <!--<li class="active"><a href="#">3</a></li>-->
+            <!--<li><a href="#">4</a></li>-->
+            <!--<li><a href="#">5</a></li>-->
+            <!--<li><a href="#">»</a></li>-->
         </ul>
     </div>
     <div class="text-center">

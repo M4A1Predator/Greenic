@@ -6,5 +6,5 @@
         <div class="color-secondary"></div>
     </div>
 </div>
-<script src="mats/backAssets/js/vendor.js"></script>
-<script src="mats/backAssets/js/app.js"></script>
+<script src="<?=base_url()?>mats/backAssets/js/vendor.js"></script>
+<script src="<?=base_url()?>mats/backAssets/js/app.js"></script>

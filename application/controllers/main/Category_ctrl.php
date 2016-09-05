@@ -85,8 +85,7 @@
             // Get categories
             $where_assoc = array();
             $where_assoc['category_project_type_id'] = $project_type_id;
-            // Category must not have master category
-            $where_assoc['category_master_id'] = NULL;
+            
             $category_arr = $this->Category->get_filter('*', $where_assoc, null, null, 0, null, 'array');
             
             // JSON encode
@@ -126,6 +125,7 @@
             if($this->gnc_authen->is_sign_in() == FALSE){
                 return;
             }
+            $member_id = $this->session->userdata('member_id');
             
             // Get project type id and category name
             $project_type_id = $this->input->post('project_type_id');
@@ -138,10 +138,7 @@
             $category_data = array();
             $category_data['category_project_type_id'] = $project_type_id;
             $category_data['category_name'] = $category_name;
-            // If this is sub category
-            if($category_master_id){
-                $category_data['category_master_id'] = $category_master_id;
-            }
+            $category_data['category_creator_id'] = $member_id;
             
             // Add category
             $add_result = $this->Category->add($category_data);
@@ -227,7 +224,7 @@
             $limit = $this->input->get('limit');
             $offset = $this->input->get('offset');
             $category_id = $this->input->get('category_id');
-            $master_category_id = $this->input->get('master_category_id');
+            $breed_id = $this->input->get('breed_id');
             
             // Set where clause
             $filter_assoc = array();
@@ -242,14 +239,26 @@
             $filter_assoc['order_by'] = 'project_time DESC';
             
             // Get projects from DB
-            $project_data = $this->Project->get_project_by_category($filter_assoc, 'array');
+            //$project_data = $this->Project->get_project_by_category($filter_assoc, 'array');
             //$project_arr = $project_data['result'];
             //$project_count = $project_data['count'];
+            $where_assoc = array();
+            $where_assoc['category_id'] = $category_id;
+            if($breed_id){
+                $where_assoc['breed_id'] = $breed_id;
+            }
+            
+            $project_arr = $this->Project->get_filter('*', $where_assoc, null, null, $offset, $limit, 'array', array('use_view' => TRUE));
+            $project_count = $this->Project->get_filter_count('*', $where_assoc, null, null, null, null, 'array', array('use_view' => TRUE));
+            
+            // Set data
+            $data['result'] = $project_arr;
+            $data['count'] = $project_count;
             
             // Encode JSON
-            $project_arr_json = json_encode($project_data);
+            $data_json = json_encode($data, JSON_UNESCAPED_UNICODE);
             
-            $this->output->set_output($project_arr_json);
+            $this->output->set_output($data_json);
         }
     
     
@@ -273,7 +282,8 @@
             }
             
             // Get data
-            $category_arr = $this->Category->get_filter('*', $where_assoc, null, null, null, null, 'array');
+            //$category_arr = $this->Category->get_filter('*', $where_assoc, null, null, null, null, 'array');
+            $category_arr = $this->Category->get_category_data($project_type_id, $category_master_id, null, 'array');
             
             // JSON encode
             $category_arr_json = json_encode($category_arr, JSON_UNESCAPED_UNICODE);

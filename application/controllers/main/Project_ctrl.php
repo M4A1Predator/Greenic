@@ -78,6 +78,7 @@
             // Set form rules
             $this->form_validation->set_rules('type_id', 'type_id', 'required|numeric');
             $this->form_validation->set_rules('category_id', 'category_id', 'required|numeric');
+            $this->form_validation->set_rules('breed_id', 'breed_id', 'numeric');
             $this->form_validation->set_rules('farm_id', 'farm_id', 'required|numeric');
             $this->form_validation->set_rules('project_name', 'project_name', 'required');
             $this->form_validation->set_rules('project_detail', 'project_detail', 'required');
@@ -92,6 +93,7 @@
             $project_name = $this->input->post('project_name');
             $project_type_id = $this->input->post('type_id');
             $category_id = $this->input->post('category_id');
+            $breed_id = $this->input->post('breed_id');
             $farm_id = $this->input->post('farm_id');
             $project_detail = $this->input->post('project_detail');
             
@@ -102,6 +104,7 @@
             $step1_data['add_project_name'] = $project_name;
             $step1_data['add_project_type_id'] = $project_type_id;
             $step1_data['add_project_category_id'] = $category_id;
+            $step1_data['add_project_breed_id'] = $breed_id;
             $step1_data['add_project_farm_id'] = $farm_id;
             $step1_data['add_project_detail'] = $project_detail;
             
@@ -127,7 +130,7 @@
             $this->form_validation->set_rules('unit_id', 'unit_id', 'required|numeric');
             $this->form_validation->set_rules('ppu', 'ppu', 'required|numeric');
             $this->form_validation->set_rules('quantity', 'quantity', 'required|numeric');
-            $this->form_validation->set_rules('lowest_order', 'lowest_order', 'required|numeric');
+            $this->form_validation->set_rules('lowest_order', 'lowest_order', 'numeric');
             $this->form_validation->set_rules('start_date', 'start_date', 'required');
             $this->form_validation->set_rules('sell_date', 'sell_date', 'required');
             
@@ -145,6 +148,10 @@
             $lowest_order = $this->input->post('lowest_order');
             $start_date = $this->input->post('start_date');
             $sell_date = $this->input->post('sell_date');
+            
+            if(!$lowest_order){
+                $lowest_order = 0;
+            }
             
             // Filter only selected shipment methods
             $shipment_arr = array();
@@ -209,15 +216,19 @@
             $project_data_assoc['project_ppu'] = $this->session->userdata('add_project_ppu');
             $project_data_assoc['project_lowest_order'] = $this->session->userdata('add_project_lowest_order');
             $project_data_assoc['project_category_id'] = $this->session->userdata('add_project_category_id');
+            if($this->session->userdata('add_project_breed_id')){
+                $project_data_assoc['project_breed_id'] = $this->session->userdata('add_project_breed_id');
+            }
             $project_data_assoc['project_unit_id'] = $this->session->userdata('add_project_unit_id');
             $project_data_assoc['project_farm_id'] = $this->session->userdata('add_project_farm_id');
+            
             
             // Get generated unique id
             $uq_id = uniqid();
             $hash_uq_id = hash('sha1', $uq_id);
             // Set image name and path
             $cover_image_name = 'prm_'.$this->session->userdata('member_id').'_'.$hash_uq_id.'.'.$cover_image_ext;
-            $cover_image_path = PROJECT_IMAGE_PATH;
+            $cover_image_path = PROJECT_IMAGE_PATH.'covers/';
             $project_data_assoc['project_cover_image_path'] = $cover_image_path.$cover_image_name;
             
             // Add project
@@ -231,6 +242,10 @@
                 $this->db->trans_rollback();
                 return;
             }
+            
+            //echo 'added';
+            //$this->db->trans_rollback();
+            //return;
             
             // Add shipment methods
             $shipment_arr = $this->session->userdata('add_project_shipment');
@@ -268,9 +283,9 @@
             $upload_config['upload_path'] = $cover_image_path;
             $upload_config['allowed_types'] = 'gif|jpg|png|jpeg';
             $upload_config['remove_spaces'] = true;
-            $upload_config['max_size']	= '4048';
-            $upload_config['max_width']  = '2100';
-            $upload_config['max_height']  = '2100';
+            $upload_config['max_size']	= '20000';
+            $upload_config['max_width']  = '5000';
+            $upload_config['max_height']  = '5000';
             $upload_config['file_name'] = $cover_image_name;
             $upload_config['overwrite'] = TRUE;
             $fieldname = 'cover_image';  //input tag name
@@ -310,7 +325,6 @@
              *  Then change member type
              *
              */
-            
             
             // Change member type if first project
             if($this->session->userdata('member_type_name') == $this->Member_type->member_normal){
@@ -378,19 +392,21 @@
             }
             
             // Set form rules
-            $this->form_validation->set_rules('type_id', 'type_id', 'required|numeric');
-            //$this->form_validation->set_rules('category_id', 'category_id', 'required|numeric');
-            $this->form_validation->set_rules('farm_id', 'farm_id', 'required|numeric');
-            
-            // Validate form
-            if($this->form_validation->run() == FALSE){
-                echo 0;
-                return;
-            }
+            //$this->form_validation->set_rules('type_id', 'type_id', 'required|numeric');
+            ////$this->form_validation->set_rules('category_id', 'category_id', 'required|numeric');
+            //$this->form_validation->set_rules('farm_id', 'farm_id', 'required|numeric');
+            //
+            //// Validate form
+            //if($this->form_validation->run() == FALSE){
+            //    echo 0;
+            //    return;
+            //}
             
             // Get and set input data
-            $type_id = intval($this->input->post('type_id'));
-            $farm_id = intval($this->input->post('farm_id'));
+            $type_id = intval($this->input->get('type_id'));
+            $farm_id = intval($this->input->get('farm_id'));
+            $offset = $this->input->get('offset');
+            $limit = $this->input->get('limit');
             
             $member_id = $this->session->userdata('member_id');
             
@@ -410,12 +426,17 @@
             $order_by = 'project_time DESC';
             
             // Get projects array
-            $project_arr = $this->Project->get_filter('*', $where_assoc, null, $order_by, null, null, 'array', array('use_view' => TRUE));
+            $project_arr = $this->Project->get_filter('*', $where_assoc, null, $order_by, $offset, $limit, 'array', array('use_view' => TRUE));
+            $project_count = $this->Project->get_filter_count('*', $where_assoc, null, $order_by, null, null, 'array', array('use_view' => TRUE));
+            
+            // Set data
+            $data['result'] = $project_arr;
+            $data['count'] = $project_count;
             
             // Encode JSON
-            $project_arr_json = json_encode($project_arr, JSON_UNESCAPED_UNICODE);
+            $data_json = json_encode($data, JSON_UNESCAPED_UNICODE);
             
-            echo $project_arr_json;
+            echo $data_json;
         }
         
         function view_project_page($project_id){

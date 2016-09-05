@@ -24,7 +24,7 @@
                     <a class="dropdown-item" href="#"> <i class="fa fa-bell icon"></i> แจ้งเตือน(ใส่เผื่อไว้) </a>
                     <a class="dropdown-item" href="#"> <i class="fa fa-gear icon"></i> ตั้งค่าส่วนตัว </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="gnc_admin/sign_out"> <i class="fa fa-power-off icon"></i> ออกจากระบบ </a>
+                    <a class="dropdown-item" href="<?=base_url()?>gnc_admin/sign_out"> <i class="fa fa-power-off icon"></i> ออกจากระบบ </a>
                 </div>
             </li>
         </ul>

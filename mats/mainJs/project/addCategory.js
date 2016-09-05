@@ -45,16 +45,16 @@ function addSubCategory(){
     }
     
     param = {
-        'category_name' : subCategory.val(),
-        'category_master_id' : projectCateogry.val(),
-        'project_type_id' : projectType.val(),
+        'breed_name' : subCategory.val(),
+        'category_id' : projectCateogry.val(),
+        //'project_type_id' : projectType.val(),
     };
     
     //console.log(param);
     
     $.ajax({
         type: 'POST',
-        url: webUrl + 'member_add/category_ajax',
+        url: webUrl + 'member_add/breed_ajax',
         data: param
     }).success(function (data){
         console.log(data);
@@ -67,5 +67,4 @@ function addSubCategory(){
         subCategory.val('');
         
     });
-    
 }

@@ -159,16 +159,56 @@
              *  Get row number of query
              *
              */
+            // Query data
+            if(!$select){
+                $select = '*';
+            }
+            $this->db->select($select);
             
-            // Execute query
-            $result = $this->get_filter($select, $where_assoc, $join_assoc_array, $order,  $offset, $limit, $result_type, $data);
-            
-            // Return size
-            if(!$result){
-                return 0;
+            // Set up from table
+            if(!isset($data['use_view']) || $data['use_view'] === FALSE){
+                $this->db->from($this->table);
+            }else{
+                if(isset($this->view)){
+                    $this->db->from($this->view);
+                }else{
+                    $this->db->from($this->table);
+                }
             }
             
-            return count($result);
+            
+            // Set up query join table
+            if($join_assoc_array){
+                foreach($join_assoc_array as $join){
+                    $this->db->join($join['table'], $join['condition'], $join['option']);
+                }
+            }
+            
+            // Set up where clause
+            if($where_assoc){
+                $this->db->where($where_assoc);
+            }
+            
+            // Set up query offset
+            if($offset != NULL){
+                $this->db->offset($offset);
+            }
+            
+            // Set up query limit
+            if($limit){
+                $this->db->limit($limit);
+            }
+            
+            // Set order result
+            if($order){
+                $this->db->order_by($order);
+            }
+            
+            // Get count
+            $count = $this->db->count_all_results();
+            
+            // Return
+            return $count;
             
         }
         

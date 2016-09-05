@@ -219,9 +219,9 @@
             
             // Is member can login
             // Get verify time if null means non-verify member
-            if($member['member_verify_time'] == FALSE ){
-                return NULL;
-            }
+            //if($member['member_verify_time'] == FALSE ){
+            //    return NULL;
+            //}
             
             // Check status
             if($member['status_name'] != $this->Status->status_normal){

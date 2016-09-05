@@ -22,7 +22,9 @@
             
             $data = $this->session->userdata();
             
-            print_assoc($data);
+            foreach($data as $k => $v){
+                echo $k.'  :  '.($v).'<br/>';
+            }
             
         }
         

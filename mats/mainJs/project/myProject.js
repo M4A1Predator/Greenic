@@ -2,12 +2,21 @@
 var selectFarm = $('#selectFarm');
 var selectType = $('#selectType');
 var projectList = $('.projectList');
+var projectPageList = $('#projectPageList');
+var page = $('#page');
+var pageBtn = $('.pageBtn');
 
 setFarmOption();
 setProjectsList();
 
-selectFarm.change(setProjectsList);
-selectType.change(setProjectsList);
+selectFarm.change(function(){
+    page.val(1);
+    setProjectsList();
+});
+selectType.change(function(){
+    page.val(1);
+    setProjectsList();
+});
 
 function setFarmOption() {
     
@@ -28,14 +37,19 @@ function setFarmOption() {
 function setProjectsList() {
     farmId = selectFarm.val();
     typeId = selectType.val();
-
+    
+    limit = 16;
+    offset = (limit * parseInt(page.val())) - limit;
+    projectPageList.empty();
     param = {
         'type_id' : typeId,
-        'farm_id' : farmId
+        'farm_id' : farmId,
+        'limit' : limit,
+        'offset' : offset
     };
     
     $.ajax({
-        type : 'POST',
+        type : 'GET',
         url : webUrl + 'member/get_projects_ajax',
         data : param,
     }).success(function (data){
@@ -43,7 +57,12 @@ function setProjectsList() {
         jsonData = JSON.parse(data);
         projectList.empty();
         
-        jsonData.forEach(function (project){
+        projectArray = jsonData.result;
+        projectCount = parseInt(jsonData.count);
+        
+        console.log(jsonData);
+        
+        projectArray.forEach(function (project){
             
             projectUrl = webUrl + 'project/' + project.project_id;
             editProjectUrl = webUrl + 'my_project/' + project.project_id + '/step1';
@@ -66,6 +85,35 @@ function setProjectsList() {
             
             projectList.append(content);
         });
+        
+        //projectPageList.append('<li class="active"><a href="#">1</a></li>');
+        
+        if (projectCount < limit) {
+            
+        }else{
+            if (projectCount % limit === 0) {
+                pageAmount = (projectCount / limit);
+            }else{
+                pageAmount = (projectCount / limit) + 1;
+            }
+            
+            for(i=1;i<=pageAmount;i++){
+                classActive = '';
+                if (parseInt(page.val()) === i) {
+                    classActive = 'active';
+                }
+                projectPageList.append('<li class="' + classActive + '"><a class="pageBtn" href="#">' + i + '</a></li>');
+            }
+            var pageBtn = $('.pageBtn');
+            
+            $('#projectPageList li').on('click', function (e){
+                e.preventDefault();
+                newPage = parseInt($(this).text());
+                page.val(newPage);
+                setProjectsList();
+            });
+            
+        }
         
     });
 }

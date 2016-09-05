@@ -26,6 +26,7 @@
              *  Load admin home page
              */
             
+            // Load view
             $this->load->view('back/index');
             
         }

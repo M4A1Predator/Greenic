@@ -7,12 +7,13 @@
                 <?php include 'include/sidebar.php';?>
                 
                 <!--Content-->
-                    <?php 
-                        if(isset($_GET['page'])){
-                            $page=$_GET['page'];
-                            include 'pages/'.$page.'.php';
-                        }
-                        else{
+                    <?php
+                        //if(isset($_GET['page'])){
+                        //    $page=$_GET['page'];
+                        //    include 'pages/'.$page.'.php';
+                        if($view){
+                            include 'pages/'.$view.'.php';
+                        }else{
                             include 'pages/main.php';
                         }
                     ?>

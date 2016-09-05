@@ -4,11 +4,11 @@
         <h1 class="pull-left"><?=$project->project_name?></h1>
         <ul class="pull-right breadcrumb">
             <li><a href="<?=base_url().$this->lang->line('main')?>">หน้าแรก</a></li>
-            <li><a href="category.php?name=vegetable"><?=get_project_type_thai_text($project->category_project_type_id)?></a></li>
-            <?php if($project->category_master_name){ ?>
-            <li><a href="subCategory.php"><?=$project->category_master_name?></a></li>
+            <li><a href="<?=base_url().'category/'.$project->project_type_name?>"><?=get_project_type_thai_text($project->category_project_type_id)?></a></li>
+            <li><a href="<?=base_url().'category/'.$project->project_type_name.'/'.$project->project_category_id?>"><?=$project->category_name?></a></li>
+            <?php if($project->breed_name){?>
+            <li><a href="subCategory.php"><?=$project->breed_name?></a></li>
             <?php } ?>
-            <li><a href="subCategory.php"><?=$project->category_name?></a></li>
             <li class="active"><?=$project->project_name?></li>
         </ul>
     </div>
@@ -59,7 +59,7 @@
                 <p><?=$project->project_detail?></p>
             </div>
             <div class="price margin-bottom-20">
-                <a class="btn-u btn-brd btn-u btn-u-lg subCate"><?=$project->project_ppu?> บาท/<?=$project->project_unit_name?></a>
+                <a class="btn-u btn-brd btn-u btn-u-lg subCate"><?=$project->project_ppu?> บาท/<?=$project->unit_name?></a>
                 <!--กรณีของหมด-->
                 <!--<a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>-->
             </div>
@@ -77,10 +77,13 @@
                     <?php } ?>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-cogs"></i> กำลังผลิต: <?=$project->project_quantity?> <?=$project->project_unit_name?></a>
+                    <a href="#"><i class="fa fa-cogs"></i> กำลังผลิต: <?=$project->project_quantity?> <?=$project->unit_name?></a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-truck"></i> การจัดส่ง: <span id="shipmentWay">โปรดติดต่อasdsadsdsd</span></a>
+                    <a href="#"><i class="fa fa-truck"></i> การจัดส่ง: <span id="shipmentWay">โปรดติดต่อ</span></a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#"><i class="fa fa-calendar"></i> เริ่มผลิต: <?=display_date_th($project->project_startdate)?></a>
                 </li>
                 <li class="list-group-item">
                     <a href="#"><i class="fa fa-calendar"></i> พร้อมจำหน่าย: <?=display_date_th($project->project_selldate)?></a>

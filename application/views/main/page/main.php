@@ -28,7 +28,7 @@
             <div class="headline-center margin-bottom-20">
                 <h2>สินค้า <span class="color-green">เกษตรอินทรีย์</span> มาใหม่</h2>
             </div>
-            <?php $this->load->view( 'main/inc/fillter.php' )?>
+            <?php // $this->load->view( 'main/inc/filter.php' )?>
             <div>
                 <div class="row" id="lastProjects">
                     <!-- Begin Easy Block -->

@@ -41,8 +41,12 @@
                 return;
             }
             
+            // Set data
+            $data = array();
+            $data['view'] = 'memberBasic';
+            
             // Load view
-            $this->load->view('back/page/memberBasic');
+            $this->load->view('back/index', $data);
             
         }
         

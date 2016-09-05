@@ -28,7 +28,7 @@ function getCategory() {
     };
     
     $.ajax({
-        type : 'POST',
+        type : 'GET',
         url : webUrl + 'get_categories_ajax',
         data : param,
     }).success(function (data){
@@ -54,13 +54,18 @@ function setSubCategoryOption() {
     selectSubCategory.empty();
     selectSubCategory.append('<option value="">' + optionSelectNoBreed + '</option>');
     
+    param = {
+        'category_id' : projectCateogry.val(),
+    };
+    
     $.ajax({
-        type : 'POST',
-        url : webUrl + 'get_sub_categories_ajax/' + projectCateogry.val(),
+        type : 'GET',
+        url : webUrl + 'breed/get_breeds_ajax',
+        data : param
     }).success(function (data){
         jsonData = JSON.parse(data);
-        jsonData.forEach(function (category){
-            selectSubCategory.append('<option value="'+ category.category_id +'">' + category.category_name + '</option>');
+        jsonData.forEach(function (breed){
+            selectSubCategory.append('<option value="'+ breed.breed_id +'">' + breed.breed_name + '</option>');
         });
     });
     
@@ -87,19 +92,17 @@ function addProject1(e){
     e.preventDefault();
 
     categoryId = projectCateogry.val();
-    if (selectSubCategory.val() !== "") {
-        categoryId = selectSubCategory.val();
-    }
     
     param = {
         "type_id" : projectType.val(),
         "category_id" : categoryId,
-        //"sub_category_id" : ,
+        "breed_id" : selectSubCategory.val(),
         "farm_id" : projectFarm.val(),
         "project_name" : projectName.val(),
         "project_detail" : projectDetail.val()
     };
     //console.log(param);
+    //return;
 
     $.ajax({
         type : 'POST',

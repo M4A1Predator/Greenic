@@ -31,16 +31,16 @@
         }
         
         function add_member(){
-            $name = 'เดนนิส ฟนาติก';
-            $email = 'm1@gnc.com';
+            $name = 'เดนนิส';
+            $email = 'm1@greenic.co';
             $password = 'zxczxczxc';
             
             //$this->db->trans_start(TRUE);
-            $added_member = $this->Member->add_member($name, $email, $password);
+            $added_member = $this->Member->add_member($name, 'ssssss', $email, $password);
             echo var_dump($this->db->error());
             //$this->db->trans_complete();
             
-            $this->send_confirm_email($added_member);
+            //$this->send_confirm_email($added_member);
         }
         
         function crypt(){
@@ -71,10 +71,11 @@
         function login(){
             
             //$email = 'a1@gnc.com';
-            $email = 'm1@gnc.com';
-            $password = 'zxczxc';
-            
+            $email = 'm2@greenic.co';
+            $password = 'zxczxczxc';
+            echo 'test login</br>';
             $member = $this->Member->member_authentication($email, $password);
+            $m = $this->Member->get_filter('*', array(''));
             print_assoc($member);
 
         }

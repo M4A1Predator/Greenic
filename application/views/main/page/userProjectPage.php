@@ -2,7 +2,7 @@
      <div class="container">
          <h1 class="pull-left">โปรเจ็คของคุณ</h1>
          <ul class="pull-right breadcrumb">
-             <li><a href="index.php">หน้าแรก</a></li>
+             <li><a href="/main/">หน้าแรก</a></li>
              <li class="active">โปรเจ็คของคุณ</li>
          </ul>
      </div>
@@ -39,7 +39,8 @@
         </div>
     </div>
     <div class="text-center">
-        <ul class="pagination">
+        <input type="hidden" id="page" value="1">
+        <ul class="pagination" id="projectPageList">
             <li><a href="#">«</a></li>
             <li class="active"><a href="#">1</a></li>
             <li><a href="#">»</a></li>
