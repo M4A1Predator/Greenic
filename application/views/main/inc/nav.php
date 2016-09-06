@@ -39,38 +39,38 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-4 md-margin-bottom-30">
-                                                <h2><a href="<?=base_url()?>mats/category.php?name=vegetable">ผักอินทรีย์ (140)</a></h2>
-                                                <ul class="dropdown-link-list">
+                                                <h2><a href="<?=base_url()?>category/vegetable" id="navTypeVegetableText">ผักอินทรีย์ ()</a></h2>
+                                                <ul class="dropdown-link-list" id="navCategoryVegetableList">
                                                     <!-- ประเภทยอดนิยม 7 อันดับ-->
-                                                    <li><a href="#">ผักบุ้ง (30)</a></li>
+                                                    <!--<li><a href="#">ผักบุ้ง (30)</a></li>
                                                     <li><a href="#">ถั่วฝักยาว (20)</a></li>
                                                     <li><a href="#">มะเขือเทศ (10)</a></li>
                                                     <li><a href="#">พริก (10)</a></li>
                                                     <li><a href="#">คะน้า (30)</a></li>
                                                     <li><a href="#">กะหล่ำปลี (5)</a></li>
-                                                    <li><a href="#">ผักสลัด (10)</a></li>
+                                                    <li><a href="#">ผักสลัด (10)</a></li>-->
                                                   
                                                 </ul>
                                             </div>
                                             <div class="col-md-4 md-margin-bottom-30">
-                                                <h2><a href="<?=base_url()?>mats/category.php?name=fruit">ผลไม้อินทรีย์ (25)</a></h2>
-                                                <ul class="dropdown-link-list">
-                                                    <li><a href="#">องุ่น</a></li>
+                                                <h2><a href="<?=base_url()?>category/fruit" id="navTypeFruitText">ผลไม้อินทรีย์ ()</a></h2>
+                                                <ul class="dropdown-link-list" id="navCategoryFruitList">
+                                                    <!--<li><a href="#">องุ่น</a></li>
                                                     <li><a href="#">สตอเบอรี่</a></li>
                                                     <li><a href="#">มะม่วง</a></li>
                                                     <li><a href="#">สัปปะรด</a></li>
                                                     <li><a href="#">ส้มโอ</a></li>
                                                     <li><a href="#">ชมพู่</a></li>
-                                                    <li><a href="#">แตงโม</a></li>
+                                                    <li><a href="#">แตงโม</a></li>-->
                                                 </ul>
                                             </div>
                                             <div class="col-md-4 md-margin-bottom-30">
-                                                <h2><a href="<?=base_url()?>mats/category.php?name=animal">สัตว์อินทรีย์ (10)</a></h2>
-                                                <ul class="dropdown-link-list">
-                                                    <li><a href="#">ปลาาดุก (4)</a></li>
+                                                <h2><a href="<?=base_url()?>category/animal" id="navTypeAnimalText">สัตว์อินทรีย์ ()</a></h2>
+                                                <ul class="dropdown-link-list" id="navCategoryAnimalList">
+                                                    <!--<li><a href="#">ปลาาดุก (4)</a></li>
                                                     <li><a href="#">กบ (2)</a></li>
                                                     <li><a href="#">ไก่ (2)</a></li>
-                                                    <li><a href="#">หมู (2)</a></li>
+                                                    <li><a href="#">หมู (2)</a></li>-->
                                                 </ul>
                                             </div>
                                         </div>

@@ -114,6 +114,7 @@ $route['category/get_last_projects_ajax'] = 'main/Category_ctrl/get_last_project
 $route['category/get_popular_projects_ajax'] = 'main/Category_ctrl/get_popular_projects_ajax';
 $route['category/get_projects_ajax'] = 'main/Category_ctrl/get_projects_ajax';
 $route['category/get_categories_ajax'] = 'main/Category_ctrl/get_filter_categories_ajax';
+$route['category/get_top_categories_ajax'] = 'main/Category_ctrl/get_top_categories_ajax';
 $route['breed/get_breeds_ajax'] = 'main/Breed_ctrl/get_breeds_ajax';
 //$route['category/get_categories_data_ajax'] = 'main/Category_ctrl/get_filter_categories_data_ajax';
 

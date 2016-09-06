@@ -125,6 +125,7 @@
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/member/checkNotice.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/search/search.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/nav/categoryNav.js"></script>
     <!-- /GreenicJS -->
 
 <!--    <script type="text/javascript">-->

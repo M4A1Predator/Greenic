@@ -34,6 +34,7 @@ function setCategories(){
         url : webUrl + 'category/get_categories_ajax',
         data : param
     }).success(function (data){
+        
         jsonData = JSON.parse(data);
         
         // Get data

@@ -270,20 +270,23 @@
             
             // Get data
             $project_type_id = $this->input->get('project_type_id');
-            $category_master_id = $this->input->get('category_master_id');
+            $limit = $this->input->get('limit');
+            $offset = $this->input->get('offset');
             
             // Set where
             $where_assoc = array();
             if($project_type_id){
                 $where_assoc['category_project_type_id'] = $project_type_id;
             }
-            if($category_master_id){
-                $where_assoc['category_master_id'] = $category_master_id;
-            }
+            
+            // Set filter assoc
+            $filter_assoc = array();
+            $filter_assoc['limit'] = $limit;
+            $filter_assoc['offset'] = $offset;
             
             // Get data
             //$category_arr = $this->Category->get_filter('*', $where_assoc, null, null, null, null, 'array');
-            $category_arr = $this->Category->get_category_data($project_type_id, $category_master_id, null, 'array');
+            $category_arr = $this->Category->get_category_data($project_type_id, $filter_assoc, 'array');
             
             // JSON encode
             $category_arr_json = json_encode($category_arr, JSON_UNESCAPED_UNICODE);
@@ -291,4 +294,29 @@
             $this->output->set_output($category_arr_json);
             
         }
+        
+        function get_top_categories_ajax(){
+            /*
+             *  Get top categories
+             *
+             */
+            
+            // Get data
+            $limit = $this->input->get('limit');
+            
+            // Get categories
+            // Set filter assoc
+            $filter_assoc = array();
+            $filter_assoc['limit'] = $limit;
+            //$filter_assoc['order_by'] = '';
+            
+            $category_arr = $this->Category->get_category_data(null, $filter_assoc, 'array');
+            
+            // JSON encode
+            $category_arr_json = json_encode($category_arr, JSON_UNESCAPED_UNICODE);
+            
+            $this->output->set_output($category_arr_json);
+        }
+        
+        
     }

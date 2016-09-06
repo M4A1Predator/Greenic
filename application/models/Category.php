@@ -12,7 +12,7 @@
             parent::__construct();
         }
         
-        function get_category_data($project_type_id=NULL, $category_master_id=NULL, $filter_data=array(), $result_type='object'){
+        function get_category_data($project_type_id=NULL, $filter_data=array(), $result_type='object'){
             /*
              *  Get category data
              *  name master and project amount
@@ -21,6 +21,7 @@
             
             $limit = null;
             $offset = 0;
+            $order_by = 'project_count DESC';
             
             if(isset($filter_data['limit'])){
                 $limit = $filter_data['limit'];
@@ -28,6 +29,10 @@
             
             if(isset($filter_data['offset'])){
                 $offset = $filter_data['offset'];
+            }
+            
+            if(isset($filter_data['order_by'])){
+                $order_by = $filter_data['order_by'];
             }
             
             // Build query
@@ -40,16 +45,15 @@
             if($project_type_id){
                 $this->db->where('category_view.category_project_type_id', $project_type_id);
             }
-            
-            if($category_master_id){
-                $this->db->where('category_view.category_master_id', $category_master_id);
-            }
             // Group by
-            $this->db->group_by('project_view.project_category_id');
+            // $this->db->group_by('project_view.project_category_id');
+            $this->db->group_by('category_view.category_id, project_view.project_category_id');
             
             // Order by
-            $this->db->order_by('project_count DESC');
-            
+            if($order_by){
+                $this->db->order_by($order_by);
+            }
+                
             // Set limit
             $this->db->offset($offset);
             $this->db->limit($limit);
@@ -64,17 +68,19 @@
             //$this->db->select('*');
             $this->db->from($this->view);
             // Join project view
-            $this->db->join('project_view', 'project_view.project_category_id = category_view.category_id');
+            $this->db->join('project_view', 'project_view.project_category_id = category_view.category_id', 'left');
             // Set where clause
             if($project_type_id){
                 $this->db->where('category_view.category_project_type_id', $project_type_id);
             }
-            
-            if($category_master_id){
-                $this->db->where('category_view.category_master_id', $category_master_id);
-            }
             // Group by
-            $this->db->group_by('project_view.project_category_id');
+            //$this->db->group_by('project_view.project_category_id');
+            $this->db->group_by('category_view.category_id, project_view.project_category_id');
+            
+            // Order by
+            if($order_by){
+                $this->db->order_by($order_by);
+            }
             
             $count = $this->db->count_all_results();
             
