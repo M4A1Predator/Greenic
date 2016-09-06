@@ -14,6 +14,7 @@ $(document).ready(function (){
     
     categoryId = $('#categoryId');
     subCategorySelect = $('#subCategorySelect');
+    sortProjectSelect = $('#sortProjectSelect');
     
     // Set up UI components
     setCategories();
@@ -25,6 +26,8 @@ $(document).ready(function (){
     
     // Set callback function
     subCategorySelect.change(setProjects);
+    sortProjectSelect.change(setProjects);
+    
     
     function setCategories(){
     
@@ -121,11 +124,13 @@ $(document).ready(function (){
         limit = 16;
         offset = (limit * parseInt(page.val())) - limit;
         projectPageList.empty();
+        orderType = sortProjectSelect.val();
     
         param = {
             'category_id' : categoryId.val(),
             'limit' : limit,
-            'offset' : offset
+            'offset' : offset,
+            'order_type' : orderType,
         };
         
         if(subCategorySelect.val() !== "0"){
@@ -201,9 +206,7 @@ $(document).ready(function (){
                     page.val(newPage);
                     setProjects();
                 });
-                
             }
-            
         });
         
     }

@@ -225,6 +225,13 @@
             $offset = $this->input->get('offset');
             $category_id = $this->input->get('category_id');
             $breed_id = $this->input->get('breed_id');
+            $order_type = $this->input->get('order_type');
+            if(!$order_type){
+                $order_type = 0;
+            }else{
+                $order_type = (int)$order_type;
+            }
+        
             
             // Set where clause
             $filter_assoc = array();
@@ -236,20 +243,34 @@
             }
             
             // Set order
-            $filter_assoc['order_by'] = 'project_time DESC';
+            $order_by = 'project_time DESC';
+            switch($order_type){
+                case 0: $order_by = 'project_time DESC';
+                        break;
+                case 1: $order_by = 'project_ppu ASC';
+                        break;
+                case 2: $order_by = 'project_ppu DESC';
+                        break;
+                case 3: $order_by = 'project_view DESC';
+                        break;
+                case 4: break;
+            }
+            
+            //$filter_assoc['order_by'] = $order_by;
             
             // Get projects from DB
             //$project_data = $this->Project->get_project_by_category($filter_assoc, 'array');
             //$project_arr = $project_data['result'];
             //$project_count = $project_data['count'];
+            // Set where clause
             $where_assoc = array();
             $where_assoc['category_id'] = $category_id;
             if($breed_id){
                 $where_assoc['breed_id'] = $breed_id;
             }
-            
-            $project_arr = $this->Project->get_filter('*', $where_assoc, null, null, $offset, $limit, 'array', array('use_view' => TRUE));
-            $project_count = $this->Project->get_filter_count('*', $where_assoc, null, null, null, null, 'array', array('use_view' => TRUE));
+            // Get project data and amount
+            $project_arr = $this->Project->get_filter('*', $where_assoc, null, $order_by, $offset, $limit, 'array', array('use_view' => TRUE));
+            $project_count = $this->Project->get_filter_count('*', $where_assoc, null, $order_by, null, null, 'array', array('use_view' => TRUE));
             
             // Set data
             $data['result'] = $project_arr;
@@ -291,6 +312,7 @@
             // JSON encode
             $category_arr_json = json_encode($category_arr, JSON_UNESCAPED_UNICODE);
             
+            // Set output 
             $this->output->set_output($category_arr_json);
             
         }

@@ -39,7 +39,7 @@
     <div class="col-xs-8 col-md-3 text-right">
         <form action="#" class="sky-form">
             <label class="select sort">
-                <select>
+                <select id="sortProjectSelect">
                     <option value="0">เรียงตามวันที่</option>
                     <option value="1">ราคา น้อย > มาก</option>
                     <option value="2">ราคา มาก > น้อย</option>

@@ -443,7 +443,7 @@
             /*
              * Open Project page
              *
-             * @param   int     Project ID
+             * @param int Project ID
              *
              */
             
@@ -485,6 +485,23 @@
                 if($follow_array){
                     $data_assoc['is_follow_project'] = TRUE;
                 }
+
+            }
+            
+            // Add view
+            if($data_assoc['is_owner'] == FALSE){
+                // Plus view
+                $view_number = (int)$project->project_view;
+                $view_number += 1;
+                
+                // Prepare update data
+                $project_data = array();
+                $project_data['project_id'] = $project->project_id;
+                
+                $update_data = array();
+                $update_data['project_view'] = $view_number;
+                
+                $update_result = $this->Project->update($project_data, $update_data);
                 
             }
             
