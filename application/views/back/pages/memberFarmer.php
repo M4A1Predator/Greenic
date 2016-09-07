@@ -33,10 +33,12 @@
                         <ul class="item-list striped">
                             <li class="item item-list-header hidden-sm-down">
                                 <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-						<input type="checkbox" class="checkbox">
-						<span></span>
-					</label> </div>
+                                    <div class="item-col fixed item-col-check">
+                                        <label class="item-check" id="select-all-items">
+                                            <input type="checkbox" class="checkbox">
+                                            <span></span>
+                                        </label>
+                                    </div>
                                     <div class="item-col item-col-header fixed item-col-img md">
                                         <div> <span>ภาพ</span> </div>
                                     </div>
@@ -63,10 +65,12 @@
                             </li>
                             <li class="item">
                                 <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
+                                    <div class="item-col fixed item-col-check">
+                                        <label class="item-check" id="select-all-items">
+                                            <input type="checkbox" class="checkbox">
+                                        <span></span>
+                                        </label>
+                                    </div>
                                     <div class="item-col fixed item-col-img md">
                                         <a href="?page=farmerDetail">
                                             <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
@@ -123,6 +127,72 @@
                                     </div>
                                 </div>
                             </li>
+                            <?php foreach($members as $member){ ?>
+                            <li class="item">
+                                <div class="item-row">
+                                    <div class="item-col fixed item-col-check">
+                                        <label class="item-check" id="select-all-items">
+                                            <input type="checkbox" class="checkbox">
+                                        <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="item-col fixed item-col-img md">
+                                        <a href="?page=farmerDetail">
+                                            <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
+                                        </a>
+                                    </div>
+                                    <div class="item-col fixed pull-left item-col-title">
+                                        <div class="item-heading">ชื่อ-สกุล</div>
+                                        <div>
+                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title"><?=$member->member_firstname?> <?=$member->member_lastname?></h4> </a>
+                                        </div>
+                                    </div>
+                                    <div class="item-col item-col-sales">
+                                        <div class="item-heading">รายการที่ติดตาม</div>
+                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
+                                    </div>
+                                    
+                                    <div class="item-col item-col-category no-overflow">
+                                        <div class="item-heading">จำนวนฟาร์ม</div>
+                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
+                                    </div>
+                                    <div class="item-col item-col-author">
+                                        <div class="item-heading">จำนวนโปรเจ็ค</div>
+                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
+                                    </div>
+                                    <div class="item-col item-col-author">
+                                        <div class="item-heading">ที่อยู่</div>
+                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                    </div>
+                                    <div class="item-col item-col-date">
+                                        <div class="item-heading">วันที่สมัคร</div>
+                                        <div class="no-overflow"> 10 มิถุนายก 2559 115.45น.</div>
+                                    </div>
+                                    <div class="item-col fixed item-col-actions-dropdown">
+                                        <div class="item-actions-dropdown">
+                                            <a class="item-actions-toggle-btn"> <span class="inactive">
+									<i class="fa fa-cog"></i>
+								</span> <span class="active">
+								<i class="fa fa-chevron-circle-right"></i>
+								</span> </a>
+                                             <div class="item-actions-block">
+                                                <ul class="item-actions-list">
+                                                    <li>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php } ?>
                             <li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">

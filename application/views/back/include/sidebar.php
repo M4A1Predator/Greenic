@@ -1,9 +1,9 @@
 <?php
-    if(isset($_GET['page'])){
-       $page=$_GET['page'];
-    } else{
-       $page='main';
-    }
+    //if(isset($_GET['page'])){
+    //   $page=$_GET['page'];
+    //} else{
+    //   $page='main';
+    //}
 ?>
 <aside class="sidebar">
                     <div class="sidebar-container">
@@ -14,13 +14,13 @@
                         <nav class="menu">
                             <ul class="nav metismenu" id="sidebar-menu">
                                 <li <?php if($page=='main'){ echo ' class="active"'; } ?>>
-                                    <a href="index.php"> <i class="fa fa-home"></i> ภาพรวมระบบ </a>
+                                    <a href="<?=base_url().'gnc_admin'?>"> <i class="fa fa-home"></i> ภาพรวมระบบ </a>
                                 </li>
                                 <li <?php if($page=='memberBasic'||$page=='memberFarmer'||$page=='memberBasicEdit'||$page=='basicDetail'||$page=='farmerDetail'||$page=='memberFarmerEdit'||$page=='memberEdit'||$page=='memberFollowShow'){ echo ' class="active open"'; } ?>>
                                     <a href=""> <i class="fa fa-users"></i> จัดการสมาชิก <i class="fa arrow"></i> </a>
                                     <ul>
                                         <li <?php if($page=='memberBasic'||$page=='basicDetail'){ echo ' class="active"'; } ?>> <a href="<?=base_url()?>gnc_admin/members/normal"><i class="fa fa-user"></i> สมาชิกทั่วไป</a> </li>
-                                        <li <?php if($page=='memberFarmer'||$page=='farmerDetail'){ echo ' class="active"'; } ?>> <a href="index.php?page=memberFarmer"><i class="fa fa-leaf"></i> สมาชิกเกษตรกร</a> </li>
+                                        <li <?php if($page=='memberFarmer'||$page=='farmerDetail'){ echo ' class="active"'; } ?>> <a href="<?=base_url()?>gnc_admin/members/farmer"><i class="fa fa-leaf"></i> สมาชิกเกษตรกร</a> </li>
                                     </ul>
                                 </li>
                                  <li <?php if($page=='allProject'||$page=='allFarm'||$page=='allCategory'||$page=='allUnit'||$page=='addUnit'||$page=='editUnit'||$page=='allSpecies'||$page=='allBreed'||$page=='addSpecies'||$page=='editSpecies'||$page=='editBreed'||$page=='addBreed'||$page=='projectDetail'||$page=='projectEdit'||$page=='farmDetail'||$page=='editFarm'){ echo ' class="active open"'; } ?>>

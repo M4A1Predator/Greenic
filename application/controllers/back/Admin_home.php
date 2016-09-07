@@ -26,8 +26,12 @@
              *  Load admin home page
              */
             
+            // Set view data
+            $data = array();
+            $data['page'] = 'main';
+            
             // Load view
-            $this->load->view('back/index');
+            $this->load->view('back/index', $data);
             
         }
         
