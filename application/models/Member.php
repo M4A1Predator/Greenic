@@ -300,4 +300,93 @@
             
         }
         
+        
+        function get_member_normal_data_list_admin($filter_assoc=array(), $result_type='object'){
+            /*
+             *  get member list 
+             *
+             */
+            
+            // Get data
+            $offset = $filter_assoc['offset'];
+            $limit = $filter_assoc['limit'];
+            
+            // Set where
+            $where_assoc = array();
+            $where_assoc['member_type_id'] = $this->Member_type->member_normal_id;
+            
+            // Build query
+            $this->db->select('*, count(follow_id) as follow_count');
+            $this->db->from($this->view);
+            $this->db->join('follow', 'follow.follow_member_id = member_view.member_id', 'left');
+            $this->db->where($where_assoc);
+            $this->db->group_by('member_view.member_id');
+            $this->db->offset($offset);
+            $this->db->limit($limit);
+            
+            $query = $this->db->get();
+            $result = $this->get_result($query, $result_type);
+            
+            // Get count
+            $this->db->select('*, count(follow_id) as follow_count');
+            $this->db->from($this->view);
+            $this->db->join('follow', 'follow.follow_member_id = member_view.member_id', 'left');
+            $this->db->where($where_assoc);
+            $this->db->group_by('member_view.member_id');
+            $count = $this->db->count_all_results();
+            
+            // Set data
+            $data['result'] = $result;
+            $data['count'] = $count;
+            
+            return $data;
+            
+        }
+        
+        function get_member_farmer_data_list_admin($filter_assoc=array(), $result_type='object'){
+            /*
+             *  get member farmer list 
+             *
+             */
+            
+            // Get data
+            $offset = $filter_assoc['offset'];
+            $limit = $filter_assoc['limit'];
+            
+            // Set where
+            $where_assoc = array();
+            $where_assoc['member_type_id'] = $this->Member_type->member_farmer_id;
+            
+            // Build query
+            $this->db->select('*, count(follow_id) as follow_count, count(farm_id) as farm_count');
+            $this->db->from($this->view);
+            $this->db->join('follow', 'follow.follow_member_id = member_view.member_id', 'left');
+            $this->db->join('farm', 'farm.farm_member_id = member_view.member_id', 'left');
+            //$this->db->join('project', 'project.project_farm_id = farm.farm_id', 'left');
+            $this->db->where($where_assoc);
+            $this->db->group_by('member_view.member_id');
+            $this->db->offset($offset);
+            $this->db->limit($limit);
+            
+            $query = $this->db->get();
+            $result = $this->get_result($query, $result_type);
+            
+            // Get count
+            $this->db->select('*, count(follow_id) as follow_count, count(farm_id) as farm_count, count(project_id) as project_count');
+            $this->db->from($this->view);
+            $this->db->join('follow', 'follow.follow_member_id = member_view.member_id', 'left');
+            $this->db->join('farm', 'farm.farm_member_id = member_view.member_id', 'left');
+            $this->db->join('project', 'project.project_farm_id = farm.farm_id', 'left');
+            $this->db->where($where_assoc);
+            $this->db->group_by('member_view.member_id');
+            $count = $this->db->count_all_results();
+            
+            // Set data
+            $data['result'] = $result;
+            $data['count'] = $count;
+            
+            return $data;
+            
+        }
+    
     }

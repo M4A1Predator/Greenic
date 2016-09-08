@@ -87,6 +87,11 @@
                 $this->db->where($where_assoc);
             }
             
+            // Set group by
+            if(isset($data['group_by'])){
+                $this->db->group_by($data['group_by']);
+            }
+            
             // Set up query offset
             if($offset != NULL){
                 $this->db->offset($offset);

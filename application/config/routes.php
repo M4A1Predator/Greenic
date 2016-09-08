@@ -116,6 +116,9 @@ $route['category/get_projects_ajax'] = 'main/Category_ctrl/get_projects_ajax';
 $route['category/get_categories_ajax'] = 'main/Category_ctrl/get_filter_categories_ajax';
 $route['category/get_top_categories_ajax'] = 'main/Category_ctrl/get_top_categories_ajax';
 $route['breed/get_breeds_ajax'] = 'main/Breed_ctrl/get_breeds_ajax';
+
+$route['vote/send_vote_ajax'] = 'main/Review_ctrl/send_review_ajax';
+$route['vote/get_project_reviews_ajax'] = 'main/Review_ctrl/get_project_reviews_ajax';
 //$route['category/get_categories_data_ajax'] = 'main/Category_ctrl/get_filter_categories_data_ajax';
 
 

@@ -16,3 +16,5 @@ var projectTypeThaiDict = {
 };
 
 var activityTypeIdDict = {"add_project": 1, "update_timeline": 2};
+
+var memberDefaultImagePath = 'files/defaults/member/user.jpg';

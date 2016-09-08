@@ -19,9 +19,13 @@
         <!--<script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>-->
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/stringResource.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/viewProject.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/validateHelper.js"></script>
         
         <?php if($is_owner){?>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/updateProject.js"></script>
         <?php } ?>
         
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/follow.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/vote.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/voteResult.js"></script>
+        

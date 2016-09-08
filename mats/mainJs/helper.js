@@ -35,6 +35,7 @@ function getDateTimeTextFromMySqlDateText(mySqlDate) {
 }
 
 function getMonthThaiText(mySqlDate) {
+    
     dateArray = mySqlDate.split(/[- :]/);
     
     date = new Date();
@@ -48,4 +49,28 @@ function getMonthThaiText(mySqlDate) {
     date.setDate(day);
     
     return monthThaiTextArray[month];
+}
+
+function getMySqlDateString(dateString) {
+    var re = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
+    if(re.test(dateString) === false){
+        return false;
+    }
+    
+    dateArray = dateString.split('/');
+    
+    for (i=0; i<dateArray.length; i++) {
+        if (isNaN(dateArray[i])) {
+            return false;
+        }
+    }
+    
+    date = new Date();
+    date.setDate(dateArray[0]);
+    date.setMonth(parseInt(dateArray[1]) - 1);
+    date.setFullYear( parseInt(dateArray[2]) - 543);
+    
+    dateStringMySQL = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    
+    return dateStringMySQL;
 }

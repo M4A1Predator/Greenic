@@ -465,6 +465,7 @@
             $data_assoc['is_follow_project'] = FALSE;
             $data_assoc['is_follow_farm'] = FALSE;
             $data_assoc['is_follow_farmer'] = FALSE;
+            $data_assoc['is_review_project'] = FALSE;
 
             // If sign in
             if($is_sign_in){
@@ -487,6 +488,9 @@
                 }
 
             }
+            
+            // Check is review this project
+            $data_assoc['is_review_project'] = $this->Review->has_ever_review_project($member_id, $project_id);
             
             // Add view
             if($data_assoc['is_owner'] == FALSE){

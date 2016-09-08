@@ -29,6 +29,10 @@
             
             // Get data
             $page_number = $this->input->get('page_number');
+            if(!$page_number){
+                $page_number = 1;
+            }
+            $limit = 20;
             
             // Get member type bt URI fragment
             $member_type_name = $this->uri->segment(3);
@@ -54,18 +58,23 @@
             $where_assoc = array();
             $where_assoc['member_type_id'] = $member_type_id;
             
+            // Set filter data
+            $filter_assoc = array();
+            $filter_assoc['offset'] = 0;
+            $filter_assoc['limit'] = null;
+            
             // Filter normal members 
             if($member_type_name == $this->Member_type->member_normal){
-                
-                
+                $member_data = $this->Member->get_member_normal_data_list_admin($filter_assoc);
+            // Filter farmer members
             }else if($member_type_name == $this->Member_type->member_farmer){
-                // Filter farmer members
+                $member_data = $this->Member->get_member_farmer_data_list_admin($filter_assoc);
             }
             
-            $members = $this->Member->get_filter('*', $where_assoc, null, null, null, null, 'object');
-            
-            
-            $data['members'] = $members;
+            $data['members'] = $member_data['result'];
+            $data['member_count'] = $member_data['count'];
+            $data['page_number'] = $page_number;
+            $data['limit'] = $limit;
             
             // Load view
             $this->load->view('back/index', $data);

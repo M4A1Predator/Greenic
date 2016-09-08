@@ -1,5 +1,6 @@
 <div class="breadcrumbs">
     <input type="hidden" id="projectId" value="<?=$project->project_id?>"/>
+    <input type="hidden" id="unitText" value="<?=$project->unit_name?>"/>
     <div class="container">
         <h1 class="pull-left"><?=$project->project_name?></h1>
         <ul class="pull-right breadcrumb">
@@ -90,13 +91,14 @@
                 </li>
                 <li class="list-group-item">
                 <div class="text-center star margin-bottom-10">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i><br>
-                    <?php if($is_sign_in && !$is_owner){ ?>
-                    <button class="btn-u rounded btn-u-primary" data-toggle="modal" data-target="#voteForm" type="button"><i class="fa fa-star" aria-hidden="true"></i> โหวต</button>
+                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i>
+                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i>
+                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i>
+                    <!--<i class="fa fa-star-half-o rateStar" aria-hidden="true"></i>-->
+                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i>
+                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i><br>
+                    <?php if($is_sign_in && !$is_owner && !$is_review_project){ ?>
+                    <button class="btn-u rounded btn-u-primary" id="voteModalBtn"  data-toggle="modal" data-target="#voteForm" type="button"><i class="fa fa-star" aria-hidden="true"></i> โหวต</button>
                     <?php } ?>
                 
                     <div class="modal fade" id="voteForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -127,7 +129,7 @@
                                                 <label class="label">ความคิดเห็น</label>
                                                 <label class="input">
                                                     <i class="icon-append fa fa-comment"></i>
-                                                    <input type="text" name="subject" id="subject">
+                                                    <input type="text" name="subject" id="voteComment">
                                                 </label>
                                             </section>
                                             <div class="row">
@@ -135,13 +137,13 @@
                                                     <label class="label">วันที่ซื้อของ</label>
                                                     <label class="input">
                                                         <i class="icon-append fa fa-calendar"></i>
-                                                        <input type="text" name="date" id="date" placeholder="เช่น 10 มกราคม 2559">
+                                                        <input type="text" name="date" id="voteBuyDate" placeholder="เช่น 10/02/2559">
                                                     </label>
                                                 </section>
                                                 <section class="col col-6">
                                                     <label class="label">จำนวนที่ซื้อ</label>
                                                     <label class="input">
-                                                        <input type="text" name="total" placeholder="เช่น 20 กิโลกรัม">
+                                                        <input type="text" name="total" id="voteBuyAmount" placeholder="เช่น 20">
                                                     </label>
                                                 </section>
                                             </div>
@@ -150,114 +152,114 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn-u btn-u-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>ยกเลิก</button>
-                                    <button type="button" class="btn-u btn-u-primary"><i class="fa fa-star"></i> โหวต</button>
+                                    <button type="button" id="voteBtn" class="btn-u btn-u-primary"><i class="fa fa-star"></i> โหวต</button>
                                 </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <button class="btn-u rounded btn-u-dark" data-toggle="modal" data-target="#voteResult" type="button"><i class="fa fa-list" aria-hidden="true"></i> ผลโหวต</button>        
+                    <button class="btn-u rounded btn-u-dark" data-toggle="modal" data-target="#voteResult" type="button"><i class="fa fa-list" aria-hidden="true"></i> ผลโหวต</button>
                         <div class="modal fade" id="voteResult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <form action="#" class="sky-form">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h4 class="modal-title" id="myModalLabel4">คะแนนโหวตและความคิดเห็น</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="result"> 18/50 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i></div>
-                                            
-                                            <div class="result">12/50 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i></div>
-                                            
-                                            <div class="result">10/50 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i></div>
-                                            
-                                            <div class="result">08/50 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i></div>
-                                            
-                                            <div class="result">02/50 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i></div>
-                                            <br>
-                                            <div class="testimonials-v6 text-left">
-                                            <div class="row margin-bottom-50">
-                                                <div class="col-md-12 margin-bottom-10">
-                                                    <div class="testimonials-info rounded-bottom bg-color-light">
-                                                        <img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img5.jpg" alt="">
-                                                        <div class="testimonials-desc">
-                                                            <p>สินค้ามีคุณภาพระดับนึงเลยครับ ไม่ผิดหวังจริงๆ</p>
-                                                            <div class="resultRate">5.0 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i></div>
-                                                            <strong>ชาติชาย ชาติไทย  <small>(สั่งซื้อ 10 กิโลกรัม)</small></strong>
-                                                            <span class="coverLocation"><i class="fa fa-map-marker"></i>ปากช่อง, นครราชศรีมา</span>
-                                                            <button class="btn btn-xs rounded btn-success" type="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (20)</button>
-                                                            <button class="btn btn-xs rounded btn-danger" type="button"><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (5)</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 margin-bottom-10">
-                                                    <div class="testimonials-info rounded-bottom bg-color-light">
-                                                        <img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img6.jpg" alt="">
-                                                        <div class="testimonials-desc">
-                                                            <p>ทำไมของฉันได้รับสินค้าที่แย่มากเลย</p>
-                                                            <div class="resultRate">1.0 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i></div>
-                                                            <strong>นิพา เงินทอง  <small>(สั่งซื้อ 10 กิโลกรัม)</small></strong>
-                                                            <span class="coverLocation"><i class="fa fa-map-marker"></i>ปากช่อง, นครราชศรีมา</span>
-                                                             <button class="btn btn-xs rounded btn-default" type="button" disabled><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (21)</button>
-                                                            <button class="btn btn-xs rounded btn-danger" type="button"><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (5)</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 margin-bottom-10">
-                                                    <div class="testimonials-info rounded-bottom bg-color-light">
-                                                        <img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img3.jpg" alt="">
-                                                        <div class="testimonials-desc">
-                                                            <p>สินค้าสวยงามมาก ขายต่อได้ราคาดีสุดๆ</p>
-                                                            <div class="resultRate">5.0 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i></div>
-                                                            <strong>สมปอง สองคน  <small>(สั่งซื้อ 10 กิโลกรัม)</small></strong>
-                                                            <span class="coverLocation"><i class="fa fa-map-marker"></i>ปากช่อง, นครราชศรีมา</span>
-                                                             <button class="btn btn-xs rounded btn-success" type="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (20)</button>
-                                                            <button class="btn btn-xs rounded btn-default" type="button" disabled><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (6)</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 margin-bottom-10">
-                                                    <div class="testimonials-info rounded-bottom bg-color-light">
-                                                        <img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img2.jpg" alt="">
-                                                        <div class="testimonials-desc">
-                                                            <p>อยากให้ผลิตมากกว่านี้อีก</p>
-                                                            <div class="resultRate">4.0 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i></div>
-                                                            <strong>สุรีภา สาระ  <small>(สั่งซื้อ 10 กิโลกรัม)</small></strong>
-                                                            <span class="coverLocation"><i class="fa fa-map-marker"></i>ปากช่อง, นครราชศรีมา</span>
-                                                             <button class="btn btn-xs rounded btn-success" type="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (20)</button>
-                                                            <button class="btn btn-xs rounded btn-danger" type="button"><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (5)</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><!--/end row-->
-                                        </div>
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h4 class="modal-title" id="myModalLabel4">คะแนนโหวตและความคิดเห็น</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="result"> <span id="rateResult-5">0/0</span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i></div>
+                                                
+                                                <div class="result"><span id="rateResult-4">0/0</span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i></div>
+                                                
+                                                <div class="result"><span id="rateResult-3">0/0</span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i></div>
+                                                
+                                                <div class="result"><span id="rateResult-2">0/0</span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i></div>
+                                                
+                                                <div class="result"><span id="rateResult-1">0/0</span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
+                                                <i class="fa fa-star-o" aria-hidden="true"></i></div>
+                                                <br>
+                                                <div class="testimonials-v6 text-left">
+                                                <div class="row margin-bottom-50" id="memberReviews">
+                                                <!--    <div class="col-md-12 margin-bottom-10">-->
+                                                <!--        <div class="testimonials-info rounded-bottom bg-color-light">-->
+                                                <!--            <img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img5.jpg" alt="">-->
+                                                <!--            <div class="testimonials-desc">-->
+                                                <!--                <p>สินค้ามีคุณภาพระดับนึงเลยครับ ไม่ผิดหวังจริงๆ</p>-->
+                                                <!--                <div class="resultRate">5.0 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>-->
+                                                <!--<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>-->
+                                                <!--<i class="fa fa-star" aria-hidden="true"></i></div>-->
+                                                <!--                <strong>ชาติชาย ชาติไทย  <small>(สั่งซื้อ 10 กิโลกรัม)</small></strong>-->
+                                                <!--                <span class="coverLocation"><i class="fa fa-map-marker"></i>ปากช่อง, นครราชศรีมา</span>-->
+                                                <!--                <button class="btn btn-xs rounded btn-success" type="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (20)</button>-->
+                                                <!--                <button class="btn btn-xs rounded btn-danger" type="button"><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (5)</button>-->
+                                                <!--            </div>-->
+                                                <!--        </div>-->
+                                                <!--    </div>-->
+                                                <!--    <div class="col-md-12 margin-bottom-10">-->
+                                                <!--        <div class="testimonials-info rounded-bottom bg-color-light">-->
+                                                <!--            <img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img6.jpg" alt="">-->
+                                                <!--            <div class="testimonials-desc">-->
+                                                <!--                <p>ทำไมของฉันได้รับสินค้าที่แย่มากเลย</p>-->
+                                                <!--                <div class="resultRate">1.0 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>-->
+                                                <!--                    <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>-->
+                                                <!--                    <i class="fa fa-star-o" aria-hidden="true"></i></div>-->
+                                                <!--                <strong>นิพา เงินทอง  <small>(สั่งซื้อ 10 กิโลกรัม)</small></strong>-->
+                                                <!--                <span class="coverLocation"><i class="fa fa-map-marker"></i>ปากช่อง, นครราชศรีมา</span>-->
+                                                <!--                 <button class="btn btn-xs rounded btn-default" type="button" disabled><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (21)</button>-->
+                                                <!--                <button class="btn btn-xs rounded btn-danger" type="button"><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (5)</button>-->
+                                                <!--            </div>-->
+                                                <!--        </div>-->
+                                                <!--    </div>-->
+                                                <!--    <div class="col-md-12 margin-bottom-10">-->
+                                                <!--        <div class="testimonials-info rounded-bottom bg-color-light">-->
+                                                <!--            <img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img3.jpg" alt="">-->
+                                                <!--            <div class="testimonials-desc">-->
+                                                <!--                <p>สินค้าสวยงามมาก ขายต่อได้ราคาดีสุดๆ</p>-->
+                                                <!--                <div class="resultRate">5.0 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>-->
+                                                <!--<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>-->
+                                                <!--<i class="fa fa-star" aria-hidden="true"></i></div>-->
+                                                <!--                <strong>สมปอง สองคน  <small>(สั่งซื้อ 10 กิโลกรัม)</small></strong>-->
+                                                <!--                <span class="coverLocation"><i class="fa fa-map-marker"></i>ปากช่อง, นครราชศรีมา</span>-->
+                                                <!--                 <button class="btn btn-xs rounded btn-success" type="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (20)</button>-->
+                                                <!--                <button class="btn btn-xs rounded btn-default" type="button" disabled><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (6)</button>-->
+                                                <!--            </div>-->
+                                                <!--        </div>-->
+                                                <!--    </div>-->
+                                                <!--    <div class="col-md-12 margin-bottom-10">-->
+                                                <!--        <div class="testimonials-info rounded-bottom bg-color-light">-->
+                                                <!--            <img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img2.jpg" alt="">-->
+                                                <!--            <div class="testimonials-desc">-->
+                                                <!--                <p>อยากให้ผลิตมากกว่านี้อีก</p>-->
+                                                <!--                <div class="resultRate">4.0 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>-->
+                                                <!--<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>-->
+                                                <!--<i class="fa fa-star-o" aria-hidden="true"></i></div>-->
+                                                <!--                <strong>สุรีภา สาระ  <small>(สั่งซื้อ 10 กิโลกรัม)</small></strong>-->
+                                                <!--                <span class="coverLocation"><i class="fa fa-map-marker"></i>ปากช่อง, นครราชศรีมา</span>-->
+                                                <!--                 <button class="btn btn-xs rounded btn-success" type="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (20)</button>-->
+                                                <!--                <button class="btn btn-xs rounded btn-danger" type="button"><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (5)</button>-->
+                                                <!--            </div>-->
+                                                <!--        </div>-->
+                                                <!--    </div>-->
+                                                </div><!--/end row-->
+                                            </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn-u btn-u-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>ปิดหน้าต่าง</button>
-                                </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn-u btn-u-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>ปิดหน้าต่าง</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="item-col fixed item-col-img md">
                                         <a href="?page=farmerDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
+                                            <div class="item-img rounded" style="background-image: url(<?=base_url().$member->member_img_path?>)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
@@ -149,12 +149,12 @@
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
+                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้"><?=$member->follow_count?> รายการ</a></div>
                                     </div>
                                     
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
+                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> <?=$member->farm_count?> ฟาร์ม</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
@@ -162,11 +162,11 @@
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><?=$member->member_province.' '.$member->member_district?></a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สมัคร</div>
-                                        <div class="no-overflow"> 10 มิถุนายก 2559 115.45น.</div>
+                                        <div class="no-overflow"> <?=display_date_th($member->member_regis_time)?></div>
                                     </div>
                                     <div class="item-col fixed item-col-actions-dropdown">
                                         <div class="item-actions-dropdown">
@@ -193,280 +193,24 @@
                                 </div>
                             </li>
                             <?php } ?>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="?page=farmerDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อ-สกุล</div>
-                                        <div>
-                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
-                                    </div>
-                                    
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่สมัคร</div>
-                                        <div class="no-overflow"> 10 มิถุนายก 2559 115.45น.</div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                             <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="?page=farmerDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อ-สกุล</div>
-                                        <div>
-                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
-                                    </div>
-                                    
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่สมัคร</div>
-                                        <div class="no-overflow"> 10 มิถุนายก 2559 115.45น.</div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                             <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="?page=farmerDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อ-สกุล</div>
-                                        <div>
-                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
-                                    </div>
-                                    
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่สมัคร</div>
-                                        <div class="no-overflow"> 10 มิถุนายก 2559 115.45น.</div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                             <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="?page=farmerDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/farmer.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อ-สกุล</div>
-                                        <div>
-                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">วีรชัย สมัยนิยม</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้">12 รายการ</a></div>
-                                    </div>
-                                    
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="?page=allFarmMember" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> 10 ฟาร์ม</a></div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่สมัคร</div>
-                                        <div class="no-overflow"> 10 มิถุนายก 2559 115.45น.</div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                             <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            
                             </ul>
                     </div>
                     <nav class="text-xs-right">
+                        <?php
+                            $page_amount = 1;
+                            if($member_count % $limit === 0){
+                                $page_amount = $member_count / $limit;
+                            }else{
+                                $page_amount = ($member_count / $limit) + 1;
+                            }
+                        ?>
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="">
-				ก่อนหน้า
-			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="">
-				1
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				2
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				3
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				4
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				5
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				ถัดไป
-			</a> </li>
+                            
+                            <?php for($i=1;$i<=$page_amount;$i++){ ?>
+                            <li class="page-item active">
+                                <a class="page-link" href=""><?=$i?></a>
+                            </li>
+                            <?php } ?>
                         </ul>
                     </nav>
                 </article>
