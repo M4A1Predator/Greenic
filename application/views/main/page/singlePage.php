@@ -1,6 +1,9 @@
 <div class="breadcrumbs">
     <input type="hidden" id="projectId" value="<?=$project->project_id?>"/>
     <input type="hidden" id="unitText" value="<?=$project->unit_name?>"/>
+    <?php if($this->is_sign_in){ ?>
+    <input type="hidden" id="memberId" value="<?=$this->session->userdata('member_id')?>" />
+    <?php } ?>
     <div class="container">
         <h1 class="pull-left"><?=$project->project_name?></h1>
         <ul class="pull-right breadcrumb">
@@ -8,7 +11,7 @@
             <li><a href="<?=base_url().'category/'.$project->project_type_name?>"><?=get_project_type_thai_text($project->category_project_type_id)?></a></li>
             <li><a href="<?=base_url().'category/'.$project->project_type_name.'/'.$project->project_category_id?>"><?=$project->category_name?></a></li>
             <?php if($project->breed_name){?>
-            <li><a href="subCategory.php"><?=$project->breed_name?></a></li>
+            <li><a href="<?=base_url().'category/'.$project->project_type_name.'/'.$project->project_category_id?>"><?=$project->breed_name?></a></li>
             <?php } ?>
             <li class="active"><?=$project->project_name?></li>
         </ul>
@@ -91,12 +94,19 @@
                 </li>
                 <li class="list-group-item">
                 <div class="text-center star margin-bottom-10">
-                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i>
-                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i>
-                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i>
+                    <?php for($i=1;$i<=5;$i++){ ?>
+                        <?php if($i <= $review_rate){ ?>
+                        <i class="fa fa-star rateStar" aria-hidden="true"></i>
+                        <?php }else{ ?>
+                        <i class="fa fa-star-o rateStar" aria-hidden="true"></i>
+                        <?php }?>
+                    <?php } ?>
+                    <!--<i class="fa fa-star-o rateStar" aria-hidden="true"></i>-->
+                    <!--<i class="fa fa-star-o rateStar" aria-hidden="true"></i>-->
+                    <!--<i class="fa fa-star-o rateStar" aria-hidden="true"></i>-->
                     <!--<i class="fa fa-star-half-o rateStar" aria-hidden="true"></i>-->
-                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i>
-                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i><br>
+                    <!--<i class="fa fa-star-o rateStar" aria-hidden="true"></i>-->
+                    <!--<i class="fa fa-star-o rateStar" aria-hidden="true"></i><br>-->
                     <?php if($is_sign_in && !$is_owner && !$is_review_project){ ?>
                     <button class="btn-u rounded btn-u-primary" id="voteModalBtn"  data-toggle="modal" data-target="#voteForm" type="button"><i class="fa fa-star" aria-hidden="true"></i> โหวต</button>
                     <?php } ?>
@@ -170,28 +180,67 @@
                                     <div class="modal-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="result"> <span id="rateResult-5">0/0</span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                                <div class="result"> <span id="rateResult-5"><?=$rate_select_arr[4].'/'.$review_count?></span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
                                                 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
                                                 <i class="fa fa-star" aria-hidden="true"></i></div>
                                                 
-                                                <div class="result"><span id="rateResult-4">0/0</span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                                <div class="result"><span id="rateResult-4"><?=$rate_select_arr[3].'/'.$review_count?></span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
                                                 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
                                                 <i class="fa fa-star-o" aria-hidden="true"></i></div>
                                                 
-                                                <div class="result"><span id="rateResult-3">0/0</span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                                <div class="result"><span id="rateResult-3"><?=$rate_select_arr[2].'/'.$review_count?></span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
                                                 <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
                                                 <i class="fa fa-star-o" aria-hidden="true"></i></div>
                                                 
-                                                <div class="result"><span id="rateResult-2">0/0</span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+                                                <div class="result"><span id="rateResult-2"><?=$rate_select_arr[1].'/'.$review_count?></span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
                                                 <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
                                                 <i class="fa fa-star-o" aria-hidden="true"></i></div>
                                                 
-                                                <div class="result"><span id="rateResult-1">0/0</span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
+                                                <div class="result"><span id="rateResult-1"><?=$rate_select_arr[0].'/'.$review_count?></span> <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
                                                 <i class="fa fa-star-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i>
                                                 <i class="fa fa-star-o" aria-hidden="true"></i></div>
                                                 <br>
                                                 <div class="testimonials-v6 text-left">
                                                 <div class="row margin-bottom-50" id="memberReviews">
+                                                    <?php foreach($review_arr as $review){ ?>
+                                                    <?php
+                                                        if(!$review['member_img_path']){
+                                                            $review['member_img_path'] = get_default_member_image_path();
+                                                        }
+                                                        
+                                                        $address_text = '';
+                                                        if($review['member_province']){
+                                                            $address_text .= $review['member_province'];
+                                                        }
+                                                        if($review['member_district']){
+                                                            $address_text .= ', '.$review['member_district'];
+                                                        }
+                                                    
+                                                    ?>
+                                                    <div class="col-md-12 margin-bottom-10">
+                                                        <div class="testimonials-info rounded-bottom bg-color-light">
+                                                            <img class="rounded-x" src="<?=base_url().$review['member_img_path']?>" alt="">
+                                                            <div class="testimonials-desc">
+                                                                <p><?=$review['review_comment']?></p>
+                                                                <div class="resultRate"><?=$review['review_rate']?>
+                                                                <?php for($i=1;$i<=5;$i++){ ?>
+                                                                    <?php if($i <= $review['review_rate']){ ?>
+                                                                    <i class="fa fa-star rateStar" aria-hidden="true"></i>
+                                                                    <?php }else{ ?>
+                                                                    <i class="fa fa-star-o rateStar" aria-hidden="true"></i>
+                                                                    <?php }?>
+                                                                <?php } ?>
+                                                                </div>
+                                                                <strong><?=$review['member_firstname'].' '.$review['member_lastname']?> <small>(สั่งซื้อ <?=$review['review_buyamount'].' '.$project->unit_name?>)</small></strong>
+                                                                <span class="coverLocation"><i class="fa fa-map-marker"></i><?=$address_text?></span>
+                                                                <?php if($this->is_sign_in){ ?>
+                                                                <button id="agreeComment-<?=$review['review_id']?>" class="btn btn-xs rounded btn-success" type="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (20)</button>
+                                                                <button id="disagreeComment-<?=$review['review_id']?>" class="btn btn-xs rounded btn-danger" type="button"><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (5)</button>
+                                                                <?php } ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php } ?>
                                                 <!--    <div class="col-md-12 margin-bottom-10">-->
                                                 <!--        <div class="testimonials-info rounded-bottom bg-color-light">-->
                                                 <!--            <img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img5.jpg" alt="">-->

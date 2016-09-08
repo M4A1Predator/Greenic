@@ -490,7 +490,9 @@
             }
             
             // Check is review this project
-            $data_assoc['is_review_project'] = $this->Review->has_ever_review_project($member_id, $project_id);
+            if($this->is_sign_in){
+                $data_assoc['is_review_project'] = $this->Review->has_ever_review_project($member_id, $project_id);
+            }
             
             // Add view
             if($data_assoc['is_owner'] == FALSE){
@@ -506,8 +508,39 @@
                 $update_data['project_view'] = $view_number;
                 
                 $update_result = $this->Project->update($project_data, $update_data);
-                
             }
+            
+            // Get reviews
+            // Set up filter
+            $filter_assoc = array();
+            $filter_assoc['limit'] = null;
+            $filter_assoc['offset'] = 0;
+            
+            $review_data= $this->Review->get_review_data_by_project_id($project_id, $filter_assoc, 'array');
+            $review_arr = $review_data['result'];
+            $review_count = $review_data['count'];
+            
+            $data_assoc['review_arr'] = $review_arr;
+            $data_assoc['review_count'] = $review_count;
+            // Set review rate
+            $review_rate = 0.0;
+            $total_rate = 0;
+            $rate_select_arr = [0, 0, 0, 0, 0];
+            foreach($review_arr as $review){
+                $rate = (int)$review['review_rate'];
+                
+                $rate_select_arr[$rate-1] += 1;
+                
+                $total_rate += $rate;
+            }
+            if($review_count !== 0){
+                $review_rate = (float)($total_rate / $review_count);
+            }else{
+                $review_rate = 0;
+            }
+            
+            $data_assoc['review_rate'] = $review_rate;
+            $data_assoc['rate_select_arr'] = $rate_select_arr;
             
             // Load view
             $this->load->view('main/singleProduct', $data_assoc);

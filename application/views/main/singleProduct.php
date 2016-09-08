@@ -27,5 +27,5 @@
         
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/follow.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/vote.js"></script>
-        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/voteResult.js"></script>
+        <!--<script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/voteResult.js"></script>-->
         
