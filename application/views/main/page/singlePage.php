@@ -17,6 +17,7 @@
         </ul>
     </div>
 </div>
+<!--<div class="search-block parallaxBg" style="background-position: 50% 16px;background: url(<?=base_url().$project->project_cover_image_path?>) 50% 0 repeat fixed;">-->
 <div class="search-block parallaxBg" style="background-position: 50% 16px;background: url(<?=base_url().$project->project_cover_image_path?>) 50% 0 repeat fixed;">
     <div class="container">
         <div class="col-md-6 col-md-offset-3">
@@ -65,7 +66,9 @@
             <div class="price margin-bottom-20">
                 <a class="btn-u btn-brd btn-u btn-u-lg subCate"><?=$project->project_ppu?> บาท/<?=$project->unit_name?></a>
                 <!--กรณีของหมด-->
-                <!--<a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>-->
+                <?php if($is_owner){ ?>
+                <a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>
+                <?php } ?>
             </div>
             
             <ul class="list-group sidebar-nav-v1 margin-bottom-10" id="sidebar-nav-1">
@@ -338,7 +341,7 @@
                     <div class="tab-content">
                         <div id="timeline" class="profile-edit tab-pane fade active in">
                             <div class="margin-bottom-40">
-                            <?php if($is_owner){ ?>
+                            <?php if($is_owner &&  $is_updatable){ ?>
                             <button class="btn-u btn-u-lg rounded-4x btn-full" data-toggle="modal" data-target="#updateForm" type="button">อัพเดท <i class="fa fa-plus" aria-hidden="true"></i></button>
                             <div class="modal fade" id="updateForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog">

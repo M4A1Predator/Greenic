@@ -466,6 +466,7 @@
             $data_assoc['is_follow_farm'] = FALSE;
             $data_assoc['is_follow_farmer'] = FALSE;
             $data_assoc['is_review_project'] = FALSE;
+            $data_assoc['is_updatable'] = FALSE;
 
             // If sign in
             if($is_sign_in){
@@ -473,6 +474,12 @@
                 $member_id = $this->session->userdata('member_id');
                 if($project->farm_member_id === $member_id){
                     $data_assoc['is_owner'] = TRUE;
+                    
+                    // Check is updatable
+                    if($project->farm_status_id === $this->Status->status_normal_id && $project->project_status_id !== $this->Status->status_remove_id){
+                        $data_assoc['is_updatable'] = TRUE;
+                    }
+                    
                 }
                 
                 // Is following this project

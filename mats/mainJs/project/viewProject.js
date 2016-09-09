@@ -108,8 +108,9 @@ function setTimeline(offset, limit){
 
 function setProjectPictures(){
     projectPostArray.forEach(function (projectPost){
+        postImageUrl = webUrl + projectPost.project_post_image;
         content = '<div class="col-sm-4 sm-margin-bottom-30">' + 
-                    '<a href="assets/img/main/img2.jpg" rel="gallery1" class="fancybox img-hover-v1" title="' + projectPost.project_post_caption + '">' + 
+                    '<a href="' + postImageUrl +'" target="_blank" class="fancybox img-hover-v1" title="' + projectPost.project_post_caption + '">' + 
                         '<span><img class="img-responsive" src="' + webUrl + projectPost.project_post_image + '" alt=""></span>' +
                     '</a>' +
                 '</div>';

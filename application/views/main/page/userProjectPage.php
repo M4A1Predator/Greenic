@@ -2,7 +2,7 @@
      <div class="container">
          <h1 class="pull-left">โปรเจ็คของคุณ</h1>
          <ul class="pull-right breadcrumb">
-             <li><a href="/main/">หน้าแรก</a></li>
+             <li><a href="<?=base_url().'main'?>">หน้าแรก</a></li>
              <li class="active">โปรเจ็คของคุณ</li>
          </ul>
      </div>

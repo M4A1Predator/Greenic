@@ -123,6 +123,8 @@ $route['vote/send_vote_ajax'] = 'main/Review_ctrl/send_review_ajax';
 $route['vote/get_project_reviews_ajax'] = 'main/Review_ctrl/get_project_reviews_ajax';
 //$route['category/get_categories_data_ajax'] = 'main/Category_ctrl/get_filter_categories_data_ajax';
 
+$route['member_remove/farm_ajax'] = 'main/Farm_ctrl/member_remove_farm_ajax';
+
 
 //====================================================================================================================================
 // Admin routes
@@ -132,7 +134,7 @@ $route['gnc_admin'] = 'back/Admin_home/home';
 
 $route['gnc_admin/members/(:any)'] = 'back/Member_set/member_list_page';
 
-// Admin view controls
+// Admin controls
 $route['gnc_admin/_sign_in_pro_ajax'] = 'back/Admin_authentication/sign_in_pro_ajax';
 $route['gnc_admin/sign_out'] = 'back/Admin_authentication/sign_out_pro';
 

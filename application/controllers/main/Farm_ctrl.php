@@ -104,8 +104,6 @@
             
         }
         
-        
-    
         function member_farm_page(){
             /*
              *  Display member farm page
@@ -130,6 +128,40 @@
             
             // Load view
             $this->load->view('main/manageFarm', $data);
+            
+        }
+        
+        function member_remove_farm_ajax(){
+            /*
+             *  Member remove farm
+             *
+             */
+            
+            if($this->is_sign_in == FALSE){
+                echo 0;
+                return;
+            }
+            
+            // Get data
+            $farm_id = $this->input->post('farm_id');
+            $member_id = $this->session->userdata('member_id');
+            
+            // Remove Farm by update farm status
+            $where_assoc = array();
+            $where_assoc['farm_id'] = $farm_id;
+            $where_assoc['farm_member_id'] = $member_id;
+            
+            $farm_set = array();
+            $farm_set['farm_status_id'] = $this->Status->status_removed_id;
+            
+            $update_result = $this->Farm->update($where_assoc, $farm_set);
+            
+            if($update_result == FALSE){
+                echo 'Delete error';
+                return;
+            }
+            
+            echo 1;
             
         }
     

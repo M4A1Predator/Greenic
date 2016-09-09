@@ -38,13 +38,13 @@ function setProjectsList() {
     farmId = selectFarm.val();
     typeId = selectType.val();
     
-    limit = 16;
-    offset = (limit * parseInt(page.val())) - limit;
+    projectListLimit = 16;
+    offset = (projectListLimit * parseInt(page.val())) - projectListLimit;
     projectPageList.empty();
     param = {
         'type_id' : typeId,
         'farm_id' : farmId,
-        'limit' : limit,
+        'limit' : projectListLimit,
         'offset' : offset
     };
     
@@ -59,8 +59,6 @@ function setProjectsList() {
         
         projectArray = jsonData.result;
         projectCount = parseInt(jsonData.count);
-        
-        console.log(jsonData);
         
         projectArray.forEach(function (project){
             
@@ -78,7 +76,7 @@ function setProjectsList() {
                         '<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> ' + project.farm_district + ', ' + project.farm_province + '</li>' +
                     '</ul>' +
                     '<a href="' + projectUrl + '" class="btn-u btn-u-sm">ดูโปรเจ็คนี้</a>' + 
-                    '<a href="' + editProjectUrl + '" class="btn-u btn-u-blue btn-u-sm"><i class="fa fa-pencil"></i></a> ' + 
+                    //'<a href="' + editProjectUrl + '" class="btn-u btn-u-blue btn-u-sm"><i class="fa fa-pencil"></i></a> ' + 
                     '<a class="btn-u btn-u-red btn-u-sm"><i class="fa fa-trash-o"></i></a>' + 
                 '</div>' +
             '</div>';
@@ -87,8 +85,7 @@ function setProjectsList() {
         });
         
         //projectPageList.append('<li class="active"><a href="#">1</a></li>');
-        
-        if (projectCount < limit) {
+        if (projectCount < projectListLimit) {
             
         }else{
             if (projectCount % limit === 0) {
