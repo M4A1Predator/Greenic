@@ -9,10 +9,13 @@
  </div>
  <div class="container content-md">
     <div class="row margin-bottom-20">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <select class="form-control district" id="selectFarm">
                 <option value="0">แสดงทุกฟาร์ม</option>
             </select>                                                    
+        </div>
+        <div class="col-sm-2">
+            <a href="<?=base_url().'my_farm'?>" class="btn-u text-center" style="width: 100%;">จัดการฟาร์ม <i class="fa fa-thumb-tack"></i></a>                                            
         </div>
         <div class="col-sm-6">
             <select class="form-control district" id="selectType">

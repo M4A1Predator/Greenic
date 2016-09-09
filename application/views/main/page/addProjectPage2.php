@@ -6,7 +6,7 @@
 
                             <div class="row">
 								<section class="col-md-2 col-sm-4">
-                                            <label class="label"><strong>หน่วยที่ขาย</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addUnit" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
+                                        <label class="label"><strong>หน่วยที่ขาย</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addUnit" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
 										<label class="select">
 											<select name="select_unit" id="select_unit">
 												<option value="0" selected="" disabled="">เลือกหน่วย</option>

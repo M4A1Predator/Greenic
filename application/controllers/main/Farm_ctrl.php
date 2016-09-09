@@ -105,4 +105,32 @@
         }
         
         
+    
+        function member_farm_page(){
+            /*
+             *  Display member farm page
+             *  
+             */
+            // Check sign in
+            $this->gnc_authen->redirect_if_not_sign_in();
+            
+            // Get data
+            $member_id = $this->session->userdata('member_id');
+            
+            // Get farms
+            $where_assoc = array();
+            $where_assoc['farm_member_id'] = $member_id;
+            $where_assoc['farm_status_id'] = $this->Status->status_normal_id;
+            
+            $farms = $this->Farm->get_filter('*', $where_assoc, null, null, null, null, 'object', array('use_view' => TRUE));
+            
+            // Set view data
+            $data = array();
+            $data['farms'] = $farms;
+            
+            // Load view
+            $this->load->view('main/manageFarm', $data);
+            
+        }
+    
     }

@@ -69,6 +69,7 @@ $route['add_project/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/add_project_page';
 $route['my_projects'] = 'main/Project_ctrl/member_projects_page';
 $route['project/(:num)'] = 'main/Project_ctrl/view_project_page/$1';
 $route['my_project/(:num)/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/edit_project_page/$1/$2';
+$route['my_farm'] = 'main/Farm_ctrl/member_farm_page';
 
 $route['search'] = 'main/Search/search_result_page';
 $route['category/([a-zA-Z0-9]{0,})'] = 'main/Category_ctrl/view_project_type_page/$1';
@@ -116,6 +117,7 @@ $route['category/get_projects_ajax'] = 'main/Category_ctrl/get_projects_ajax';
 $route['category/get_categories_ajax'] = 'main/Category_ctrl/get_filter_categories_ajax';
 $route['category/get_top_categories_ajax'] = 'main/Category_ctrl/get_top_categories_ajax';
 $route['breed/get_breeds_ajax'] = 'main/Breed_ctrl/get_breeds_ajax';
+$route['member_add/unit_ajax'] = 'main/Unit_ctrl/add_unit_member_ajax';
 
 $route['vote/send_vote_ajax'] = 'main/Review_ctrl/send_review_ajax';
 $route['vote/get_project_reviews_ajax'] = 'main/Review_ctrl/get_project_reviews_ajax';

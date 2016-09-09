@@ -3,15 +3,13 @@
 <body class="header-fixed header-fixed-space-v2">
 	<div class="wrapper">
 		<?php 
-            include 'inc/header.php';
-            include 'inc/search.php';
+            $this->load->view('main/inc/header');
+            $this->load->view('main/inc/search');
             
             
-            include 'page/manageFarmPage.php'; 
+            $this->load->view('main/page/manageFarmPage'); 
             
-            
-        
-            include 'inc/footer.php';
+            $this->load->view('main/inc/footer.php');
             
         ?>
 
