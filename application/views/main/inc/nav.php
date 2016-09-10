@@ -1,5 +1,6 @@
 <div class="navbar mega-menu" role="navigation">
     <div class="container">
+        <!--<h1><?=$this->session->userdata('member_id')?></h1>-->
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="res-container">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">

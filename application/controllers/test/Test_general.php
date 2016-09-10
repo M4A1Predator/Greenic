@@ -27,7 +27,27 @@
             //echo $this->input->server('REQUEST_METHOD');
             //echo var_dump($this->is_sign_in);
             
-            echo $this->gnc_image->default_member_img_path;
+            //echo $this->gnc_image->default_member_img_path;
+            //echo date('Y-m-d H:i:s', time());
+            echo var_dump($this->session->userdata('member_id'));
+            echo var_dump($_SESSION);
+        }
+        
+        function fb(){
+            if(!$this->facebook->is_authenticated()){
+                echo $this->facebook->login_url();
+
+            }else{
+                //echo $this->facebook->logout_url().'<br/>';
+                echo $this->facebook->login_url().'<br/>';
+                echo 'Log in';
+                echo '<br/><hr/>';
+                
+                echo $this->facebook->logout_url().'<br/>';
+                
+                
+            }
+            
         }
         
         

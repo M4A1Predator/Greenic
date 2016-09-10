@@ -1,3 +1,5 @@
+<?php ?>
+
 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
     <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
         <ul class="cd-switcher">
@@ -8,7 +10,7 @@
         <div id="cd-login"> <!-- log in form -->
             <form class="cd-form">
                 <p class="social-login">
-                    <span class="social-login-facebook text-center"><a href="#"><i class="fa fa-facebook"></i>เข้าสู่ระบบด้วย Facebook</a></span>
+                    <span class="social-login-facebook text-center"><a href="<?=$this->facebook->login_url()?>"><i class="fa fa-facebook"></i>เข้าสู่ระบบด้วย Facebook</a></span>
                 </p>
 
                 <div class="lined-text"><span>หรือ เข้าสู่ระบบด้วยอีเมล์</span><hr></div>

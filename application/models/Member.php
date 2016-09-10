@@ -389,4 +389,76 @@
             
         }
     
+    
+        /*
+         *  Add member that registered via facebook to DB
+         *
+         *  @param  assoc   facebook data
+         *
+         *  @return bool
+         */
+        function add_member_from_facebook($facebook_data){
+            
+            // Prepare data
+            $member_data = array();
+            $member_data['member_facebook_id'] = $facebook_data['id'];
+            
+            // Set membername
+            $name_arr = explode(' ', $facebook_data['name']);
+            
+            $member_data['member_firstname'] = $name_arr[0];
+            if(count($name_arr) > 1){
+                $member_data['member_lastname'] = end($name_arr);
+            }
+            
+            // Set email, password, verify time
+            $member_data['member_email'] = $facebook_data['email'];
+            $member_data['member_password'] = 'fb';
+            $member_data['member_verify_time'] = date('Y-m-d H:i:s');
+            
+            // Set status and type
+            $member_data['member_status_id'] = $this->CI->Status->status_normal_id;
+            $member_data['member_type_id'] = $this->CI->Member_type->member_normal_id;
+            
+            // Add member
+            $add_result = $this->add($member_data);
+            
+            if(!$add_result){
+                return FALSE;
+            }
+            
+            return TRUE;
+            
+        }
+        
+        /*
+         *  Authen by facebook
+         *
+         *  @param  string  facebook id
+         *  
+         */
+        function authen_by_facebook($facebook_id){
+            
+            // Get member by facebook id
+            $where_assoc = array();
+            $where_assoc['member_facebook_id'] = $facebook_id;
+            // Join member type and status
+            $join_member_type = $this->CI->gnc_query->get_join_table_assoc('member_type', 'member.member_type_id = member_type.member_type_id');
+            $join_status = $this->CI->gnc_query->get_join_table_assoc('status', 'member.member_status_id = status.status_id');
+            $join_array = [$join_member_type, $join_status];
+            
+            $member = $this->get_filter_single('*', $where_assoc, $join_array, 'array');
+            
+            // Check status
+            if($member['status_name'] != $this->Status->status_normal){
+                return NULL;
+            }
+            
+            // Unset unneccessary values
+            unset($member['member_password']);
+            unset($member['member_token']);
+            
+            // Return member assoc
+            return $member;
+        }
     }

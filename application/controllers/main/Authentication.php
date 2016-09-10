@@ -80,6 +80,12 @@
             
             // Filter is logged in
             
+            // If use facebook then sign out facebook
+            //if($this->session->userdata('facebook_sign_in') && $this->session->userdata('facebook_sign_in') === TRUE){
+            //    redirect($this->facebook->logout_url());
+            //    return;
+            //}
+            
             // Get session keys
             $member = $this->session->userdata();
             $session_keys = array_keys($member);
@@ -94,6 +100,69 @@
             redirect('/main/');
         }
         
+        function facebook_sign_in(){
+            /*
+             *  Sign in with facebook
+             *
+             */
+            
+            //echo 'Facebook test <br/>';
+            //return;
+            
+            $data['facebook_user'] = array();
+
+            // Check if user is logged in
+            if ($this->facebook->is_authenticated()){
+                // User logged in, get user details
+                $facebook_user = $this->facebook->request('get', '/me?fields=id,name,email');
+                if (isset($facebook_user['error']))
+                {
+                    echo var_dump($facebook_user['error']);
+                    return;
+                }
+                $data['facebook_user'] = $facebook_user;
+                
+                // Authen
+                $member = $this->Member->authen_by_facebook($facebook_user['id']);
+                
+                if(!$member){
+                    
+                    // Add member if member haven't regis
+                    $add_result = $this->Member->add_member_from_facebook($facebook_user);
+                    
+                    if(!$add_result){
+                        return;
+                    }
+                    redirect($this->facebook->login_url());
+                    return;
+                }
+                
+                // Set session
+                $member_session_data = array();
+                $member_session_data = $member;
+                
+                // Fitler data
+                // Set defaults image if member doesn't have image profile
+                if(!$member_session_data['member_img_path']){
+                    $member_session_data['member_img_path'] = get_default_member_image_path();
+                }
+                $member_session_data['facebook_sign_in'] = TRUE;
+                $this->session->set_userdata($member_session_data);
+                echo var_dump($member_session_data);
+                echo 'Sign in success';
+                redirect('/main/');
+                return; 
+            }
+            echo 'Non login';
+            // display view
+            //$this->load->view('examples/web', $data);
+            
+        }
         
+        function facebook_sign_out(){
+            $this->facebook->destroy_session();
+            $this->session->sess_destroy();
+            redirect('/main/');
+        }
         
     }

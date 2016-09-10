@@ -476,10 +476,9 @@
                     $data_assoc['is_owner'] = TRUE;
                     
                     // Check is updatable
-                    if($project->farm_status_id === $this->Status->status_normal_id && $project->project_status_id !== $this->Status->status_remove_id){
+                    if((int)$project->farm_status_id === $this->Status->status_normal_id && (int)$project->project_status_id !== $this->Status->status_removed_id){
                         $data_assoc['is_updatable'] = TRUE;
-                    }
-                    
+                    }                    
                 }
                 
                 // Is following this project

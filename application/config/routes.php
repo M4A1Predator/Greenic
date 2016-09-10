@@ -77,7 +77,9 @@ $route['category/([a-zA-Z0-9]{0,})/(:num)'] = 'main/Category_ctrl/view_category_
 
 // Control routes
 $route['sign_in'] = 'main/Authentication/authen';
+$route['facebook_sign_in'] = 'main/Authentication/facebook_sign_in';
 $route['sign_out'] = 'main/Authentication/sign_out';
+$route['facebook_sign_out'] = 'main/Authentication/facebook_sign_out';
 $route['check_exist_email_pro'] = 'main/Sign_up/check_unique_email';
 $route['regis_pro'] = 'main/Sign_up/sign_up_pro';
 $route['verify_account/(:num)/(:any)'] = 'main/Sign_up/verify_account';

@@ -64,7 +64,8 @@ function setSubCategoryOption() {
         data : param
     }).success(function (data){
         jsonData = JSON.parse(data);
-        jsonData.forEach(function (breed){
+        breedArray = jsonData.result;
+        breedArray.forEach(function (breed){
             selectSubCategory.append('<option value="'+ breed.breed_id +'">' + breed.breed_name + '</option>');
         });
     });
