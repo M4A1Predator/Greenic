@@ -52,4 +52,6 @@
 	<script type="text/javascript" src="<?=base_url()?>mats/assets/plugins/jquery/jquery-migrate.min.js"></script>
 	<script type="text/javascript" src="<?=base_url()?>mats/assets/plugins/bootstrap/js/bootstrap.min.js"></script>-->
     
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    
 </head>

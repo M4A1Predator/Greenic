@@ -6,6 +6,9 @@ $(document).ready(function (){
     var voteBuyDate = $('#voteBuyDate');
     var voteBuyAmount = $('#voteBuyAmount');
     
+    var voteAgreeReviewBtn = $('button[id^="agreeComment"]');
+    var voteDisagreeReviewBtn = $('button[id^="disagreeComment"]');
+    
     var rate = 0;
     
     voteBtn.click(sendVote);
@@ -70,6 +73,51 @@ $(document).ready(function (){
             
         });
         
+    }
+    
+    voteAgreeReviewBtn.click(sendVoteReview);
+    voteDisagreeReviewBtn.click(sendVoteReview);
+    
+    function sendVoteReview() {
+        idText = $(this).prop('id');
+        idTextArray = idText.split('-');
+        
+        reviewId = idTextArray[1];
+        
+        // Get agree value
+        op = idTextArray[0];
+        agree = 0;
+        if (op === "agreeComment") {
+            agree = 1;
+        }
+        
+        param = {
+            'review_id' : reviewId,
+            'agree' : agree
+        };
+        
+        agreeBtn = $('#agreeComment-'+reviewId);
+        disagreeBtn = $('#disagreeComment-'+reviewId);
+        
+        $.ajax({
+            type : 'POST',
+            url : webUrl + 'vote/send_vote_review_ajax',
+            data : param
+        }).done(function (data){
+            if (data !== "1") {
+                console.log(data);
+                return;
+            }
+            
+            // Mange button after vote
+            agreeBtn.removeClass('btn-success');
+            disagreeBtn.removeClass('btn-danger');
+            disagreeBtn.addClass('btn-default');
+            agreeBtn.addClass('btn-default');
+            agreeBtn.prop('disabled', true);
+            disagreeBtn.prop('disabled', true);
+            
+        });
     }
     
 });

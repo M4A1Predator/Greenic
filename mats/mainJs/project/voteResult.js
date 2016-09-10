@@ -2,8 +2,14 @@ $(document).ready(function (){
     var rateStar = $('.rateStar');
     var memberReviews = $('#memberReviews');
     
+    var voteAgreeReviewBtn = $('button[id^="agreeComment"]');
+    var voteDisagreeReviewBtn = $('button[id^="disagreeComment"]');
+    
+    var reviewId = $('input[id^="reviewId"]');
+    
     // Init
-    setVoteResultList();
+    //setVoteResultList();
+    setVoteReviewResult();
     
     function setVoteResultList() {
         
@@ -85,6 +91,30 @@ $(document).ready(function (){
             
         });
         
+    }
+    
+    function setVoteReviewResult() {
+        reviewId.each(function (){
+            idText = $(this).prop('id');
+            idTextArray = idText.split('-');
+            
+        });
+        
+        param = {
+            'project_id' : $('#projectId').val()
+        };
+        
+        $.ajax({
+            type : 'GET',
+            url : webUrl + 'vote/get_vote_reviews_of_project_ajax',
+            data : param
+        }).done(function (data){
+            jsonData = JSON.parse(data);
+            voteReviewArray = jsonData.result;
+            
+            
+            
+        });
     }
     
 });
