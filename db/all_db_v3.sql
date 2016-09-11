@@ -256,7 +256,7 @@ CREATE TABLE `greenic_farm` (
   KEY `fk_greenic_farm_greenic_status1_idx` (`farm_status_id`),
   CONSTRAINT `fk_greenic_farm_greenic_member1` FOREIGN KEY (`farm_member_id`) REFERENCES `greenic_member` (`member_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_greenic_farm_greenic_status1` FOREIGN KEY (`farm_status_id`) REFERENCES `greenic_status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -265,7 +265,7 @@ CREATE TABLE `greenic_farm` (
 
 LOCK TABLES `greenic_farm` WRITE;
 /*!40000 ALTER TABLE `greenic_farm` DISABLE KEYS */;
-INSERT INTO `greenic_farm` VALUES (3,'FaZeClan','กรุงเทพมหานคร   ','เขตบางรัก   ','บางรัก','11/111 หมู่ 2 ซอย 9 ถนน บางรัก',14,1),(4,'test','จันทบุรี   ','ขลุง   ','sd','aa',14,1);
+INSERT INTO `greenic_farm` VALUES (3,'FaZeClan','กรุงเทพมหานคร   ','เขตบางรัก   ','บางรัก','11/111 หมู่ 2 ซอย 9 ถนน บางรัก',14,5),(4,'test','จันทบุรี   ','ขลุง   ','sd','aa',14,5),(5,'MLG','กรุงเทพมหานคร   ','เขตคลองสาน   ','มั่ว','111/11',25,1),(6,'C9','ตาก   ','ท่าสองยาง   ','*-*-*-*-*','หมู่ 1 ตรงกลาง',14,1);
 /*!40000 ALTER TABLE `greenic_farm` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -363,6 +363,7 @@ CREATE TABLE `greenic_member` (
   `member_token` varchar(512) DEFAULT NULL,
   `member_regis_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `member_verify_time` timestamp NULL DEFAULT NULL,
+  `member_facebook_id` varchar(64) DEFAULT NULL,
   `member_type_id` int(11) NOT NULL,
   `member_status_id` int(11) NOT NULL,
   PRIMARY KEY (`member_id`),
@@ -371,7 +372,7 @@ CREATE TABLE `greenic_member` (
   KEY `fk_greenic_member_greenic_status1_idx` (`member_status_id`),
   CONSTRAINT `fk_greenic_member_greenic_member_type2` FOREIGN KEY (`member_type_id`) REFERENCES `greenic_member_type` (`member_type_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_greenic_member_greenic_status1` FOREIGN KEY (`member_status_id`) REFERENCES `greenic_status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -380,7 +381,7 @@ CREATE TABLE `greenic_member` (
 
 LOCK TABLES `greenic_member` WRITE;
 /*!40000 ALTER TABLE `greenic_member` DISABLE KEYS */;
-INSERT INTO `greenic_member` VALUES (14,'m1@greenic.co','เดนนิส','ssssss','$2y$12$xcqAOXuLh24bebOx38/kTeGddfrgGv/z4t1IGk4acS1CwR3GpSpL.','files/members/profile_imgs/mm_62122f52a0f7a4113ea324bf45fe0e348c78f90a.png','11/111','บึงกาฬ','พรเจริญ','','b052615c80b78a91687e72c2316ed35319c5b3652b93a4c0ab8382a4593dce41','2016-09-05 16:15:32',NULL,2,1),(15,'a1@gnc.com','แอดมิน',NULL,'$2y$12$wmf4i9WUuIaxIwt8sg92P.sPIzFu2bRU7m5N4Hmhoo14qVRV1s1WO',NULL,'',NULL,NULL,NULL,NULL,'2016-09-05 21:13:14',NULL,3,1),(16,'tssniper3@gmail.com','เก็ทไรท์','นิป','$2y$12$UgkOE9js09HVRB87FzLMWOSEw5zABOYn7McTQgZI0H3JG6ob8x28i',NULL,'','เลือกจังหวัด','เลือกอำเภอ','',NULL,'2016-09-06 13:14:45','2016-09-06 13:15:07',1,1);
+INSERT INTO `greenic_member` VALUES (14,'m1@greenic.co','เดนนิส','ssssss','$2y$12$xcqAOXuLh24bebOx38/kTeGddfrgGv/z4t1IGk4acS1CwR3GpSpL.','files/members/profile_imgs/mm_62122f52a0f7a4113ea324bf45fe0e348c78f90a.png','11/111','บึงกาฬ','พรเจริญ','','b052615c80b78a91687e72c2316ed35319c5b3652b93a4c0ab8382a4593dce41','2016-09-05 16:15:32',NULL,NULL,2,1),(15,'a1@gnc.com','แอดมิน',NULL,'$2y$12$wmf4i9WUuIaxIwt8sg92P.sPIzFu2bRU7m5N4Hmhoo14qVRV1s1WO',NULL,'',NULL,NULL,NULL,NULL,'2016-09-05 21:13:14',NULL,NULL,3,1),(16,'tssniper3@gmail.com','เก็ทไรท์','นิป','$2y$12$UgkOE9js09HVRB87FzLMWOSEw5zABOYn7McTQgZI0H3JG6ob8x28i',NULL,'','เลือกจังหวัด','เลือกอำเภอ','',NULL,'2016-09-06 13:14:45','2016-09-06 13:15:07',NULL,1,1),(24,'sss@live.com','Thanachai','Swang-arom','fb',NULL,NULL,NULL,NULL,NULL,NULL,'2016-09-10 12:27:03','2016-09-10 12:27:03','200634',2,1),(25,'xian001@live.com','Thanachai','Swang-arom','fb',NULL,NULL,NULL,NULL,NULL,NULL,'2016-09-10 13:08:06','2016-09-10 13:08:06','10206864881200634',1,1);
 /*!40000 ALTER TABLE `greenic_member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -516,7 +517,7 @@ CREATE TABLE `greenic_product_shipment` (
   KEY `fk_greenic_product_shipment_greenic_shipment1_idx` (`product_shipment_shipment_id`),
   CONSTRAINT `fk_greenic_product_shipment_greenic_project1` FOREIGN KEY (`product_shipment_project_id`) REFERENCES `greenic_project` (`project_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_greenic_product_shipment_greenic_shipment1` FOREIGN KEY (`product_shipment_shipment_id`) REFERENCES `greenic_shipment` (`shipment_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -525,7 +526,7 @@ CREATE TABLE `greenic_product_shipment` (
 
 LOCK TABLES `greenic_product_shipment` WRITE;
 /*!40000 ALTER TABLE `greenic_product_shipment` DISABLE KEYS */;
-INSERT INTO `greenic_product_shipment` VALUES (1,121,5),(2,122,3),(3,122,4),(4,122,5);
+INSERT INTO `greenic_product_shipment` VALUES (1,121,5),(2,122,3),(3,122,4),(4,122,5),(5,123,4);
 /*!40000 ALTER TABLE `greenic_product_shipment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -566,7 +567,7 @@ CREATE TABLE `greenic_project` (
   CONSTRAINT `fk_greenic_project_greenic_farm1` FOREIGN KEY (`project_farm_id`) REFERENCES `greenic_farm` (`farm_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_greenic_project_greenic_status1` FOREIGN KEY (`project_status_id`) REFERENCES `greenic_status` (`status_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_greenic_project_greenic_unit1` FOREIGN KEY (`project_unit_id`) REFERENCES `greenic_unit` (`unit_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -575,7 +576,7 @@ CREATE TABLE `greenic_project` (
 
 LOCK TABLES `greenic_project` WRITE;
 /*!40000 ALTER TABLE `greenic_project` DISABLE KEYS */;
-INSERT INTO `greenic_project` VALUES (75,'r','r','','2016-09-05 17:35:42','2016-10-10 00:00:00','2016-10-10 00:00:00','2016-10-10 00:00:00',10,10,0,'asd',0,13,NULL,3,1,1),(82,'TEST','DES',NULL,'2016-09-05 17:39:24','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,0,13,NULL,3,1,1),(83,'TEST','DES',NULL,'2016-09-05 17:39:35','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,2,13,NULL,3,1,1),(84,'TEST','DES',NULL,'2016-09-05 17:39:58','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,0,13,NULL,3,1,1),(85,'TEST','DES',NULL,'2016-09-05 17:40:00','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,2,13,NULL,3,1,1),(86,'TEST','DES',NULL,'2016-09-05 17:40:24','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,0,13,NULL,3,1,1),(109,'zzz','xzc',NULL,'2016-09-05 17:52:02','0000-00-00 00:00:00',NULL,'2016-10-10 00:00:00',900,105,20,'files/projects/prm_14_65a16d29e196fd8e036876200defedf82ba59b1f.jpg',5,15,NULL,3,1,2),(117,'TEST','DES',NULL,'2016-09-05 18:10:41','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,9,13,1,3,1,1),(120,'xzczx','sdasdd',NULL,'2016-09-05 18:15:33','2016-09-10 00:00:00',NULL,'2016-12-12 00:00:00',500,100,0,'files/projects/prm_14_87182cf345c43158140e290a7c2085020a5b3856.jpg',9,13,1,3,1,2),(121,'ผักหัวหอม','หอมไทยเม็ดเล็ก',NULL,'2016-09-05 19:43:21','0000-00-00 00:00:00',NULL,'2016-10-10 00:00:00',999,260,0,'files/projects/covers/prm_14_514e864e1c2fdc989b5a935a472f91e43b2748b0.jpg',101,13,2,3,1,2),(122,'องุ่นสีดำ','องุ่นสีดำ',NULL,'2016-09-05 19:54:55','0000-00-00 00:00:00',NULL,'2016-12-10 00:00:00',1500,390,10,'files/projects/covers/prm_14_5d0f45a7db2250f457e391913e355893490fee4a.jpg',25,15,4,3,1,2);
+INSERT INTO `greenic_project` VALUES (75,'r','r','','2016-09-05 17:35:42','2016-10-10 00:00:00','2016-10-10 00:00:00','2016-10-10 00:00:00',10,10,0,'asd',0,13,NULL,3,1,1),(82,'TEST','DES',NULL,'2016-09-05 17:39:24','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,0,13,NULL,3,1,1),(83,'TEST','DES',NULL,'2016-09-05 17:39:35','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,3,13,NULL,3,1,1),(84,'TEST','DES',NULL,'2016-09-05 17:39:58','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,0,13,NULL,3,1,1),(85,'TEST','DES',NULL,'2016-09-05 17:40:00','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,2,13,NULL,3,1,1),(86,'TEST','DES',NULL,'2016-09-05 17:40:24','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,1,13,NULL,3,1,1),(109,'zzz','xzc',NULL,'2016-09-05 17:52:02','0000-00-00 00:00:00',NULL,'2016-10-10 00:00:00',900,105,20,'files/projects/prm_14_65a16d29e196fd8e036876200defedf82ba59b1f.jpg',9,15,NULL,3,1,2),(117,'TEST','DES',NULL,'2016-09-05 18:10:41','2016-09-01 00:00:00',NULL,'2016-09-02 00:00:00',100,20,0,NULL,9,13,1,3,1,1),(120,'xzczx','sdasdd',NULL,'2016-09-05 18:15:33','2016-09-10 00:00:00',NULL,'2016-12-12 00:00:00',500,100,0,'files/projects/prm_14_87182cf345c43158140e290a7c2085020a5b3856.jpg',9,13,1,3,1,2),(121,'ผักหัวหอม','หอมไทยเม็ดเล็ก',NULL,'2016-09-05 19:43:21','0000-00-00 00:00:00',NULL,'2016-10-10 00:00:00',999,260,0,'files/projects/covers/prm_14_514e864e1c2fdc989b5a935a472f91e43b2748b0.jpg',187,13,2,3,1,2),(122,'องุ่นสีดำ','องุ่นสีดำ',NULL,'2016-09-05 19:54:55','0000-00-00 00:00:00',NULL,'2016-12-10 00:00:00',1500,390,10,'files/projects/covers/prm_14_5d0f45a7db2250f457e391913e355893490fee4a.jpg',40,15,4,3,1,2),(123,'Project','ASS',NULL,'2016-09-09 10:54:02','2016-07-06 00:00:00',NULL,'2016-09-10 00:00:00',500,203.5,10,'files/projects/covers/prm_14_dae324d0b1f8e129c6cc844404d46bcc2bc2aea2.jpg',6,14,NULL,3,1,4),(124,'FB USER','DWSDADWSDAW',NULL,'2016-09-10 12:34:03','2016-03-03 00:00:00',NULL,'2016-11-10 00:00:00',20,15000,0.5,'files/projects/covers/prm_24_aa8ec234f2eaffdcccd3f13abe9f94e9f82e9ed0.jpg',5,16,NULL,5,1,3),(125,'ผักบุ้ง High end','HIGH Accuracy food.',NULL,'2016-09-10 13:17:41','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00',1900,250,10,'files/projects/covers/prm_14_84b6ab1d04ed7a20326aa6e6a603beca70aa17fa.jpg',3,13,1,6,1,2);
 /*!40000 ALTER TABLE `greenic_project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -596,7 +597,7 @@ CREATE TABLE `greenic_project_post` (
   PRIMARY KEY (`project_post_id`),
   KEY `fk_greenic_project_post_greenic_project1_idx` (`project_post_project_id`),
   CONSTRAINT `fk_greenic_project_post_greenic_project1` FOREIGN KEY (`project_post_project_id`) REFERENCES `greenic_project` (`project_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -605,7 +606,7 @@ CREATE TABLE `greenic_project_post` (
 
 LOCK TABLES `greenic_project_post` WRITE;
 /*!40000 ALTER TABLE `greenic_project_post` DISABLE KEYS */;
-INSERT INTO `greenic_project_post` VALUES (7,'Tesdt','zxczsdawdxcadzxdawedwasdawd','files/projects/posts/ppst_120_3ff71b77ab44a819216e45fd2ac201c90532fb2b.jpg','2016-09-05 19:35:00',120),(8,'Nothing','n0thing but headshot.','files/projects/posts/ppst_121_e92fe680586e8db004357b86eece9ce62774b751.jpg','2016-09-05 19:47:18',121),(9,'Rekt','MLG','files/projects/posts/ppst_121_6bea19c2cc33de04c21acd7efe5b13996a12661c.PNG','2016-09-08 10:45:51',121);
+INSERT INTO `greenic_project_post` VALUES (7,'Tesdt','zxczsdawdxcadzxdawedwasdawd','files/projects/posts/ppst_120_3ff71b77ab44a819216e45fd2ac201c90532fb2b.jpg','2016-09-05 19:35:00',120),(8,'Nothing','n0thing but headshot.','files/projects/posts/ppst_121_e92fe680586e8db004357b86eece9ce62774b751.jpg','2016-09-05 19:47:18',121),(9,'Rekt','MLG','files/projects/posts/ppst_121_6bea19c2cc33de04c21acd7efe5b13996a12661c.PNG','2016-09-08 10:45:51',121),(10,'เริ่มต้น','ผลมายังไง','files/projects/posts/ppst_124_71fd0628cb20753d82c934996e17608d6518c45b.jpg','2016-09-10 12:59:55',124);
 /*!40000 ALTER TABLE `greenic_project_post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -751,7 +752,7 @@ CREATE TABLE `greenic_review` (
   KEY `fk_greenic_review_greenic_project1_idx` (`review_project_id`),
   CONSTRAINT `fk_greenic_review_greenic_member1` FOREIGN KEY (`review_member_id`) REFERENCES `greenic_member` (`member_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_greenic_review_greenic_project1` FOREIGN KEY (`review_project_id`) REFERENCES `greenic_project` (`project_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -760,7 +761,7 @@ CREATE TABLE `greenic_review` (
 
 LOCK TABLES `greenic_review` WRITE;
 /*!40000 ALTER TABLE `greenic_review` DISABLE KEYS */;
-INSERT INTO `greenic_review` VALUES (3,3,'2016-09-08 13:46:48','EETST','2016-10-10 00:00:00',200,16,121),(5,5,'2016-09-08 16:37:57','REkt','2016-08-10 00:00:00',325,15,121),(7,3,'2016-09-08 19:40:29','sd','2016-10-10 00:00:00',222,16,120);
+INSERT INTO `greenic_review` VALUES (3,3,'2016-09-08 13:46:48','EETST','2016-10-10 00:00:00',200,16,121),(5,5,'2016-09-08 16:37:57','REkt','2016-08-10 00:00:00',325,15,121),(7,3,'2016-09-08 19:40:29','sd','2016-10-10 00:00:00',222,16,120),(8,1,'2016-09-10 12:29:32','กากสัส','2016-09-10 00:00:00',150,24,121),(9,2,'2016-09-10 17:23:39','Noob ','2016-09-10 00:00:00',250,25,121);
 /*!40000 ALTER TABLE `greenic_review` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -855,8 +856,11 @@ CREATE TABLE `greenic_unit` (
   `unit_id` int(11) NOT NULL AUTO_INCREMENT,
   `unit_name` varchar(60) NOT NULL,
   `unit_order` int(11) DEFAULT '1',
-  PRIMARY KEY (`unit_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `unit_creator_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`unit_id`),
+  KEY `fk_greenic_unit_creator_idx` (`unit_creator_id`),
+  CONSTRAINT `fk_greenic_unit_creator` FOREIGN KEY (`unit_creator_id`) REFERENCES `greenic_member` (`member_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -865,7 +869,7 @@ CREATE TABLE `greenic_unit` (
 
 LOCK TABLES `greenic_unit` WRITE;
 /*!40000 ALTER TABLE `greenic_unit` DISABLE KEYS */;
-INSERT INTO `greenic_unit` VALUES (1,'กรัม',1),(2,'กิโลกรัม',2),(3,'ตัน',3);
+INSERT INTO `greenic_unit` VALUES (1,'กรัม',1,NULL),(2,'กิโลกรัม',2,NULL),(3,'ตัน',3,NULL),(4,'ต้น',50,14);
 /*!40000 ALTER TABLE `greenic_unit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -886,7 +890,7 @@ CREATE TABLE `greenic_vote_review` (
   KEY `fk_greenic_vote_review_greenic_review1_idx` (`vote_review_review_id`),
   CONSTRAINT `fk_greenic_vote_review_greenic_member1` FOREIGN KEY (`vote_review_member_id`) REFERENCES `greenic_member` (`member_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_greenic_vote_review_greenic_review1` FOREIGN KEY (`vote_review_review_id`) REFERENCES `greenic_review` (`review_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -895,6 +899,7 @@ CREATE TABLE `greenic_vote_review` (
 
 LOCK TABLES `greenic_vote_review` WRITE;
 /*!40000 ALTER TABLE `greenic_vote_review` DISABLE KEYS */;
+INSERT INTO `greenic_vote_review` VALUES (4,1,25,8),(5,1,16,8),(6,1,16,9),(7,0,16,5),(10,1,25,5);
 /*!40000 ALTER TABLE `greenic_vote_review` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -997,4 +1002,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-09 15:01:18
+-- Dump completed on 2016-09-11 19:40:48

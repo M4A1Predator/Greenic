@@ -128,6 +128,7 @@ $route['vote/get_vote_reviews_of_project_ajax'] = 'main/Vote_review_ctrl/get_vot
 //$route['category/get_categories_data_ajax'] = 'main/Category_ctrl/get_filter_categories_data_ajax';
 
 $route['member_remove/farm_ajax'] = 'main/Farm_ctrl/member_remove_farm_ajax';
+$route['search/search_projects_ajax'] = 'main/Search/search_projects_ajax';
 
 
 //====================================================================================================================================

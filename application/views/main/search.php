@@ -6,10 +6,9 @@
             $this->load->view( 'main/inc/header.php');
             $this->load->view( 'main/inc/search.php');
             
-            
             $this->load->view( 'main/page/searchPage.php'); 
             
             $this->load->view( 'main/inc/footer.php');
             
         ?>
-
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/search/searchProject.js"></script>

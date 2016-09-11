@@ -93,4 +93,46 @@
             return $data;
             
         }
+    
+        function get_search_projects($keyword, $filter_assoc, $result_type='object'){
+            
+            $offset = $filter_assoc['offset'];
+            $limit = $filter_assoc['limit'];
+            $order_by = $filter_assoc['order_by'];
+            
+            // Build query
+            $this->db->select('*');
+            $this->db->from($this->view);
+            $this->db->where('project_name like', '%'.$keyword.'%');
+            $this->db->or_where('category_name like', '%'.$keyword.'%');
+            $this->db->or_where('breed_name like', '%'.$keyword.'%');
+            $this->db->or_where('member_firstname like', '%'.$keyword.'%');
+            $this->db->or_where('member_lastname like', '%'.$keyword.'%');
+            $this->db->or_where('farm_province like', '%'.$keyword.'%');
+            $this->db->order_by($order_by);
+            $this->db->offset($offset);
+            $this->db->limit($limit);
+            $query = $this->db->get();
+            
+            $result = $this->get_result($query, $result_type);
+            
+            // Count
+            $this->db->select('*');
+            $this->db->from($this->view);
+            $this->db->where('project_name like', '%'.$keyword.'%');
+            $this->db->or_where('category_name like', '%'.$keyword.'%');
+            $this->db->or_where('breed_name like', '%'.$keyword.'%');
+            $this->db->or_where('member_firstname like', '%'.$keyword.'%');
+            $this->db->or_where('member_lastname like', '%'.$keyword.'%');
+            $this->db->or_where('farm_province like', '%'.$keyword.'%');
+            $this->db->order_by($order_by);
+            
+            $count = $this->db->count_all_results();
+            
+            // Set data
+            $data['result'] = $result;
+            $data['count'] = $count;
+            
+            return $data;
+        }
     }
