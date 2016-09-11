@@ -5,7 +5,7 @@ $(document).ready(function (){
     var voteAgreeReviewBtn = $('button[id^="agreeComment"]');
     var voteDisagreeReviewBtn = $('button[id^="disagreeComment"]');
     
-    var reviewId = $('input[id^="reviewId"]');
+    var reviewIds = $('input[id^="reviewId"]');
     
     // Init
     //setVoteResultList();
@@ -94,11 +94,6 @@ $(document).ready(function (){
     }
     
     function setVoteReviewResult() {
-        reviewId.each(function (){
-            idText = $(this).prop('id');
-            idTextArray = idText.split('-');
-            
-        });
         
         param = {
             'project_id' : $('#projectId').val()
@@ -112,6 +107,41 @@ $(document).ready(function (){
             jsonData = JSON.parse(data);
             voteReviewArray = jsonData.result;
             
+            // Setting review data
+            reviewIds.each(function (){
+                reviewId = getElementIdFromId($(this).prop('id'));
+                agreeAmount = 0;
+                disagreeAmount = 0;
+                
+                voteReviewArray.forEach(function (vr){
+                    if (parseInt(vr.vote_review_review_id) === parseInt(reviewId)) {
+                        if (vr.vote_review_agree === '1') {
+                            agreeAmount += 1;
+                            console.log('agree');
+                        }else{
+                            disagreeAmount += 1;
+                        }
+                        
+                        // Check have ever voted by member id
+                        if (vr.vote_review_member_id == $('#memberId').val()) {
+                            // Mange button after vote
+                            aBtn = $('#agreeComment-' + reviewId);
+                            daBtn = $('#disagreeComment-' + reviewId);
+                            
+                            aBtn.removeClass('btn-success');
+                            daBtn.removeClass('btn-danger');
+                            daBtn.addClass('btn-default');
+                            aBtn.addClass('btn-default');
+                            aBtn.prop('disabled', true);
+                            daBtn.prop('disabled', true);
+                        }
+                    }
+                });
+                $('#agreeAmount-' + reviewId).html(agreeAmount);
+                $('#disagreeAmount-' + reviewId).html(disagreeAmount);
+
+            });
+            // End review loop
             
             
         });

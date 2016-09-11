@@ -238,11 +238,19 @@
                                                                 <strong><?=$review['member_firstname'].' '.$review['member_lastname']?> <small>(สั่งซื้อ <?=$review['review_buyamount'].' '.$project->unit_name?>)</small></strong>
                                                                 <span class="coverLocation"><i class="fa fa-map-marker"></i><?=$address_text?></span>
                                                                 <?php if($this->is_sign_in && $this->session->userdata('member_id') != $review['review_member_id']){ ?>
-                                                                <button id="agreeComment-<?=$review['review_id']?>" class="btn btn-xs rounded btn-success" type="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (20)</button>
-                                                                <button id="disagreeComment-<?=$review['review_id']?>" class="btn btn-xs rounded btn-danger" type="button"><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (5)</button>
+                                                                <button id="agreeComment-<?=$review['review_id']?>" class="btn btn-xs rounded btn-success" type="button">
+                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย <span id="agreeAmount-<?=$review['review_id']?>">(20)</span>
+                                                                </button>
+                                                                <button id="disagreeComment-<?=$review['review_id']?>" class="btn btn-xs rounded btn-danger" type="button">
+                                                                    <i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย <span id="disagreeAmount-<?=$review['review_id']?>">(5)</span>
+                                                                </button>
                                                                 <?php }else{ ?>
-                                                                <button id="agreeComment-<?=$review['review_id']?>" class="btn btn-xs rounded btn-default" disabled="" type="button"><i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย (20)</button>
-                                                                <button id="disagreeComment-<?=$review['review_id']?>" class="btn btn-xs rounded btn-default" disabled="" type="button"><i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย (5)</button>
+                                                                <button id="agreeComment-<?=$review['review_id']?>" class="btn btn-xs rounded btn-default" disabled="" type="button">
+                                                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i> เห็นด้วย <span id="agreeAmount-<?=$review['review_id']?>">(20)</span>
+                                                                </button>
+                                                                <button id="disagreeComment-<?=$review['review_id']?>" class="btn btn-xs rounded btn-default" disabled="" type="button">
+                                                                    <i class="fa fa-thumbs-down" aria-hidden="true"></i> ไม่เห็นด้วย <span id="disagreeAmount-<?=$review['review_id']?>">(5)</span>
+                                                                </button>
                                                                 <?php }?>
                                                             </div>
                                                         </div>

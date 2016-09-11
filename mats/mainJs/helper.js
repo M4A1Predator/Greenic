@@ -52,6 +52,7 @@ function getMonthThaiText(mySqlDate) {
 }
 
 function getMySqlDateString(dateString) {
+    
     var re = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
     if(re.test(dateString) === false){
         return false;
@@ -73,4 +74,9 @@ function getMySqlDateString(dateString) {
     dateStringMySQL = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     
     return dateStringMySQL;
+}
+
+function getElementIdFromId(idText) {
+    idTextArray = idText.split('-');
+    return idTextArray[1];
 }
