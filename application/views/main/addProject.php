@@ -27,7 +27,6 @@
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/stringResource.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addProject1.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addCategory.js"></script>
-        
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addFarm.js"></script>
         <?php }else if($step=='step2'){ ?>
             <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/addProject2.js"></script>

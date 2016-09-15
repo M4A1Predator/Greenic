@@ -58,18 +58,13 @@
             
         }
         
-        function get_sub_district(){
+        function get_sub_district_ajax(){
             /*
              *  Get sub-district by province ID
              */
-            // Check login
-            if($this->gnc_authen->is_sign_in() == FALSE){
-                return;
-            }
-            
             // Get province id
-            $district_id = $this->input->post('district_id');
-            $province_id = $this->input->post('province_id');
+            $district_id = $this->input->get('district_id');
+            $province_id = $this->input->get('province_id');
             
             // Get sub-districts
             $where_assoc = array();
@@ -80,7 +75,7 @@
             // Encode to JSON
             $sub_district_json = json_encode($sub_district_arr, JSON_UNESCAPED_UNICODE );
             
-            echo $sub_district_json;
+            $this->output->set_output($sub_district_json);
         }
         
         

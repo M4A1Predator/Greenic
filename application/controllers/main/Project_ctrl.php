@@ -190,20 +190,11 @@
             }
             
             // Check if has image by key
-            if(array_key_exists('cover_image', $_FILES) == FALSE){
-                echo 'no image';
-                return;
-            }
+            //if(array_key_exists('cover_image', $_FILES) == FALSE){
+            //    echo 'no image';
+            //    return;
+            //}
             
-            // Check file type
-            // Get file type
-            $cover_image_ext = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
-            $cover_image_type = $_FILES['cover_image']['type'];
-            // File muse be image
-            if(strpos($cover_image_type, 'image') !== 0){
-                echo 'type error';
-                return;
-            }
             // Add project to DB
             // Prepare data
             
@@ -222,14 +213,62 @@
             $project_data_assoc['project_unit_id'] = $this->session->userdata('add_project_unit_id');
             $project_data_assoc['project_farm_id'] = $this->session->userdata('add_project_farm_id');
             
-            
-            // Get generated unique id
-            $uq_id = uniqid();
-            $hash_uq_id = hash('sha1', $uq_id);
-            // Set image name and path
-            $cover_image_name = 'prm_'.$this->session->userdata('member_id').'_'.$hash_uq_id.'.'.$cover_image_ext;
-            $cover_image_path = PROJECT_IMAGE_PATH.'covers/';
-            $project_data_assoc['project_cover_image_path'] = $cover_image_path.$cover_image_name;
+            // Check image
+            if(array_key_exists('cover_image', $_FILES)){
+                // Check file type
+                // Get file type
+                $cover_image_ext = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
+                $cover_image_type = $_FILES['cover_image']['type'];
+                // File muse be image
+                if(strpos($cover_image_type, 'image') !== 0){
+                    echo 'type error';
+                    return;
+                }
+                    
+                // Get generated unique id
+                $uq_id = uniqid();
+                $hash_uq_id = hash('sha1', $uq_id);
+                // Set image name and path
+                $cover_image_name = 'prm_'.$this->session->userdata('member_id').'_'.$hash_uq_id.'.'.$cover_image_ext;
+                $cover_image_path = PROJECT_IMAGE_PATH.'covers/';
+                $project_data_assoc['project_cover_image_path'] = $cover_image_path.$cover_image_name;
+                
+                // Upload cover image
+                // Resize image
+                $resize_config['image_library'] = 'gd2';
+                $resize_config['source_image'] = $_FILES['cover_image']['tmp_name'];
+                $resize_config['create_thumb'] = FALSE;
+                $resize_config['maintain_ratio'] = TRUE;
+                $resize_config['width']         = 1660;
+                $resize_config['height']       = 440;
+                
+                $this->image_lib->initialize($resize_config);
+                $this->image_lib->resize();
+                
+                // Set upload image config
+                $upload_config = array();
+                $upload_config['upload_path'] = $cover_image_path;
+                $upload_config['allowed_types'] = 'gif|jpg|png|jpeg';
+                $upload_config['remove_spaces'] = true;
+                $upload_config['max_size']	= '20000';
+                $upload_config['max_width']  = '5000';
+                $upload_config['max_height']  = '5000';
+                $upload_config['file_name'] = $cover_image_name;
+                $upload_config['overwrite'] = TRUE;
+                $fieldname = 'cover_image';  //input tag name
+                
+                // Check upload result
+                $this->upload->initialize($upload_config);
+                if(!$this->upload->do_upload($fieldname)){
+                    echo 'cant upload'.$this->upload->display_errors();
+                    $this->db->trans_rollback();
+                    return;
+                }
+                
+                // Get uploaded data
+                $ud = $this->upload->data();
+                
+            }
             
             // Add project
             //$this->db->trans_start(TRUE);
@@ -237,6 +276,7 @@
             $added_project_id = $this->Project->add_project($project_data_assoc);
             //$this->db->trans_complete();
             
+            // Check add result
             if($added_project_id == NULL){
                 echo 'add failed';
                 $this->db->trans_rollback();
@@ -265,41 +305,6 @@
             //echo "added ".$this->Product_shipment->add_multiple($shipment_data_arr);
             //$this->db->trans_rollback();
             //return;
-            
-            // Upload cover image
-            // Resize image
-            $resize_config['image_library'] = 'gd2';
-            $resize_config['source_image'] = $_FILES['cover_image']['tmp_name'];
-            $resize_config['create_thumb'] = FALSE;
-            $resize_config['maintain_ratio'] = TRUE;
-            $resize_config['width']         = 1660;
-            $resize_config['height']       = 440;
-            
-            $this->image_lib->initialize($resize_config);
-            $this->image_lib->resize();
-            
-            // Set upload image config
-            $upload_config = array();
-            $upload_config['upload_path'] = $cover_image_path;
-            $upload_config['allowed_types'] = 'gif|jpg|png|jpeg';
-            $upload_config['remove_spaces'] = true;
-            $upload_config['max_size']	= '20000';
-            $upload_config['max_width']  = '5000';
-            $upload_config['max_height']  = '5000';
-            $upload_config['file_name'] = $cover_image_name;
-            $upload_config['overwrite'] = TRUE;
-            $fieldname = 'cover_image';  //input tag name
-            
-            // Check upload result
-            $this->upload->initialize($upload_config);
-            if(!$this->upload->do_upload($fieldname)){
-                echo 'cant upload'.$this->upload->display_errors();
-                $this->db->trans_rollback();
-                return;
-            }
-            
-            // Get uploaded data
-            $ud = $this->upload->data();
             
             // Complete DB transaction
             //$this->db->trans_complete();

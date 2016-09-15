@@ -9,6 +9,7 @@ var addFarmBtn = $('#add_farm_btn');
 setProvinceOption();
 addFarmBtn.click(addFarm);
 selectProvince.change(setDistrictOption);
+selectDistrict.change(setSubDistrictOption);
 
 
 function setProvinceOption() {
@@ -44,10 +45,34 @@ function setDistrictOption() {
 
 }
 
+function setSubDistrictOption(){
+    selectSubDistrict.empty();
+    selectSubDistrict.append('<option value="">เลือกตำบล/แขวง</option>');
+    
+    param = {
+        'district_id' : selectDistrict.val(),
+        'province_id' : selectProvince.val()
+    };
+    
+    $.ajax({
+        type : 'GET',
+        url : webUrl + 'get_sub_district_ajax',
+        data : param
+    }).done(function (data){
+        jsonData = JSON.parse(data);
+        jsonData.forEach(function (subDistrict){
+            selectSubDistrict.append('<option value="' + subDistrict.sub_district_id + '">' + subDistrict.sub_district_name + '</option>');
+        });
+    });
+    
+}
+
+
 function addFarm() {
     
     farmNameVal = farmName.val().trim();
-    subDistrictVal = selectSubDistrict.val().trim();
+    //subDistrictVal = selectSubDistrict.val().trim();
+    subDistrictVal = selectSubDistrict.find('option:selected').text();
     farmAddressVal = farmAddress.val().trim();
     
     if (farmNameVal === "") {

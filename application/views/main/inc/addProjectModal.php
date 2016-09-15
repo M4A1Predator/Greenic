@@ -98,20 +98,20 @@
                             <option value="0">เลือกอำเภอ/เขต</option>
                         </select><i></i>
                     </label>
-                       <!--<label class="select">-->
-                   <!--<select class="form-control zone" id="select_sub_district">
+                       <label class="select">
+                   <select class="form-control zone" id="select_sub_district">
                       <option>เลือกตำบล/แขวง</option>
                        <option value="คลองสาน">บางมด</option>
                        <option value="ทุ่งครุ">ทุ่งครุ</option>
                        <option value="บางแค">บางแค</option>
                        <option value="บางเขน">บางเขน</option>
                        <option value="มีนบุรี">มีนบุรี</option>
-                    </select>-->
-                        <!--<i></i>-->
-                       <!--</label>-->
-                    <label class="input">
+                    </select>
+                        <i></i>
+                       </label>
+                    <!--<label class="input">
                         <input type="text" id="select_sub_district" placeholder="ตำบล/แขวง"/>
-                    </label>
+                    </label>-->
                    <label class="input">
                         <label class="input">
                             <input type="text" name="homeNum" id="farm_address" placeholder="บ้านเลขที่ หมู่ที่">
