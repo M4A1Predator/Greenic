@@ -226,6 +226,9 @@
             $category_id = $this->input->get('category_id');
             $breed_id = $this->input->get('breed_id');
             $order_type = $this->input->get('order_type');
+            $province = $this->input->get('project_province');
+            $district = $this->input->get('project_district');
+            
             if(!$order_type){
                 $order_type = 0;
             }else{
@@ -267,6 +270,12 @@
             $where_assoc['category_id'] = $category_id;
             if($breed_id){
                 $where_assoc['breed_id'] = $breed_id;
+            }
+            if($province){
+                $where_assoc['farm_province'] = $province;
+            }
+            if($district){
+                $where_assoc['farm_district'] = $district;
             }
             // Get project data and amount
             $project_arr = $this->Project->get_filter('*', $where_assoc, null, $order_by, $offset, $limit, 'array', array('use_view' => TRUE));

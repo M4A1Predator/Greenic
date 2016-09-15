@@ -73,7 +73,7 @@ function addFarm() {
     provinceName = $('#select_province option:selected').text();
     districtName = $('#select_district option:selected').text();
     
-    console.log(farmNameVal, ' ', subDistrictVal);
+    //console.log(farmNameVal, ' ', subDistrictVal);
     
     //return;
     param = {

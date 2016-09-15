@@ -18,7 +18,8 @@
     </div>
 </div>
 <!--<div class="search-block parallaxBg" style="background-position: 50% 16px;background: url(<?=base_url().$project->project_cover_image_path?>) 50% 0 repeat fixed;">-->
-<div class="search-block parallaxBg" style="background-position: 50% 16px;background: url(<?=base_url().$project->project_cover_image_path?>) 50% 0 repeat fixed;">
+<div class="search-block parallaxBg" style="background-position: 50% 16px;background: url(<?=base_url().$project->project_cover_image_path?>) 50% 0 repeat fixed;
+                                        background-size: cover;">
     <div class="container">
         <div class="col-md-6 col-md-offset-3">
             <h1><?=$project->project_name?></h1>

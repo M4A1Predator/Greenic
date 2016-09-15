@@ -5,6 +5,7 @@ $(document).ready(function (){
     var projects = $('#projects');
     var projectProvince = $('#projectProvince');
     var projectDistrict = $('#projectDistrict');
+    var filterAddressBtn = $('#filterAddressBtn');
     
     var showMoreCategoryBtn= $('#showMoreCategoryBtn');
     
@@ -139,6 +140,15 @@ $(document).ready(function (){
             param.breed_id = null;
         }
         
+        if (projectProvince.val() !== "0") {
+            param.project_province = projectProvince.find('option:selected').text();
+        }
+        if (projectDistrict.val() !== "0") {
+            param.project_district = projectDistrict.find('option:selected').text();
+        }
+        
+        console.log(param);
+        
         $.ajax({
             type: 'GET',
             url : webUrl + 'category/get_projects_ajax',
@@ -223,7 +233,6 @@ $(document).ready(function (){
                 projectProvince.append('<option value="'+ province.province_id +'">' + province.province_name + '</option>');
             });
             
-            
         });
     }
     
@@ -246,5 +255,12 @@ $(document).ready(function (){
             });
         });
     }
+    
+    filterAddressBtn.click(function (){
+        //pt = projectProvince.find('option:selected').text();
+        //dt = projectDistrict.find('option:selected').text();
+        setProjects();
+        $('#fillterBox').modal('toggle');
+    });
     
 });

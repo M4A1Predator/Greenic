@@ -41,6 +41,10 @@
             $limit = $this->input->get('limit');
             $offset = $this->input->get('offset');
             $order_type = $this->input->get('order_type');
+            $province = $this->input->get('project_province');
+            $district = $this->input->get('project_district');
+            
+            // Filter data
             if(!$order_type){
                 $order_type = 0;
             }else{
@@ -65,6 +69,14 @@
             $filter_assoc['limit'] = $limit;
             $filter_assoc['offset'] = $offset;
             $filter_assoc['order_by'] = $order_by;
+            
+            // Filter filter data
+            if($province){
+                $filter_assoc['farm_province'] = $province;
+            }
+            if($district){
+                $filter_assoc['farm_district'] = $district;
+            }
             
             // Get projects
             $project_data = $this->Project->get_search_projects($keyword, $filter_assoc, 'array');

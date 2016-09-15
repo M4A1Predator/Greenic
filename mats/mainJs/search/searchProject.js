@@ -3,6 +3,9 @@ $(document).ready(function() {
     var searchBtn = $('#searchBtn');
     var selectSortProjectBy = $('#selectSortProjectBy');
     var searchProjects = $('#searchProjects');
+    var projectProvince = $('#projectProvince');
+    var projectDistrict = $('#projectDistrict');
+    var filterAddressBtn = $('#filterAddressBtn');
     
     var page = $('#page');
     var projectPageList = $('#projectPageList');
@@ -10,6 +13,8 @@ $(document).ready(function() {
     
     // Init
     setSearchProjects();
+    setProjectProvinces();
+    projectProvince.change(setProjectDistricts);
     
     // Set callbacks
     selectSortProjectBy.change(setSearchProjects);
@@ -27,12 +32,18 @@ $(document).ready(function() {
             'order_type' : orderType,
         };
         
+        if (projectProvince.val() !== "0") {
+            param.project_province = projectProvince.find('option:selected').text();
+        }
+        if (projectDistrict.val() !== "0") {
+            param.project_district = projectDistrict.find('option:selected').text();
+        }
+        
         $.ajax({
             type : 'GET',
             url : webUrl + 'search/search_projects_ajax',
             data : param
         }).done(function (data){
-            
             jsonData = JSON.parse(data);
             projectArray = jsonData.result;
             projectCount = jsonData.count;
@@ -99,5 +110,45 @@ $(document).ready(function() {
         });
         
     }
+   
+   function setProjectProvinces() {
+        console.log('set up');
+        $.ajax({
+            type : 'GET',
+            url : webUrl + 'get_all_provinces_ajax',
+        }).success(function (data){
+            jsonData = JSON.parse(data);
+            //<option>เลือกจังหวัด</option>
+            jsonData.forEach(function (province){
+                projectProvince.append('<option value="'+ province.province_id +'">' + province.province_name + '</option>');
+            });
+            
+        });
+    }
+    
+    function setProjectDistricts() {
+        projectDistrict.empty();
+        projectDistrict.append('<option value="0">เลือกอำเภอ/เขต</option>');
+
+        param = {
+            'province_id' : projectProvince.val()
+        };
+        
+        $.ajax({
+            type : 'POST',
+            url : webUrl + 'get_districts_ajax',
+            data : param,
+        }).success(function (data){
+            jsonData = JSON.parse(data);
+            jsonData.forEach(function (district){
+                projectDistrict.append('<option value="'+ district.district_id +'">' + district.district_name + '</option>');
+            });
+        });
+    }
+    
+    filterAddressBtn.click(function (){
+        setSearchProjects();
+        $('#fillterBox').modal('toggle');
+    });
     
 });

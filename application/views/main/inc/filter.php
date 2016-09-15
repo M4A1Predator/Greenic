@@ -28,7 +28,7 @@
                     
                     <div class="modal-footer">
                         <button type="button" class="btn-u btn-u-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> ปิดหน้าต่าง</button>
-                        <button type="button" class="btn-u btn-u-primary"><i class="fa fa-filter"></i> ดำเนินการ</button>
+                        <button type="button" id="filterAddressBtn" class="btn-u btn-u-primary"><i class="fa fa-filter"></i> ดำเนินการ</button>
                     </div>
                     </form>
                 </div>

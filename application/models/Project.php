@@ -103,28 +103,47 @@
             // Build query
             $this->db->select('*');
             $this->db->from($this->view);
+            if(isset($filter_assoc['farm_province'])){
+                $this->db->where('farm_province', $filter_assoc['farm_province']);
+            }
+            if(isset($filter_assoc['farm_district'])){
+                $this->db->where('farm_district', $filter_assoc['farm_district']);
+            }
+            $this->db->group_start();
             $this->db->where('project_name like', '%'.$keyword.'%');
             $this->db->or_where('category_name like', '%'.$keyword.'%');
             $this->db->or_where('breed_name like', '%'.$keyword.'%');
             $this->db->or_where('member_firstname like', '%'.$keyword.'%');
             $this->db->or_where('member_lastname like', '%'.$keyword.'%');
             $this->db->or_where('farm_province like', '%'.$keyword.'%');
+            $this->db->group_end();
             $this->db->order_by($order_by);
+            
+            // Limit amount
             $this->db->offset($offset);
             $this->db->limit($limit);
             $query = $this->db->get();
             
             $result = $this->get_result($query, $result_type);
+            //echo $this->db->last_query();
             
             // Count
             $this->db->select('*');
             $this->db->from($this->view);
+            if(isset($filter_assoc['farm_province'])){
+                $this->db->where('farm_province', $filter_assoc['farm_province']);
+            }
+            if(isset($filter_assoc['farm_district'])){
+                $this->db->where('farm_district', $filter_assoc['farm_district']);
+            }
+            $this->db->group_start();
             $this->db->where('project_name like', '%'.$keyword.'%');
             $this->db->or_where('category_name like', '%'.$keyword.'%');
             $this->db->or_where('breed_name like', '%'.$keyword.'%');
             $this->db->or_where('member_firstname like', '%'.$keyword.'%');
             $this->db->or_where('member_lastname like', '%'.$keyword.'%');
             $this->db->or_where('farm_province like', '%'.$keyword.'%');
+            $this->db->group_end();
             $this->db->order_by($order_by);
             
             $count = $this->db->count_all_results();
