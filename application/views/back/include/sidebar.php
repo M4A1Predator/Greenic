@@ -35,8 +35,8 @@
                                  <li <?php if($page=='allArticle'||$page=='addArticle'||$page=='editArticle'){ echo ' class="active open"'; } ?>>
                                     <a href=""> <i class="fa fa-pencil-square-o"></i> จัดการบทความ <i class="fa arrow"></i> </a>
                                     <ul>
-                                        <li <?php if($page=='allArticle'){ echo ' class="active"'; } ?>> <a href="index.php?page=allArticle"><i class="fa fa-list-ol"></i> บทความทั้งหมด</a> </li>
-                                        <li <?php if($page=='addArticle'){ echo ' class="active"'; } ?>> <a href="index.php?page=addArticle"><i class="fa fa-plus-square"></i> เพิ่มบทความ</a> </li>
+                                        <li <?php if($page=='allArticle'){ echo ' class="active"'; } ?>> <a href="<?=base_url().'gnc_admin/article/allArticle'?>"><i class="fa fa-list-ol"></i> บทความทั้งหมด</a> </li>
+                                        <li <?php if($page=='addArticle'){ echo ' class="active"'; } ?>> <a href="<?=base_url().'gnc_admin/article/addArticle'?>"><i class="fa fa-plus-square"></i> เพิ่มบทความ</a> </li>
                                     </ul>
                                 </li>
                                 

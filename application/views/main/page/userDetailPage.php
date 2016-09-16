@@ -29,9 +29,9 @@
                             <label class="select">
                                 <select class="form-control province" id="edit-province">
                                     <?php if($member->member_province){ ?>
-                                    <option value="$member->member_province"><?=$member->member_province?></option>
+                                    <option value="0"><?=$member->member_province?></option>
                                     <?php }else{ ?>
-                                    <option>เลือกจังหวัด</option>
+                                    <option value="" selected="">เลือกจังหวัด</option>
                                     <?php }?>
                                     <?php foreach($province_arr as $province){ ?>
                                     <option value="<?=$province->province_id?>"><?=$province->province_name?></option>
@@ -46,7 +46,7 @@
                     <label class="select">
                         <select class="form-control district" id="edit-district">
                             <?php if($member->member_district){ ?>
-                            <option selected=""><?=$member->member_district?></option>
+                            <option value="0" selected=""><?=$member->member_district?></option>
                             <?php }else{ ?>
                             <option selected="">เลือกอำเภอ</option>
                             <?php } ?>
@@ -61,21 +61,20 @@
                 </section>
                 <section class="col-md-2 col-sm-4">
                     <label class="label"><strong>ตำบล*</strong></label>
-                    <!--    <label class="select" >-->
-                    <!--        <select class="form-control district" id="edit-sub-district">-->
-                    <!--            <option>เลือกตำบล</option>-->
-                    <!--            <option value="ท่าช้าง">ท่าช้าง</option>-->
-                    <!--            <option value="บ้านใหญ่">บ้านใหญ่</option>-->
-                    <!--            <option value="วังกระโจม" selected="">วังกระโจม</option>-->
-                    <!--            <option value="ท่าทราย">ท่าทราย</option>-->
-                    <!--            <option value="ดอนยอ">ดอนยอ</option>-->
-                    <!--        </select>-->
-                    <!--        <i></i>-->
-                    <!--    </label>-->
-                    <label class="input">
-                        <input type="text" name="projectName" id="edit-sub-district" value="<?=$member->member_sub_district?>">
-                    <i></i>
-                    </label>
+                        <label class="select" >
+                            <select class="form-control district" id="edit-sub-district">
+                                <?php if($member->member_district){ ?>
+                                <option value="0" selected=""><?=$member->member_sub_district?></option>
+                                <?php }else{ ?>
+                                <option value="">เลือกตำบล</option>
+                                <?php } ?>
+                            </select>
+                            <i></i>
+                        </label>
+                    <!--<label class="input">-->
+                    <!--    <input type="text" name="projectName" id="edit-sub-district" value="<?=$member->member_sub_district?>">-->
+                    <!--<i></i>-->
+                    <!--</label>-->
                 </section>
                 
             </div>
@@ -94,29 +93,29 @@
                 <section class="col-md-3">
                     <label class="label"><strong>อีเมล์*</strong></label>
                     <label class="input">
-                        <input type="text" name="projectName" id="edit-email" value="<?=$member->member_email?>">
+                        <input type="text" name="projectName" id="edit-email" disabled="" value="<?=$member->member_email?>">
                     </label>
                     
                 </section>
-                <section class="col-md-3">
-                    <label class="label"><strong>กรอกข้อความที่เห็นในภาพ</strong></label>
-                    <label class="input input-captcha">
-                        <img src="<?=base_url()?>mats/assets/plugins/sky-forms-pro/skyforms/captcha/image.php?&lt;?php echo time(); ?&gt;" width="100" height="32" alt="Captcha image">
-                        <input type="text" maxlength="6" name="captcha" id="captcha">
-                    </label>
-                </section>
+                <!--<section class="col-md-3">-->
+                <!--    <label class="label"><strong>กรอกข้อความที่เห็นในภาพ</strong></label>-->
+                <!--    <label class="input input-captcha">-->
+                <!--        <img src="<?=base_url()?>mats/assets/plugins/sky-forms-pro/skyforms/captcha/image.php?&lt;?php echo time(); ?&gt;" width="100" height="32" alt="Captcha image">-->
+                <!--        <input type="text" maxlength="6" name="captcha" id="captcha">-->
+                <!--    </label>-->
+                <!--</section>-->
             </div>
             <div class="row">
                 <section class="col-md-6 col-sm-6">
                     <label class="label"><strong>รหัสผ่านใหม่ *เว้นไว้ถ้าไม่ต้องการเปลี่ยน</strong></label>
                     <label class="input">
-                        <input type="password" id="projectName">
+                        <input type="password" id="newPassword">
                     </label>
                 </section>
                 <section class="col-md-6 col-sm-6">
                     <label class="label"><strong>ยืนยันรหัสผ่านใหม่ *เว้นไว้ถ้าไม่ต้องการเปลี่ยน</strong></label>
                     <label class="input">
-                        <input type="password" id="projectName">
+                        <input type="password" id="reNewPassword">
                     </label>
                 </section>
             </div>
@@ -132,6 +131,7 @@
         </fieldset>
 
         <footer>
+            <span id="errorMsg"></span>
             <a href="#"class="button" id="save-btn">บันทึก <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
         </footer>
 

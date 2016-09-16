@@ -31,6 +31,13 @@
             return $hash_token;
         }
         
+        function hash_new_password($password){
+            // Encrypt password
+            $hash_password = password_hash($password, PASSWORD_BCRYPT, $this->password_hash_option);
+            
+            return $hash_password;
+        }
+        
         function add_admin($name, $admin_name, $email, $password, $address='', $level=1, $data_assoc=array() ){
             /*
              *  Add admin to system

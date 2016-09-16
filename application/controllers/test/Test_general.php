@@ -29,8 +29,10 @@
             
             //echo $this->gnc_image->default_member_img_path;
             //echo date('Y-m-d H:i:s', time());
-            echo var_dump($this->session->userdata('member_id'));
-            echo var_dump($_SESSION);
+            //echo var_dump($this->session->userdata('member_id'));
+            //echo var_dump($_SESSION);
+            
+            echo $this->Member->hash_new_password('zxczxczxc');
         }
         
         function fb(){
