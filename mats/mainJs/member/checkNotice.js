@@ -36,9 +36,15 @@ $(document).ready(function (){
                     noticeMessage = notification.project_post_caption;
                 }
                 
+                member_img = webUrl + notification.member_img_path;
+                if (notification.member_img_path == 'null') {
+                    member_img = webUrl + memberDefaultImagePath;
+                }
+                
                 content = '<div class="col-md-12 margin-bottom-10">';
                 content += '<div class="testimonials-info rounded-bottom bg-color-light">';
-                content += '<img class="rounded-x" src="' + webUrl + 'mats/assets/img/testimonials/img5.jpg" alt="">';
+                //content += '<img class="rounded-x" src="' + webUrl + 'mats/assets/img/testimonials/img5.jpg" alt="">';
+                content += '<img class="rounded-x" src="' + member_img +  '" alt="">';
                 content += '<div class="testimonials-desc">';
                 content += '<p>ฟาร์ม: ' + notification.farm_name + ' <strong><i class="fa fa-bell" aria-hidden="true"></i> ' + notification.activity_text + ' ' + notification.project_name + '</strong></p>';
                 if (noticeMessage) {
@@ -81,7 +87,6 @@ $(document).ready(function (){
         }).success(function (data){
             console.log(data);
             noticeMenu.removeClass('notic');
-            //noticeMenu.find('a').blur();
             unreadNotificationAmount.html('');
         });
         

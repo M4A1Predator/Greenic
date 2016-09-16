@@ -105,6 +105,7 @@
                 <!--    </label>-->
                 <!--</section>-->
             </div>
+            <?php if(!$this->session->userdata('facebook_sign_in')){ ?>
             <div class="row">
                 <section class="col-md-6 col-sm-6">
                     <label class="label"><strong>รหัสผ่านใหม่ *เว้นไว้ถ้าไม่ต้องการเปลี่ยน</strong></label>
@@ -127,13 +128,14 @@
                     </label>
                 </section>
             </div>
-            
+            <?php } ?>    
         </fieldset>
-
+        
         <footer>
             <span id="errorMsg"></span>
             <a href="#"class="button" id="save-btn">บันทึก <i class="fa fa-floppy-o" aria-hidden="true"></i></a>
         </footer>
-
+        
+    
     </form>
 </div>

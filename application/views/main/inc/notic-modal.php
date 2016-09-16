@@ -9,7 +9,7 @@
                 <div class="row modal-body padding-top-0">
                         <div class="testimonials-v6 text-left">
                             <div class="margin-bottom-10" id="notificationRows">
-                                <div class="col-md-12 margin-bottom-10">
+                                <!--<div class="col-md-12 margin-bottom-10">
                                     <div class="testimonials-info rounded-bottom bg-color-light">
                                         <img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img5.jpg" alt="">
                                         <div class="testimonials-desc">
@@ -68,7 +68,7 @@
                                             <a class="btn-u btn-u-xs btn-u" type="button">ดูการอัพเดท</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div><!--/end row-->
                         </div>
                 </div>
