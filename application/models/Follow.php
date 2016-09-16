@@ -52,6 +52,33 @@
             return $this->db->insert_id();
         }
         
+        function remove_follow($member_id, $target_type, $target_id){
+            // Prepare add data
+            $where_assoc = array();
+            $where_assoc['follow_member_id'] = $member_id;
+            
+            // Filter type
+            if($target_type == $this->target_type_project){
+                // Check must not be owner
+                // Check is not following
+                
+                // Add follow project
+                $where_assoc['follow_project_id'] = $target_id;
+            }else{
+                return NULL;
+            }
+            
+            // Add follow to DB
+            $add_result = $this->remove($where_assoc);
+            
+            // Check add result
+            if($add_result == FALSE){
+                return FALSE;
+            }
+            
+            return TRUE;
+        }
+        
         function get_follow_by_target_array($member_id, $target_id_assoc=array(), $result_type='object'){
             /*
              *  Get follow rows by check multiple target

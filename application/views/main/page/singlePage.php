@@ -82,7 +82,7 @@
                     <?php if($is_sign_in){ ?>
                         <?php if(!$is_owner){ ?>
                             <?php if($is_follow_project){?>
-                            <a href="singleProduct.php" class="btn-u btn-u-blue"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามสินค้านี้</a>
+                            <a href="#" id="unfollowProjectBtn" class="btn-u btn-u-blue"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามสินค้านี้</a>
                             <?php }else{ ?>
                             <a href="#" id="followProjectBtn" class="btn-u btn-u-dark"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามสินค้านี้</a>
                             <?php } ?>

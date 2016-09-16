@@ -281,5 +281,12 @@
             
         }
         
+    
+        function remove($where_assoc){
+            $this->db->where($where_assoc);
+            $result = $this->db->delete($this->table);
+            return $result;
+        }
+    
     }
     

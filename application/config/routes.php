@@ -107,6 +107,7 @@ $route['member/add_project_post_ajax'] = 'main/Project_post_ctrl/add_project_pos
 $route['member/notice_all_notifications_ajax'] = 'main/Notification_ctrl/notice_all_notifications_ajax';
 
 $route['follow_ajax'] = 'main/Follow_ctrl/add_follow_ajax';
+$route['unfollow_ajax'] = 'main/Follow_ctrl/remove_follow_ajax';
 
 $route['get_all_provinces_ajax'] = 'main/Address_ctrl/get_all_provinces_ajax';
 $route['get_districts_ajax'] = 'main/Address_ctrl/get_districts_ajax';

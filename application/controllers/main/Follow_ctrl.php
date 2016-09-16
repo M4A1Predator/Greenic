@@ -64,5 +64,41 @@
             
         }
         
+        function remove_follow_ajax(){
+            // Create form rules
+            $this->form_validation->set_rules('target_type', 'target_type', 'required');
+            $this->form_validation->set_rules('target_id', 'target_id', 'required|numeric');
+            
+            // Validate form
+            if($this->form_validation->run() == FALSE){
+                echo 0;
+                return;
+            }
+            
+            // Check login
+            if(!$this->is_sign_in){
+                echo 0;
+                return;
+            }
+            
+            // Check member must have not been follow this target before
+            
+            // Prepare data
+            $member_id = $this->session->userdata('member_id');
+            $target_type = $this->input->post('target_type');
+            $target_id = $this->input->post('target_id');
+            
+            // Add follow to DB
+            $added_follow_id = $this->Follow->remove_follow($member_id, $target_type, $target_id);
+            
+            // Check result
+            if(!$added_follow_id){
+                echo 0;
+                return;
+            }
+            
+            echo 1;
+        }
+        
         
     }
