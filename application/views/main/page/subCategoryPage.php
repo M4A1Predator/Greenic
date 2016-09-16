@@ -58,7 +58,7 @@
         </ul>
     </div>
     <div class="text-center">
-            <a class="btn-u rounded btn-u-dark-blue" href="#" data-toggle="modal" data-target=".compareShow"><i class="fa fa-balance-scale" aria-hidden="true"></i> เปรียบเทียบ</a>
+            <a class="btn-u rounded btn-u-dark-blue" id="compareBtn" href="#" data-toggle="modal" data-target=".compareShow"><i class="fa fa-balance-scale" aria-hidden="true"></i> เปรียบเทียบ</a>
     </div>
      <!--สินค้ามาใหม่-->
 </div>
@@ -74,59 +74,63 @@
             <div class="modal-body">
                 <table class="table table-bordered">
                     <thead>
-                        <tr>
-                            <th><div class="easy-block-v2">
-                    <a href="singleProduct.php" class="linkFull"></a>
-                    <div class="easy-bg-v2 rgba-default">มาใหม่</div>
-                    <img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0012.jpg">
-                    <h3>ผักบุ้ง เพราะเมล็ด</h3>
-                    <ul class="list-unstyled">							
-                        <li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บ้านนา, นครนายก</li>
-                    </ul>
-                </div></th>
+                        <tr id="compareProjectDataRow">
+                            <th>
+                                <div class="easy-block-v2">
+                                    <a href="singleProduct.php" class="linkFull"></a>
+                                    <div class="easy-bg-v2 rgba-default">มาใหม่</div>
+                                    <img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0012.jpg">
+                                    <h3>ผักบุ้ง เพราะเมล็ด</h3>
+                                    <ul class="list-unstyled">
+                                        <li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บ้านนา, นครนายก</li>
+                                    </ul>
+                                </div>
+                            </th>
                             <th class="hidden-sm"><div class="easy-block-v2">
-                    <a href="singleProduct.php" class="linkFull"></a>
-                    <div class="easy-bg-v2 rgba-default">มาใหม่</div>
-                    <img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0011.jpg">
-                    <h3>ผักบุ้ง บ่อซีเมนต์</h3>
-                    <ul class="list-unstyled">
-                        <li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บ้านนา, นครนายก</li>
-                    </ul>
-                </div></th>
+                                <a href="singleProduct.php" class="linkFull"></a>
+                                <div class="easy-bg-v2 rgba-default">มาใหม่</div>
+                                <img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0011.jpg">
+                                <h3>ผักบุ้ง บ่อซีเมนต์</h3>
+                                <ul class="list-unstyled">
+                                    <li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บ้านนา, นครนายก</li>
+                                </ul>
+                            </div></th>
                             <th><div class="easy-block-v2">
-                    <a href="singleProduct.php" class="linkFull"></a>
-                    <div class="easy-bg-v2 rgba-default">มาใหม่</div>
-                    <img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0006.jpg">
-                    <h3>ผักบุ้งจีน ปลอดสาร</h3>
-                    <ul class="list-unstyled">
-                        <li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บ้านนา, นครนายก</li>
-                    </ul>
-                </div></th>
-                            
+                                <a href="singleProduct.php" class="linkFull"></a>
+                                <div class="easy-bg-v2 rgba-default">มาใหม่</div>
+                                <img alt="" src="<?=base_url()?>mats/assets/img/upload/project/0006.jpg">
+                                <h3>ผักบุ้งจีน ปลอดสาร</h3>
+                                <ul class="list-unstyled">
+                                    <li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> บ้านนา, นครนายก</li>
+                                </ul>
+                            </div></th>
+                                        
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr id="compareProjectPpuRow">
                             <td>90 บาท/กิโลกรัม</td>
                             <td>40 บาท/กิโลกรัม</td>
                             <td>80 บาท/กิโลกรัม</td>
                         </tr>
-                        <tr>
+                        <tr id="compareProjectSellDateRow">
                             <td><span class="color-green">พร้อมจำหน่าย:</span> 10/6/2559</td>
                             <td><span class="color-green">พร้อมจำหน่าย:</span> 3/6/2559</td>
                             <td><span class="color-green">พร้อมจำหน่าย:</span> 25/6/2559</td>
                         </tr>
-                        <tr>
+                        <!--<tr>
                             <td><img class="img-responsive" src="<?=base_url()?>mats/assets/img/verify.png" alt=""></td>
                             <td>-</td>
                             <td><img class="img-responsive" src="<?=base_url()?>mats/assets/img/verify.png" alt=""></td>
-                        </tr>
-                        <tr>
-                            <td>   <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i></td>
+                        </tr>-->
+                        <tr id="compareProjectStarRow">
+                            <td>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </td>
                             <td>   <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>

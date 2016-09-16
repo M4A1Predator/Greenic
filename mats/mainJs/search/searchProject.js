@@ -73,7 +73,6 @@ $(document).ready(function() {
                                 '<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> ' + project.farm_district + ', ' + project.farm_province + '</li>' + 
                             '</ul>' + 
                             '<a class="btn-u btn-u-sm" href="' + projectUrl +'">ดูโปรเจ็คนี้</a>' +
-                            ' <label class="checkbox-inline compareCheck"><input type="checkbox" id="inlineCheckbox1" value="option1" class="compair"> เปรียบเทียบ</label>' + 
                         '</div>' + 
                     '</div>';
                     

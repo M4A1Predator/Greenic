@@ -13,4 +13,5 @@
         ?>
         
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/category/projectTypeMenu.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/category/compare.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/category/subCategory.js"></script>

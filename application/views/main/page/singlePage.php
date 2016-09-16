@@ -35,14 +35,14 @@
                     <?php if($is_sign_in){?>
                         <?php if(!$is_owner){?>
                             <?php if($is_follow_farm){?>
-                            <a href="singleProduct.php" class="btn-u btn-u-xs btn-u-blue"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามฟาร์ม</a>
+                            <!--<a href="singleProduct.php" class="btn-u btn-u-xs btn-u-blue"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามฟาร์ม</a>-->
                             <?php }else{ ?>
-                            <a href="singleProduct.php?follow=yes" class="btn-u btn-u-xs btn-u-dark"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามฟาร์ม</a>
+                            <!--<a href="singleProduct.php?follow=yes" class="btn-u btn-u-xs btn-u-dark"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามฟาร์ม</a>-->
                             <?php } ?>
                             <?php if(isset($_GET['kaset'])=="yes"){?>
-                            <a href="singleProduct.php" class="btn-u btn-u-xs btn-u-red"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามเกษตรกร</a>
+                            <!--<a href="singleProduct.php" class="btn-u btn-u-xs btn-u-red"><i class="fa fa-bookmark" aria-hidden="true"></i> กำลังติดตามเกษตรกร</a>-->
                             <?php }else{ ?>
-                            <a href="singleProduct.php?follow=yes&kaset=yes" class="btn-u btn-u-xs btn-u-default"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามเกษตรกร</a>
+                            <!--<a href="singleProduct.php?follow=yes&kaset=yes" class="btn-u btn-u-xs btn-u-default"><i class="fa fa-bookmark" aria-hidden="true"></i> ติดตามเกษตรกร</a>-->
                             <?php } ?>
                         <?php } ?>
                     <?php } ?>
@@ -59,7 +59,7 @@
     <div class="row">
         <!--Left Sidebar-->
         <div class="col-md-3 md-margin-bottom-40">
-            <img class="img-responsive" src="<?=base_url()?>mats/assets/img/verify.png" alt="">
+            <!--<img class="img-responsive" src="<?=base_url()?>mats/assets/img/verify.png" alt="">-->
             <div class="information">
                 <strong><i class="fa fa-info-circle" aria-hidden="true"></i> ข้อมูล</strong>
                 <p><?=$project->project_detail?></p>

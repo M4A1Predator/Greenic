@@ -125,6 +125,7 @@ $route['vote/send_vote_ajax'] = 'main/Review_ctrl/send_review_ajax';
 $route['vote/get_project_reviews_ajax'] = 'main/Review_ctrl/get_project_reviews_ajax';
 $route['vote/send_vote_review_ajax'] = 'main/Vote_review_ctrl/send_vote_review_ajax';
 $route['vote/get_vote_reviews_of_project_ajax'] = 'main/Vote_review_ctrl/get_vote_reviews_of_project_ajax';
+$route['vote/get_compare_review_data_ajax'] = 'main/Review_ctrl/get_compare_review_data_ajax';
 //$route['category/get_categories_data_ajax'] = 'main/Category_ctrl/get_filter_categories_data_ajax';
 
 $route['member_remove/farm_ajax'] = 'main/Farm_ctrl/member_remove_farm_ajax';

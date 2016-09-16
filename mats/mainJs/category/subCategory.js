@@ -147,8 +147,6 @@ $(document).ready(function (){
             param.project_district = projectDistrict.find('option:selected').text();
         }
         
-        console.log(param);
-        
         $.ajax({
             type: 'GET',
             url : webUrl + 'category/get_projects_ajax',
@@ -184,7 +182,7 @@ $(document).ready(function (){
                                 '<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> ' + project.farm_district + ', ' + project.farm_province + '</li>' + 
                             '</ul>' + 
                             '<a class="btn-u btn-u-sm" href="' + projectUrl +'">ดูโปรเจ็คนี้</a>' +
-                            ' <label class="checkbox-inline compareCheck"><input type="checkbox" id="inlineCheckbox1" value="option1" class="compair"> เปรียบเทียบ</label>' + 
+                            ' <label class="checkbox-inline compareCheck"><input type="checkbox" id="compareProject-' + project.project_id + '" value="option1" class="compair"> เปรียบเทียบ</label>' + 
                         '</div>' + 
                     '</div>';
                     
@@ -217,12 +215,16 @@ $(document).ready(function (){
                     setProjects();
                 });
             }
+            
+            // Compare Setup
+            compareInit();
+            
         });
         
     }
    
     function setProjectProvinces() {
-        console.log('set up');
+        
         $.ajax({
             type : 'GET',
             url : webUrl + 'get_all_provinces_ajax',

@@ -88,8 +88,6 @@
             $project_data_json = json_encode($project_data, JSON_UNESCAPED_UNICODE);
             
             $this->output->set_output($project_data_json);
-            
-            
         }
         
         

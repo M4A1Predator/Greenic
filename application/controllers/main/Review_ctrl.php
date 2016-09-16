@@ -122,5 +122,46 @@
             $this->output->set_output($data_json);
             
         }
-    
+        
+        function get_compare_review_data_ajax(){
+            
+            // Get data
+            $project_ids = $this->input->get('project_ids');
+            
+            // Seperate ID
+            $project_id_arr = explode('-', $project_ids);
+            
+            // Prepare data
+            $project_review_rate_arr = array();
+            
+            // Get review rate
+            foreach($project_id_arr as $project_id){
+                // Get reviews
+                // Set up filter
+                $filter_assoc = array();
+                $filter_assoc['limit'] = null;
+                $filter_assoc['offset'] = 0;
+                
+                $review_data= $this->Review->get_review_data_by_project_id($project_id, $filter_assoc, 'array');
+                $review_arr = $review_data['result'];
+                $review_count = $review_data['count'];
+                
+                $data_assoc['review_arr'] = $review_arr;
+                $data_assoc['review_count'] = $review_count;
+                // Set review rate
+                $review_rate = $this->Review->get_review_rate($review_arr);
+                
+                $review_data['project_id'] = $project_id;
+                $review_data['review_rate'] = $review_rate;
+                $project_review_rate_arr[] = $review_data;
+            }
+            
+            $data['project_review_rate_arr'] = $project_review_rate_arr;
+            
+            // JSON
+            $data_json = json_encode($data, JSON_UNESCAPED_UNICODE);
+            
+            $this->output->set_output($data_json);
+        }
+        
     }
