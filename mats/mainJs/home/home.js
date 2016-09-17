@@ -40,6 +40,10 @@ function setLastProjects() {
             
             projectUrl = webUrl + 'project/' + project.project_id;
             
+            if (!project.project_cover_image_path) {
+                project.project_cover_image_path = 'mats/assets/img/main/img9.jpg';
+            }
+            
             content = '<div class="col-md-3 col-sm-6">' + 
 					'<div class="easy-block-v2">' + 
                         //'<a href="singleProduct.php" class="linkFull"></a>' + 

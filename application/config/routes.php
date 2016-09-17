@@ -143,6 +143,9 @@ $route['gnc_admin/sign_in'] = 'back/Admin_authentication/sign_in_page';
 $route['gnc_admin'] = 'back/Admin_home/home';
 
 $route['gnc_admin/members/(:any)'] = 'back/Member_set/member_list_page';
+
+$route['gnc_admin/category/allCategory'] = 'back/Category_set/all_category_page';
+
 $route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
 $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';
 

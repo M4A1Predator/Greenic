@@ -28,7 +28,7 @@
                                     <ul>
                                         <li <?php if($page=='allProject'||$page=='projectEdit'||$page=='projectDetail'){ echo ' class="active"'; } ?>> <a href="index.php?page=allProject"><i class="fa fa-th"></i> โปรเจ็คทั้งหมด</a> </li>
                                         <li <?php if($page=='allFarm'||$page=='farmDetail'||$page=='editFarm'){ echo ' class="active"'; } ?>> <a href="index.php?page=allFarm"><i class="fa fa-thumb-tack"></i> ฟาร์มทั้งหมด</a> </li>
-                                        <li <?php if($page=='allCategory'||$page=='allSpecies'||$page=='allBreed'||$page=='addBreed'||$page=='editBreed'||$page=='addSpecies'||$page=='editSpecies'){ echo ' class="active"'; } ?>> <a href="index.php?page=allCategory"><i class="fa fa-apple"></i> ประเภทของผลผลิต</a> </li>
+                                        <li <?php if($page=='allCategory'||$page=='allSpecies'||$page=='allBreed'||$page=='addBreed'||$page=='editBreed'||$page=='addSpecies'||$page=='editSpecies'){ echo ' class="active"'; } ?>> <a href="<?=base_url().'gnc_admin/category/allCategory'?>"><i class="fa fa-apple"></i> ประเภทของผลผลิต</a> </li>
                                         <li <?php if($page=='allUnit'||$page=='addUnit'||$page=='editUnit'){ echo ' class="active"'; } ?>> <a href="index.php?page=allUnit"><i class="fa fa-tachometer"></i> หน่วยตวงวัดสินค้า</a> </li>
                                     </ul>
                                 </li>
