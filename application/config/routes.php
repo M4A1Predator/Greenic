@@ -69,7 +69,6 @@ $route['add_project/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/add_project_page';
 $route['my_projects'] = 'main/Project_ctrl/member_projects_page';
 $route['project/(:num)'] = 'main/Project_ctrl/view_project_page/$1';
 $route['my_project/(:num)/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/edit_project_page/$1/$2';
-$route['my_farm'] = 'main/Farm_ctrl/member_farm_page';
 
 $route['search'] = 'main/Search/search_result_page';
 $route['category/([a-zA-Z0-9]{0,})'] = 'main/Category_ctrl/view_project_type_page/$1';
@@ -77,9 +76,7 @@ $route['category/([a-zA-Z0-9]{0,})/(:num)'] = 'main/Category_ctrl/view_category_
 
 // Control routes
 $route['sign_in'] = 'main/Authentication/authen';
-$route['facebook_sign_in'] = 'main/Authentication/facebook_sign_in';
 $route['sign_out'] = 'main/Authentication/sign_out';
-$route['facebook_sign_out'] = 'main/Authentication/facebook_sign_out';
 $route['check_exist_email_pro'] = 'main/Sign_up/check_unique_email';
 $route['regis_pro'] = 'main/Sign_up/sign_up_pro';
 $route['verify_account/(:num)/(:any)'] = 'main/Sign_up/verify_account';
@@ -107,11 +104,10 @@ $route['member/add_project_post_ajax'] = 'main/Project_post_ctrl/add_project_pos
 $route['member/notice_all_notifications_ajax'] = 'main/Notification_ctrl/notice_all_notifications_ajax';
 
 $route['follow_ajax'] = 'main/Follow_ctrl/add_follow_ajax';
-$route['unfollow_ajax'] = 'main/Follow_ctrl/remove_follow_ajax';
 
 $route['get_all_provinces_ajax'] = 'main/Address_ctrl/get_all_provinces_ajax';
 $route['get_districts_ajax'] = 'main/Address_ctrl/get_districts_ajax';
-$route['get_sub_district_ajax'] = 'main/Address_ctrl/get_sub_district_ajax';
+$route['get_sub_district_pro'] = 'main/Address_ctrl/get_sub_district';
 
 $route['get_project_types_with_count_ajax'] = 'main/Project_type_ctrl/get_project_types_with_count_ajax';
 $route['category/get_last_projects_ajax'] = 'main/Category_ctrl/get_last_projects_ajax';
@@ -120,17 +116,10 @@ $route['category/get_projects_ajax'] = 'main/Category_ctrl/get_projects_ajax';
 $route['category/get_categories_ajax'] = 'main/Category_ctrl/get_filter_categories_ajax';
 $route['category/get_top_categories_ajax'] = 'main/Category_ctrl/get_top_categories_ajax';
 $route['breed/get_breeds_ajax'] = 'main/Breed_ctrl/get_breeds_ajax';
-$route['member_add/unit_ajax'] = 'main/Unit_ctrl/add_unit_member_ajax';
 
 $route['vote/send_vote_ajax'] = 'main/Review_ctrl/send_review_ajax';
 $route['vote/get_project_reviews_ajax'] = 'main/Review_ctrl/get_project_reviews_ajax';
-$route['vote/send_vote_review_ajax'] = 'main/Vote_review_ctrl/send_vote_review_ajax';
-$route['vote/get_vote_reviews_of_project_ajax'] = 'main/Vote_review_ctrl/get_vote_reviews_of_project_ajax';
-$route['vote/get_compare_review_data_ajax'] = 'main/Review_ctrl/get_compare_review_data_ajax';
 //$route['category/get_categories_data_ajax'] = 'main/Category_ctrl/get_filter_categories_data_ajax';
-
-$route['member_remove/farm_ajax'] = 'main/Farm_ctrl/member_remove_farm_ajax';
-$route['search/search_projects_ajax'] = 'main/Search/search_projects_ajax';
 
 
 //====================================================================================================================================
@@ -139,11 +128,19 @@ $route['search/search_projects_ajax'] = 'main/Search/search_projects_ajax';
 $route['gnc_admin/sign_in'] = 'back/Admin_authentication/sign_in_page';
 $route['gnc_admin'] = 'back/Admin_home/home';
 
+//Member_set
 $route['gnc_admin/members/(:any)'] = 'back/Member_set/member_list_page';
-$route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
-$route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';
+$route['gnc_admin/basicDetail/(:any)'] = 'back/Member_set/member_detail';
+$route['gnc_admin/memberEdit/(:any)'] = 'back/Member_set/member_detail';
+$route['gnc_admin/farmerDetail/(:any)'] = 'back/Member_set/farmer_detail';
 
-// Admin controls
+
+//Project_set
+$route['gnc_admin/projects/(:any)'] = 'back/Project_set/project_list';
+$route['gnc_admin/projectDetail/(:any)'] = 'back/Project_set/project_detail';
+$route['gnc_admin/projectEdit/(:any)'] = 'back/Project_set/project_detail';
+
+// Admin view controls
 $route['gnc_admin/_sign_in_pro_ajax'] = 'back/Admin_authentication/sign_in_pro_ajax';
 $route['gnc_admin/sign_out'] = 'back/Admin_authentication/sign_out_pro';
 

@@ -100,6 +100,8 @@
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
                             </li>
+                            
+	         <?php foreach($projects as $project){ ?>
                             <li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
@@ -114,30 +116,30 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อสินค้า</div>
                                         <div>
-                                            <a href="?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
-                                                <h4 class="item-title">ผักบุ้งจีน ปุ๋ยอินทรีย์ 100%</h4> </a>
+                                            <a href="<?=base_url()?>gnc_admin/projectDetail/<?=$project->project_id?>"  title="คลิกเพื่อดูรายละเอียดสินค้า">
+                                                <h4 class="item-title"><?=$project->project_name?></h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">ประเภท</div>
-                                        <div> ผัก </div>
+                                        <div> <?=$project->project_type_name?> </div>
                                     </div>
                                     <div class="item-col item-col-stats no-overflow">
                                         <div class="item-heading">ชนิด</div>
-                                        <div> ผักบุ้ง </div>
+                                        <div> <?=$project->category_name?> </div>
                                     </div>
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">สายพันธุ์</div>
-                                        <div> ผักบุ้งจีน </div>
+                                        <div> <?=$project->breed_name?> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อฟาร์ม</div>
                                         <!--คลิกที่ชื่อฟาร์มก็จะให้แสดงโปรเจ็คทั้งหมดของฟาร์มนั้นๆ-->
-                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
+                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้"><?=$project->farm_name?>a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่สร้าง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
+                                        <div class="no-overflow"> <?=$project->project_time?> </div>
                                     </div>
                                     <div class="item-col fixed item-col-actions-dropdown">
                                         <div class="item-actions-dropdown">
@@ -152,7 +154,7 @@
                                                         <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url()?>gnc_admin/projectEdit/<?=$project->project_id?>"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -160,247 +162,9 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="?page=projectDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/bung.jpg)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อสินค้า</div>
-                                        <div>
-                                            <a href="?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
-                                                <h4 class="item-title">ผักบุ้งจีน ปุ๋ยอินทรีย์ 100%</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">ประเภท</div>
-                                        <div> ผัก </div>
-                                    </div>
-                                    <div class="item-col item-col-stats no-overflow">
-                                        <div class="item-heading">ชนิด</div>
-                                        <div> ผักบุ้ง </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">สายพันธุ์</div>
-                                        <div> ผักบุ้งจีน </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">ชื่อฟาร์ม</div>
-                                        <!--คลิกที่ชื่อฟาร์มก็จะให้แสดงโปรเจ็คทั้งหมดของฟาร์มนั้นๆ-->
-                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่สร้าง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="?page=projectDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/bung.jpg)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อสินค้า</div>
-                                        <div>
-                                            <a href="?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
-                                                <h4 class="item-title">ผักบุ้งจีน ปุ๋ยอินทรีย์ 100%</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">ประเภท</div>
-                                        <div> ผัก </div>
-                                    </div>
-                                    <div class="item-col item-col-stats no-overflow">
-                                        <div class="item-heading">ชนิด</div>
-                                        <div> ผักบุ้ง </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">สายพันธุ์</div>
-                                        <div> ผักบุ้งจีน </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">ชื่อฟาร์ม</div>
-                                        <!--คลิกที่ชื่อฟาร์มก็จะให้แสดงโปรเจ็คทั้งหมดของฟาร์มนั้นๆ-->
-                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่สร้าง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="?page=projectDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/bung.jpg)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อสินค้า</div>
-                                        <div>
-                                            <a href="?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
-                                                <h4 class="item-title">ผักบุ้งจีน ปุ๋ยอินทรีย์ 100%</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">ประเภท</div>
-                                        <div> ผัก </div>
-                                    </div>
-                                    <div class="item-col item-col-stats no-overflow">
-                                        <div class="item-heading">ชนิด</div>
-                                        <div> ผักบุ้ง </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">สายพันธุ์</div>
-                                        <div> ผักบุ้งจีน </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">ชื่อฟาร์ม</div>
-                                        <!--คลิกที่ชื่อฟาร์มก็จะให้แสดงโปรเจ็คทั้งหมดของฟาร์มนั้นๆ-->
-                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่สร้าง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="?page=projectDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/bung.jpg)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อสินค้า</div>
-                                        <div>
-                                            <a href="?page=projectDetail"  title="คลิกเพื่อดูรายละเอียดสินค้า">
-                                                <h4 class="item-title">ปลานิลในบ่อพลาสติก อาหารธรรมชาติ</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">ประเภท</div>
-                                        <div> สัตว์ </div>
-                                    </div>
-                                    <div class="item-col item-col-stats no-overflow">
-                                        <div class="item-heading">ชนิด</div>
-                                        <div> ปลานิล </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">สายพันธุ์</div>
-                                        <div> ไม่มีสายพันธุ์ </div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">ชื่อฟาร์ม</div>
-                                        <!--คลิกที่ชื่อฟาร์มก็จะให้แสดงโปรเจ็คทั้งหมดของฟาร์มนั้นๆ-->
-                                        <div class="no-overflow"> <a href="#showAllProjectOfFarm" title="คลิกเพื่อดูสินค้าทั้งหมดของฟาร์มนี้">ไร่ผักลุงจอน@นครนายก</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่สร้าง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=projectEdit"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+	         
                         
+                         <?php } ?>
                         </ul>
                     </div>
     <nav class="text-xs-right">
@@ -428,5 +192,6 @@
 			</a> </li>
                         </ul>
                     </nav>
+     
                 </article>
                 

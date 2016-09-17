@@ -81,5 +81,58 @@
             
         }
         
+        function member_detail(){
+            $data = array();
+            
+            // Get member id bt URI fragment
+            $member_edit = 'memberEdit';
+
+            $member_id = $this->uri->segment(3);
+            $page_set = $this->uri->segment(2);
+            $page='basicDetail';
+            if($page_set==$member_edit){
+                $page='memberEdit';
+            }else{
+                $page='basicDetail';
+            }
+            $data['view_use']='member_id';
+            $where_assoc = array();
+            $where_assoc['member_id'] = $member_id;
+            
+            $member_data = $this->Member->get_filter('*',$where_assoc);
+            
+            $data['page'] = $page;
+            $data['member_detail'] = $member_data;
+            
+            
+            
+            
+            // Load view
+            $this->load->view('back/index', $data);
+            
+            
+        }
+
+         function farmer_detail(){
+            $data = array();
+            
+            //get member id
+            $member_id = $this->uri->segment(3);
+            $where_assoc['member_id'] = $member_id;
+            
+            //set page
+            $page = 'farmerDetail';
+            
+            //query
+            $farmer_data =$this->Member->get_member_farmer_by_id($where_assoc);
+            
+            $data['farmer_detail'] = $farmer_data['result'];
+            $data['page'] = $page;
+            
+            // Load view
+            $this->load->view('back/index', $data);
+            
+            
+        }
         
     }

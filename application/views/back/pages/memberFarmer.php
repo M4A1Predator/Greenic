@@ -144,7 +144,7 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="?page=farmerDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title"><?=$member->member_firstname?> <?=$member->member_lastname?></h4> </a>
+                                            <a href="<?=base_url()?>gnc_admin/farmerDetail/<?=$member->member_id?>" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title"><?=$member->member_firstname?> <?=$member->member_lastname?></h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">

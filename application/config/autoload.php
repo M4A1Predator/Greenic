@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session', 'GNC_query', 'GNC_authen', 'Facebook');
+$autoload['libraries'] = array('database', 'session', 'GNC_query', 'GNC_authen');
 
 /*
 | -------------------------------------------------------------------
@@ -134,4 +134,4 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array('GNC_Model', 'Member', 'Farm', 'Member_type', 'Status', 'Project', 'Project_type',
                            'Project_post', 'Follow','Category', 'Breed', 'Unit', 'Shipment', 'Product_shipment', 'Activity_type'
-                           , 'Notification', 'Review', 'Vote_review');
+                           , 'Notification', 'Review','Page_manage');

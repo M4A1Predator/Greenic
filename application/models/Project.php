@@ -25,6 +25,27 @@
             return $project_arr[0];
             
         }
+        function admin_get_project_by_id($where_assoc=array(), $result_type='object'){
+            // Get project
+             // Build query
+            $this->db->select('*');
+            $this->db->from($this->view);
+            $this->db->join('product_shipment', 'product_shipment.product_shipment_project_id = project_view.project_id', 'left');
+            $this->db->join('shipment', 'shipment.shipment_id = product_shipment.product_shipment_id', 'left');
+            $this->db->where($where_assoc);
+            
+            
+            
+            $query = $this->db->get();
+            $result = $this->get_result($query, $result_type);
+            
+           
+            $data['result'] = $result;
+            //$data['count'] = $count;
+            
+            return $data;
+            
+        }
         
         function add_project($data_assoc){
             /*
@@ -93,65 +114,60 @@
             return $data;
             
         }
-    
-        function get_search_projects($keyword, $filter_assoc, $result_type='object'){
+        
+        function get_all_project($filter_assoc=array(), $result_type='object'){
+          
+            //Set from
+            $from_table = 'project';
+             // Set where
+             $where_assoc = array();
+            $where_assoc['project_status_id'] = $this->Status->status_normal_id;
             
-            $offset = $filter_assoc['offset'];
-            $limit = $filter_assoc['limit'];
-            $order_by = $filter_assoc['order_by'];
             
-            // Build query
+            // Set order
+            $order_by = 'project_time DESC';
+            
+             // Build query
             $this->db->select('*');
             $this->db->from($this->view);
-            if(isset($filter_assoc['farm_province'])){
-                $this->db->where('farm_province', $filter_assoc['farm_province']);
-            }
-            if(isset($filter_assoc['farm_district'])){
-                $this->db->where('farm_district', $filter_assoc['farm_district']);
-            }
-            $this->db->group_start();
-            $this->db->where('project_name like', '%'.$keyword.'%');
-            $this->db->or_where('category_name like', '%'.$keyword.'%');
-            $this->db->or_where('breed_name like', '%'.$keyword.'%');
-            $this->db->or_where('member_firstname like', '%'.$keyword.'%');
-            $this->db->or_where('member_lastname like', '%'.$keyword.'%');
-            $this->db->or_where('farm_province like', '%'.$keyword.'%');
-            $this->db->group_end();
+            $this->db->where($where_assoc);
             $this->db->order_by($order_by);
             
-            // Limit amount
-            $this->db->offset($offset);
-            $this->db->limit($limit);
             $query = $this->db->get();
-            
             $result = $this->get_result($query, $result_type);
-            //echo $this->db->last_query();
             
-            // Count
-            $this->db->select('*');
-            $this->db->from($this->view);
-            if(isset($filter_assoc['farm_province'])){
-                $this->db->where('farm_province', $filter_assoc['farm_province']);
-            }
-            if(isset($filter_assoc['farm_district'])){
-                $this->db->where('farm_district', $filter_assoc['farm_district']);
-            }
-            $this->db->group_start();
-            $this->db->where('project_name like', '%'.$keyword.'%');
-            $this->db->or_where('category_name like', '%'.$keyword.'%');
-            $this->db->or_where('breed_name like', '%'.$keyword.'%');
-            $this->db->or_where('member_firstname like', '%'.$keyword.'%');
-            $this->db->or_where('member_lastname like', '%'.$keyword.'%');
-            $this->db->or_where('farm_province like', '%'.$keyword.'%');
-            $this->db->group_end();
-            $this->db->order_by($order_by);
-            
-            $count = $this->db->count_all_results();
-            
-            // Set data
             $data['result'] = $result;
-            $data['count'] = $count;
+             
+            return $data;
+        }
+        function get_all_category($filter_assoc=array(), $result_type='object'){
+             
+             
+             
+            //Set from
+            $from_table = 'category ';
+             // Set group_by
+            $group_by = 'project_type.project_type_name';
+            //order by
+            $order_by ='count_type DESC';
+               //Build query   t.project_type_name as type_name ,COUNT(t.project_type_id)as count_type 
+            $this->db->select('*');
+            $this->db->from($from_table);            
+            $this->db->join('project  ', 'category.category_id = project.project_category_id ', 'left'); 
+            $this->db->join('project_type  ', 'category.category_project_type_id = project_type.project_type_id ');   
+            
+            $this->db->group_by($group_by); 
+            //$this->db->order_by($order_by); 
+            
+            $query = $this->db->get();
+            $result = $this->get_result($query, $result_type);
+            
+             
+             $data['result'] = $result;
+             
+            
             
             return $data;
+             
         }
     }
