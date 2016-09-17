@@ -5,7 +5,7 @@
                                 <div class="col-md-6">
                                     <h3 class="title">
 					รายการบทความทั้งหมด
-					<a href="?page=addArticle" class="btn btn-primary btn-sm rounded-s"><em class="fa fa-plus"></em> เพิ่มบทความ</a><!---->
+					<a href="<?=base_url().'gnc_admin/article/addArticle'?>" class="btn btn-primary btn-sm rounded-s"><em class="fa fa-plus"></em> เพิ่มบทความ</a><!---->
                     <div class="action dropdown">
 						<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							คำสั่งจำนวนมาก
@@ -58,37 +58,39 @@
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
                             </li>
+                            <?php foreach($articles as $article){ ?>
                             <li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
+                                        <input type="checkbox" class="checkbox">
+                                        <span></span>
+                                        </label>
+                                    </div>
                                     <div class="item-col fixed item-col-img md">
                                         <a href="item-editor.html">
-                                            <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
+                                            <div class="item-img rounded" style="background-image: url(<?=base_url().$article->article_cover_image?>)"></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
                                             <a href="#viewArticle" target="_blank" class="">
-                                                <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
+                                                <h4 class="item-title"><?=$article->article_headline?></h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">จำนวนวิว</div>
-                                        <div> 46,323 ครั้ง </div>
+                                        <div> <?=$article->article_view?> ครั้ง </div>
                                     </div>
                                     
                                     
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">สถานะ</div>
-                                        <div class="no-overflow"> เผยแพร่</div>
+                                        <div class="no-overflow"> <?=$article->status_name?></div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
+                                        <div class="no-overflow"> <?=display_datetime_th($article->article_time)?> </div>
                                     </div>
                                     <div class="item-col fixed item-col-actions-dropdown">
                                         <div class="item-actions-dropdown">
@@ -114,536 +116,22 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
-                                            <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a href="#viewArticle" target="_blank" class="">
-                                                <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนวิว</div>
-                                        <div> 46,323 ครั้ง </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สถานะ</div>
-                                        <div class="no-overflow"><span class="has-error">ไม่เผยแพร่</span></div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="#show"> <i class="fa fa-eye"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
-                                            <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a href="#viewArticle" target="_blank" class="">
-                                                <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนวิว</div>
-                                        <div> 46,323 ครั้ง </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สถานะ</div>
-                                        <div class="no-overflow"> เผยแพร่</div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
-                                            <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a href="#viewArticle" target="_blank" class="">
-                                                <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนวิว</div>
-                                        <div> 46,323 ครั้ง </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สถานะ</div>
-                                        <div class="no-overflow"> เผยแพร่</div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
-                                            <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a href="#viewArticle" target="_blank" class="">
-                                                <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนวิว</div>
-                                        <div> 46,323 ครั้ง </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สถานะ</div>
-                                        <div class="no-overflow"> เผยแพร่</div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
-                                            <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a href="#viewArticle" target="_blank" class="">
-                                                <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนวิว</div>
-                                        <div> 46,323 ครั้ง </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สถานะ</div>
-                                        <div class="no-overflow"> เผยแพร่</div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
-                                            <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a href="#viewArticle" target="_blank" class="">
-                                                <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนวิว</div>
-                                        <div> 46,323 ครั้ง </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สถานะ</div>
-                                        <div class="no-overflow"> เผยแพร่</div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
-                                            <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a href="#viewArticle" target="_blank" class="">
-                                                <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนวิว</div>
-                                        <div> 46,323 ครั้ง </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สถานะ</div>
-                                        <div class="no-overflow"> เผยแพร่</div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
-                                            <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a href="#viewArticle" target="_blank" class="">
-                                                <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนวิว</div>
-                                        <div> 46,323 ครั้ง </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สถานะ</div>
-                                        <div class="no-overflow"> เผยแพร่</div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
-							<span></span>
-						</label> </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="item-editor.html">
-                                            <div class="item-img rounded" style="background-image: url(assets/article/manow.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a href="#viewArticle" target="_blank" class="">
-                                                <h4 class="item-title">ปลูกมะนาวแบบอินทรีย์ให้ติดผลดกตลอดทั้งปี</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนวิว</div>
-                                        <div> 46,323 ครั้ง </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สถานะ</div>
-                                        <div class="no-overflow"> เผยแพร่</div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            
+                            <?php } ?>
                         </ul>
                     </div>
                     <nav class="text-xs-right">
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="">
-				ก่อนหน้า
-			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="">
-				1
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				2
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				3
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				4
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				5
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				ถัดไป
-			</a> </li>
+                            <?php for($i=1;$i<=$page_amount;$i++){ ?>
+                            <?php
+                                $active_class = '';
+                                if($i === $page_number){
+                                    $active_class = 'active';
+                                }
+                            ?>
+                            <li class="page-item <?=$active_class?>">
+                                <a class="page-link" href="<?=base_url().'gnc_admin/article/allArticle?pageNum='.$i?>"><?=$i?></a>
+                            </li>
+                            <?php } ?>
                         </ul>
                     </nav>
                 </article>

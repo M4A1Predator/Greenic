@@ -194,14 +194,9 @@
                 $this->db->where($where_assoc);
             }
             
-            // Set up query offset
-            if($offset != NULL){
-                $this->db->offset($offset);
-            }
-            
-            // Set up query limit
-            if($limit){
-                $this->db->limit($limit);
+            // Set group by
+            if(isset($data['group_by'])){
+                $this->db->group_by($data['group_by']);
             }
             
             // Set order result

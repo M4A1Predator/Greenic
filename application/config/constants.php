@@ -98,3 +98,4 @@ defined('ENVIRONMENT')          OR define('ENVIRONMENT', 'production');
 */
 defined('MEMBER_IMAGE_PATH')          OR define('MEMBER_IMAGE_PATH', 'files/members/');
 defined('PROJECT_IMAGE_PATH')         OR define('PROJECT_IMAGE_PATH', 'files/projects/');
+defined('ARTICLE_IMAGE_PATH')         OR define('ARTICLE_IMAGE_PATH', 'files/articles/');

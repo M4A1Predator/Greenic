@@ -147,6 +147,8 @@ $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';
 $route['gnc_admin/_sign_in_pro_ajax'] = 'back/Admin_authentication/sign_in_pro_ajax';
 $route['gnc_admin/sign_out'] = 'back/Admin_authentication/sign_out_pro';
 
+$route['gnc_admin/article/add_article_ajax'] = 'back/Article_set/add_article_ajax';
+
 
 //====================================================================================================================================
 
