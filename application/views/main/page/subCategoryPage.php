@@ -1,6 +1,16 @@
 <style>
+    <?php
+        $color = '#72c02c';
+        if($project_type_id === 1){
+            $color = '#72c02c';
+        }else if($project_type_id === 2){
+            $color = '#FF8300';
+        }else if($project_type_id === 3){
+            $color = '#9c8061';
+        }
+    ?>
     a.btn-u.btn-brd.btn-u.btn-u-lg.subCate.active{
-        /*background-color : black;*/
+        background-color : <?=$color?>;
     }
 </style>
 

@@ -73,7 +73,7 @@
                 <a class="btn-u btn-brd btn-u btn-u-lg subCate"><?=$project->project_ppu?> บาท/<?=$project->unit_name?></a>
                 <!--กรณีของหมด-->
                 <?php if($is_owner){ ?>
-                <a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>
+                <!--<a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>-->
                 <?php } ?>
             </div>
             

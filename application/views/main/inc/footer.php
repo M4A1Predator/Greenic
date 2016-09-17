@@ -8,14 +8,14 @@
 							<p class="margin-bottom-20">ตลาดซื้อขายผลิตเกษตรอินทรีย์แนวใหม่ ซื้อขายสะดวก มั่นใจยิ่งขึ้น ด้วยระบบไทม์ไลน์ติดตามการผลิต 
 </p>
                             Render in {elapsed_time}
-							<form class="footer-subsribe">
+							<!--<form class="footer-subsribe">
 								<div class="input-group">
 									<input type="text" class="form-control" placeholder="กรอกอีเมล์ของคุณ">
 									<span class="input-group-btn">
 										<button class="btn-u" type="button">สมัครรับข่าวสาร</button>
 									</span>
 								</div>
-							</form>
+							</form>-->
 						</div>
 						<!-- End About -->
 
@@ -33,7 +33,7 @@
 						<!-- End Link List -->
 
 						<!-- Latest Tweets -->
-						<div class="col-md-3 md-margin-bottom-40">
+						<!--<div class="col-md-3 md-margin-bottom-40">
 							<div class="latest-tweets">
 								<div class="headline"><h2 class="heading-sm">ทวิตเตอร์</h2></div>
 								<div class="latest-tweets-inner">
@@ -55,7 +55,7 @@
 									</p>
 								</div>
 							</div>
-						</div>
+						</div>-->
 						<!-- End Latest Tweets -->
 
 						<!-- Address -->
@@ -126,6 +126,7 @@
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/search/search.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/nav/categoryNav.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/article/lastArticle.js"></script>
     <!-- /GreenicJS -->
 
 <!--    <script type="text/javascript">-->

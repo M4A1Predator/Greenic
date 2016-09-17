@@ -75,6 +75,8 @@ $route['search'] = 'main/Search/search_result_page';
 $route['category/([a-zA-Z0-9]{0,})'] = 'main/Category_ctrl/view_project_type_page/$1';
 $route['category/([a-zA-Z0-9]{0,})/(:num)'] = 'main/Category_ctrl/view_category_page';
 
+$route['article/(:num)'] = 'main/Article_ctrl/view_article_page';
+
 // Control routes
 $route['sign_in'] = 'main/Authentication/authen';
 $route['facebook_sign_in'] = 'main/Authentication/facebook_sign_in';
@@ -132,6 +134,7 @@ $route['vote/get_compare_review_data_ajax'] = 'main/Review_ctrl/get_compare_revi
 $route['member_remove/farm_ajax'] = 'main/Farm_ctrl/member_remove_farm_ajax';
 $route['search/search_projects_ajax'] = 'main/Search/search_projects_ajax';
 
+$route['article/get_last_articles_ajax'] = 'main/Article_ctrl/get_last_articles_ajax';
 
 //====================================================================================================================================
 // Admin routes
@@ -143,11 +146,20 @@ $route['gnc_admin/members/(:any)'] = 'back/Member_set/member_list_page';
 $route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
 $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';
 
+$route['gnc_admin/webdata/about'] = 'back/Webdata_set/about_page';
+$route['gnc_admin/webdata/terms'] = 'back/Webdata_set/terms_page';
+$route['gnc_admin/webdata/agreement'] = 'back/Webdata_set/agreement_page';
+$route['gnc_admin/webdata/setting'] = 'back/Webdata_set/web_setting_page';
+
 // Admin controls
 $route['gnc_admin/_sign_in_pro_ajax'] = 'back/Admin_authentication/sign_in_pro_ajax';
 $route['gnc_admin/sign_out'] = 'back/Admin_authentication/sign_out_pro';
 
 $route['gnc_admin/article/add_article_ajax'] = 'back/Article_set/add_article_ajax';
+
+$route['gnc_admin/webdata/edit_about_ajax'] = 'back/Webdata_set/edit_about_ajax';
+$route['gnc_admin/webdata/edit_terms_ajax'] = 'back/Webdata_set/edit_terms_ajax';
+$route['gnc_admin/webdata/edit_agreement_ajax'] = 'back/Webdata_set/edit_agreement_ajax';
 
 
 //====================================================================================================================================

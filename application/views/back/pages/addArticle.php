@@ -2,6 +2,7 @@
 
 <script type="text/javascript" src="<?=base_url()?>mats/backAssets/ckeditor/ckeditor.js"></script>
 
+
 <article class="content item-editor-page">
                 <div class="title-block">
                     <h3 class="title">
@@ -21,7 +22,7 @@
             เนื้อหา:
         </label>
                             <div class="col-sm-10">
-                                <textarea id="mytextarea"></textarea>
+                                <textarea id="mytextarea">test</textarea>
                             </div>
                             <script>
                                 // Replace the <textarea id="editor1"> with a CKEditor

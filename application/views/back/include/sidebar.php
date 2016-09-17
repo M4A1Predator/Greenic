@@ -45,13 +45,13 @@
                                 <li <?php if($page=='about'||$page=='terms'||$page=='agreement'){ echo ' class="active open"'; } ?>>
                                     <a href=""> <i class="fa fa-file-text"></i> จัดการหน้า <i class="fa arrow"></i> </a>
                                     <ul>
-                                        <li <?php if($page=='about'){ echo ' class="active"'; } ?> > <a href="index.php?page=about"><i class="fa fa-info-circle"></i> เกี่ยวกับเรา</a> </li>
-                                        <li <?php if($page=='terms'){ echo ' class="active"'; } ?>> <a href="index.php?page=terms"><i class="fa fa-book"></i> นโยบายการใช้งาน</a> </li>
-                                        <li <?php if($page=='agreement'){ echo ' class="active"'; } ?>> <a href="index.php?page=agreement"><i class="fa fa-legal"></i> ข้อตกลง</a> </li>
+                                        <li <?php if($page=='about'){ echo ' class="active"'; } ?> > <a href="<?=base_url()?>gnc_admin/webdata/about"><i class="fa fa-info-circle"></i> เกี่ยวกับเรา</a> </li>
+                                        <li <?php if($page=='terms'){ echo ' class="active"'; } ?>> <a href="<?=base_url().'gnc_admin/webdata/terms'?>"><i class="fa fa-book"></i> นโยบายการใช้งาน</a> </li>
+                                        <li <?php if($page=='agreement'){ echo ' class="active"'; } ?>> <a href="<?=base_url().'gnc_admin/webdata/agreement'?>"><i class="fa fa-legal"></i> ข้อตกลง</a> </li>
                                     </ul>
                                 </li>
                                 <li <?php if($page=='setting'){ echo ' class="active"'; } ?>>
-                                    <a href="index.php?page=setting"> <i class="fa fa-pencil-square-o"></i> ตั้งค่าเว็บไซต์</a>
+                                    <a href="<?=base_url().'gnc_admin/webdata/setting'?>"> <i class="fa fa-pencil-square-o"></i> ตั้งค่าเว็บไซต์</a>
                                 </li>
                                 
                             </ul>

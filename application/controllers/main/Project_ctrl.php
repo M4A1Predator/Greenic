@@ -555,7 +555,7 @@
             
             // Load view
             $this->load->view('main/singleProduct', $data_assoc);
-            
+            ob_flush();
         }
     
     

@@ -63,7 +63,7 @@
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
                             </li>
-                            <li class="item">
+                            <!--<li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check">
                                         <label class="item-check" id="select-all-items">
@@ -126,7 +126,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li>-->
                             <?php foreach($members as $member){ ?>
                             <li class="item">
                                 <div class="item-row">

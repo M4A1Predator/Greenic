@@ -2,7 +2,7 @@
 			<div class="container">
 				<h1 class="pull-left">บทความ</h1>
 				<ul class="pull-right breadcrumb">
-					<li><a href="index.php">หน้าแรก</a></li>
+					<li><a href="<?=base_url().'main'?>">หน้าแรก</a></li>
                     <li><a href="article.php">บทความ</a></li>
 					<li class="active">รีวิววิธีการปลูกผักคะน้าไร้ดิน ปลอดสารพิษโดยสวนลุงแดง</li>
 				</ul>
@@ -12,29 +12,33 @@
 			<!--Blog Post-->
 			<div class="blog margin-bottom-40">
 				<div class="blog-img">
-					<img class="img-responsive" src="<?=base_url()?>mats/assets/img/sliders/4.jpg" alt="">
+                    <?php if($article->article_cover_image){ ?>
+					<!--<img class="img-responsive" src="<?=base_url()?>mats/assets/img/sliders/4.jpg" alt="">-->
+                    <img class="img-responsive" src="<?=base_url().$article->article_cover_image?>" alt="">
+                    <?php } ?>
 				</div>
-				<h2><a href="blog_item_option1.html">รีวิววิธีการปลูกผักคะน้าไร้ดิน ปลอดสารพิษโดยสวนลุงแดง</a></h2>
+				<h2><a href="blog_item_option1.html"><?=$article->article_headline?></a></h2>
 				<div class="blog-post-tags">
 					<ul class="list-unstyled list-inline blog-info">
-						<li><i class="fa fa-calendar"></i> 14 เมษายน 2559</li>
-                        <li><i class="fa fa-pencil"></i> By Greenic.co </li>
-						<li><i class="fa fa-eye"></i> <a href="#">750 คนอ่านเรื่องนี้แล้ว</a></li>
-						<li><i class="fa fa-tags"></i> คะน้า, ไร้ดิน, ปลอดสารพิษ</li>
+						<li><i class="fa fa-calendar"></i> <?=display_date_th($article->article_time)?></li>
+                        <li><i class="fa fa-pencil"></i> By <?=$article->member_firstname?> </li>
+						<li><i class="fa fa-eye"></i> <a href="#"><?=$article->article_view?> คนอ่านเรื่องนี้แล้ว</a></li>
+						<!--<li><i class="fa fa-tags"></i> คะน้า, ไร้ดิน, ปลอดสารพิษ</li>-->
 					</ul>
 				</div>
                 <!--เนื้อหา-->
-				<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, mollitia animi, id est laborum et dolorum fug consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna.</p><br>
-				<div class="tag-box tag-box-v2">
-					<p>Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce condimentum eleifend enim a feugiatt non libero consectetur adipiscing elit magna. Sed et quam lacus. Condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat.</p>
-				</div>
-				<p>Officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, mollitia animi, id est laborum et dolorum fug consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend.</p>
-				<p>Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum</p><br>
-				<blockquote>
-					<p>Award winning digital agency. We bring a personal and effective approach to every project we work on, which is why.</p>
-					<small>CEO Jack Bour</small>
-				</blockquote>
-				<p>Deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, mollitia animi, id est laborum et dolorum fug consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus.</p>
+				<!--<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, mollitia animi, id est laborum et dolorum fug consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna.</p><br>-->
+				<!--<div class="tag-box tag-box-v2">-->
+				<!--	<p>Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce condimentum eleifend enim a feugiatt non libero consectetur adipiscing elit magna. Sed et quam lacus. Condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat.</p>-->
+				<!--</div>-->
+				<!--<p>Officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, mollitia animi, id est laborum et dolorum fug consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend.</p>-->
+				<!--<p>Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum</p><br>-->
+				<!--<blockquote>-->
+				<!--	<p>Award winning digital agency. We bring a personal and effective approach to every project we work on, which is why.</p>-->
+				<!--	<small>CEO Jack Bour</small>-->
+				<!--</blockquote>-->
+				<!--<p>Deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, mollitia animi, id est laborum et dolorum fug consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus.</p>-->
+                <?=$article->article_content?>
                 <!--จบเนื้อหา-->
 			</div>
 			<!--End Blog Post-->

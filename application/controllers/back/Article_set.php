@@ -52,7 +52,7 @@
             
             $join_member = $this->gnc_query->get_join_table_assoc('member_public_view', 'member_public_view.member_id = article.article_member_id');
             $join_status = $this->gnc_query->get_join_table_assoc('status', 'status.status_id = article.article_status_id');
-            $join_array = [$join_status];
+            $join_array = [$join_status, $join_member];
             
             $order_by = 'article_time DESC';
             
