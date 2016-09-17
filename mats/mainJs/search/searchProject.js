@@ -62,6 +62,10 @@ $(document).ready(function() {
                     categoryText = project.category_name;
                 }
                 
+                if (!project.project_cover_image_path) {
+                    project.project_cover_image_path = 'mats/assets/img/main/img9.jpg';
+                }
+                
                 content = '<div class="col-md-3 col-sm-6">' + 
                         '<div class="easy-block-v2">' +
                             '<img style="height: 170px;" alt="" src="' + webUrl + project.project_cover_image_path + '">' + 

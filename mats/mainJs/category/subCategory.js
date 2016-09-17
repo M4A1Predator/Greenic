@@ -171,6 +171,10 @@ $(document).ready(function (){
                     categoryText = project.category_name;
                 }
                 
+                if (!project.project_cover_image_path) {
+                    project.project_cover_image_path = 'mats/assets/img/main/img9.jpg';
+                }
+                
                 content = '<div class="col-md-3 col-sm-6">' + 
                         '<div class="easy-block-v2">' +
                             '<img style="height: 170px;" alt="" src="' + webUrl + project.project_cover_image_path + '">' + 
@@ -181,7 +185,7 @@ $(document).ready(function (){
                                 '<li><span class="color-green">ฟาร์ม:</span> ' + project.farm_name + '</li>' + 
                                 '<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> ' + project.farm_district + ', ' + project.farm_province + '</li>' + 
                             '</ul>' + 
-                            '<a class="btn-u btn-u-sm" href="' + projectUrl +'">ดูโปรเจ็คนี้</a>' +
+                            '<a class="btn-u btn-u-sm" href="' + projectUrl + '">ดูโปรเจ็คนี้</a>' +
                             ' <label class="checkbox-inline compareCheck"><input type="checkbox" id="compareProject-' + project.project_id + '" value="option1" class="compair"> เปรียบเทียบ</label>' + 
                         '</div>' + 
                     '</div>';
