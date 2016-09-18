@@ -34,6 +34,14 @@
     
     function get_project_type_thai_text($project_type_id){
         
+        if($project_type_id === 0){
+            return 'ทุกชนิด';
+        }
+        
+        if($project_type_id < 1 || $project_type_id > 3){
+            return '';
+        }
+        
         $type_arr = ['ผัก', 'ผลไม้', 'สัตว์'];
         
         return $type_arr[$project_type_id - 1];

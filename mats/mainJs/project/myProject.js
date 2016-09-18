@@ -75,7 +75,7 @@ function setProjectsList() {
                     '<h3>' + project.project_name + '</h3>' + 
                     '<ul class="list-unstyled">' + 
                         '<li><span class="color-green">ประเภท:</span> ' + projectTypeThaiDict[project.project_type_name]  +  ' / ' + project.category_name +  '</li>' +
-                        '<li><span class="color-green">ราคา:</span> ' + project.project_ppu + '  บาท/' + project.project_unit_name + ' </li>' +
+                        '<li><span class="color-green">ราคา:</span> ' + project.project_ppu + '  บาท/' + project.unit_name + ' </li>' +
                         '<li><span class="color-green">ฟาร์ม:</span> ' + project.farm_name + '</li>' +
                         '<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span> ' + project.farm_district + ', ' + project.farm_province + '</li>' +
                     '</ul>' +

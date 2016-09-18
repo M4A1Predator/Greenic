@@ -20,7 +20,7 @@
                                 <section class="col-md-2 col-sm-4">
                                         <label class="label"><strong>ราคาต่อ <span class="pUnit" style="color:red">กิโลกรัม</span></strong></label>
 										<label class="input">
-											<input type="text" name="price" id="ppu" placeholder="1,000">
+											<input type="text" name="price" id="ppu" placeholder="1000">
 										</label>
 								</section>
                                 <section class="col-md-2 col-sm-4">

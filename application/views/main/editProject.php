@@ -21,4 +21,7 @@
             $this->load->view( 'main/inc/footer.php');
             
         ?>
+        
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/stringResource.js"></script>
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/project/editProject.js"></script>
 
