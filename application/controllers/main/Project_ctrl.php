@@ -456,7 +456,16 @@
             $is_sign_in =$this->gnc_authen->is_sign_in();
             
             // Get project
-            $project = $this->Project->get_project_by_id($project_id, 'object', TRUE);
+            $where_project_assoc = array();
+            $where_project_assoc['project_id'] = $project_id;
+            $where_project_assoc['project_status_id'] = $this->Status->status_normal_id;
+            $p_results = $this->Project->get_filter('*', $where_project_assoc, null, null, null, null, 'object', array('use_view' => TRUE));
+            if(!$p_results){
+                redirect('404_override');
+                return;
+            }
+            $project = $p_results[0];
+            
             if(!$project){
                 redirect('404_override');
                 return;

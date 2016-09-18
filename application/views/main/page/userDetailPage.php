@@ -48,7 +48,7 @@
                             <?php if($member->member_district){ ?>
                             <option value="0" selected=""><?=$member->member_district?></option>
                             <?php }else{ ?>
-                            <option selected="">เลือกอำเภอ</option>
+                            <option value="" selected="">เลือกอำเภอ</option>
                             <?php } ?>
                         </select>
                         <i></i>
@@ -63,7 +63,7 @@
                     <label class="label"><strong>ตำบล*</strong></label>
                         <label class="select" >
                             <select class="form-control district" id="edit-sub-district">
-                                <?php if($member->member_district){ ?>
+                                <?php if($member->member_sub_district){ ?>
                                 <option value="0" selected=""><?=$member->member_sub_district?></option>
                                 <?php }else{ ?>
                                 <option value="">เลือกตำบล</option>

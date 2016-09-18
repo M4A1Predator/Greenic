@@ -14,13 +14,13 @@
                                         </label>*เว้นไว้ถ้าไม่ต้องการเปลี่ยนรูป
                                     </section>
                                 </section>
-                                <section class="col col-6">
+                                <!--<section class="col col-6">
                                     <label class="label"><strong>กรอกข้อความที่เห็นในภาพ</strong></label>
                                     <label class="input input-captcha">
                                         <img src="<?=base_url()?>mats/assets/plugins/sky-forms-pro/skyforms/captcha/image.php?&lt;?php echo time(); ?&gt;" width="100" height="32" alt="Captcha image">
                                         <input type="text" maxlength="6" name="captcha" id="captcha">
                                     </label>
-                                </section>
+                                </section>-->
 							
 							</div>
 							

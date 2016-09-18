@@ -74,9 +74,11 @@
             $this->form_validation->set_rules('district', 'district');
             $this->form_validation->set_rules('sub_district', 'sub_district');
             $this->form_validation->set_rules('email', 'email', 'required|valid_email');
-            $this->form_validation->set_rules('new_password', 'new_password', 'regex_match[/[a-zA-Z0-9!@#$%&.,:*\-\]\[\/]/]|min_length[8]');
-            $this->form_validation->set_rules('re_new_password', 're_new_password', 'regex_match[/[a-zA-Z0-9!@#$%&.,:*\-\]\[\/]/]|min_length[8]');
-            $this->form_validation->set_rules('password', 'password', 'required|regex_match[/[a-zA-Z0-9!@#$%&.,:*\-\]\[\/]/]|min_length[8]');
+            if(!$this->session->userdata('facebook_sign_in')){
+                $this->form_validation->set_rules('new_password', 'new_password', 'regex_match[/[a-zA-Z0-9!@#$%&.,:*\-\]\[\/]/]|min_length[8]');
+                $this->form_validation->set_rules('re_new_password', 're_new_password', 'regex_match[/[a-zA-Z0-9!@#$%&.,:*\-\]\[\/]/]|min_length[8]');
+                $this->form_validation->set_rules('password', 'password', 'required|regex_match[/[a-zA-Z0-9!@#$%&.,:*\-\]\[\/]/]|min_length[8]');
+            }
             
             // Validate form
             if($this->form_validation->run() == FALSE){
@@ -86,10 +88,12 @@
             }
             
             // Check member password
-            $member = $this->Member->member_authentication($this->session->userdata('member_email'), $this->input->post('password'));
-            if(!$member){
-                echo '{"error": "รหัสผ่านไม่ถูกต้อง"}';
-                return;
+            if(!$this->session->userdata('facebook_sign_in')){
+                $member = $this->Member->member_authentication($this->session->userdata('member_email'), $this->input->post('password'));
+                if(!$member){
+                    echo '{"error": "รหัสผ่านไม่ถูกต้อง"}';
+                    return;
+                }
             }
             
             // Get input value

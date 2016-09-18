@@ -26,7 +26,7 @@
                     </li>
 
                     <li class="">
-                        <a href="<?=base_url()?>mats/aboutus.php" class="" data-toggle="">เกี่ยวกับเรา</a>
+                        <a href="<?=base_url()?>aboutus" class="" data-toggle="">เกี่ยวกับเรา</a>
                     </li>
 
                     <!-- Archives -->

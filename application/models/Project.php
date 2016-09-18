@@ -115,8 +115,10 @@
             $this->db->or_where('breed_name like', '%'.$keyword.'%');
             $this->db->or_where('member_firstname like', '%'.$keyword.'%');
             $this->db->or_where('member_lastname like', '%'.$keyword.'%');
+            $this->db->or_where('farm_name like', '%'.$keyword.'%');
             $this->db->or_where('farm_province like', '%'.$keyword.'%');
             $this->db->group_end();
+            $this->db->where('project_status_id', $this->Status->status_normal_id);
             $this->db->order_by($order_by);
             
             // Limit amount
@@ -142,8 +144,10 @@
             $this->db->or_where('breed_name like', '%'.$keyword.'%');
             $this->db->or_where('member_firstname like', '%'.$keyword.'%');
             $this->db->or_where('member_lastname like', '%'.$keyword.'%');
+            $this->db->or_where('farm_name like', '%'.$keyword.'%');
             $this->db->or_where('farm_province like', '%'.$keyword.'%');
             $this->db->group_end();
+            $this->db->where('project_status_id', $this->Status->status_normal_id);
             $this->db->order_by($order_by);
             
             $count = $this->db->count_all_results();

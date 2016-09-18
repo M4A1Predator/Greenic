@@ -63,6 +63,7 @@
             if($where_assoc){
                 $this->db->where($where_assoc);
             }
+            $this->db->where('project_status_id', $this->CI->Status->status_normal_id);
             $this->db->group_by('project_type_id');
             
             // Execute

@@ -76,6 +76,7 @@ $route['category/([a-zA-Z0-9]{0,})'] = 'main/Category_ctrl/view_project_type_pag
 $route['category/([a-zA-Z0-9]{0,})/(:num)'] = 'main/Category_ctrl/view_category_page';
 
 $route['article/(:num)'] = 'main/Article_ctrl/view_article_page';
+$route['aboutus'] = 'main/Webdata_ctrl/about_page';
 
 // Control routes
 $route['sign_in'] = 'main/Authentication/authen';

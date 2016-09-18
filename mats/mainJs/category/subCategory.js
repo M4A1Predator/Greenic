@@ -173,6 +173,7 @@ $(document).ready(function (){
                 
                 if (!project.project_cover_image_path) {
                     project.project_cover_image_path = 'mats/assets/img/main/img9.jpg';
+                    //project.project_cover_image_path = projectDefaultImagePath;
                 }
                 
                 content = '<div class="col-md-3 col-sm-6">' + 

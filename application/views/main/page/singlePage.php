@@ -20,7 +20,8 @@
 <?php if($project->project_cover_image_path){
     $img_cover_path = base_url().$project->project_cover_image_path;
 }else{
-    $img_cover_path = base_url().'mats/assets/img/search-bg-3.jpg';
+    //$img_cover_path = base_url().'mats/assets/img/search-bg-3.jpg';
+    $img_cover_path = base_url().'mats/assets/img/gBVZ3h.jpg';
 }?>
 <!--<div class="search-block parallaxBg" style="background-position: 50% 16px;background: url(<?=base_url().$project->project_cover_image_path?>) 50% 0 repeat fixed;">-->
 <div class="search-block parallaxBg" style="background-position: 50% 16px;background: url(<?=$img_cover_path?>) 50% 0 repeat fixed;

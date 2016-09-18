@@ -31,8 +31,8 @@
         }
         
         function add_member(){
-            $name = 'เดนนิส';
-            $email = 'm1@greenic.co';
+            $name = 'นีโอ';
+            $email = 'm2@greenic.co';
             $password = 'zxczxczxc';
             
             //$this->db->trans_start(TRUE);
