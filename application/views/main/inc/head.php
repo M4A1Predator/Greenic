@@ -15,7 +15,7 @@
 	<link rel="shortcut icon" href="<?=base_url()?>mats/assets/img/fav.ico">
 
 	<!-- Web Fonts -->
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
 
 	<!-- CSS Global Compulsory -->
 	<link rel="stylesheet" href="<?=base_url()?>mats/assets/plugins/bootstrap/css/bootstrap.min.css">
