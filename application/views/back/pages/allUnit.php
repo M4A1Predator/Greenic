@@ -49,6 +49,7 @@
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
                             </li>
+	          <?php foreach($projects as $project){ ?>
                             <li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items"><input type="checkbox" class="checkbox"><span></span></label> </div>
@@ -56,16 +57,16 @@
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
                                             <a>
-                                                <h4 class="item-title">กิโลกรัม</h4> </a>
+                                                <h4 class="item-title"><?=$project->unit_name ?></h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">การใช้งาน</div>
-                                        <div> 16 โปรเจ็ค </div>
+                                        <div> <?=$project->unit_count ?> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่เพิ่ม</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
+                                        <div class="no-overflow"><?=$project->unit_create_date ?> </div>
                                     </div>
                                     <div class="item-col fixed item-col-actions-dropdown">
                                         <div class="item-actions-dropdown">
@@ -80,130 +81,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items"><input type="checkbox" class="checkbox"><span></span></label> </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a>
-                                                <h4 class="item-title">ตัน</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">การใช้งาน</div>
-                                        <div> 58 โปรเจ็ค </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่เพิ่ม</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive"><i class="fa fa-cog"></i></span> <span class="active"><i class="fa fa-chevron-circle-right"></i></span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li><a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
-                                                    <li><a class="edit" href="?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items"><input type="checkbox" class="checkbox"><span></span></label> </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a>
-                                                <h4 class="item-title">กระสอบ</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">การใช้งาน</div>
-                                        <div> 32 โปรเจ็ค </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่เพิ่ม</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive"><i class="fa fa-cog"></i></span> <span class="active"><i class="fa fa-chevron-circle-right"></i></span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li><a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
-                                                    <li><a class="edit" href="?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items"><input type="checkbox" class="checkbox"><span></span></label> </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a>
-                                                <h4 class="item-title">ลูก</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">การใช้งาน</div>
-                                        <div> 5 โปรเจ็ค </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่เพิ่ม</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive"><i class="fa fa-cog"></i></span> <span class="active"><i class="fa fa-chevron-circle-right"></i></span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li><a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
-                                                    <li><a class="edit" href="?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items"><input type="checkbox" class="checkbox"><span></span></label> </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อบทความ</div>
-                                        <div>
-                                            <a>
-                                                <h4 class="item-title">ต้น</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">การใช้งาน</div>
-                                        <div> 18 โปรเจ็ค </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่เพิ่ม</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive"><i class="fa fa-cog"></i></span> <span class="active"><i class="fa fa-chevron-circle-right"></i></span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li><a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
-                                                    <li><a class="edit" href="?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                           <?php } ?>
                             
                         </ul>
                     </div>

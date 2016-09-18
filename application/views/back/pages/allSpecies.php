@@ -56,6 +56,7 @@
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
                             </li>
+                            <?php foreach($categories as $category){ ?>
                             <li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check">
@@ -66,24 +67,24 @@
                                         <div class="item-heading">ชื่อชนิด</div>
                                         <div>
                                             <a href="?page=allBreed" class="">
-                                                <h4 class="item-title">ผักบุ้ง</h4> </a>
+                                                <h4 class="item-title"><?=$category->category_name?></h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div> 23 รายการ </div>
+                                        <div> <?=$category->project_count?> รายการ </div>
                                     </div>
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">ประเภท</div>
-                                        <div class="no-overflow"> ผัก</div>
+                                        <div class="no-overflow"> <?=get_project_type_thai_text((int)$project_type_id)?></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">สายพันธุ์</div>
-                                        <div class="no-overflow"> <a href="?page=allBreed">คลิกเพื่อดูสายพันธุ์ทั้งหมด(4)</a> </div>
+                                        <!--<div class="no-overflow"> <a href="?page=allBreed">คลิกเพื่อดูสายพันธุ์ทั้งหมด(4)</a> </div>-->
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
+                                        <!--<div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>-->
                                     </div>
                                     <div class="item-col fixed item-col-actions-dropdown">
                                         <div class="item-actions-dropdown">
@@ -106,231 +107,32 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check">
-                                            <label class="item-check" id="select-all-items">
-							                <input type="checkbox" class="checkbox"><span></span></label> 
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อชนิด</div>
-                                        <div>
-                                            <a href="?page=allBreed" class="">
-                                                <h4 class="item-title">ผักคะน้า</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div> 23 รายการ </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">ประเภท</div>
-                                        <div class="no-overflow"> ผัก</div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สายพันธุ์</div>
-                                        <div class="no-overflow"> <a href="?page=allBreed">คลิกเพื่อดูสายพันธุ์ทั้งหมด (8)</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editSpecies"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check">
-                                            <label class="item-check" id="select-all-items">
-							                <input type="checkbox" class="checkbox"><span></span></label> 
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อชนิด</div>
-                                        <div>
-                                            <a href="?page=allBreed" class="">
-                                                <h4 class="item-title">ผักกาด</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div> 23 รายการ </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">ประเภท</div>
-                                        <div class="no-overflow"> ผัก</div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สายพันธุ์</div>
-                                        <div class="no-overflow"> <a href="?page=allBreed">คลิกเพื่อดูสายพันธุ์ทั้งหมด (5)</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editSpecies"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check">
-                                            <label class="item-check" id="select-all-items">
-							                <input type="checkbox" class="checkbox"><span></span></label> 
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อชนิด</div>
-                                        <div>
-                                            <a href="?page=allBreed" class="">
-                                                <h4 class="item-title">เมล่อน</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div> 23 รายการ </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">ประเภท</div>
-                                        <div class="no-overflow"> ผลไม้</div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สายพันธุ์</div>
-                                        <div class="no-overflow">ไม่มีสายพันธุ์</div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editSpecies"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check">
-                                            <label class="item-check" id="select-all-items">
-							                <input type="checkbox" class="checkbox"><span></span></label> 
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อชนิด</div>
-                                        <div>
-                                            <a href="?page=allBreed" class="">
-                                                <h4 class="item-title">ปลาสลิด</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div> 23 รายการ </div>
-                                    </div>
-                                    <div class="item-col item-col-category no-overflow">
-                                        <div class="item-heading">ประเภท</div>
-                                        <div class="no-overflow"> สัตว์</div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">สายพันธุ์</div>
-                                        <div class="no-overflow">ไม่มีสายพันธุ์</div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่ลง</div>
-                                        <div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-									<i class="fa fa-cog"></i>
-								</span> <span class="active">
-								<i class="fa fa-chevron-circle-right"></i>
-								</span> </a>
-                                            <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=editSpecies"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                            <?php } ?>
+                         </ul>
                     </div>
                     <nav class="text-xs-right">
-                        <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="">
-				ก่อนหน้า
-			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="">
-				1
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				2
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				3
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				4
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				5
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				ถัดไป
-			</a> </li>
-                        </ul>
+<!--                        <ul class="pagination">-->
+<!--                            <li class="page-item"> <a class="page-link" href="">-->
+<!--				ก่อนหน้า-->
+<!--			</a> </li>-->
+<!--                            <li class="page-item active"> <a class="page-link" href="">-->
+<!--				1-->
+<!--			</a> </li>-->
+<!--                            <li class="page-item"> <a class="page-link" href="">-->
+<!--				2-->
+<!--			</a> </li>-->
+<!--                            <li class="page-item"> <a class="page-link" href="">-->
+<!--				3-->
+<!--			</a> </li>-->
+<!--                            <li class="page-item"> <a class="page-link" href="">-->
+<!--				4-->
+<!--			</a> </li>-->
+<!--                            <li class="page-item"> <a class="page-link" href="">-->
+<!--				5-->
+<!--			</a> </li>-->
+<!--                            <li class="page-item"> <a class="page-link" href="">-->
+<!--				ถัดไป-->
+<!--			</a> </li>-->
+<!--                        </ul>-->
                     </nav>
                 </article>

@@ -68,13 +68,14 @@ $route['my_account'] = 'main/Member_ctrl/member_detail_page';
 $route['add_project/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/add_project_page';
 $route['my_projects'] = 'main/Project_ctrl/member_projects_page';
 $route['project/(:num)'] = 'main/Project_ctrl/view_project_page/$1';
-$route['my_project/(:num)/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/edit_project_page/$1/$2';
+$route['my_project/(:num)'] = 'main/Project_ctrl/edit_project_page/$1';
 $route['my_farm'] = 'main/Farm_ctrl/member_farm_page';
 
 $route['search'] = 'main/Search/search_result_page';
 $route['category/([a-zA-Z0-9]{0,})'] = 'main/Category_ctrl/view_project_type_page/$1';
 $route['category/([a-zA-Z0-9]{0,})/(:num)'] = 'main/Category_ctrl/view_category_page';
 
+$route['all_farmers'] = 'main/Member_ctrl/all_farmer_page';
 $route['article/(:num)'] = 'main/Article_ctrl/view_article_page';
 $route['aboutus'] = 'main/Webdata_ctrl/about_page';
 
@@ -143,9 +144,23 @@ $route['article/get_last_articles_ajax'] = 'main/Article_ctrl/get_last_articles_
 $route['gnc_admin/sign_in'] = 'back/Admin_authentication/sign_in_page';
 $route['gnc_admin'] = 'back/Admin_home/home';
 
+//Member_set
 $route['gnc_admin/members/(:any)'] = 'back/Member_set/member_list_page';
+$route['gnc_admin/basicDetail/(:any)'] = 'back/Member_set/member_detail';
+$route['gnc_admin/memberEdit/(:any)'] = 'back/Member_set/member_detail';
+$route['gnc_admin/farmerDetail/(:any)'] = 'back/Member_set/farmer_detail';
 
-$route['gnc_admin/category/allCategory'] = 'back/Category_set/all_category_page';
+
+//Project_set
+$route['gnc_admin/projects/(:any)'] = 'back/Project_set/project_list';
+$route['gnc_admin/projectDetail/(:any)'] = 'back/Project_set/project_detail';
+$route['gnc_admin/projectEdit/(:any)'] = 'back/Project_set/project_detail';
+$route['gnc_admin/farmDetail/(:any)'] = 'back/Project_set/farm_detail';
+$route['gnc_admin/editFarm/(:any)'] = 'back/Project_set/farm_detail';
+$route['gnc_admin/projects/getFarmId/(:any)'] = 'back/Project_set/project_list';
+
+$route['gnc_admin/category/allCategory'] = 'back/Category_set/all_project_type_page';
+$route['gnc_admin/category/(:num)'] = 'back/Category_set/all_category_project_page';
 
 $route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
 $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';

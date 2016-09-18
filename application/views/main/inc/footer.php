@@ -25,7 +25,7 @@
 							<ul class="list-unstyled link-list">
 								<li><a href="<?=base_url()?>mats/aboutus.php">เกี่ยวกับเรา</a><i class="fa fa-angle-right"></i></li>
 								<li><a href="<?=base_url()?>mats/allProduct.php">สินค้าทั้งหมด</a><i class="fa fa-angle-right"></i></li>
-								<li><a href="<?=base_url()?>mats/allAgriculturist.php">เกษตรกรทั้งหมด</a><i class="fa fa-angle-right"></i></li>
+								<li><a href="<?=base_url()?>all_farmers">เกษตรกรทั้งหมด</a><i class="fa fa-angle-right"></i></li>
 								<li><a href="<?=base_url()?>mats/article.php">บทความ</a><i class="fa fa-angle-right"></i></li>
 								<li><a href="<?=base_url()?>mats/contact.php">ติดต่อเรา</a><i class="fa fa-angle-right"></i></li>
 							</ul>

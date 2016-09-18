@@ -222,5 +222,30 @@
             echo 1;
         }
         
+    
+        function all_farmer_page(){
+            
+            // Get members
+            $where_assoc = array();
+            $where_assoc['member_type_id'] = $this->Member_type->member_farmer_id;
+            $where_assoc['member_status_id'] = $this->Status->status_normal_id;
+            $where_assoc['farm_status_id'] = $this->Status->status_normal_id;
+            $join_farm = $this->gnc_query->get_join_table_assoc('farm', 'farm.farm_member_id = member_view.member_id', 'left');
+            $join_project = $this->gnc_query->get_join_table_assoc('project', 'project.project_farm_id = farm.farm_id');
+            $join_arr = [$join_farm, $join_project];
+            
+            $add_arr = array(
+                        'use_view' => TRUE,
+                        'group_by' => 'member_id'
+                    );
+            
+            $farmers = $this->Member->get_filter('*, count(project_id)', $where_assoc, $join_arr, null, null, null, 'object', $add_arr);
+            
+            $data['farmers'] = $farmers;
+            
+            // Load view
+            $this->load->view('main/allAgriculturist', $data);
+        }
+    
     }
     

@@ -1,5 +1,3 @@
-
-
 <article class="content items-list-page">
         <div class="title-search-block">
             <div class="title-block">
@@ -9,7 +7,7 @@
         รายชื่อสมาชิกทั่วไป
             <div class="action dropdown">
                 <button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    คำสั่งจำนวนมาก						
+                    คำสั่งจำนวนมาก
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-trash-o icon"></i>ลบสมาชิกอย่างถาวร</a>
@@ -58,62 +56,7 @@
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
                             </li>
-                            <!--<li class="item">
-                                <div class="item-row">
-                                    <div class="item-col fixed item-col-check">
-                                        <label class="item-check" id="select-all-items">
-                                            <input type="checkbox" class="checkbox">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="item-col fixed item-col-img md">
-                                        <a href="?page=basicDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/basicMember.png)"></div>
-                                        </a>
-                                    </div>
-                                    <div class="item-col fixed pull-left item-col-title">
-                                        <div class="item-heading">ชื่อ-สกุล</div>
-                                        <div>
-                                            <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title">ชายไทย หัวใจสยาม</h4> </a>
-                                        </div>
-                                    </div>
-                                    <div class="item-col item-col-sales">
-                                        <div class="item-heading">รายการที่ติดตาม</div>
-                                        <div><a href="?page=memberFollowShow" title="ดูการติดตามทั้งหมด">12 รายการ</a></div>
-                                    </div>
-                                    <div class="item-col item-col-author">
-                                        <div class="item-heading">ที่อยู่</div>
-                                        <div class="no-overflow"> <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก">ต.วังกระโจม อ.เมืองนครนายก จ.นครนายก</a> </div>
-                                    </div>
-                                    <div class="item-col item-col-date">
-                                        <div class="item-heading">วันที่สมัคร</div>
-                                        <div class="no-overflow"> 10 มิถุนายก 2559 115.45น.</div>
-                                    </div>
-                                    <div class="item-col fixed item-col-actions-dropdown">
-                                        <div class="item-actions-dropdown">
-                                            <a class="item-actions-toggle-btn"> <span class="inactive">
-                                                <i class="fa fa-cog"></i>
-                                            </span>
-                                    <span class="active">
-                                    <i class="fa fa-chevron-circle-right"></i>
-                                    </span> </a>
-                                             <div class="item-actions-block">
-                                                <ul class="item-actions-list">
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>-->
+                            
                             <?php foreach($members as $member){ ?>
                             <li class="item">
                                 <div class="item-row">
@@ -131,7 +74,7 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="?page=basicDetail" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title"><?=$member->member_firstname?> <?=$member->member_lastname?></h4> </a>
+                                            <a href="<?=base_url()?>gnc_admin/basicDetail/<?=$member->member_id?>" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title"><?=$member->member_firstname?> <?=$member->member_lastname?></h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
@@ -184,22 +127,21 @@
                     }
                 ?>
                 <ul class="pagination">
-                    
-                    
+
+
                     <?php for($i=1;$i<=$page_amount;$i++){ ?>
                     <li class="page-item active">
                         <a class="page-link" href=""><?=$i?></a>
                     </li>
                     <?php } ?>
-                    
+
                     <!--<li class="page-item"> <a class="page-link" href="">
         ก่อนหน้า
     </a> </li>
-                    
+
                     <li class="page-item"> <a class="page-link" href="">
         ถัดไป
     </a> </li>-->
                 </ul>
             </nav>
         </article>
-                
