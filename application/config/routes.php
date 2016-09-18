@@ -68,13 +68,14 @@ $route['my_account'] = 'main/Member_ctrl/member_detail_page';
 $route['add_project/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/add_project_page';
 $route['my_projects'] = 'main/Project_ctrl/member_projects_page';
 $route['project/(:num)'] = 'main/Project_ctrl/view_project_page/$1';
-$route['my_project/(:num)/([a-zA-Z0-9]{0,})'] = 'main/Project_ctrl/edit_project_page/$1/$2';
+$route['my_project/(:num)'] = 'main/Project_ctrl/edit_project_page/$1';
 $route['my_farm'] = 'main/Farm_ctrl/member_farm_page';
 
 $route['search'] = 'main/Search/search_result_page';
 $route['category/([a-zA-Z0-9]{0,})'] = 'main/Category_ctrl/view_project_type_page/$1';
 $route['category/([a-zA-Z0-9]{0,})/(:num)'] = 'main/Category_ctrl/view_category_page';
 
+$route['all_farmers'] = 'main/Member_ctrl/all_farmer_page';
 $route['article/(:num)'] = 'main/Article_ctrl/view_article_page';
 $route['aboutus'] = 'main/Webdata_ctrl/about_page';
 

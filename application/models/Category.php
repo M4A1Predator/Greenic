@@ -45,7 +45,7 @@
             if($project_type_id){
                 $this->db->where('category_view.category_project_type_id', $project_type_id);
             }
-            $this->db->where('project_status_id', $this->Status->status_nortmal_id);
+            $this->db->where('project_status_id', $this->Status->status_normal_id);
             // Group by
             // $this->db->group_by('project_view.project_category_id');
             $this->db->group_by('category_view.category_id, project_view.project_category_id');
@@ -74,7 +74,7 @@
             if($project_type_id){
                 $this->db->where('category_view.category_project_type_id', $project_type_id);
             }
-            $this->db->where('project_status_id', $this->Status->status_nortmal_id);
+            $this->db->where('project_status_id', $this->Status->status_normal_id);
             // Group by
             //$this->db->group_by('project_view.project_category_id');
             $this->db->group_by('category_view.category_id, project_view.project_category_id');
