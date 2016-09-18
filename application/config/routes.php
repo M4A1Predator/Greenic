@@ -143,7 +143,20 @@ $route['article/get_last_articles_ajax'] = 'main/Article_ctrl/get_last_articles_
 $route['gnc_admin/sign_in'] = 'back/Admin_authentication/sign_in_page';
 $route['gnc_admin'] = 'back/Admin_home/home';
 
+//Member_set
 $route['gnc_admin/members/(:any)'] = 'back/Member_set/member_list_page';
+$route['gnc_admin/basicDetail/(:any)'] = 'back/Member_set/member_detail';
+$route['gnc_admin/memberEdit/(:any)'] = 'back/Member_set/member_detail';
+$route['gnc_admin/farmerDetail/(:any)'] = 'back/Member_set/farmer_detail';
+
+
+//Project_set
+$route['gnc_admin/projects/(:any)'] = 'back/Project_set/project_list';
+$route['gnc_admin/projectDetail/(:any)'] = 'back/Project_set/project_detail';
+$route['gnc_admin/projectEdit/(:any)'] = 'back/Project_set/project_detail';
+$route['gnc_admin/farmDetail/(:any)'] = 'back/Project_set/farm_detail';
+$route['gnc_admin/editFarm/(:any)'] = 'back/Project_set/farm_detail';
+$route['gnc_admin/projects/getFarmId/(:any)'] = 'back/Project_set/project_list';
 
 $route['gnc_admin/category/allCategory'] = 'back/Category_set/all_category_page';
 

@@ -3,15 +3,28 @@
                         <h3 class="title">แก้ไขข้อมูลสมาชิก</h3>
                     </div>
                     
-                    
+                    <?php foreach($member_detail as $detail){ ?>
                     <section class="section">
                         <div class="row sameheight-container">
                             <div class="col-md-12">
                                 <div class="card card-block sameheight-item">
                                     <form>
                                         <div class="form-group"> <label class="control-label">สถานะสมาชิก</label>
-                                            <div> 
+                                            <div>
+                                                            
                                                 <!--สลับ checked และ disabled-->
+                                               <?php  $mem_type_id='1';
+                                               if($detail->member_type_id ==$mem_type_id) {?> 
+                                                <label>
+                                                    <input class="radio squared" name="squared-radios" type="radio" checked="checked" >
+                                                    <span>สมาชิกทั่วไป</span>
+                                                </label> 
+                                                <label>
+                                                    <input class="radio squared" name="squared-radios"  type="radio" disabled>
+                                                    <span>เกษตรกร</span>
+                                                </label>
+                                                
+                                                <?php }else {?>
                                                 <label>
                                                     <input class="radio squared" name="squared-radios" type="radio" disabled>
                                                     <span>สมาชิกทั่วไป</span>
@@ -20,13 +33,17 @@
                                                     <input class="radio squared" name="squared-radios" checked="checked" type="radio">
                                                     <span>เกษตรกร</span>
                                                 </label>
+                                                
+                                                
+                                                
+                                                <?php }?>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-xs-6"><label class="control-label">ชื่อ</label> <input type="text" class="form-control boxed" value="วีรชัย"></div>
-                                            <div class="col-xs-6"><label class="control-label">นามสกุล</label> <input type="text" class="form-control boxed" value="สมัยนิยม"></div>
+                                            <div class="col-xs-6"><label class="control-label">ชื่อ</label> <input type="text" class="form-control boxed" value=" <?=$detail->member_firstname?>"></div>
+                                            <div class="col-xs-6"><label class="control-label">นามสกุล</label> <input type="text" class="form-control boxed" value="<?=$detail->member_lastname?>"></div>
                                         </div>
-                                        <div class="form-group"><label class="control-label">ที่อยู่</label> <input type="text" class="form-control boxed" value="123 หมู่ 8 ซอยหลวงพ่อปากแดง"></div>
+                                        <div class="form-group"><label class="control-label">ที่อยู่</label> <input type="text" class="form-control boxed" value="<?=$detail->member_address?>"></div>
                                          <div class="form-group row">
                                             <div class="col-sm-4"><label class="control-label">จังหวัด</label>
                                                 <select class="form-control province">
@@ -132,13 +149,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <div class="col-xs-6"><label class="control-label">อีเมล์</label> <input type="mail" class="form-control boxed" value="weerachai.sa@gmail.com"></div>
+                                            <div class="col-xs-6"><label class="control-label">อีเมล์</label> <input type="mail" class="form-control boxed" value="<?=$detail->member_email?>"></div>
                                             <div class="col-xs-6"><label class="control-label">เบอร์โทร</label> <input type="tel" class="form-control boxed" value="0830009691"></div>
                                         </div>
                                         <div class="form-group">
-                                            <label>ภาพประจำตัว</label><br/>
-                                            <img src="assets/farmer.png" class="img-responsive"><br/>
-                                                * ไม่ต้องอัพโหลดภาพ ถ้าหากไม่ต้องการเปลี่ยนภาพหน้าปก<br/> 
+                                            <label>ภาพประจำตัว</label><?php if($detail->member_img_path){ ?> <br/>  <img src="<?=$detail->member_img_path?>" class="img-responsive"> <br/>  <?php } else{echo" : -";}?>
+                                              <br/>           * ไม่ต้องอัพโหลดภาพ ถ้าหากไม่ต้องการเปลี่ยนภาพหน้าปก<br/> 
                                             <input type="file" class="form-control">
                                             
                                         </div>
@@ -155,7 +171,7 @@
                             </div>
             </div>
             </section>
-            
+             <?php } ?>
             
             </article>
             

@@ -3,7 +3,7 @@
                         <h3 class="title">แก้ไขโปรเจ็ค</h3>
                     </div>
                     
-                    
+                    <?php foreach($project_detail as $project){ ?>
                     <section class="section">
                         <div class="row sameheight-container">
                             <div class="col-md-12">
@@ -11,11 +11,11 @@
                                     <form>
                                         
                                         <div class="form-group row">
-                                            <div class="col-xs-12"><label class="control-label">ชื่อสินค้า</label> <input type="text" class="form-control boxed" value="ผักบุ้งจีน ปุ๋ยอินทรีย์ 100%"></div>
+                                            <div class="col-xs-12"><label class="control-label">ชื่อสินค้า</label> <input type="text" class="form-control boxed" value="<?=$project->project_name ?>"></div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-xs-12"><label class="control-label">ข้อมูลเกี่ยวกับสินค้า</label>
-                                                <textarea rows="3" class="form-control" id="formGroupExampleInput7"></textarea>
+                                                <textarea rows="3" class="form-control" id="formGroupExampleInput7"><?=$project->project_detail  ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -57,17 +57,17 @@
                                                     <option value="unit003">ตัน</option>
                                                 </select>
                                             </div>
-                                              <div class="col-md-2"><label class="control-label">ราคาต่อ <span class="unitColor">กิโลกรัม</span></label>
-                                                <input type="text" class="form-control boxed" placeholder="ใส่เป็นตัวเลขอย่างเดียว" value="25">
+                                              <div class="col-md-2"><label class="control-label">ราคาต่อ <span class="unitColor"><?=$project->unit_name ?></span></label>
+                                                <input type="text" class="form-control boxed" placeholder="ใส่เป็นตัวเลขอย่างเดียว" value="<?=$project->project_ppu ?>">
                                             </div>
-                                            <div class="col-md-2"><label class="control-label">กำลังผลิต <span class="unitColor">กิโลกรัม</span></label>
-                                                <input type="text" class="form-control boxed" placeholder="ใส่เป็นตัวเลขอย่างเดียว" value="500">
+                                            <div class="col-md-2"><label class="control-label">กำลังผลิต <span class="unitColor"><?=$project->unit_name ?></span></label>
+                                                <input type="text" class="form-control boxed" placeholder="ใส่เป็นตัวเลขอย่างเดียว" value="<?=$project->project_quantity ?>">
                                             </div>
-                                            <div class="col-md-2"><label class="control-label">สั่งซื้อขั้นต่ำ <span class="unitColor">กิโลกรัม</span></label>
-                                                <input type="text" class="form-control boxed" placeholder="ใส่เป็นตัวเลขอย่างเดียว" value="10">
+                                            <div class="col-md-2"><label class="control-label">สั่งซื้อขั้นต่ำ <span class="unitColor"><?=$project->unit_name ?></span></label>
+                                                <input type="text" class="form-control boxed" placeholder="ใส่เป็นตัวเลขอย่างเดียว" value="<?=$project->project_lowest_order ?>">
                                             </div>
                                             <div class="col-md-4"><label class="control-label">วันที่พร้อมจำหน่าย <span class="unitColor"></span></label>
-                                                <input type="text" class="form-control boxed" value="30 กันยายน 2559">
+                                                <input type="text" class="form-control boxed" value="<?=$project->project_selldate ?>">
                                             </div>
                                            
                                         </div>
@@ -75,15 +75,15 @@
                                             <div> 
                                                 <label><input class="checkbox" type="checkbox" checked><span>ไปรษณีย์ไทย</span></label> 
                                                 <label><input class="checkbox" type="checkbox"><span>kerry express</span></label> 
-                                                <label><input class="checkbox" type="checkbox"><span>บริษัทขนส่งเอกชนอื่นๆ</span></label> 
+                                                <label><input class="checkbox" type="checkbox"><span>จัดส่งเองถึงที่</span></label> 
                                                 <label><input class="checkbox" type="checkbox" checked><span>มารับเอง</span></label> 
-                                                <label><input class="checkbox" type="checkbox" checked><span>จัดส่งเองถึงที่</span></label> 
                                                 <label><input class="checkbox" type="checkbox" checked><span>ตามตกลง</span></label> 
+                                                <label><input class="checkbox" type="checkbox" checked><span>บริษัทขนส่งเอกชนอื่นๆ</span></label> 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label>ภาพหน้าปก</label><br/>
-                                            <img src="assets/timeline/001.jpg" style="max-width:100%;"><br/>
+                                            <label>ภาพหน้าปก</label> <?php  if($project->project_cover_image_path){ ?> <br/> <img src="<?=$project->project_cover_image_path?>" style="max-width:100%;">  <?php }else{ echo ': -';}  ?>
+                                            <br/>
                                                 * ไม่ต้องอัพโหลดภาพ ถ้าหากไม่ต้องการเปลี่ยนภาพหน้าปก<br/> 
                                             <input type="file" class="form-control">
                                         </div>
@@ -97,7 +97,7 @@
                             </div>
             </div>
             </section>
-            
+               <?php } ?>
             
             </article>
             

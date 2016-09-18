@@ -26,10 +26,10 @@
                                  <li <?php if($page=='allProject'||$page=='allFarm'||$page=='allCategory'||$page=='allUnit'||$page=='addUnit'||$page=='editUnit'||$page=='allSpecies'||$page=='allBreed'||$page=='addSpecies'||$page=='editSpecies'||$page=='editBreed'||$page=='addBreed'||$page=='projectDetail'||$page=='projectEdit'||$page=='farmDetail'||$page=='editFarm'){ echo ' class="active open"'; } ?>>
                                     <a href=""> <i class="fa fa-list-ul"></i> จัดการเนื้อหา <i class="fa arrow"></i> </a>
                                     <ul>
-                                        <li <?php if($page=='allProject'||$page=='projectEdit'||$page=='projectDetail'){ echo ' class="active"'; } ?>> <a href="index.php?page=allProject"><i class="fa fa-th"></i> โปรเจ็คทั้งหมด</a> </li>
-                                        <li <?php if($page=='allFarm'||$page=='farmDetail'||$page=='editFarm'){ echo ' class="active"'; } ?>> <a href="index.php?page=allFarm"><i class="fa fa-thumb-tack"></i> ฟาร์มทั้งหมด</a> </li>
+                                        <li <?php if($page=='allProject'||$page=='projectEdit'||$page=='projectDetail'){ echo ' class="active"'; } ?>> <a href="<?=base_url()?>gnc_admin/projects/allProject"><i class="fa fa-th"></i> โปรเจ็คทั้งหมด</a> </li>
+                                        <li <?php if($page=='allFarm'||$page=='farmDetail'||$page=='editFarm'){ echo ' class="active"'; } ?>> <a href="<?=base_url()?>gnc_admin/projects/allFarm"><i class="fa fa-thumb-tack"></i> ฟาร์มทั้งหมด</a> </li>
                                         <li <?php if($page=='allCategory'||$page=='allSpecies'||$page=='allBreed'||$page=='addBreed'||$page=='editBreed'||$page=='addSpecies'||$page=='editSpecies'){ echo ' class="active"'; } ?>> <a href="<?=base_url().'gnc_admin/category/allCategory'?>"><i class="fa fa-apple"></i> ประเภทของผลผลิต</a> </li>
-                                        <li <?php if($page=='allUnit'||$page=='addUnit'||$page=='editUnit'){ echo ' class="active"'; } ?>> <a href="index.php?page=allUnit"><i class="fa fa-tachometer"></i> หน่วยตวงวัดสินค้า</a> </li>
+                                        <li <?php if($page=='allUnit'||$page=='addUnit'||$page=='editUnit'){ echo ' class="active"'; } ?>> <a href="<?=base_url()?>gnc_admin/projects/allUnit"><i class="fa fa-tachometer"></i> หน่วยตวงวัดสินค้า</a> </li>
                                     </ul>
                                 </li>
                                  <li <?php if($page=='allArticle'||$page=='addArticle'||$page=='editArticle'){ echo ' class="active open"'; } ?>>
@@ -39,9 +39,9 @@
                                         <li <?php if($page=='addArticle'){ echo ' class="active"'; } ?>> <a href="<?=base_url().'gnc_admin/article/addArticle'?>"><i class="fa fa-plus-square"></i> เพิ่มบทความ</a> </li>
                                     </ul>
                                 </li>
-                                
-                                
-                                
+
+
+
                                 <li <?php if($page=='about'||$page=='terms'||$page=='agreement'){ echo ' class="active open"'; } ?>>
                                     <a href=""> <i class="fa fa-file-text"></i> จัดการหน้า <i class="fa arrow"></i> </a>
                                     <ul>
@@ -53,10 +53,10 @@
                                 <li <?php if($page=='setting'){ echo ' class="active"'; } ?>>
                                     <a href="<?=base_url().'gnc_admin/webdata/setting'?>"> <i class="fa fa-pencil-square-o"></i> ตั้งค่าเว็บไซต์</a>
                                 </li>
-                                
+
                             </ul>
                         </nav>
                     </div>
-                    
+
                 </aside>
             <div class="sidebar-overlay" id="sidebar-overlay"></div>

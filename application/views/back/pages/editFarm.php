@@ -3,7 +3,7 @@
                         <h3 class="title">แก้ไขฟาร์ม</h3>
                     </div>
                     
-                    
+                     <?php foreach($farm_detail as $farm){ ?>
                     <section class="section">
                         <div class="row sameheight-container">
                             <div class="col-md-12">
@@ -11,9 +11,9 @@
                                     <form>
                                         
                                         <div class="form-group row">
-                                            <div class="col-xs-12"><label class="control-label">ชื่อฟาร์ม</label> <input type="text" class="form-control boxed" value="ไร่ผักลุงจอน@นครนายก"></div>
+                                            <div class="col-xs-12"><label class="control-label">ชื่อฟาร์ม</label> <input type="text" class="form-control boxed" value="<?=$farm->farm_name?>"></div>
                                         </div>
-                                        <div class="form-group"><label class="control-label">ที่อยู่</label> <input type="text" class="form-control boxed" value="123 หมู่ 8 ซอยหลวงพ่อปากแดง"></div>
+                                        <div class="form-group"><label class="control-label">ที่อยู่</label> <input type="text" class="form-control boxed" value="<?=$farm->farm_address?>"></div>
                                         
                                         <div class="form-group row">
                                             <div class="col-sm-4"><label class="control-label">จังหวัด</label>
@@ -129,7 +129,7 @@
                             </div>
             </div>
             </section>
-            
+                 <?php } ?>
             
             </article>
             
