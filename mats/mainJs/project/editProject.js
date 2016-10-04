@@ -3,9 +3,9 @@ $(document).ready(function (){
     var projectCateogry = $('#project_category');
     var selectSubCategory = $('#selectSubCategory');
     var projectFarm = $('#select_farm');
-    var projectName = $('#project_name');
+    var projectName = $('#projectName');
     var projectDetail = $('#project_detail');
-    var addProject1Btn = $('#add_project1_btn');
+    var saveBtn = $('#saveBtn');
     
     var projectTypeText = $('.projectType');
     var masterCategoryText = $('.masterCategory');
@@ -13,7 +13,7 @@ $(document).ready(function (){
     var selectUnit = $('#select_unit');
     var ppu = $('#ppu');
     var quantity = $('#quantity');
-    var lowestOrder = $('#lowest_order');
+    var lowestOrder = $('#lowestOrder');
     var startDate = $('#startDate');
     var sellDate = $('#sell_date');
     
@@ -24,12 +24,17 @@ $(document).ready(function (){
     setFarmOption();
     setCategoryOption();
     setUnitOption();
+    setProductShipment();
     
     // Set callback;
     projectType.change(setCategoryOption);
     projectCateogry.change(setSubCategoryOption);
-    
     selectUnit.change(changeUnit);
+    
+    saveBtn.click(function (e){
+        e.preventDefault();
+        editProject();
+    });
 
     function setCategoryOption() {
         
@@ -143,6 +148,55 @@ $(document).ready(function (){
         unitName = $('#select_unit option:selected').text();
         
         productUnitArr.html(unitName);
+    }
+    
+    function setProductShipment() {
+        
+        $.ajax({
+            type: 'GET',
+            url : webUrl + 'get_project_shipments_ajax/' + $('#projectId').val(),
+        }).done(function (data){
+            jsonData = JSON.parse(data);
+            jsonData.forEach(function (shipment){
+                shipmentCheck = $('input[name="smw-' + shipment.shipment_id + '"]');
+                shipmentCheck.prop('checked', true);
+            });
+        });
+        
+    }
+    
+    
+    function editProject(){
+        
+        projectNameText = (projectName.val()).trim();
+        if (!projectNameText) {
+            return;
+        }
+        
+        productStatusId = $('#productStatus').val();
+        
+        startDateText = getMySqlDateString(startDate.val());
+        coverImageFile = $('#coverImage').prop('files')[0];
+        
+        formData = new FormData();
+        formData.append('project_id', $('#projectId').val());
+        formData.append('project_product_status_id', productStatusId);
+        formData.append('project_name', projectNameText);
+        formData.append('project_type_id', projectType.val());
+        formData.append('project_category_id', projectCateogry.val());
+        formData.append('project_breed_id', selectSubCategory.val());
+        formData.append('project_detail', projectDetail.val());
+        formData.append('project_farm_id', projectFarm.val());
+        formData.append('project_unit_id', selectUnit.val());
+        formData.append('project_ppu', ppu.val());
+        formData.append('project_quantity', quantity.val());
+        formData.append('project_lowest_order', lowestOrder.val());
+        formData.append('project_cover_image', coverImageFile);
+        
+        formData.forEach(function (index, k){
+            console.log(k + ' : ' + formData.get(k));
+        });
+        
     }
     
 });

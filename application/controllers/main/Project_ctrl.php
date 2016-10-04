@@ -367,12 +367,42 @@
             
             $project = $results[0];
             
+            // Get shipments
+            $shipment_arr = $this->Shipment->get_filter('*', null, null, null, null, null, 'array');
+            // Get product status
+            $product_status_arr = $this->Product_status->get_filter('*', null, null, null, null, null, 'array');
+            
+            // Set data
             $data['project'] = $project;
-
+            $data['shipment_arr'] = $shipment_arr;
+            $data['product_status_arr'] = $product_status_arr;
+            
             // Load view
             $this->load->view('main/editProject', $data);
             // flush
             ob_flush();
+        }
+        
+        
+        function edit_project_ajax(){
+            $this->form_validation->set_rules('project_id', 'project_id', 'required|numeric');
+            $this->form_validation->set_rules('project_name', 'project_name', 'required');
+            $this->form_validation->set_rules('project_product_status_id', 'project_product_status_id', 'required|numeric');
+            $this->form_validation->set_rules('project_category_id', 'project_category_id', 'required|numeric');
+            $this->form_validation->set_rules('project_breed_id', 'project_breed_id', 'numeric');
+            $this->form_validation->set_rules('project_detail', 'project_detail');
+            $this->form_validation->set_rules('project_farm_id', 'project_farm_id', 'required|numeric');
+            $this->form_validation->set_rules('project_unit_id', 'project_unit_id', 'required');
+            $this->form_validation->set_rules('project_ppu', 'project_ppu', 'required|numeric');
+            $this->form_validation->set_rules('project_quantity', 'project_quantity', 'required|numeric');
+            $this->form_validation->set_rules('project_lowest_order', 'project_lowest_order', 'required|numeric');
+            
+            // Validate form
+            if($this->form_validation->run() == FALSE){
+                echo 0;
+                return;
+            }
+            
         }
         
         function member_projects_page(){
