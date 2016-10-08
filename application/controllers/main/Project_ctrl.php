@@ -403,6 +403,125 @@
                 return;
             }
             
+            // Get data
+            $project_id = $this->input->post('project_id');
+            $project_name = $this->input->post('project_name');
+            $project_product_status_id = $this->input->post('project_product_status_id');
+            $project_category_id = $this->input->post('project_category_id');
+            $project_breed_id = ($this->input->post('project_breed_id'))?$this->input->post('project_breed_id'):null;
+            $project_detail = $this->input->post('project_detail');
+            $project_farm_id = $this->input->post('project_farm_id');
+            $project_unit_id = $this->input->post('project_unit_id');
+            $project_ppu = $this->input->post('project_ppu');
+            $project_quantity = $this->input->post('project_quantity');
+            $project_lowest_order = $this->input->post('project_lowest_order');
+            $project_startdate = $this->input->post('project_startdate');
+            $project_selldate = $this->input->post('project_selldate');
+            
+            // Check project
+            $where_assoc = array();
+            $where_assoc['project_id'] = $project_id;
+            $projects = $this->Project->get_filter('*', $where_assoc, null, null, null, null, 'object', array('use_view' => TRUE));
+            $project = ($projects)?$projects[0]:null;
+            if(!$project){
+                echo 0;
+                return;
+            }
+            
+            if($project->member_id != $this->session->userdata('member_id')){
+                echo 0;
+                return;
+            }
+            
+            // Update data
+            $where_assoc = array();
+            $where_assoc['project_id'] = $project_id;
+            
+            $project_data = array();
+            $project_data['project_name'] = $project_name;
+            $project_data['project_product_status_id'] = $project_product_status_id;
+            $project_data['project_category_id'] = $project_category_id;
+            $project_data['project_breed_id'] = $project_breed_id;
+            $project_data['project_detail'] = $project_detail;
+            $project_data['project_farm_id'] = $project_farm_id;
+            $project_data['project_unit_id'] = $project_unit_id;
+            $project_data['project_ppu'] = $project_ppu;
+            $project_data['project_lowest_order'] = $project_lowest_order;
+            $project_data['project_startdate'] = $project_startdate;
+            $project_data['project_selldate'] = $project_selldate;
+            
+            // Upload image if has an image
+            $image_field_name = 'project_cover_image';
+            if(array_key_exists($image_field_name, $_FILES)){
+                $this->load->library('gnc_image');
+                $image_file = $_FILES[$image_field_name];
+                
+                // Check file
+                if($this->gnc_image->is_image_file($image_file) == FALSE){
+                    $err_arr = array('err' => 'invalid image type');
+                    echo json_encode($err_arr);
+                    return;
+                }
+                
+                // Generate file name
+                $cover_image_ext = pathinfo($_FILES[$image_field_name]['name'], PATHINFO_EXTENSION);
+                $cover_image_name = $this->gnc_image->generate_file_name('prm_'.$this->session->userdata('member_id').'_').'.'.$cover_image_ext;
+                $cover_image_path = PROJECT_IMAGE_PATH.'covers/';
+                $project_data['project_cover_image_path'] = $cover_image_path.$cover_image_name;
+                
+                // Resize
+                // Resize image
+                $resize_config['image_library'] = 'gd2';
+                $resize_config['source_image'] = $_FILES[$image_field_name]['tmp_name'];
+                $resize_config['create_thumb'] = FALSE;
+                $resize_config['maintain_ratio'] = TRUE;
+                $resize_config['width']         = 1660;
+                $resize_config['height']       = 440;
+                
+                $this->image_lib->initialize($resize_config);
+                $this->image_lib->resize();
+                
+                // Set upload image config
+                $upload_config = array();
+                $upload_config['upload_path'] = $cover_image_path;
+                $upload_config['allowed_types'] = 'gif|jpg|png|jpeg';
+                $upload_config['remove_spaces'] = true;
+                $upload_config['max_size']	= '20000';
+                $upload_config['max_width']  = '5000';
+                $upload_config['max_height']  = '5000';
+                $upload_config['file_name'] = $cover_image_name;
+                $upload_config['overwrite'] = TRUE;
+                
+                // Check upload result
+                $this->upload->initialize($upload_config);
+                if(!$this->upload->do_upload($image_field_name)){
+                    echo 'cant upload'.$this->upload->display_errors();
+                    return;
+                }
+                
+                // Get uploaded data
+                $ud = $this->upload->data();
+                
+                // If has old image, then remove it
+                if($project->project_cover_image_path){
+                    $old_path = $project->project_cover_image_path;
+                    $old_full_path = getcwd().'/'.$old_path;
+                    if(file_exists($old_full_path)){
+                        unlink($old_full_path);
+                    }
+                }
+                
+            }
+            
+            $update_result = $this->Project->update($where_assoc, $project_data);
+            if(!$update_result){
+                $err_arr = array('err' => 'update failed');
+                echo json_encode($err_arr);
+                return;
+            }
+            
+            echo 1;
+            
         }
         
         function member_projects_page(){

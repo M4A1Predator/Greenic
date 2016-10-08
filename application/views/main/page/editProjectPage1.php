@@ -21,13 +21,13 @@
             <section>
                 <label class="label"><strong>สถานะสินค้า</strong></label>
                 <label class="select">
-                            <select id="productStatus">
-                                <?php foreach($product_status_arr as $product_status){ ?>
-                                    <option value="<?=$product_status['product_status_id']?>"><?=$product_status['product_status_name_th']?></option>
-                                <?php } ?>
-                            </select>
-                            <i></i>
-                        </label>
+                    <select id="productStatus">
+                        <?php foreach($product_status_arr as $product_status){ ?>
+                            <option value="<?=$product_status['product_status_id']?>"><?=$product_status['product_status_name_th']?></option>
+                        <?php } ?>
+                    </select>
+                    <i></i>
+                </label>
             </section>
             
             <section>

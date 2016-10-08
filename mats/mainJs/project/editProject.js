@@ -15,7 +15,7 @@ $(document).ready(function (){
     var quantity = $('#quantity');
     var lowestOrder = $('#lowestOrder');
     var startDate = $('#startDate');
-    var sellDate = $('#sell_date');
+    var sellDate = $('#sellDate');
     
     var productUnitArr = $('.pUnit');
     
@@ -176,6 +176,8 @@ $(document).ready(function (){
         productStatusId = $('#productStatus').val();
         
         startDateText = getMySqlDateString(startDate.val());
+        sellDateText = getMySqlDateString(sellDate.val());
+        
         coverImageFile = $('#coverImage').prop('files')[0];
         
         formData = new FormData();
@@ -191,10 +193,27 @@ $(document).ready(function (){
         formData.append('project_ppu', ppu.val());
         formData.append('project_quantity', quantity.val());
         formData.append('project_lowest_order', lowestOrder.val());
+        formData.append('project_startdate', startDateText);
+        formData.append('project_selldate', sellDateText);
         formData.append('project_cover_image', coverImageFile);
         
         formData.forEach(function (index, k){
             console.log(k + ' : ' + formData.get(k));
+        });
+        
+        $.ajax({
+            type : 'post',
+            url : webUrl + 'member/edit_project_ajax',
+            processData: false,
+            contentType: false,
+            data: formData,
+        }).done(function (data){
+            //console.log(data);
+            if (data !== '1') {
+                return;
+            }
+            
+            location.reload();
         });
         
     }
