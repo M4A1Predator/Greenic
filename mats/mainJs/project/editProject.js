@@ -197,6 +197,19 @@ $(document).ready(function (){
         formData.append('project_selldate', sellDateText);
         formData.append('project_cover_image', coverImageFile);
         
+        
+        shipmentDict = {};
+        $('.shipmentWay').each(function (){
+            nameArray = $(this).prop('name');
+            shipmentId = nameArray[nameArray.length - 1] + "";
+            shipmentDict[shipmentId] = $(this).prop('checked');
+        });
+        shipmentEncoded = JSON.stringify(shipmentDict);
+        console.log(shipmentDict);
+        console.log(shipmentEncoded);
+        formData.append('shipment', shipmentEncoded);
+        
+        // DEBUG
         formData.forEach(function (index, k){
             console.log(k + ' : ' + formData.get(k));
         });

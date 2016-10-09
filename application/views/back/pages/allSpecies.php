@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">สายพันธุ์</div>
-                                        <!--<div class="no-overflow"> <a href="?page=allBreed">คลิกเพื่อดูสายพันธุ์ทั้งหมด(4)</a> </div>-->
+                                        <div class="no-overflow"> <a href="<?=base_url().'gnc_admin/category/'.$category->category_id.'/breeds'?>">คลิกเพื่อดูสายพันธุ์ทั้งหมด(4)</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่ลง</div>

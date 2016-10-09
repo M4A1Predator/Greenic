@@ -23,7 +23,7 @@
                 <label class="select">
                     <select id="productStatus">
                         <?php foreach($product_status_arr as $product_status){ ?>
-                            <option value="<?=$product_status['product_status_id']?>"><?=$product_status['product_status_name_th']?></option>
+                            <option value="<?=$product_status['product_status_id']?>" <?=($product_status['product_status_id']==$project->project_product_status_id)?'selected':''?>><?=$product_status['product_status_name_th']?></option>
                         <?php } ?>
                     </select>
                     <i></i>
@@ -114,14 +114,14 @@
                         </label>
                 </section>
                 <section class="col-md-2 col-sm-4">
-                        <label class="label"><strong>วันที่เริ่มทำ</strong></label>
+                        <label class="label"><strong>วันที่เริ่มทำ(วัน/เดือน/ปี)</strong></label>
                         <label class="input">
                         <i class="icon-append fa fa-calendar"></i>
                         <input type="text" name="date" id="startDate" value="<?=display_date_th($project->project_startdate)?>" class="hasDatepicker">
                     </label>
                 </section>
                 <section class="col-md-2 col-sm-4">
-                        <label class="label"><strong>วันที่พร้อมจำหน่าย </strong></label>
+                        <label class="label"><strong>วันที่พร้อมจำหน่าย(วัน/เดือน/ปี) </strong></label>
                         <label class="input">
                         <i class="icon-append fa fa-calendar"></i>
                         <input type="text" name="date" id="sellDate" value="<?=display_date_th($project->project_selldate)?>" class="hasDatepicker">

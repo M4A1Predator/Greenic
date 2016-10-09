@@ -33,4 +33,39 @@
             return $shipments;
         }
         
+        function edit_product_shipment($project_id, $shipment_arr){
+            $where_assoc = array();
+            $where_assoc['product_shipment_project_id'] = $project_id;
+            
+            // Clear shipments
+            $this->CI->db->trans_start();
+            $this->remove($where_assoc);
+            
+            // Commit if shipment is none
+            if(!$shipment_arr){
+                $this->CI->db->trans_commit();
+                return TRUE;
+            }
+            
+            // Add new shipments
+            $shipment_data_arr = array();
+            foreach($shipment_arr as $shipment_id){
+                $shipment_data_arr[] = array(
+                                'product_shipment_project_id' => $project_id,
+                                'product_shipment_shipment_id' => $shipment_id
+                            );
+            }
+            
+            $result = $this->add_multiple($shipment_data_arr);
+            
+            if(!$result){
+                $this->CI->db->trans_rollback();
+                return FALSE;
+            }
+            
+            $this->CI->db->trans_commit();
+            return TRUE;
+            
+        }
+        
     }

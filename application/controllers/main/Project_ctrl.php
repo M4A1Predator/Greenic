@@ -417,6 +417,7 @@
             $project_lowest_order = $this->input->post('project_lowest_order');
             $project_startdate = $this->input->post('project_startdate');
             $project_selldate = $this->input->post('project_selldate');
+            $shipment = $this->input->post('shipment');
             
             // Check project
             $where_assoc = array();
@@ -519,6 +520,20 @@
                 echo json_encode($err_arr);
                 return;
             }
+            
+            // Update shipment
+            $shipment = json_decode($shipment);
+            // Filter only selected shipment methods
+            $shipment_arr = array();
+            foreach($shipment as $id => $val){
+                if($val == 'true'){
+                    $shipment_arr[] = $id;
+                }
+            }
+            
+            //echo var_dump($shipment_arr);
+            
+            $edit_shipment_result = $this->Product_shipment->edit_product_shipment($project_id, $shipment_arr);
             
             echo 1;
             
