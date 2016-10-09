@@ -61,7 +61,6 @@
                 return;
             }
             $('#resMsg').html('แก้ไขเรียบร้อย');
-            $('#resMsg').val(data);
         });
         
     }

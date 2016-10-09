@@ -155,5 +155,33 @@
             ob_flush();
             
         }
+        
+        function add_category_ajax(){
+            
+            // Get data
+            $category_name = $this->input->post('category_name');
+            $category_project_type_id = $this->input->post('category_project_type_id');
+            
+            // Get member id
+            $member_id = $this->session->userdata('member_id');
+            
+            $category_data = array();
+            $category_data['category_name'] = $category_name;
+            $category_data['category_project_type_id'] = $category_project_type_id;
+            $category_data['category_creator_id'] = $member_id;
+            
+            $result = $this->Category->add($category_data);
+            if(!$result){
+                $err_assoc = array('err'=>'add failed');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            $data = array();
+            $data['project_type_id'] = $category_project_type_id;
+            
+            $this->output->set_output(json_encode($data, JSON_UNESCAPED_UNICODE));
+            
+        }
     
     }
