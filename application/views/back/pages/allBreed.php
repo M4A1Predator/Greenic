@@ -57,6 +57,7 @@
                                 </div>
                             </li>
                             <?php foreach($breeds as $breed){?>
+                            <?php $edit_url = base_url().'gnc_admin/category/'.$category->category_id.'/breed/'.$breed->breed_id ?>
                             <li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check">
@@ -66,7 +67,7 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อสายพันธุ์</div>
                                         <div>
-                                            <a class="" href='#'>
+                                            <a class="" href='<?=$edit_url?>'>
                                                 <h4 class="item-title"><?=$breed->breed_name?></h4>
                                             </a>
                                         </div>
@@ -115,7 +116,7 @@
                     </div>
                     <nav class="text-xs-right">
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="">
+                            <!--<li class="page-item"> <a class="page-link" href="">
 				ก่อนหน้า
 			</a> </li>
                             <li class="page-item active"> <a class="page-link" href="">
@@ -135,7 +136,7 @@
 			</a> </li>
                             <li class="page-item"> <a class="page-link" href="">
 				ถัดไป
-			</a> </li>
+			</a> </li>-->
                         </ul>
                     </nav>
                 </article>

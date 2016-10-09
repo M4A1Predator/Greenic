@@ -9,26 +9,19 @@
                                 <div class="card card-block sameheight-item" style="height: 727px;">
                                     <form>
                                         <div class="form-group"> <label class="control-label">ชื่อสายพันธุ์</label> 
-                                        <input type="text" class="form-control boxed" value="ผักบุ้งไทย"> </div>
+                                        <input type="text" id="breedName" class="form-control boxed" value="ผักบุ้งไทย"> </div>
                                         <div class="form-group">
                                             <label class="control-label">ประเภท</label>
-                                                <select class="form-control district">
-                                                       <option>เลือกประเภท</option>
-                                                        <option value="vegetable" selected>ผัก</option>
-                                                        <option value="fruit">ผลไม้</option>
-                                                        <option value="animal">สัตว์</option>
-                                                    </select>
+                                            <select class="form-control district" disabled>
+                                                <option value="vegetable" selected><?=get_project_type_thai_text($breed->category_project_type_id)?></option>
+                                            </select>
                                             
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">ชนิด</label>
-                                                <select class="form-control district">
-                                                       <option>เลือกชนิด</option>
-                                                        <option value="br01" selected>ผักบุ้ง</option>
-                                                        <option value="br02">ผักคะน้า</option>
-                                                        <option value="br03">ผักกาด</option>
-                                                    </select>
-                                            
+                                            <select class="form-control district" >
+                                                <option value="br01" selected><?=$breed->category_name?></option>
+                                            </select>
                                         </div>
                                          <div class="form-group">
                                                 <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> บันทึก</button>

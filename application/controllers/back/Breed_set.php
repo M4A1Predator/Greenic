@@ -54,5 +54,33 @@
             
         }
         
+        function edit_breed_page(){
+            
+            $breed_id = $this->uri->segment(5);
+        
+            
+            $where_assoc = array();
+            $where_assoc['breed_id'] = $breed_id;
+            $join_category = $this->gnc_query->get_join_table_assoc('category_view', 'category_view.category_id = breed.breed_category_id');
+            $breeds = $this->Breed->get_filter('*', $where_assoc, [$join_category]);
+            
+            if(!$breeds){
+                return;
+            }
+            
+            $breed = $breeds[0];
+            
+            $data = array();
+            $data['page'] = 'editBreed';
+            $data['breed'] = $breed;
+            
+            $this->load->view('back/index', $data);
+            ob_flush();
+        }
+        
+        function edit_breed_ajax(){
+            
+        }
+        
         
     }
