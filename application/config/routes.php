@@ -163,6 +163,9 @@ $route['gnc_admin/projects/getFarmId/(:any)'] = 'back/Project_set/project_list';
 $route['gnc_admin/category/allCategory'] = 'back/Category_set/all_project_type_page';
 $route['gnc_admin/project_type/(:num)'] = 'back/Category_set/all_category_project_page';
 $route['gnc_admin/category/(:num)/breeds'] = 'back/Breed_set/category_breed_page';
+$route['gnc_admin/category/(:num)/edit']['GET'] = 'back/Category_set/edit_category_page';
+$route['gnc_admin/category/(:num)/edit']['POST'] = 'back/Category_set/edit_category_ajax';
+$route['gnc_admin/category/add']['GET'] = 'back/Category_set/add_category_page';
 
 $route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
 $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';
