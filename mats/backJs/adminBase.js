@@ -2,6 +2,6 @@ var origin = location.origin;
 var protocol = location.protocol;
 var hostname = location.hostname;
 
-var webUrl = origin + '/greenic/';
+var webUrl = origin + '/';
 
-var adminWebUrl = origin + '/greenic/gnc_admin';
+var adminWebUrl = origin + '/gnc_admin';

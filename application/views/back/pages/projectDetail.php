@@ -15,7 +15,7 @@
                                     </div>
                                     <div class="card-block">
                                         <div class="card sameheight-item" style="height: 326px;">
-                                                 <?php if($project->project_cover_image_path){  ?> <img src="<?=$project->project_cover_image_path?>" style="max-width:100%;"> <?php }else{  ?> <div class="cover"></div>   <?php  } ?>   
+                                                 <?php if($project->project_cover_image_path){  ?> <img src="<?=base_url().$project->project_cover_image_path?>" style="max-width:100%;"> <?php }else{  ?> <div class="cover"></div>   <?php  } ?>   
                                                 <div class="row">
                                                 <div class="col-xl-4">
                                                     <div class="card card-default pBox">

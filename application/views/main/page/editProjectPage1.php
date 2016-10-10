@@ -133,7 +133,8 @@
                 </div>
             </section>
             <div class="row">
-                <div class="col-md-12"><img class="img-responsive" src="assets/img/project-bg-1.jpg"></div>
+                <!--<div class="col-md-12"><img class="img-responsive" src="assets/img/project-bg-1.jpg"></div>-->
+                <div class="col-md-12"><img class="img-responsive" src="<?=base_url().$project->project_cover_image_path?>"></div>
                 <section class="col col-6">
                     <label class="label"><strong>รูปประกอบ (รูปหลัก 1 รูป)</strong></label>
                     <section>

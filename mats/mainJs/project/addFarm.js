@@ -46,6 +46,7 @@ function setDistrictOption() {
 }
 
 function setSubDistrictOption(){
+    console.log('test');
     selectSubDistrict.empty();
     selectSubDistrict.append('<option value="">เลือกตำบล/แขวง</option>');
     

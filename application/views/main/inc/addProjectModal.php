@@ -187,22 +187,12 @@
                         
                     <label class="select">  
                     <select class="form-control district">
-                       <option>เลือกอำเภอ/เขต</option>
-                        <option value="คลองสาน">คลองสาน</option>
-                        <option value="ทุ่งครุ" selected>ทุ่งครุ</option>
-                        <option value="บางแค">บางแค</option>
-                        <option value="บางเขน">บางเขน</option>
-                        <option value="มีนบุรี">มีนบุรี</option>
+                       <option value="">เลือกอำเภอ/เขต</option>
                     </select><i></i>
                         </label>
                         <label class="select">
                     <select class="form-control zone">
-                       <option>เลือกตำบล/แขวง</option>
-                        <option value="คลองสาน">บางมด</option>
-                        <option value="ทุ่งครุ">ทุ่งครุ</option>
-                        <option value="บางแค">บางแค</option>
-                        <option value="บางเขน">บางเขน</option>
-                        <option value="มีนบุรี" selected>มีนบุรี</option>
+                       <option value="">เลือกตำบล/แขวง</option>
                     </select><i></i>
                         </label>
                     <label class="input">
