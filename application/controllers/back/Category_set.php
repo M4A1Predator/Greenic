@@ -170,6 +170,15 @@
             $category_data['category_project_type_id'] = $category_project_type_id;
             $category_data['category_creator_id'] = $member_id;
             
+            // Check dup
+            $is_dup = $this->Category->is_dup($category_data);
+            if($is_dup === TRUE){
+                $err_assoc = array('err'=>'duplicated');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            // Add
             $result = $this->Category->add($category_data);
             if(!$result){
                 $err_assoc = array('err'=>'add failed');
@@ -182,6 +191,13 @@
             
             $this->output->set_output(json_encode($data, JSON_UNESCAPED_UNICODE));
             
+        }
+        
+        function is_dup(){
+            $data = array();
+            $data['category_name'] = 'กีวี';
+            $is_dup = $this->Category->is_dup($data);
+            echo var_dump($is_dup);
         }
     
     }

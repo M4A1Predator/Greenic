@@ -95,4 +95,19 @@
             
         }
         
+    
+        function is_dup($category_data){
+            $category_name = $category_data['category_name'];
+            
+            // Check dup
+            $where_assoc = array();
+            $where_assoc['category_name'] = $category_name;
+            
+            $categories = $this->get_filter('*', $where_assoc);
+            if($categories){
+                return TRUE;
+            }
+            
+            return FALSE;
+        }
     }

@@ -5,7 +5,7 @@
                                 <div class="col-md-6">
                                     <h3 class="title">
 					สายพันธุ์ทั้งหมด
-					<a href="?page=addBreed" class="btn btn-primary btn-sm rounded-s"><i class="fa fa-plus"></i> เพิ่มสายพันธุ์ใหม่</a><!---->
+					<a href="<?=base_url_admin().'category/'.$category->category_id.'/breed/add'?>" class="btn btn-primary btn-sm rounded-s"><i class="fa fa-plus"></i> เพิ่มสายพันธุ์ใหม่</a><!---->
                     <div class="action dropdown">
 						<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							คำสั่งจำนวนมาก
@@ -15,7 +15,7 @@
 						</div>
 					</div>
 				</h3>
-                                    <p class="title-description"> ผักบุ้ง <a class="btn btn-secondary-outline" href="?page=allSpecies"><i class="fa fa-chevron-left"></i> ชนิดทั้งหมด</a></p>
+                                    <p class="title-description"> <?=$category->category_name?> <a class="btn btn-secondary-outline" href="<?=base_url_admin().'project_type/'.$category->category_project_type_id?>"><i class="fa fa-chevron-left"></i> ชนิดทั้งหมด</a></p>
                                 </div>
                             </div>
                         </div>

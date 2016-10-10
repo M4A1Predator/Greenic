@@ -165,10 +165,13 @@ $route['gnc_admin/project_type/(:num)'] = 'back/Category_set/all_category_projec
 $route['gnc_admin/category/(:num)/breeds'] = 'back/Breed_set/category_breed_page';
 $route['gnc_admin/category/(:num)/breed/(:num)'] = 'back/Breed_set/edit_breed_page';
 $route['gnc_admin/category/(:num)/breed/(:num)/edit'] = 'back/Breed_set/edit_breed_ajax';
+$route['gnc_admin/category/(:num)/breed/add']['GET'] = 'back/Breed_set/add_breed_page';
+$route['gnc_admin/category/(:num)/breed/add']['POST'] = 'back/Breed_set/add_breed_ajax';
 $route['gnc_admin/category/(:num)/edit']['GET'] = 'back/Category_set/edit_category_page';
 $route['gnc_admin/category/(:num)/edit']['POST'] = 'back/Category_set/edit_category_ajax';
 $route['gnc_admin/category/add']['GET'] = 'back/Category_set/add_category_page';
 $route['gnc_admin/category/add']['POST'] = 'back/Category_set/add_category_ajax';
+$route['gnc_admin/category/is_dup'] = 'back/Category_set/is_dup';
 
 $route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
 $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';

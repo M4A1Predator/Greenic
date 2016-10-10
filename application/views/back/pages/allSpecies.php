@@ -66,7 +66,7 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อชนิด</div>
                                         <div>
-                                            <a href="?page=allBreed" class="">
+                                            <a href="<?=base_url_admin().'category/'.$category->category_id.'/breeds'?>" class="">
                                                 <h4 class="item-title"><?=$category->category_name?></h4> </a>
                                         </div>
                                     </div>

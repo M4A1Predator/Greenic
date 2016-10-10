@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <a class="btn btn-secondary-outline" href="<?=base_url().'gnc_admin/category/allCategory'?>"><i class="fa fa-chevron-left"></i> ชนิดทั้งหมด</a>
-                    <button type="submit" id="addCategoryBtn" class="btn btn-primary"><i class="fa fa-plus"></i> เพิ่ม</button> </div>
+                        <button type="submit" id="addCategoryBtn" class="btn btn-primary"><i class="fa fa-plus"></i> เพิ่ม</button> </div>
                     <!--</form>-->
                 </div>
             </div>

@@ -4,4 +4,4 @@ var hostname = location.hostname;
 
 var webUrl = origin + '/greenic/';
 
-var adminWebUrl = origin + '/greenic/gnc_admin';
+var adminWebUrl = origin + '/greenic/gnc_admin/';

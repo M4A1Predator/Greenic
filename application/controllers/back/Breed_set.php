@@ -57,7 +57,6 @@
         function edit_breed_page(){
             
             $breed_id = $this->uri->segment(5);
-        
             
             $where_assoc = array();
             $where_assoc['breed_id'] = $breed_id;
@@ -79,6 +78,84 @@
         }
         
         function edit_breed_ajax(){
+            
+            $breed_id = $this->uri->segment(5);
+            
+            // Get data
+            $breed_name = $this->input->post('breed_name');
+            
+            // Update
+            $where_assoc = array();
+            $where_assoc['breed_id'] = $breed_id;
+            
+            $breed_data = array();
+            $breed_data['breed_name'] = $breed_name;
+            
+            $result = $this->Breed->update($where_assoc, $breed_data);
+            if(!$result){
+                $err_assoc = array('err'=>'update failed');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            echo 1;
+            
+        }
+        
+        function add_breed_page(){
+            
+            // Get data
+            $category_id = $this->uri->segment(3);
+            
+            // Get category
+            $where_assoc = array();
+            $where_assoc['category_id'] = $category_id;
+            $category = $this->Category->get_filter_single('*', $where_assoc);
+            if(!$category){
+                redirect('/');
+                return;
+            }
+            
+            $data = array();
+            $data['page'] = 'addBreed';
+            $data['category'] = $category;
+            
+            $this->load->view('back/index', $data);
+            ob_flush();
+        }
+        
+        function add_breed_ajax(){
+            
+            // Get data
+            $category_id = $this->uri->segment(3);
+            $member_id = $this->session->userdata('member_id');
+            
+            $breed_name = $this->input->post('breed_name');
+            
+            
+            
+            // Add breed
+            $breed_data = array();
+            $breed_data['breed_name'] = $breed_name;
+            $breed_data['breed_category_id'] = $category_id;
+            $breed_data['breed_creator_id'] = $member_id;
+            
+            // Check data
+            $is_dup = $this->Breed->is_dup($breed_data);
+            if($is_dup === TRUE){
+                $err_assoc = array('err'=>'duplicated');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            $result = $this->Breed->add($breed_data);
+            if(!$result){
+                $err_assoc = array('err'=>'update failed');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            echo 1;
             
         }
         
