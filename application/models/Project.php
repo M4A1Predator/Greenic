@@ -159,7 +159,11 @@
             return $data;
         }
         function get_all_project($filter_assoc=array(), $result_type='object'){
-
+            
+              // Get data
+            $offset = $filter_assoc['offset'];
+            $limit = $filter_assoc['limit'];
+            
             //Set from
             $from_table = 'project';
              // Set where
@@ -170,19 +174,29 @@
             // Set order
             $order_by = 'project_time DESC';
 
-             // Build query
+             // Build query  get all result
+            $this->db->select('*');
+            $this->db->from($this->view);
+            $this->db->where($where_assoc);
+            $count = $this->db->count_all_results();
+             
+             
+             //get fillter data
             $this->db->select('*');
             $this->db->from($this->view);
             $this->db->where($where_assoc);
             $this->db->order_by($order_by);
+            $this->db->offset($offset);
+            $this->db->limit($limit);
 
             $query = $this->db->get();
             $result = $this->get_result($query, $result_type);
 
             $data['result'] = $result;
-
+            $data['count'] = $count;
             return $data;
         }
+        
         
         function get_all_category($filter_assoc=array(), $result_type='object'){
 

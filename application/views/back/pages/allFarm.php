@@ -114,29 +114,31 @@
                             
                             </ul>
                     </div>
+	
+	<?php
+                    $page_amount = 1;
+                    if($count_data % $limit === 0){
+                        $page_amount = $count_data / $limit;
+                    }else{
+                        $page_amount = ($count_data / $limit) + 1;
+                    }
+                ?>
+	
                     <nav class="text-xs-right">
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="">
-				ก่อนหน้า
-			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="">
-				1
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				2
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				3
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				4
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				5
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				ถัดไป
-			</a> </li>
+                           <?php for($i=1;$i<=$page_amount;$i++){ ?>
+                            <?php
+                                $active_class = '';
+                                if($i === $page_number){
+                                    $active_class = 'active';
+                                }
+                            ?>
+                            <li class="page-item <?=$active_class?>">
+                                <a class="page-link" href="<?=base_url().'gnc_admin/projects/allFarm?pageNum='.$i?>"><?=$i?></a
+	           
+	            
+                            </li>
+                            <?php } ?>
                         </ul>
                     </nav>
                 </article>
