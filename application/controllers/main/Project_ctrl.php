@@ -733,4 +733,33 @@
         }
     
     
+    
+        function remove_project_ajax(){
+            
+            // check login
+            if($this->gnc_authen->is_sign_in() == FALSE){
+                echo 0;
+                return;
+            }
+            
+            // Get data
+            $member_password = $this->input->post('member_password');
+            $project_id = $this->input->post('project_id');
+            $member_id = $this->session->userdata('member_id');
+            
+            // Check member password
+            
+            // Check is project owner
+            $is_owner = $this->Project->is_project_owner($member_id, $project_id);
+            if(!$is_owner){
+                echo 0;
+                return;
+            }
+            
+            // Remove project
+            $where_assoc = array();
+            
+            
+        }
+    
     }

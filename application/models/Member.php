@@ -282,6 +282,35 @@
             // Return member assoc
             return $member;
         }
+        
+        
+        /*
+         *  Check member password
+         *  Use for validate user when
+         *  user want to do an important activity
+         *  
+         */
+        function check_member_password($member_id, $password){
+            
+            // Get member
+            $where_assoc = array();
+            $members = $this->get_filter('*', $where_assoc);
+            if(!$members){
+                return FALSE;
+            }
+            
+            $member = $members[0];
+            
+            // Check password
+            $verify_password = password_verify($password, $member->member_password);
+            
+            if(!$verify_password){
+                return FALSE;
+            }
+            
+            return TRUE;
+            
+        }
 
         function change_member_type($member_id, $new_member_type_id){
             /*
@@ -496,4 +525,5 @@
            return $data;
 
        }
+       
     }

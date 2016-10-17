@@ -35,6 +35,7 @@ function setFarmOption() {
 }
 
 function setProjectsList() {
+    
     farmId = selectFarm.val();
     typeId = selectType.val();
     
@@ -81,7 +82,7 @@ function setProjectsList() {
                     '</ul>' +
                     '<a href="' + projectUrl + '" class="btn-u btn-u-sm">ดูโปรเจ็คนี้</a>' + 
                     '<a href="' + editProjectUrl + '" class="btn-u btn-u-blue btn-u-sm"><i class="fa fa-pencil"></i></a> ' + 
-                    '<a class="btn-u btn-u-red btn-u-sm"><i class="fa fa-trash-o"></i></a>' + 
+                    '<a class="btn-u btn-u-red btn-u-sm" id="rmProject-' + project.project_id + '"><i class="fa fa-trash-o"></i></a>' + 
                 '</div>' +
             '</div>';
             
@@ -116,5 +117,20 @@ function setProjectsList() {
             
         }
         
+        setButtonCallback();
     });
 }
+
+var rmProjectId = 0;
+
+function setButtonCallback() {
+    $('[id^="rmProject"]').click(function (){
+        rmProjectId = getElementIdFromId($(this).prop('id'));
+        console.log(rmProjectId);
+        
+        $('#removeProject').modal('toggle');
+        
+    });
+}
+
+

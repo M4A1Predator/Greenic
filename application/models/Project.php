@@ -214,6 +214,7 @@
             return $data;
 
         }
+        
         function admin_get_project_by_id($where_assoc=array(),$group_by='', $result_type='object'){
             // Get project
 
@@ -235,5 +236,24 @@
 
             return $data;
 
+        }
+        
+        function is_project_owner($member_id, $project_id){
+            
+            // Get project
+            $where_project_assoc = array();
+            $where_project_assoc['project_id'] = $project_id;
+            $where_project_assoc['project_status_id'] = $this->CI->Status->status_normal_id;
+            $p_results = $this->get_filter('*', $where_project_assoc, null, null, null, null, 'object', array('use_view' => TRUE));
+            if(!$p_results){
+                return FALSE;
+            }
+            $project = $p_results[0];
+            // Check owner
+            if($project->farm_member_id != $member_id){
+                return FALSE;
+            }
+            
+            return TRUE;
         }
     }

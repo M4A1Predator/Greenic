@@ -58,7 +58,7 @@
            </div>
            <div class="modal-footer">
                <button type="button" class="btn-u btn-u-primary" data-dismiss="modal"> ยกเลิก</button>
-               <button type="button" class="btn-u btn-u-default" id="confirmRemoveFarmBtn"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
+               <button type="button" class="btn-u btn-u-red" id="confirmRemoveFarmBtn"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
            </div>
            </form>
        </div>
