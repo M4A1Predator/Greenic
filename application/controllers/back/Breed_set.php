@@ -150,7 +150,7 @@
             
             $result = $this->Breed->add($breed_data);
             if(!$result){
-                $err_assoc = array('err'=>'update failed');
+                $err_assoc = array('err'=>'add failed');
                 echo json_encode($err_assoc);
                 return;
             }

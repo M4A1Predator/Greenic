@@ -15,7 +15,7 @@
 						</div>
 					</div>
 				</h3>
-                                    <p class="title-description"> Species </p>
+                                    <p class="title-description"> <!--Species--><?=get_project_type_thai_text($project_type_id)?> </p>
                                 </div>
                             </div>
                         </div>
@@ -111,28 +111,16 @@
                          </ul>
                     </div>
                     <nav class="text-xs-right">
-<!--                        <ul class="pagination">-->
-<!--                            <li class="page-item"> <a class="page-link" href="">-->
-<!--				ก่อนหน้า-->
-<!--			</a> </li>-->
-<!--                            <li class="page-item active"> <a class="page-link" href="">-->
-<!--				1-->
-<!--			</a> </li>-->
-<!--                            <li class="page-item"> <a class="page-link" href="">-->
-<!--				2-->
-<!--			</a> </li>-->
-<!--                            <li class="page-item"> <a class="page-link" href="">-->
-<!--				3-->
-<!--			</a> </li>-->
-<!--                            <li class="page-item"> <a class="page-link" href="">-->
-<!--				4-->
-<!--			</a> </li>-->
-<!--                            <li class="page-item"> <a class="page-link" href="">-->
-<!--				5-->
-<!--			</a> </li>-->
-<!--                            <li class="page-item"> <a class="page-link" href="">-->
-<!--				ถัดไป-->
-<!--			</a> </li>-->
-<!--                        </ul>-->
+                        <ul class="pagination">
+                            <?php for($i=1;$i<=$page_amount;$i++){ ?>
+                            <?php
+                                $class = '';
+                                if($i == $page_num){
+                                    $class = 'active';
+                                }
+                            ?>
+                            <li class="page-item <?=$class?>"> <a class="page-link" href="?p=<?=$i?>"><?=$i?></a></li>
+                            <?php } ?>
+                       </ul>
                     </nav>
                 </article>

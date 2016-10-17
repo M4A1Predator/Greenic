@@ -169,4 +169,13 @@
         }
         
         
+    
+        function edit_article_page($article_id=0){
+            
+            $data['page'] = 'editArticle';
+            
+            $this->load->view('back/index', $data);
+            
+        }
+    
     }

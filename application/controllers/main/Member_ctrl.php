@@ -225,6 +225,15 @@
     
         function all_farmer_page(){
             
+            // Get page
+            $page = $this->input->get('p');
+            $limit = 20;
+            
+            if(!$page || !is_numeric($page)){
+                $page = 1;
+            }
+            $offset = ($limit * $page) - $limit;
+            
             // Get members
             $where_assoc = array();
             $where_assoc['member_type_id'] = $this->Member_type->member_farmer_id;
@@ -239,9 +248,23 @@
                         'group_by' => 'member_id'
                     );
             
-            $farmers = $this->Member->get_filter('*, count(project_id)', $where_assoc, $join_arr, null, null, null, 'object', $add_arr);
+            $farmers = $this->Member->get_filter('*, count(project_id) as project_count', $where_assoc, $join_arr, null, $offset, $limit, 'object', $add_arr);
+            $farmer_count = $this->Member->get_filter_count('*, count(project_id) as project_count', $where_assoc, $join_arr, null, $offset, $limit, 'object', $add_arr);
+            
+            // Calculate page amount
+            if($farmer_count <= $limit){
+                $page_amount = 1;
+            }else{
+                if($farmer_count % $limit == 0){
+                    $page_amount = $farmer_count / $limit;
+                }else{
+                    $page_amount = ($farmer_count / $limit) + 1;
+                }
+            }
             
             $data['farmers'] = $farmers;
+            $data['page'] = $page;
+            $data['page_amount'] = $page_amount;
             
             // Load view
             $this->load->view('main/allAgriculturist', $data);

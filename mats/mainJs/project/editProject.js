@@ -221,7 +221,7 @@ $(document).ready(function (){
             contentType: false,
             data: formData,
         }).done(function (data){
-            //console.log(data);
+            console.log(data);
             if (data !== '1') {
                 return;
             }

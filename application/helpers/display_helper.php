@@ -34,7 +34,7 @@
     
     function get_project_type_thai_text($project_type_id){
         
-        if($project_type_id === 0){
+        if($project_type_id === 0 || !$project_type_id){
             return 'ทุกชนิด';
         }
         

@@ -49,7 +49,7 @@
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
                             </li>
-	          <?php foreach($projects as $project){ ?>
+                            <?php foreach($units as $unit){ ?>
                             <li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items"><input type="checkbox" class="checkbox"><span></span></label> </div>
@@ -57,16 +57,16 @@
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
                                             <a>
-                                                <h4 class="item-title"><?=$project->unit_name ?></h4> </a>
+                                                <h4 class="item-title"><?=$unit->unit_name ?></h4> </a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">การใช้งาน</div>
-                                        <div> <?=$project->unit_count ?> </div>
+                                        <div><?=$unit->project_count?> รายการ</div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่เพิ่ม</div>
-                                        <div class="no-overflow"><?=$project->unit_create_date ?> </div>
+                                        <div class="no-overflow"> <?=$unit->unit_datetime?> </div>
                                     </div>
                                     <div class="item-col fixed item-col-actions-dropdown">
                                         <div class="item-actions-dropdown">
@@ -74,7 +74,7 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li><a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a></li>
-                                                    <li><a class="edit" href="?page=editUnit"> <i class="fa fa-pencil"></i> </a></li>
+                                                    <li><a class="edit" href="<?=base_url_admin().'unit/'.$unit->unit_id?>"> <i class="fa fa-pencil"></i> </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -86,28 +86,6 @@
                         </ul>
                     </div>
                     <nav class="text-xs-right">
-                        <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="">
-				ก่อนหน้า
-			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="">
-				1
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				2
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				3
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				4
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				5
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				ถัดไป
-			</a> </li>
-                        </ul>
+
                     </nav>
                 </article>

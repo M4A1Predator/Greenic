@@ -29,11 +29,12 @@
             $data['page'] = $page;
             
             // Get project types
-            $project_types = $this->Project_type->get_project_type_with_count_project_admin();
+            $project_types = $this->Project_type->get_project_type_with_count_category_admin();
             
             $all_project_count = 0;
             foreach($project_types as $pt){
-                $all_project_count += (int)$pt->project_count;
+                //$all_project_count += (int)$pt->project_count;
+                $all_project_count += (int)$pt->category_count;
             }
             
             // Set data
@@ -52,6 +53,14 @@
             // get data
             $pt_id = $this->uri->segment(3);
             
+            $page_num = $this->input->get('p');
+            if(!$page_num || !is_numeric($page_num)){
+                $page_num = 1;
+            }
+            
+            $limit = 20;
+            $offset = ($limit * $page_num) - $limit;
+            
             // get projects
             $where_assoc = array();
             if($pt_id){
@@ -61,12 +70,13 @@
             // Get category with project count
             $join_project = $this->gnc_query->get_join_table_assoc('project', 'project.project_category_id = category.category_id', 'left');
             $select = '*, count(project_id) as project_count';
-            $categories = $this->Category->get_filter($select, $where_assoc, [$join_project], null, null, null, 'object', array('group_by' => 'category_id'));
+            $categories = $this->Category->get_filter($select, $where_assoc, [$join_project], null, $offset, $limit, 'object', array('group_by' => 'category_id'));
+            $category_count = $this->Category->get_filter_count($select, $where_assoc, [$join_project], null, $offset, $limit, 'object', array('group_by' => 'category_id'));
             
             // Get category with breed count
             $join_breed = $this->gnc_query->get_join_table_assoc('breed', 'breed.breed_category_id = category.category_id', 'left');
             $select = 'category_id, count(breed_id) as breed_count';
-            $cat_breeds = $this->Category->get_filter($select, $where_assoc, [$join_breed], null, null, null, 'object', array('group_by' => 'category_id'));
+            $cat_breeds = $this->Category->get_filter($select, $where_assoc, [$join_breed], null, $offset, $limit, 'object', array('group_by' => 'category_id'));
             //echo var_dump($cat_breeds);
             //return;
             
@@ -76,9 +86,13 @@
                 $categories[$k]->breed_count = $cat_breeds[$k]->breed_count;
             }
             
+            $page_amount = get_page_amount($category_count, $limit);
+            
             // Set data
             $data['project_type_id'] = $pt_id;
             $data['categories'] = $categories;
+            $data['page_num'] = $page_num;
+            $data['page_amount'] = $page_amount;
             
             // Load view
             $this->load->view('back/index', $data);

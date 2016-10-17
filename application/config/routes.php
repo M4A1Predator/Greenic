@@ -173,8 +173,13 @@ $route['gnc_admin/category/add']['GET'] = 'back/Category_set/add_category_page';
 $route['gnc_admin/category/add']['POST'] = 'back/Category_set/add_category_ajax';
 $route['gnc_admin/category/is_dup'] = 'back/Category_set/is_dup';
 
+$route['gnc_admin/units'] = 'back/Unit_set/all_unit_page';
+$route['gnc_admin/unit/(:num)'] = 'back/Unit_set/edit_unit_page/$1';
+$route['gnc_admin/unit/(:num)/edit'] = 'back/Unit_set/edit_unit_ajax/$1';
+
 $route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
 $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';
+$route['gnc_admin/article/(:num)'] = 'back/Article_set/edit_article_page/$1';
 
 $route['gnc_admin/webdata/about'] = 'back/Webdata_set/about_page';
 $route['gnc_admin/webdata/terms'] = 'back/Webdata_set/terms_page';
