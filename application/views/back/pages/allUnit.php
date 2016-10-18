@@ -85,7 +85,6 @@
                             
                         </ul>
                     </div>
-                    <nav class="text-xs-right">
-
-                    </nav>
-                </article>
+                <nav class="text-xs-right">
+                </nav>
+            </article>
