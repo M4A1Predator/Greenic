@@ -96,8 +96,8 @@
             $this->db->where($where_assoc);
 
             if($group_by ){
-            $this->db->group_by($group_by);
-            $this->db->order_by($order_by);
+                $this->db->group_by($group_by);
+                $this->db->order_by($order_by);
             }else{}
             $count = $this->db->count_all_results();
             

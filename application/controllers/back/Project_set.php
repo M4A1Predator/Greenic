@@ -164,7 +164,8 @@
             
         }
         
-          function farm_detail(){
+        function farm_detail(){
+            
             $data = array();
             
             //set value
@@ -181,7 +182,6 @@
                 $page='farmDetail';
             }
             $where_assoc['farm_id'] = $farm_id;
-            $where_assoc['offset'] = 0;
             
             //query
             $farm_data =$this->Farm->admin_get_farm_by_id($where_assoc);
@@ -191,7 +191,6 @@
             
             // Load view
             $this->load->view('back/index', $data);
-            
             
         }
     }
