@@ -1,10 +1,30 @@
+<?php
+    // Set member image profile
+    $member_img = $this->session->userdata('member_img_path');
+    if(!$member_img){
+        $member_img = get_default_member_image_path();
+    }
+?>
+
 <div class="container content-md">
     <div class="row">
         <div class="col-md-12">
             <a href="chatMain.php"><strong><i class="fa fa-reply-all"></i> รายชื่อสนทนาทั้งหมด</strong></a>
             <div class="panel panel-u">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-comment"></span> สมหมาย ร่ำรวย
+                    <?php
+                        $farmer_name = $farmer->member_firstname;
+                        if($farmer->member_lastname){
+                            $farmer_name .= ' '.$farmer->member_lastname;
+                        }
+                        
+                        // Set farmer image profile
+                        $farm_img = $farmer->member_img_path;
+                        if(!$farm_img){
+                            $farm_img = get_default_member_image_path();
+                        }
+                    ?>
+                    <span class="glyphicon glyphicon-comment"></span> <?=$farmer_name?>
                     <div class="btn-group pull-right">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-chevron-down"></span>

@@ -277,7 +277,7 @@
             }
             
         }
-        
+
     
         function remove($where_assoc){
             $this->db->where($where_assoc);

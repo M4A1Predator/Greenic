@@ -26,7 +26,7 @@
                         ( <a href="<?=base_url().$this->lang->line('sign_out_uri')?>"><?=$this->lang->line('sign_out_text')?></a> )
                         <!--<a href="<?=base_url().$this->lang->line('sign_out_uri')?>"><i class="fa fa-sign-out"></i></a>-->
                     </li>
-					<li class=""><a href="<?=base_url()?>mats/chatMain.php?status=login"><i class="fa fa-comment" aria-hidden="true"></i> กล่องแชท</a></li>
+					<li class=""><a href="<?=base_url()?>chat"><i class="fa fa-comment" aria-hidden="true"></i> กล่องแชท</a></li>
                     <li class=""><a href="<?=base_url().$this->lang->line('add_project')?>"><i class="fa fa-plus" aria-hidden="true"></i> สร้างโปรเจ็ค</a></li>
                     <?php if($this->session->userdata('member_type_name') == $this->Member_type->member_farmer || $this->session->userdata('member_type_name') == $this->Member_type->member_admin){ ?>
 					<!--เริ่ม..ถ้ามีโปรเจ็ก 1 โปรเจ็คขึ้นไปจึงจะแสดง-->

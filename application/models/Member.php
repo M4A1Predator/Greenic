@@ -197,6 +197,28 @@
 
             return $member;
         }
+        
+        function get_member_view_by_id($member_id, $result_type='object'){
+            // Set where clause
+            $where_assoc = array();
+            $where_assoc['member_id'] = $member_id;
+
+            // Get member
+            $members = $this->get_filter('*', $where_assoc, null, null, null, null, $result_type, array('use_view' => $this->table));
+            if(!$members){
+                return null;
+            }
+            
+            $member = $members[0];
+
+            if(is_array($member)){
+                unset($member['password']);
+            }else{
+                $member->password = null;
+            }
+
+            return $member;
+        }
 
 
         function member_authentication($email, $password){

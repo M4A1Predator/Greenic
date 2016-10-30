@@ -340,7 +340,9 @@
                 </li>
             </ul>
             
-            <a class="btn-u btn-u-lg btn-full  text-center margin-bottom-10" href="chatMain.php">แชทเลย <i class="fa fa-comment" aria-hidden="true"></i></a>
+            <?php if(!$is_owner){ ?>
+            <a class="btn-u btn-u-lg btn-full  text-center margin-bottom-10" href="<?=base_url()?>chat/<?=$project->member_id?>">แชทเลย <i class="fa fa-comment" aria-hidden="true"></i></a>
+            <?php } ?>
             
             <div class="text-center"><img style="max-width:100%;" src="<?=base_url()?>mats/assets/img/ads-300.jpg"></div>
 

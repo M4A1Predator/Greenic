@@ -58,8 +58,19 @@
             echo var_dump($notification_arr)."<br/>";
             echo $this->Activity_type->activity_type_update_timeline_id;
             
-            
         }
         
+        
+        function test_chat(){
+            $msg = $this->input->post('msg');
+            
+            $data = array();
+            $data['msg'] = $msg;
+            
+            $send_result = $this->gnc_socket->send_message($data);
+            
+            echo 1;
+            
+        }
         
     }
