@@ -1,6 +1,7 @@
 <html>
     <head>
-        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <!--<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>-->
+        <script type="text/javascript" src="<?=base_url()?>mats/assets/js/socket.io-1.4.5.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/assets/plugins/jquery/jquery.min.js"></script>
         
     </head>

@@ -53,5 +53,6 @@
 	<script type="text/javascript" src="<?=base_url()?>mats/assets/plugins/bootstrap/js/bootstrap.min.js"></script>-->
     
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script type="text/javascript" src="<?=base_url()?>mats/assets/js/socket.io-1.4.5.js"></script>
     
 </head>

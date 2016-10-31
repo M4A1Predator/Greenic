@@ -139,6 +139,8 @@ $route['search/search_projects_ajax'] = 'main/Search/search_projects_ajax';
 
 $route['chat'] = 'main/Chat_ctrl/main_chat_page';
 $route['chat/(:num)'] = 'main/Chat_ctrl/conversation_page/$1';
+$route['chat/send_message_ajax'] = 'main/Chat_ctrl/send_message_ajax';
+$route['chat/get_conversation_message_list_ajax'] = 'main/Chat_ctrl/get_conversation_message_list_ajax';
 
 $route['article/get_last_articles_ajax'] = 'main/Article_ctrl/get_last_articles_ajax';
 

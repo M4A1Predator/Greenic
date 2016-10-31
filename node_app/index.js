@@ -19,12 +19,18 @@ io.sockets.on('connection', function(socket){
     // On init
     console.log('Connected : ' + connections.length + ' sockets connected');
     
+    // Test
     socket.on('send_msg', function (data){
 		console.log(data);
         console.log('send_msg : ' + data.msg);
 		
 		socket.broadcast.emit('response_message', data);
 		
+    });
+    
+    // Bind events
+    socket.on('send_message', function (data){
+        socket.broadcast.emit('response_message', data);
     });
     
     // On disconnected

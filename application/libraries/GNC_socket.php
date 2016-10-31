@@ -11,10 +11,14 @@
         
         
         function send_message($data){
-            $client = new Client(new Version1X('http://localhost:3001'));
-            $client->initialize();
-            $client->emit('send_msg', $data);
-            $client->close();
+            try{
+                $client = new Client(new Version1X('http://localhost:3001'));
+                $client->initialize();
+                $client->emit('send_message', $data);
+                $client->close();
+            }catch(Exception $e){
+                return FALSE;
+            }
             
             return TRUE;
         }

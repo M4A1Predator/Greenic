@@ -4,27 +4,38 @@
     if(!$member_img){
         $member_img = get_default_member_image_path();
     }
+    
+    $member_name = $this->session->userdata('member_firstname');
+    if($this->session->userdata('member_lastname')){
+        $member_name .= ' '.$this->session->userdata('member_lastname');
+    }
 ?>
-
+<input type="hidden" id="memberId" value="<?=$this->session->userdata('member_id')?>" />
+<input type="hidden" id="receiverId" value="<?=$receiver->member_id?>" />
 <div class="container content-md">
     <div class="row">
         <div class="col-md-12">
             <a href="chatMain.php"><strong><i class="fa fa-reply-all"></i> รายชื่อสนทนาทั้งหมด</strong></a>
-            <div class="panel panel-u">
+            <div class="panel panel-u" >
                 <div class="panel-heading">
                     <?php
-                        $farmer_name = $farmer->member_firstname;
-                        if($farmer->member_lastname){
-                            $farmer_name .= ' '.$farmer->member_lastname;
+                        $receiver_name = $receiver->member_firstname;
+                        if($receiver->member_lastname){
+                            $receiver_name .= ' '.$receiver->member_lastname;
                         }
                         
-                        // Set farmer image profile
-                        $farm_img = $farmer->member_img_path;
-                        if(!$farm_img){
-                            $farm_img = get_default_member_image_path();
+                        // Set receiver image profile
+                        $receiver_img = $receiver->member_img_path;
+                        if(!$receiver_img){
+                            $receiver_img = get_default_member_image_path();
                         }
                     ?>
-                    <span class="glyphicon glyphicon-comment"></span> <?=$farmer_name?>
+                    <input type="hidden" id="receiverImg" value="<?=$receiver_img?>"/>
+                    <input type="hidden" id="memberImg" value="<?=$member_img?>"/>
+                    <input type="hidden" id="receiverName" value="<?=$receiver_name?>" />
+                    <input type="hidden" id="memberName" value="<?=$member_name?>" />
+                    
+                    <span class="glyphicon glyphicon-comment"></span> <?=$receiver_name?>
                     <div class="btn-group pull-right">
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-chevron-down"></span>
@@ -35,8 +46,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="panel-body">
-                    <ul class="chat">
+                <div class="panel-body" id="chatBox">
+                    <ul class="chat" id="chatMessageList">
                         <li class="left clearfix"><span class="chat-img pull-left">
                             <img src="<?=base_url()?>mats/assets/img/testimonials/img7.jpg" alt="User Avatar" class="img-circle chatProfile" />
                         </span>
@@ -119,9 +130,9 @@
                 </div>
                 <div class="panel-footer">
                     <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="พิมพ์ข้อความที่นี่..." />
+                        <input id="sendingMessage" type="text" class="form-control input-sm" placeholder="พิมพ์ข้อความที่นี่..." />
                         <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                            <button class="btn btn-warning btn-sm" id="sendMessageBtn">
                                 ส่งข้อความ</button>
                         </span>
                     </div>
