@@ -137,6 +137,7 @@ $route['vote/get_compare_review_data_ajax'] = 'main/Review_ctrl/get_compare_revi
 $route['member_remove/farm_ajax'] = 'main/Farm_ctrl/member_remove_farm_ajax';
 $route['search/search_projects_ajax'] = 'main/Search/search_projects_ajax';
 
+$route['member/get_conversations_ajax'] = 'main/Conversation_ctrl/get_conversations_ajax';
 $route['chat'] = 'main/Chat_ctrl/main_chat_page';
 $route['chat/(:num)'] = 'main/Chat_ctrl/conversation_page/$1';
 $route['chat/send_message_ajax'] = 'main/Chat_ctrl/send_message_ajax';

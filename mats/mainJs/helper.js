@@ -76,6 +76,12 @@ function getMySqlDateString(dateString) {
     return dateStringMySQL;
 }
 
+function getDateTimeText() {
+    date = new Date();
+    dateText = date.getDate() + '/' + (date.getMonth() +1 ) + '/' + (date.getFullYear() + 543) + ' ' + hour + ':' + minute;
+    return dateText;
+}
+
 function getElementIdFromId(idText) {
     idTextArray = idText.split('-');
     return idTextArray[1];

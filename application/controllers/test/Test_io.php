@@ -73,4 +73,15 @@
             
         }
         
+        function test_con(){
+            $data['member_a_id'] = 14;
+            $data['member_b_id'] = 25;
+            $res = $this->Conversation->get_conversation($data);
+            echo $this->db->last_query();
+            echo '<hr/>';
+            
+            echo var_dump($res);
+            
+        }
+        
     }

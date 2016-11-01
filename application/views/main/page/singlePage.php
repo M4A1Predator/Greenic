@@ -340,7 +340,7 @@
                 </li>
             </ul>
             
-            <?php if(!$is_owner){ ?>
+            <?php if(!$is_owner && $is_sign_in){ ?>
             <a class="btn-u btn-u-lg btn-full  text-center margin-bottom-10" href="<?=base_url()?>chat/<?=$project->member_id?>">แชทเลย <i class="fa fa-comment" aria-hidden="true"></i></a>
             <?php } ?>
             
