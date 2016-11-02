@@ -172,10 +172,121 @@
     
         function edit_article_page($article_id=0){
             
+            // Get article
+            $where_assoc = array();
+            $where_assoc['article_id'] = $article_id;
+            
+            $join_member = $this->gnc_query->get_join_table_assoc('member_public_view', 'member_public_view.member_id = article.article_member_id');
+            $join_status = $this->gnc_query->get_join_table_assoc('status', 'status.status_id = article.article_status_id');
+            $join_array = [$join_status, $join_member];
+            
+            $articles = $this->Article->get_filter('*', $where_assoc, $join_array, null, null, null );
+            if(!$articles){
+                redirect('/gnc_admin');
+                return;
+            }
+            $article = $articles[0];
+            
+            $data = array();
+            $data['article'] = $article;
             $data['page'] = 'editArticle';
             
             $this->load->view('back/index', $data);
+        }
+        
+        function edit_article_ajax(){
+            // Get data
+            $article_headline = $this->input->post('headline');
+            $article_content = $this->input->post('content');
+            $article_id = $this->input->post('article_id');
+            $member_id = $this->session->userdata('member_id');
             
+            // Get article
+            $article = $this->Article->get_article($article_id);
+            if(!$article){
+                echo 'No article';
+                return;
+            }
+            
+            // Prepare data
+            $article_data = array();
+            $article_data['article_headline'] = $article_headline;
+            $article_data['article_content'] = $article_content;
+            //$article_data['article_cover_image'] = NULL;
+            $article_data['article_member_id'] = $member_id;
+            
+            //$article_data['article_status_id'] = $this->Status->status_publish_id;
+            
+            // Upload cover image
+            $article_cover_image_field = 'article_cover_image';
+            if(array_key_exists($article_cover_image_field, $_FILES)){
+                // Upload image
+                // Load library
+                $this->load->library('upload');
+                $this->load->library('image_lib');
+                $this->load->library('GNC_image');
+                
+                $cover_image = $_FILES[$article_cover_image_field];
+                
+                // Get file type
+                $cover_image_ext = pathinfo($cover_image['name'], PATHINFO_EXTENSION);
+                $cover_image_type = $cover_image['type'];
+                
+                // Check file type
+                if(!$this->gnc_image->is_image_file($cover_image)){
+                    echo 'Invalid file';
+                    return;
+                }
+                
+                // Generate file name
+                $cover_image_name = $this->gnc_image->generate_file_name('art_').'.'.$cover_image_ext;
+                $cover_image_location = ARTICLE_IMAGE_PATH.'cover_imgs';
+                
+                // Set upload image config
+                $config = array();
+                $config['upload_path'] = $cover_image_location;
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
+                $config['remove_spaces'] = true;
+                $config['max_size']	= '20000';
+                $config['max_width']  = '3850';
+                $config['max_height']  = '3850';
+                $config['file_name'] = $cover_image_name;
+                $config['overwrite'] = TRUE;
+                $fieldname = $article_cover_image_field;  //input tag name
+                
+                // Upload image
+                $this->upload->initialize($config);
+                if(!$this->upload->do_upload($fieldname)){
+                    echo 'Upload error'.$this->upload->display_errors();
+                    return;
+                }else{
+                    // Remove old image
+                    if($article->article_cover_image){
+                        $old_image_path = $article->article_cover_image;
+                        $old_image_full_path = getcwd().'/'.$old_image_path;
+                        if(file_exists($old_image_full_path)){
+                            unlink($old_image_full_path);
+                        }
+                    }
+                    
+                    // Set path value
+                    $cover_image_full_path = $cover_image_location.'/'.$cover_image_name;
+                    $article_data['article_cover_image'] = $cover_image_full_path;
+                }
+            }
+            
+            // Update article
+            //$add_result = $this->Article->add($article_data);
+            $update_where = array(
+                'article_id' => $article_id,
+            );
+            $update_result = $this->Article->update($update_where, $article_data);
+            if(!$update_result){
+                echo '{"error": "update failed"}';
+                return;
+            }
+            
+            echo 1;
         }
     
     }

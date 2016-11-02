@@ -22,8 +22,8 @@
     </div>
     <div class="col-md-6">
                     <div class="panel margin-bottom-40">
-								<table class="table table-striped chatList">
-									<tbody>
+                        <table class="table table-striped chatList">
+                            <tbody id="conversationRow2">
 <!--										<tr onclick="window.document.location='chatMessage.php#1';">-->
 <!--											<td class="chatProfile"><img class="rounded-x" src="<?=base_url()?>mats/assets/img/testimonials/img1.jpg" alt=""></td>-->
 <!--											<td><a>สมปอง มุ่งทำกิน</a><br><small class="chatName"><i class="fa fa-map-marker" aria-hidden="true"></i> ฟาร์มบ้านไร่ชายตวัน</small></td>-->
@@ -64,9 +64,9 @@
 <!--											<td><a>สมาน สานสกลุ</a><br><small class="chatName"><i class="fa fa-map-marker" aria-hidden="true"></i> ฟาร์มบ้านไร่ชายตวัน</small></td>-->
 <!--											<td><button class="btn btn-default btn-xs"><i class="fa fa-clock-o"></i> 5:10pm</button></td>-->
 <!--										</tr>-->
-									</tbody>
-								</table>
-							</div>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                </div>
+            </div>
 <div style="clear:both;"></div>

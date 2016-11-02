@@ -76,6 +76,7 @@ $route['category/([a-zA-Z0-9]{0,})'] = 'main/Category_ctrl/view_project_type_pag
 $route['category/([a-zA-Z0-9]{0,})/(:num)'] = 'main/Category_ctrl/view_category_page';
 
 $route['all_farmers'] = 'main/Member_ctrl/all_farmer_page';
+$route['articles'] = 'main/Article_ctrl/all_articles_page';
 $route['article/(:num)'] = 'main/Article_ctrl/view_article_page';
 $route['aboutus'] = 'main/Webdata_ctrl/about_page';
 
@@ -143,6 +144,7 @@ $route['chat/(:num)'] = 'main/Chat_ctrl/conversation_page/$1';
 $route['chat/send_message_ajax'] = 'main/Chat_ctrl/send_message_ajax';
 $route['chat/get_conversation_message_list_ajax'] = 'main/Chat_ctrl/get_conversation_message_list_ajax';
 
+$route['article/get_all_articles_ajax'] = 'main/Article_ctrl/get_all_articles_ajax';
 $route['article/get_last_articles_ajax'] = 'main/Article_ctrl/get_last_articles_ajax';
 
 //====================================================================================================================================
@@ -197,6 +199,7 @@ $route['gnc_admin/_sign_in_pro_ajax'] = 'back/Admin_authentication/sign_in_pro_a
 $route['gnc_admin/sign_out'] = 'back/Admin_authentication/sign_out_pro';
 
 $route['gnc_admin/article/add_article_ajax'] = 'back/Article_set/add_article_ajax';
+$route['gnc_admin/article/edit_article_ajax'] = 'back/Article_set/edit_article_ajax';
 
 $route['gnc_admin/webdata/edit_about_ajax'] = 'back/Webdata_set/edit_about_ajax';
 $route['gnc_admin/webdata/edit_terms_ajax'] = 'back/Webdata_set/edit_terms_ajax';

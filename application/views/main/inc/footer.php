@@ -24,10 +24,10 @@
 							<div class="headline"><h2 class="heading-sm">เมนูภายในเว็บ</h2></div>
 							<ul class="list-unstyled link-list">
 								<li><a href="<?=base_url()?>/aboutus">เกี่ยวกับเรา</a><i class="fa fa-angle-right"></i></li>
-								<li><a href="<?=base_url()?>mats/allProduct.php">สินค้าทั้งหมด</a><i class="fa fa-angle-right"></i></li>
+								<li><a href="<?=base_url()?>search">สินค้าทั้งหมด</a><i class="fa fa-angle-right"></i></li>
 								<li><a href="<?=base_url()?>all_farmers">เกษตรกรทั้งหมด</a><i class="fa fa-angle-right"></i></li>
-								<li><a href="<?=base_url()?>mats/article.php">บทความ</a><i class="fa fa-angle-right"></i></li>
-								<li><a href="<?=base_url()?>mats/contact.php">ติดต่อเรา</a><i class="fa fa-angle-right"></i></li>
+								<li><a href="<?=base_url()?>articles">บทความ</a><i class="fa fa-angle-right"></i></li>
+								<!--<li><a href="<?=base_url()?>mats/contact.php">ติดต่อเรา</a><i class="fa fa-angle-right"></i></li>-->
 							</ul>
 						</div>
 						<!-- End Link List -->

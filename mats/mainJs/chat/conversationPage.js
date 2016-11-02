@@ -1,6 +1,7 @@
 $(document).ready(function (){
     
     var conversationRow = $('#conversationRow');
+    var conversationRow2 = $('#conversationRow2');
     var memberId = $('#memberId');
     
     getConversationList();
@@ -16,7 +17,7 @@ $(document).ready(function (){
             
             conversationArray = jsonData.conversationData.conversation_arr;
             
-            conversationArray.forEach(function (conversation){
+            conversationArray.forEach(function (conversation, index){
                 console.log(conversation);
                 //memberDefaultImagePath
                 if (conversation.member_id_a === memberId.val()) {
@@ -41,7 +42,13 @@ $(document).ready(function (){
                 //content += '<i class="fa fa-map-marker" aria-hidden="true"></i> ฟาร์มบ้านไร่ชายตวัน</small>';
                 content += ' <td><button class="btn btn-default btn-xs"><i class="fa fa-clock-o"></i> ' + getDateTimeTextFromMySqlDateText(conversation.conversation_time) + '</button></td>';
                 content += '</tr>';
-                conversationRow.append(content);
+                
+                if ( (index + 1) % 2 !== 0 ) {
+                    conversationRow.append(content);
+                }else{
+                    conversationRow2.append(content);
+                }
+                
             });
             
             

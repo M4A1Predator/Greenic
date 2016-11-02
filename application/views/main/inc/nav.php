@@ -189,7 +189,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- End Blog Thumb -->
-                                                <div class="text-right"><a href="<?=base_url()?>mats/article.php">บทความทั้งหมด <i class="fa fa-angle-double-right" aria-hidden="true"></i></a></div>
+                                                <div class="text-right"><a href="<?=base_url()?>articles">บทความทั้งหมด <i class="fa fa-angle-double-right" aria-hidden="true"></i></a></div>
                                             </div>
                                         </div>
                                     </div>

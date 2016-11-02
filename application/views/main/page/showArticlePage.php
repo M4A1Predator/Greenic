@@ -3,8 +3,8 @@
 				<h1 class="pull-left">บทความ</h1>
 				<ul class="pull-right breadcrumb">
 					<li><a href="<?=base_url().'main'?>">หน้าแรก</a></li>
-                    <li><a href="article.php">บทความ</a></li>
-					<li class="active">รีวิววิธีการปลูกผักคะน้าไร้ดิน ปลอดสารพิษโดยสวนลุงแดง</li>
+                    <li><a href="<?=base_url().'articles'?>">บทความ</a></li>
+					<li class="active"><?=$article->article_headline?></li>
 				</ul>
 			</div>
 		</div>
@@ -46,22 +46,22 @@
 			<hr>
 
 			<div class="row margin-bottom-20">
-                <div class="col-md-12"><h2 class="title-v4">บทความที่น่าสนใจ</h2></div>
+                <!--<div class="col-md-12"><h2 class="title-v4">บทความที่น่าสนใจ</h2></div>-->
                 <?php for($i=0;$i<4;$i++){?>
-				<div class="col-md-3 col-sm-6">
-					<div class="thumbnails thumbnail-style thumbnail-kenburn">
-						<div class="thumbnail-img">
-							<div class="overflow-hidden">
-								<img class="img-responsive" src="<?=base_url()?>mats/assets/img/main/img1.jpg" alt="">
-							</div>
-							<a class="btn-more hover-effect" href="showArticle.php">อ่านเรื่องนี้ +</a>
-						</div>
-						<div class="caption">
-							<h3><a class="hover-effect" href="showArticle.php">เทคนิคการรดน้ำผัก</a></h3>
-							<p>เปลี่ยนข้อผิดพลาดของมือใหม่ที่เคยทำในการปลูกผักสวนครัว ด้วยเทคนิคที่ต้องรู้ก่อนลงมือปลูกผัก...</p>
-						</div>
-					</div>
-				</div>
+				<!--<div class="col-md-3 col-sm-6">-->
+				<!--	<div class="thumbnails thumbnail-style thumbnail-kenburn">-->
+				<!--		<div class="thumbnail-img">-->
+				<!--			<div class="overflow-hidden">-->
+				<!--				<img class="img-responsive" src="<?=base_url()?>mats/assets/img/main/img1.jpg" alt="">-->
+				<!--			</div>-->
+				<!--			<a class="btn-more hover-effect" href="showArticle.php">อ่านเรื่องนี้ +</a>-->
+				<!--		</div>-->
+				<!--		<div class="caption">-->
+				<!--			<h3><a class="hover-effect" href="showArticle.php">เทคนิคการรดน้ำผัก</a></h3>-->
+				<!--			<p>เปลี่ยนข้อผิดพลาดของมือใหม่ที่เคยทำในการปลูกผักสวนครัว ด้วยเทคนิคที่ต้องรู้ก่อนลงมือปลูกผัก...</p>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--</div>-->
                 <?php }?>
 			</div>
 

@@ -1,26 +1,24 @@
 
 <div class="container content-md">
 <?php 
-    $keyword=$_GET['keyword'];
-    if($keyword=="not"){
+    //$keyword=$_GET['keyword'];
+    $keyword = $this->input->get('keyword');
     ?>
-    <div class="headline-center margin-bottom-60">
-        <h2>ไม่พบข้อมูลของ: <span class="color-green">กำหล่ำปลี</span></h2>
-    </div>
-<?php
-    }
-    else{
-?>
+    <!--<div class="headline-center margin-bottom-60">-->
+    <!--    <h2>ไม่พบข้อมูลของ: <span class="color-green">กำหล่ำปลี</span></h2>-->
+    <!--</div>-->
 <!--สินค้ามาใหม่-->
-<div class="headline-center margin-bottom-60">
-        <h2>ผลการค้นหา: <span class="color-green"><?php echo $keyword;?></span></h2>
-</div>
+<?php if($keyword){ ?>
+    <div class="headline-center margin-bottom-60">
+            <h2>ผลการค้นหา: <span class="color-green"><?php echo $keyword;?></span></h2>
+    </div>
+<?php } ?>
 
 <?php $this->load->view( 'main/inc/filter.php' )?>
 
 <div class="row" id="searchProjects">
     <!-- Begin Easy Block -->
-    <div class="col-md-3 col-sm-6 md-margin-bottom-40">
+    <!--<div class="col-md-3 col-sm-6 md-margin-bottom-40">
         <div class="easy-block-v2">
             
             <a href="singleProduct.php"><img alt="" src="<?=base_url()?>mats/assets/img/main/img9.jpg"></a>
@@ -32,11 +30,11 @@
             </ul>
             <a href="singleProduct.php" class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
         </div>
-    </div>
+    </div>-->
     <!-- End Begin Easy Block -->
 
     <!-- Begin Easy Block -->
-    <div class="col-md-3 col-sm-6 md-margin-bottom-40">
+    <!--<div class="col-md-3 col-sm-6 md-margin-bottom-40">
         <div class="easy-block-v2">
             
             <img alt="" src="<?=base_url()?>mats/assets/img/main/img18.jpg">
@@ -48,11 +46,11 @@
             </ul>
             <a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
         </div>
-    </div>
+    </div>-->
     <!-- End Begin Easy Block -->
 
     <!-- Begin Easy Block -->
-    <div class="col-md-3 col-sm-6 md-margin-bottom-40">
+    <!--<div class="col-md-3 col-sm-6 md-margin-bottom-40">
         <div class="easy-block-v2">
             
             <img alt="" src="<?=base_url()?>mats/assets/img/main/img26.jpg">
@@ -64,11 +62,11 @@
             </ul>
             <a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
         </div>
-    </div>
+    </div>-->
     <!-- End Begin Easy Block -->
 
     <!-- Begin Easy Block -->
-    <div class="col-md-3 col-sm-6">
+    <!--<div class="col-md-3 col-sm-6">
         <div class="easy-block-v2">
             <img alt="" src="<?=base_url()?>mats/assets/img/main/img19.jpg">
             <h3>ปลานิลแดงในบ่อซีเมน</h3>
@@ -79,7 +77,7 @@
             </ul>
             <a class="btn-u btn-u-sm" href="#">ดูโปรเจ็คนี้</a>
         </div>
-    </div>
+    </div>-->
     <!-- End Begin Easy Block -->
 </div>
 <div class="text-center">
@@ -95,5 +93,5 @@
     </ul>
 </div>
  <!--สินค้ามาใหม่-->
-<?php }?>
+<?php ?>
 </div>

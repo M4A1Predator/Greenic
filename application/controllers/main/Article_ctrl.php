@@ -44,6 +44,39 @@
             $this->output->set_output($data_json);
         }
         
+        function all_articles_page(){
+            
+            // Load view
+            $this->load->view('main/article');
+        }
+        
+        function get_all_articles_ajax(){
+            
+            // Get data
+            $page = $this->input->get('page');
+            $limit = ($this->input->get('limit'))?$this->input->get('limit'):16;
+            if(!$page){
+                $page = 1;
+            }
+            
+            $offset = ($page * $limit) - $limit;
+            
+            // Get all articles
+            $article_filter_data = array(
+                        'offset' => $offset,
+                        'limit' => $limit,
+                        'order_by' => 'article_time DESC',
+                    );
+            
+            $article_data = $this->Article->get_all_articles($article_filter_data, 'array');
+            
+            // json
+            $data_json = json_encode($article_data, JSON_UNESCAPED_UNICODE);
+            
+            $this->output->set_output($data_json);
+            
+        }
+        
         
         function view_article_page(){
             

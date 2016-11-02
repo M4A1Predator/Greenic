@@ -14,7 +14,7 @@
                 <option value="0">แสดงทุกฟาร์ม</option>
             </select>                                                    
         </div>
-        <div class="col-sm-2"><?=$this->session->userdata('member_id')?>
+        <div class="col-sm-2">
             <a href="<?=base_url().'my_farm'?>" class="btn-u text-center" style="width: 100%;">จัดการฟาร์ม <i class="fa fa-thumb-tack"></i></a>                                            
         </div>
         <div class="col-sm-6">

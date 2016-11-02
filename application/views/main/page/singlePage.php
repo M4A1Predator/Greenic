@@ -91,16 +91,16 @@
                     <?php } ?>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-cogs"></i> กำลังผลิต: <?=$project->project_quantity?> <?=$project->unit_name?></a>
+                    <a><i class="fa fa-cogs"></i> กำลังผลิต: <?=$project->project_quantity?> <?=$project->unit_name?></a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-truck"></i> การจัดส่ง: <span id="shipmentWay">โปรดติดต่อ</span></a>
+                    <a><i class="fa fa-truck"></i> การจัดส่ง: <span id="shipmentWay">โปรดติดต่อ</span></a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-calendar"></i> เริ่มผลิต: <?=display_date_th($project->project_startdate)?></a>
+                    <a><i class="fa fa-calendar"></i> เริ่มผลิต: <?=display_date_th($project->project_startdate)?></a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-calendar"></i> พร้อมจำหน่าย: <?=display_date_th($project->project_selldate)?></a>
+                    <a><i class="fa fa-calendar"></i> พร้อมจำหน่าย: <?=display_date_th($project->project_selldate)?></a>
                 </li>
                 <li class="list-group-item">
                 <div class="text-center star margin-bottom-10">
