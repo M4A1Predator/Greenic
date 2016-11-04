@@ -583,6 +583,7 @@
             // Set where clause
             $where_assoc = array();
             $where_assoc['farm_member_id'] = $member_id;
+            $where_assoc['project_status_id'] = $this->Status->status_normal_id;
             // if id = 0, means get all ids
             if($type_id !== 0){
                 $where_assoc['category_project_type_id'] = $type_id;
@@ -752,13 +753,30 @@
             // Check is project owner
             $is_owner = $this->Project->is_project_owner($member_id, $project_id);
             if(!$is_owner){
-                echo 0;
+                $err_arr = array(
+                            'err' => 'not owner',
+                        );
+                echo json_encode($err_arr);
                 return;
             }
             
             // Remove project
             $where_assoc = array();
+            $where_assoc['project_id'] = $project_id;
             
+            $update_data = array();
+            $update_data['project_status_id'] = $this->Status->status_removed_id;
+            
+            $remove_result = $this->Project->update($where_assoc, $update_data);
+            if(!$remove_result){
+                $err_arr = array(
+                            'err' => 'update error',
+                        );
+                echo json_encode($err_arr);
+                return;
+            }
+            
+            echo 1;
             
         }
     

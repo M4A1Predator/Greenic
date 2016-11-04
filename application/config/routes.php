@@ -136,6 +136,7 @@ $route['vote/get_compare_review_data_ajax'] = 'main/Review_ctrl/get_compare_revi
 //$route['category/get_categories_data_ajax'] = 'main/Category_ctrl/get_filter_categories_data_ajax';
 
 $route['member_remove/farm_ajax'] = 'main/Farm_ctrl/member_remove_farm_ajax';
+$route['member/project/remove_project_ajax'] = 'main/Project_ctrl/remove_project_ajax';
 $route['search/search_projects_ajax'] = 'main/Search/search_projects_ajax';
 
 $route['member/get_conversations_ajax'] = 'main/Conversation_ctrl/get_conversations_ajax';
@@ -179,11 +180,16 @@ $route['gnc_admin/category/(:num)/edit']['GET'] = 'back/Category_set/edit_catego
 $route['gnc_admin/category/(:num)/edit']['POST'] = 'back/Category_set/edit_category_ajax';
 $route['gnc_admin/category/add']['GET'] = 'back/Category_set/add_category_page';
 $route['gnc_admin/category/add']['POST'] = 'back/Category_set/add_category_ajax';
+$route['gnc_admin/category/remove'] = 'back/Category_set/remove_category_ajax';
 $route['gnc_admin/category/is_dup'] = 'back/Category_set/is_dup';
+$route['gnc_admin/breed/remove']['post'] = 'back/Breed_set/remove_breed_ajax';
 
 $route['gnc_admin/units'] = 'back/Unit_set/all_unit_page';
 $route['gnc_admin/unit/(:num)'] = 'back/Unit_set/edit_unit_page/$1';
 $route['gnc_admin/unit/(:num)/edit'] = 'back/Unit_set/edit_unit_ajax/$1';
+$route['gnc_admin/unit/add']['GET'] = 'back/Unit_set/add_unit_page';
+$route['gnc_admin/unit/add']['POST'] = 'back/Unit_set/add_unit_ajax';
+$route['gnc_admin/unit/remove'] = 'back/Unit_set/remove_unit_ajax';
 
 $route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
 $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';

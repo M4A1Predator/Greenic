@@ -36,6 +36,47 @@
             $this->load->view('back/index', $data);
         }
         
+        function add_unit_page(){
+            
+            // Set data
+            $data = array();
+            $data['page'] = 'addUnit';
+            
+            // Load view
+            $this->load->view('back/index', $data);
+            
+        }
+        
+        function add_unit_ajax(){
+            // Get data
+            $unit_name = $this->input->post('unit_name');
+            
+            // Get member id
+            $member_id = $this->session->userdata('member_id');
+            
+            $unit_data = array();
+            $unit_data['unit_name'] = $unit_name;
+            $unit_data['unit_creator_id'] = $member_id;
+            
+            // Check dup
+            $is_dup = $this->Unit->is_dup($unit_data);
+            if($is_dup === TRUE){
+                $err_assoc = array('err'=>'duplicated');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            // Add
+            $result = $this->Unit->add($unit_data);
+            if(!$result){
+                $err_assoc = array('err'=>'add failed');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            echo 1;
+        }
+        
         function edit_unit_page($unit_id=0){
             
             if($unit_id === 0){
@@ -79,6 +120,26 @@
             $result = $this->Unit->update($where_assoc, $unit_data);
             if(!$result){
                 $err_assoc = array('err'=>'update failed');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            echo 1;
+            
+        }
+        
+        function remove_unit_ajax(){
+            
+            // Get data
+            $unit_id = $this->input->post('unit_id');
+            
+            // Remove!
+            $where_assoc = array();
+            $where_assoc['unit_id'] = $unit_id;
+            
+            $res = $this->Unit->remove($where_assoc);
+            if(!$res){
+                $err_assoc = array('err'=>'remove failed');
                 echo json_encode($err_assoc);
                 return;
             }

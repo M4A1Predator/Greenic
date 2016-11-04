@@ -106,5 +106,20 @@
 
             return $data;
         }
+        
+        function get_all_farm_count(){
+            $where_assoc = array();
+            $where_assoc['farm_status_id'] = $this->CI->Status->status_normal_id;
+            
+            $this->db->select('count(farm_id) as farm_count');
+            $this->db->from($this->table);
+            $this->db->where($where_assoc);
+            $query = $this->db->get();
+            
+            $result = $this->get_result($query, 'object');
+            
+            $count = $result[0]->farm_count;
+            return $count;
+        }
 
     }

@@ -546,6 +546,28 @@
 
            return $data;
 
-       }
+        }
+       
+        function get_member_count($member_type_id=0){
+            
+            $where_assoc = array();
+            $where_assoc['member_status_id'] = $this->CI->Status->status_normal_id;
+            if($member_type_id !== 0){
+                $where_assoc['member_type_id'] = $member_type_id;
+            }
+            
+            $this->db->select('count(member_id) as member_count');
+            $this->db->from($this->table);
+            $this->db->where($where_assoc);
+            $query = $this->db->get();
+            
+            $result = $this->get_result($query, 'object');
+            
+            $count = $result[0]->member_count;
+            return $count;
+            
+        }
+        
+        
        
     }

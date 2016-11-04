@@ -126,6 +126,7 @@
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/search/search.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/nav/categoryNav.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/nav/articleNav.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/article/lastArticle.js"></script>
     <!-- /GreenicJS -->
 

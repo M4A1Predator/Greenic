@@ -7,6 +7,9 @@
          </ul>
      </div>
  </div>
+
+<input type="hidden" id="memberId" value="<?=$this->session->userdata('member_id')?>" />
+
  <div class="container content-md">
     <div class="row margin-bottom-20">
         <div class="col-sm-4">

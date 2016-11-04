@@ -119,5 +119,20 @@
             return $query;
             
         }
+        
+        function get_all_conversation_count(){
+            $where_assoc = array();
+            //$where_assoc['conversation_status_id'] = $this->CI->Status->status_normal_id;
+            
+            $this->db->select('count(conversation_id) as conversation_count');
+            $this->db->from($this->table);
+            $this->db->where($where_assoc);
+            $query = $this->db->get();
+            
+            $result = $this->get_result($query, 'object');
+            
+            $count = $result[0]->conversation_count;
+            return $count;
+        }
     
     }

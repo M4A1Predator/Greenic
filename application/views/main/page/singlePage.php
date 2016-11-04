@@ -161,7 +161,7 @@
                                                     </label>
                                                 </section>
                                                 <section class="col col-6">
-                                                    <label class="label">จำนวนที่ซื้อ</label>
+                                                    <label class="label">จำนวนที่ซื้อ (<?=$project->unit_name?>)</label>
                                                     <label class="input">
                                                         <input type="text" name="total" id="voteBuyAmount" placeholder="เช่น 20">
                                                     </label>

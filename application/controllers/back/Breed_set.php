@@ -159,5 +159,24 @@
             
         }
         
+        function remove_breed_ajax(){
+            
+            // Get data
+            $breed_id = $this->input->post('breed_id');
+            
+            // remove
+            $where_assoc = array();
+            $where_assoc['breed_id'] = $breed_id;
+            
+            $res = $this->Breed->remove($where_assoc);
+            if(!$res){
+                $err_assoc = array('err'=>'remove failed');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            echo 1;
+        }
+        
         
     }

@@ -21,8 +21,8 @@
                         </select>
                     </div>
                     <form action="#" class="sky-form">
-                            <label class="radio"><input type="radio" name="radio" checked=""><i class="rounded-x"></i>สินค้าทั้งหมด</label>
-                            <label class="radio"><input type="radio" name="radio"><i class="rounded-x"></i>สินค้าพร้อมขาย</label>
+                            <!--<label class="radio"><input type="radio" name="radio" checked=""><i class="rounded-x"></i>สินค้าทั้งหมด</label>-->
+                            <!--<label class="radio"><input type="radio" name="radio"><i class="rounded-x"></i>สินค้าพร้อมขาย</label>-->
                     </form>
                     </div>
                     

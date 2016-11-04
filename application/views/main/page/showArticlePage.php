@@ -17,7 +17,7 @@
                     <img class="img-responsive" src="<?=base_url().$article->article_cover_image?>" alt="">
                     <?php } ?>
 				</div>
-				<h2><a href="blog_item_option1.html"><?=$article->article_headline?></a></h2>
+				<h2><a><?=$article->article_headline?></a></h2>
 				<div class="blog-post-tags">
 					<ul class="list-unstyled list-inline blog-info">
 						<li><i class="fa fa-calendar"></i> <?=display_date_th($article->article_time)?></li>
