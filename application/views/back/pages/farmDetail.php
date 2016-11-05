@@ -21,7 +21,7 @@
                                         <?php if($farm->count_project){ ?> <p><a class="btn btn-secondary btn-sm" href="<?=base_url()?>gnc_admin/projects/getFarmId/<?=$farm->farm_id?>"><i class="fa fa-th-list"></i> ดูโปรเจ็คทั้งหมดของฟาร์มนี้</a></p>  <?php  }else{echo'None Project';}?>
                                                             
                                     </div>
-                                    <div class="card-footer"><a class="btn btn-secondary-outline" href="<?=base_url()?>gnc_admin/projects/allFarm"><i class="fa fa-chevron-left"></i> ฟาร์มทั้งหมด</a> <a href="<?=base_url()?>gnc_admin/editFarm/<?=$farm->farm_id?>" class="btn btn-warning"><i class="fa fa-pencil"></i> แก้ไขฟาร์ม</a></div>
+                                    <div class="card-footer"><a class="btn btn-secondary-outline" href="#" onclick="history.back();" ><i class="fa fa-chevron-left"></i> ฟาร์มทั้งหมด</a> <a href="<?=base_url()?>gnc_admin/editFarm/<?=$farm->farm_id?>" class="btn btn-warning"><i class="fa fa-pencil"></i> แก้ไขฟาร์ม</a></div>
                                 </div>
                             </div>
             </div>

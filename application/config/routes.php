@@ -205,7 +205,16 @@ $route['gnc_admin/webdata/edit_about_ajax'] = 'back/Webdata_set/edit_about_ajax'
 $route['gnc_admin/webdata/edit_terms_ajax'] = 'back/Webdata_set/edit_terms_ajax';
 $route['gnc_admin/webdata/edit_agreement_ajax'] = 'back/Webdata_set/edit_agreement_ajax';
 
+// Filter
+$route['adminFilter1'] = 'back/Project_set/adminFilter1';
+$route['adminFilter2'] = 'back/Project_set/adminFilter2';
+$route['getType'] = 'back/Project_set/getType';
+$route['getBreed'] = 'back/Project_set/getBreed';
+$route['gnc_admin/projectRemove/(:any)'] = 'back/Project_set/projectRemove';
 
+// Search
+$route['gnc_admin/search'] = 'back/Project_set/admin_search';
+$route['gnc_admin/searchFarm'] = 'back/Project_set/admin_search_farm';
 //====================================================================================================================================
 
 // Test routes
@@ -228,6 +237,7 @@ $route['test/member/change_type'] = 'test/Test_member/change_type';
 $route['test/session'] = 'test/Test_session';
 $route['test/flashdata'] = 'test/Test_session/flashdata';
 $route['subtest'] = 'test/subtest/Test_directory';
+$route['ta'] = 'back/Project_set/testadmin';
 
 // No data
 //$route['(.*)'] = 'sight';

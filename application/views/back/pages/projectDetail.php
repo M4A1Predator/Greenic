@@ -15,7 +15,7 @@
                                     </div>
                                     <div class="card-block">
                                         <div class="card sameheight-item" style="height: 326px;">
-                                                 <?php if($project->project_cover_image_path){  ?> <img src="<?=$project->project_cover_image_path?>" style="max-width:100%;"> <?php }else{  ?> <div class="cover"></div>   <?php  } ?>   
+                                                 <?php if(base_url().$project->project_cover_image_path){  ?> <img src="<?=base_url().$project->project_cover_image_path?>" style="max-width:100%;"> <?php }else{  ?> <div class="cover"></div>   <?php  } ?>   
                                                 <div class="row">
                                                 <div class="col-xl-4">
                                                     <div class="card card-default pBox">
@@ -67,10 +67,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a class="btn btn-secondary-outline" href="<?=base_url()?>gnc_admin/projects/allProject">"><i class="fa fa-chevron-left"></i> โปรเจ็คทั้งหมด</a> 
+                                            <a class="btn btn-secondary-outline" href="#" onclick="history.back();"> <i class="fa fa-chevron-left"></i> โปรเจ็คทั้งหมด</a> 
                                          <a href="<?=base_url()?>gnc_admin/projectEdit/<?=$project->project_id?>" class="btn btn-warning"><i class="fa fa-pencil"></i> แก้ไขข้อมูลโปรเจ็ค</a>
                                                 <!--ลิงค์ไปหน้าไทม์ไลน์ของโปรเจ็คเลย-->
-                                                <a href="#showProjectTimeLine" class="btn btn-primary"><i class="fa fa-picture-o"></i> ดูไทม์ไลน์</a>
+                                                <a href="<?=base_url()?>project/<?=$project->project_id?>" class="btn btn-primary"><i class="fa fa-picture-o"></i> ดูไทม์ไลน์</a>
                                     <!-- /.card-block -->
                                         </div>
                                       
