@@ -41,10 +41,10 @@
                         <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-chevron-down"></span>
                         </button>
-                        <ul class="dropdown-menu slidedown">
-                            <li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</a></li>
-                            <li><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a></li>
-                        </ul>
+                        <!--<ul class="dropdown-menu slidedown">-->
+                        <!--    <li><a href="#"><i class="fa fa-refresh" aria-hidden="true"></i> Refresh</a></li>-->
+                        <!--    <li><a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a></li>-->
+                        <!--</ul>-->
                     </div>
                 </div>
                 <div class="panel-body" id="chatBox">

@@ -51,7 +51,7 @@ $(document).ready(function (){
                             content += '<li><span>By</span> <a href="#">' + article.member_firstname + '</a></li>';
                             content += '<li>|</li>';
                             content += '<li><i class="fa fa-clock-o"></i> ' + getDateFromMySqlDateText(article.article_time) +  '</li>';
-                            content += '<li class="pull-right"><a href="#"><i class="fa fa-eye"></i> ' + article.article_view + '</a></li>';
+                            //content += '<li class="pull-right"><a href="#"><i class="fa fa-eye"></i> ' + article.article_view + '</a></li>';
                         content += '</ul>';
                     content += '</div>';
                 content += '</div>';

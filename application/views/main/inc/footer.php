@@ -70,10 +70,10 @@
 
 							<!-- Social Links -->
 							<ul class="social-icons">
-								<li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
-								<li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
-								<li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
-								<li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>
+								<li><a href="https://www.facebook.com/greenic.co/" target="_blank" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
+								<!--<li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>-->
+								<!--<li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>-->
+								<!--<li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>-->
 							</ul>
 							<!-- End Social Links -->
 						</div>
@@ -128,6 +128,7 @@
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/nav/categoryNav.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/nav/articleNav.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/article/lastArticle.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/chat/chatNotice.js"></script>
     <!-- /GreenicJS -->
 
 <!--    <script type="text/javascript">-->

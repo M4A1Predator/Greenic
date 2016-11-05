@@ -52,5 +52,29 @@
             
         }
         
+        function test_email(){
+            $this->load->library('email');
+            
+            $content = 'test';
+            
+            // Prepare email
+            $from = $this->config->item('smtp_user');
+            $from = 'greenicwork@gmail.com';
+            //$to = 'tssniper3@gmail.com';
+            //$to = 'tssniper3@greenic.co';
+            $to = 'tssniper3@gmail.com';
+            echo 'EMAIL TEST<br/>';
+            echo var_dump($from).'<br/>';
+            
+            $this->email->set_newline("\r\n");
+            $this->email->from($from, 'Greenic');
+            $this->email->to($to);
+            $this->email->subject('Please Confirm Greenic Account');
+            $this->email->message($content);
+            
+            $send_result = $this->email->send();
+            echo var_dump($send_result);
+        }
+        
         
     }

@@ -165,6 +165,7 @@
             $where_assoc = array();
             $where_assoc['project_status_id'] = $this->Status->status_normal_id;
             $where_assoc['category_project_type_id'] = $project_type_id;
+            $where_assoc['member_status_id'] = $this->Status->status_normal_id;
             
             // Get projects
             // Set order by
@@ -197,6 +198,7 @@
             $where_assoc = array();
             $where_assoc['project_status_id'] = $this->Status->status_normal_id;
             $where_assoc['category_project_type_id'] = $project_type_id;
+            $where_assoc['member_status_id'] = $this->Status->status_normal_id;
             
             // Set order
             $order_by = 'project_view DESC';
@@ -267,6 +269,8 @@
             //$project_count = $project_data['count'];
             // Set where clause
             $where_assoc = array();
+            $where_assoc['project_status_id'] = $this->Status->status_normal_id;
+            $where_assoc['member_status_id'] = $this->Status->status_normal_id;
             $where_assoc['category_id'] = $category_id;
             if($breed_id){
                 $where_assoc['breed_id'] = $breed_id;

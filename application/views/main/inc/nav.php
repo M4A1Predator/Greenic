@@ -137,7 +137,10 @@
                         <!--</ul>-->
                     </li>
                     <?php if($this->is_sign_in){ ?>
-                    
+                    <li id="chatMenu" class="">
+                        <a href="<?=base_url()?>chat" class=""><i class="fa fa-comment" aria-hidden="true"></i> แชท <span id="unreadConversationAmount"></span></a>
+                        <input type="hidden" id="unreadConversationArray" value="" />
+                    </li>
                     <li id="noticeMenu" class="notic">
                         <a href="#" class=""  data-toggle="modal" data-target="#notic" >แจ้งเตือน <span id="unreadNotificationAmount"></span></a>
                     </li>

@@ -25,6 +25,17 @@ $(document).ready(function (){
         console.log(data);
         if (data.chat_conversation_id === $('#conversationId').val() && data.chat_member_id !== memberId.val() ) {
             getMessage(data);
+            
+            param = {
+                conversation_id : conversationId.val(),
+            };
+            $.ajax({
+                type : 'post',
+                url : webUrl + 'chat/update_seen_message',
+                data : param,
+            }).done(function (data){
+            
+            });
         }
     });
     
@@ -57,7 +68,6 @@ $(document).ready(function (){
             url : webUrl + 'chat/send_message_ajax',
             data : param,
         }).done(function (data){
-            //console.log(data);
             
             content = '<li class="right clearfix"><span class="chat-img pull-right">';
                 content += '<img src=" ' + memberImagePath + '" alt="User Avatar" class="img-circle chatProfile" />';
@@ -65,7 +75,7 @@ $(document).ready(function (){
                  content += '<div class="chat-body clearfix">';
                      content += '<div class="header">';
                          content += '<small class="text-muted">';
-                            content += '<span class="glyphicon glyphicon-time"></span>' + getDateTimeText();
+                            content += '<span class="glyphicon glyphicon-time"></span>' + 'now';
                             content += '</small>';
                             content += '<strong class="pull-right primary-font">' + memberName + '</strong>';
                      content += '</div>';
@@ -133,6 +143,18 @@ $(document).ready(function (){
                 }
                         
                 chatMessageList.append(content);
+                
+            });
+            
+            param = {
+                conversation_id : conversationId.val(),
+            };
+            $.ajax({
+                type : 'post',
+                url : webUrl + 'chat/update_seen_message',
+                data : param,
+            }).done(function (data){
+            
             });
             autoScroll();
         });

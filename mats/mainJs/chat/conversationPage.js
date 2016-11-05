@@ -4,7 +4,25 @@ $(document).ready(function (){
     var conversationRow2 = $('#conversationRow2');
     var memberId = $('#memberId');
     
-    getConversationList();
+    var unreadArray = [];
+    
+    getUnreadConversation();
+    
+    function getUnreadConversation(){
+        $.ajax({
+            type :'get',
+            url : webUrl + 'chat/get_unread_conversation_ajax',
+        }).done(function (data){
+            jsonData = JSON.parse(data);
+            unreadConversationArray = jsonData.unread_conversation_arr;
+            
+            unreadConversationArray.forEach(function (conversation){
+                unreadArray.push(conversation.conversation_id);
+            });
+            
+            getConversationList();
+        });
+    }
     
     function getConversationList(){
         
@@ -13,12 +31,12 @@ $(document).ready(function (){
             url : webUrl + 'member/get_conversations_ajax',
         }).done(function (data){
             jsonData = JSON.parse(data);
-            console.log(jsonData);
+            //console.log(jsonData);
             
             conversationArray = jsonData.conversationData.conversation_arr;
             
             conversationArray.forEach(function (conversation, index){
-                console.log(conversation);
+                //console.log(conversation);
                 //memberDefaultImagePath
                 if (conversation.member_id_a === memberId.val()) {
                     lst = '_b';
@@ -36,10 +54,14 @@ $(document).ready(function (){
                     personName += ' ' + conversation['member_lastname' + lst];
                 }
                 
+                unreadMark = '';
+                if (unreadArray.indexOf( conversation.conversation_id) != -1) {
+                    unreadMark = '*';
+                }
+                
                 content = '<tr>';
                 content += ' <td class="chatProfile"><img class="rounded-x" src="' + webUrl + img_path + '" alt=""></td>';
-                content += ' <td><a href="' + chatUrl + '">' + personName + '</a><br><small class="chatName"></td>';
-                //content += '<i class="fa fa-map-marker" aria-hidden="true"></i> ฟาร์มบ้านไร่ชายตวัน</small>';
+                content += ' <td><a href="' + chatUrl + '">' + unreadMark + personName + '</a><br><small class="chatName"></td>';
                 content += ' <td><button class="btn btn-default btn-xs"><i class="fa fa-clock-o"></i> ' + getDateTimeTextFromMySqlDateText(conversation.conversation_time) + '</button></td>';
                 content += '</tr>';
                 
@@ -51,10 +73,12 @@ $(document).ready(function (){
                 
             });
             
-            
+            console.log(unreadArray);
         });
         
     }
+    
+    
     
     
 });

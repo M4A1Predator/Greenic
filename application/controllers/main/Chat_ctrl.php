@@ -176,4 +176,27 @@
         }
         
         
+        
+        function update_seen_message(){
+            
+            // Get data
+            $conversation_id = $this->input->post('conversation_id');
+            $member_id = $this->session->userdata('member_id');
+            
+            // Get time
+            $datetime = date("Y-m-d H:i:s");
+            
+            // update
+            $where_assoc = array();
+            $where_assoc['chat_conversation_id'] = $conversation_id;
+            $where_assoc['chat_member_id !='] = $member_id;
+            $where_assoc['chat_seentime ='] = null;
+            
+            $update_data = array();
+            $update_data['chat_seentime'] = $datetime;
+            
+            $this->Chat->update($where_assoc, $update_data);
+            
+        }
+    
     }

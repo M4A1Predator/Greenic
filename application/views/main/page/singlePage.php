@@ -73,8 +73,8 @@
             <div class="price margin-bottom-20">
                 <a class="btn-u btn-brd btn-u btn-u-lg subCate"><?=$project->project_ppu?> บาท/<?=$project->unit_name?></a>
                 <!--กรณีของหมด-->
-                <?php if($is_owner){ ?>
-                <!--<a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>-->
+                <?php  if($project->project_product_status_id == $this->Product_status->status_out_of_stock_id){ ?>
+                <a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>
                 <?php } ?>
             </div>
             

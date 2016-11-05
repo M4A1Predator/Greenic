@@ -22,7 +22,7 @@
 					<ul class="list-unstyled list-inline blog-info">
 						<li><i class="fa fa-calendar"></i> <?=display_date_th($article->article_time)?></li>
                         <li><i class="fa fa-pencil"></i> By <?=$article->member_firstname?> </li>
-						<li><i class="fa fa-eye"></i> <a href="#"><?=$article->article_view?> คนอ่านเรื่องนี้แล้ว</a></li>
+						<!--<li><i class="fa fa-eye"></i> <a href="#"><?=$article->article_view?> คนอ่านเรื่องนี้แล้ว</a></li>-->
 						<!--<li><i class="fa fa-tags"></i> คะน้า, ไร้ดิน, ปลอดสารพิษ</li>-->
 					</ul>
 				</div>

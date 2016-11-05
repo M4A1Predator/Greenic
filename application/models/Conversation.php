@@ -134,5 +134,32 @@
             $count = $result[0]->conversation_count;
             return $count;
         }
+        
+        
+        function get_unread_conversation($data, $result_type='array'){
+            
+            $member_id = $data['member_id'];
+            
+            $where_assoc = array();
+            
+            $this->db->select('*, count(chat_id) as chat_count');
+            $this->db->from($this->table);
+            $this->db->join('chat', 'chat.chat_conversation_id = conversation_id');
+            $this->db->group_start();
+            $this->db->where('conversation_member_a_id', $member_id);
+            $this->db->or_where('conversation_member_b_id', $member_id);
+            $this->db->group_end();
+            $this->db->group_start();
+            $this->db->where('chat_seentime = ', null);
+            $this->db->where('chat_member_id != ', $member_id);
+            $this->db->group_end();
+            $this->db->group_by('conversation_id');
+            $query = $this->db->get();
+            
+            $results = $this->get_result($query);
+            return $results;
+            
+        }
     
     }
+    

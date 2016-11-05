@@ -584,6 +584,7 @@
             $where_assoc = array();
             $where_assoc['farm_member_id'] = $member_id;
             $where_assoc['project_status_id'] = $this->Status->status_normal_id;
+            $where_assoc['member_status_id'] = $this->Status->status_normal_id;
             // if id = 0, means get all ids
             if($type_id !== 0){
                 $where_assoc['category_project_type_id'] = $type_id;

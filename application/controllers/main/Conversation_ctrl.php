@@ -21,6 +21,10 @@
         
         function get_conversations_ajax(){
             
+            if($this->gnc_authen->is_sign_in() == FALSE){
+                return;
+            }
+            
             // Get data
             $member_id = $this->session->userdata('member_id');
             
@@ -42,5 +46,27 @@
             
         }
         
+        function get_unread_conversation_ajax(){
+            
+            if($this->gnc_authen->is_sign_in() == FALSE){
+                return;
+            }
+            
+            // Get data
+            $member_id = $this->session->userdata('member_id');
+            
+            $con_data = array(
+                    'member_id' => $member_id,
+                );
+            
+            $unread_conversation_arr = $this->Conversation->get_unread_conversation($con_data);
+            
+            // Set data
+            $data['unread_conversation_arr'] = $unread_conversation_arr;
+            
+            $data_json = json_encode($data, JSON_UNESCAPED_UNICODE);
+            $this->output->set_output($data_json);
+            
+        }
         
     }

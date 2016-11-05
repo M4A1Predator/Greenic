@@ -61,7 +61,7 @@ $(document).ready(function (){
                 content += '<div class="thumbnails thumbnail-style thumbnail-kenburn">';
                 content += '<div class="thumbnail-img">';
                     content += '<div class="overflow-hidden">';
-                        content += '<img style="width:249; height:158;" class="img-responsive" src="' + coverImage + '" alt="">';
+                        content += '<img style="width:249px; height:158px;" class="img-responsive" src="' + coverImage + '" alt="">';
                     content += '</div>';
                     content += '<a class="btn-more hover-effect" href="' + articleUrl + '">อ่านเรื่องนี้ +</a>';
                 content += '</div>';

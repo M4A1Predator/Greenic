@@ -32,9 +32,9 @@
                                     <div class="item-col item-col-header item-col-sales">
                                         <div> <span>จำนวนโปรเจ็ค</span> </div>
                                     </div>
-                                    <div class="item-col item-col-header item-col-category">
+<!--                                    <div class="item-col item-col-header item-col-category">
                                         <div class="no-overflow"> <span>การติดตาม</span> </div>
-                                    </div>
+                                    </div>-->
                                     <div class="item-col item-col-header item-col-author">
                                         <div class="no-overflow"> <span>ชื่อเกษตรกร</span> </div>
                                     </div>
@@ -68,10 +68,10 @@
                                         <div><a href="<?php if($project->count_project){?> <?=base_url()?>gnc_admin/projects/getFarmId/<?=$project->farm_id?> <?php }else{} ?>" title="ดูการติดตามทั้งหมดของสมาชิกคนนี้"><?=$project->count_project?> โปรเจ็ค</a></div>
                                     </div>
                                     
-                                    <div class="item-col item-col-category no-overflow">
+                                    <!--<div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">การติดตาม</div>
                                         <div class="no-overflow"><?=$project->count_followfarm?> คน</div>
-                                    </div>
+                                    </div>-->
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ชื่อเกษตรกร</div>
                                         <!--ไปหน้าโชว์โปรเจ็ค fillter by ชื่อเกษตรกร-->

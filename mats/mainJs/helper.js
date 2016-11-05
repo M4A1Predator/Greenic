@@ -78,7 +78,7 @@ function getMySqlDateString(dateString) {
 
 function getDateTimeText() {
     date = new Date();
-    dateText = date.getDate() + '/' + (date.getMonth() +1 ) + '/' + (date.getFullYear() + 543) + ' ' + hour + ':' + minute;
+    dateText = date.getDate() + '/' + (date.getMonth() +1 ) + '/' + (date.getFullYear() + 543) + ' ' + (date.getHours() + 1) + ':' + (date.getMinutes());
     return dateText;
 }
 
