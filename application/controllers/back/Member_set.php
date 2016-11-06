@@ -112,7 +112,7 @@
 
         }
 
-         function farmer_detail(){
+        function farmer_detail(){
             $data = array();
 
             //get member id
@@ -131,9 +131,30 @@
             // Load view
             $this->load->view('back/index', $data);
 
-
         }
 
-
+        function remove_member_ajax(){
+            
+            // Get data
+            $remove_member_id = $this->input->post('remove_member_id');
+            
+            // update
+            $where_assoc = array();
+            $where_assoc['member_id'] = $remove_member_id;
+            
+            $update_data = array();
+            $update_data['member_status_id'] = $this->Status->status_removed_id;
+            
+            $res = $this->Member->update($where_assoc, $update_data);
+            
+            if(!$res){
+                $err_assoc = array('err'=>'update failed');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            echo 1;
+            
+        }
 
     }

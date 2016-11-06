@@ -54,19 +54,6 @@
         
         function test_email(){
             $this->load->library('email');
-            
-            $content = 'test server';
-            
-            // Prepare email
-            $from = $this->config->item('smtp_user');
-            $from = 'greenicwork@gmail.com';
-            //$to = 'tssniper3@gmail.com';
-            $to = 'predatorkpop@gmail.com';
-            echo 'EMAIL TEST<br/>';
-            echo var_dump($from).'<br/>';
-            
-            $this->email->set_newline("\r\n");
-            $this->email->from($from, 'Greenic 2');
             $this->email->to($to);
             $this->email->subject('Please Confirm Greenic Account');
             $this->email->message($content);

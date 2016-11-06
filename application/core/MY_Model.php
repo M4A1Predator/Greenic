@@ -42,21 +42,22 @@
             return $this->get_result($query, $result_type);
         }
         
+        /*
+        *  Get filtered rows
+        *  set $this->table before use this function
+        *
+        *  @param String $select: projections
+        *  @param assoc $where_assoc: where clause assoc
+        *  @param array of assoc $join_assoc: join tables e.g.( 'table'=>'t1', 't0.t0_id = t1.t1_t0_id' )
+        *  @param String $order: order field e.g. : 'col1 DESC, col2 ASC'
+        *  @param int $offset: Start at row
+        *  @param int $limit: Limit
+        *  @param String $result_type: Result type "array" or "object"
+        *  
+        *  @return filtered rows
+        */
         function get_filter($select='*', $where_assoc=array(), $join_assoc_array=array(), $order=null,  $offset=0, $limit=null, $result_type='object', $data=array()){
-            /*
-             *  Get filtered rows
-             *  set $this->table before use this function
-             *
-             *  @param String $select: projections
-             *  @param assoc $where_assoc: where clause assoc
-             *  @param array of assoc $join_assoc: join tables e.g.( 'table'=>'t1', 't0.t0_id = t1.t1_t0_id' )
-             *  @param String $order: order field e.g. : 'col1 DESC, col2 ASC'
-             *  @param int $offset: Start at row
-             *  @param int $limit: Limit
-             *  @param String $result_type: Result type "array" or "object"
-             *  
-             *  @return filtered rows
-             */
+            
             // Query data
             if(!$select){
                 $select = '*';
@@ -91,6 +92,7 @@
             if(isset($data['group_by'])){
                 $this->db->group_by($data['group_by']);
             }
+            
             
             // Set up query offset
             if($offset != NULL){
@@ -275,7 +277,7 @@
             }
             
         }
-        
+
     
         function remove($where_assoc){
             $this->db->where($where_assoc);

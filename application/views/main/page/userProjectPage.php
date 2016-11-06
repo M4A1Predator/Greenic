@@ -7,6 +7,9 @@
          </ul>
      </div>
  </div>
+
+<input type="hidden" id="memberId" value="<?=$this->session->userdata('member_id')?>" />
+
  <div class="container content-md">
     <div class="row margin-bottom-20">
         <div class="col-sm-4">
@@ -50,4 +53,43 @@
         </ul>
     </div>
  </div>
+ 
+ <!-- Model -->
+ <div class="modal fade bs-example-modal-sm" id="removeProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+   <div class="modal-dialog modal-sm">
+       <div class="modal-content">
+           <form action="#" class="sky-form">
+           <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+               <h4 class="modal-title" id="myModalLabel4">ลบโปรเจ็ค</h4>
+           </div>
+           <div class="modal-body">
+               <div class="row">
+                   <div class="col-md-12">
+                       <section>
+                           <label class="text">
+                               <p>ต้องการลบโปรเจค <span id="removeProjectName"></span> ใช่หรือไม่?</p>
+                           </label>
+                       </section>
+                   </div>
+               </div>
+<!--               <div class="row">
+                   <div class="col-md-12">
+                       <section>
+                           <label class="input">
+                               <p>กรุณาใส่รหัสผ่าน หากต้องการลบ</p>
+                               <input type="text" id="memberPassword" />
+                           </label>
+                       </section>
+                   </div>
+               </div>-->
+           </div>
+           <div class="modal-footer">
+               <button type="button" class="btn-u btn-u-primary" data-dismiss="modal"> ยกเลิก</button>
+               <button type="button" class="btn-u btn-u-red" id="confirmRemoveBtn"><i class="fa fa-times" aria-hidden="true"></i> ลบ</button>
+           </div>
+           </form>
+       </div>
+   </div>
+</div>
        

@@ -159,7 +159,11 @@
             return $data;
         }
         function get_all_project($filter_assoc=array(), $result_type='object'){
-
+            
+              // Get data
+            $offset = $filter_assoc['offset'];
+            $limit = $filter_assoc['limit'];
+            
             //Set from
             $from_table = 'project';
              // Set where
@@ -170,19 +174,29 @@
             // Set order
             $order_by = 'project_time DESC';
 
-             // Build query
+             // Build query  get all result
+            $this->db->select('*');
+            $this->db->from($this->view);
+            $this->db->where($where_assoc);
+            $count = $this->db->count_all_results();
+             
+             
+             //get fillter data
             $this->db->select('*');
             $this->db->from($this->view);
             $this->db->where($where_assoc);
             $this->db->order_by($order_by);
+            $this->db->offset($offset);
+            $this->db->limit($limit);
 
             $query = $this->db->get();
             $result = $this->get_result($query, $result_type);
 
             $data['result'] = $result;
-
+            $data['count'] = $count;
             return $data;
         }
+        
         
         function get_all_category($filter_assoc=array(), $result_type='object'){
 
@@ -214,6 +228,7 @@
             return $data;
 
         }
+        
         function admin_get_project_by_id($where_assoc=array(),$group_by='', $result_type='object'){
             // Get project
 
@@ -235,5 +250,41 @@
 
             return $data;
 
+        }
+        
+        function is_project_owner($member_id, $project_id){
+            
+            // Get project
+            $where_project_assoc = array();
+            $where_project_assoc['project_id'] = $project_id;
+            $where_project_assoc['project_status_id'] = $this->CI->Status->status_normal_id;
+            $p_results = $this->get_filter('*', $where_project_assoc, null, null, null, null, 'object', array('use_view' => TRUE));
+            if(!$p_results){
+                return FALSE;
+            }
+            $project = $p_results[0];
+            // Check owner
+            if($project->farm_member_id != $member_id){
+                return FALSE;
+            }
+            
+            return TRUE;
+        }
+        
+        function get_all_project_count(){
+            
+            $where_assoc = array();
+            $where_assoc['project_status_id'] = $this->CI->Status->status_normal_id;
+            
+            $this->db->select('count(project_id) as project_count');
+            $this->db->from($this->table);
+            $this->db->where($where_assoc);
+            $query = $this->db->get();
+            
+            $result = $this->get_result($query, 'object');
+            
+            $count = $result[0]->project_count;
+            return $count;
+            
         }
     }

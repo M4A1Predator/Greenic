@@ -76,6 +76,7 @@ $route['category/([a-zA-Z0-9]{0,})'] = 'main/Category_ctrl/view_project_type_pag
 $route['category/([a-zA-Z0-9]{0,})/(:num)'] = 'main/Category_ctrl/view_category_page';
 
 $route['all_farmers'] = 'main/Member_ctrl/all_farmer_page';
+$route['articles'] = 'main/Article_ctrl/all_articles_page';
 $route['article/(:num)'] = 'main/Article_ctrl/view_article_page';
 $route['aboutus'] = 'main/Webdata_ctrl/about_page';
 
@@ -135,8 +136,18 @@ $route['vote/get_compare_review_data_ajax'] = 'main/Review_ctrl/get_compare_revi
 //$route['category/get_categories_data_ajax'] = 'main/Category_ctrl/get_filter_categories_data_ajax';
 
 $route['member_remove/farm_ajax'] = 'main/Farm_ctrl/member_remove_farm_ajax';
+$route['member/project/remove_project_ajax'] = 'main/Project_ctrl/remove_project_ajax';
 $route['search/search_projects_ajax'] = 'main/Search/search_projects_ajax';
 
+$route['member/get_conversations_ajax'] = 'main/Conversation_ctrl/get_conversations_ajax';
+$route['chat'] = 'main/Chat_ctrl/main_chat_page';
+$route['chat/(:num)'] = 'main/Chat_ctrl/conversation_page/$1';
+$route['chat/send_message_ajax'] = 'main/Chat_ctrl/send_message_ajax';
+$route['chat/get_conversation_message_list_ajax'] = 'main/Chat_ctrl/get_conversation_message_list_ajax';
+$route['chat/update_seen_message']['post'] = 'main/Chat_ctrl/update_seen_message';
+$route['chat/get_unread_conversation_ajax'] = 'main/Conversation_ctrl/get_unread_conversation_ajax';
+
+$route['article/get_all_articles_ajax'] = 'main/Article_ctrl/get_all_articles_ajax';
 $route['article/get_last_articles_ajax'] = 'main/Article_ctrl/get_last_articles_ajax';
 
 //====================================================================================================================================
@@ -171,10 +182,20 @@ $route['gnc_admin/category/(:num)/edit']['GET'] = 'back/Category_set/edit_catego
 $route['gnc_admin/category/(:num)/edit']['POST'] = 'back/Category_set/edit_category_ajax';
 $route['gnc_admin/category/add']['GET'] = 'back/Category_set/add_category_page';
 $route['gnc_admin/category/add']['POST'] = 'back/Category_set/add_category_ajax';
+$route['gnc_admin/category/remove'] = 'back/Category_set/remove_category_ajax';
 $route['gnc_admin/category/is_dup'] = 'back/Category_set/is_dup';
+$route['gnc_admin/breed/remove']['post'] = 'back/Breed_set/remove_breed_ajax';
+
+$route['gnc_admin/units'] = 'back/Unit_set/all_unit_page';
+$route['gnc_admin/unit/(:num)'] = 'back/Unit_set/edit_unit_page/$1';
+$route['gnc_admin/unit/(:num)/edit'] = 'back/Unit_set/edit_unit_ajax/$1';
+$route['gnc_admin/unit/add']['GET'] = 'back/Unit_set/add_unit_page';
+$route['gnc_admin/unit/add']['POST'] = 'back/Unit_set/add_unit_ajax';
+$route['gnc_admin/unit/remove'] = 'back/Unit_set/remove_unit_ajax';
 
 $route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
 $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';
+$route['gnc_admin/article/(:num)'] = 'back/Article_set/edit_article_page/$1';
 
 $route['gnc_admin/webdata/about'] = 'back/Webdata_set/about_page';
 $route['gnc_admin/webdata/terms'] = 'back/Webdata_set/terms_page';
@@ -186,12 +207,22 @@ $route['gnc_admin/_sign_in_pro_ajax'] = 'back/Admin_authentication/sign_in_pro_a
 $route['gnc_admin/sign_out'] = 'back/Admin_authentication/sign_out_pro';
 
 $route['gnc_admin/article/add_article_ajax'] = 'back/Article_set/add_article_ajax';
+$route['gnc_admin/article/edit_article_ajax'] = 'back/Article_set/edit_article_ajax';
 
 $route['gnc_admin/webdata/edit_about_ajax'] = 'back/Webdata_set/edit_about_ajax';
 $route['gnc_admin/webdata/edit_terms_ajax'] = 'back/Webdata_set/edit_terms_ajax';
 $route['gnc_admin/webdata/edit_agreement_ajax'] = 'back/Webdata_set/edit_agreement_ajax';
 
+// Filter
+$route['adminFilter1'] = 'back/Project_set/adminFilter1';
+$route['adminFilter2'] = 'back/Project_set/adminFilter2';
+$route['getType'] = 'back/Project_set/getType';
+$route['getBreed'] = 'back/Project_set/getBreed';
+$route['gnc_admin/projectRemove/(:any)'] = 'back/Project_set/projectRemove';
 
+// Search
+$route['gnc_admin/search'] = 'back/Project_set/admin_search';
+$route['gnc_admin/searchFarm'] = 'back/Project_set/admin_search_farm';
 //====================================================================================================================================
 
 // Test routes
@@ -214,6 +245,7 @@ $route['test/member/change_type'] = 'test/Test_member/change_type';
 $route['test/session'] = 'test/Test_session';
 $route['test/flashdata'] = 'test/Test_session/flashdata';
 $route['subtest'] = 'test/subtest/Test_directory';
+$route['ta'] = 'back/Project_set/testadmin';
 
 // No data
 //$route['(.*)'] = 'sight';

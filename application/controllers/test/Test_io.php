@@ -58,8 +58,30 @@
             echo var_dump($notification_arr)."<br/>";
             echo $this->Activity_type->activity_type_update_timeline_id;
             
+        }
+        
+        
+        function test_chat(){
+            $msg = $this->input->post('msg');
+            
+            $data = array();
+            $data['msg'] = $msg;
+            
+            $send_result = $this->gnc_socket->send_message($data);
+            
+            echo 1;
             
         }
         
+        function test_con(){
+            $data['member_a_id'] = 14;
+            $data['member_b_id'] = 25;
+            $res = $this->Conversation->get_conversation($data);
+            echo $this->db->last_query();
+            echo '<hr/>';
+            
+            echo var_dump($res);
+            
+        }
         
     }

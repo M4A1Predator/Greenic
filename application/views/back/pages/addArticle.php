@@ -27,6 +27,7 @@
                             <script>
                                 // Replace the <textarea id="editor1"> with a CKEditor
                                 // instance, using default configuration.
+                                CKEDITOR.config.height = 600;
                                 CKEDITOR.replace( 'mytextarea' );
                             </script>
                         </div>

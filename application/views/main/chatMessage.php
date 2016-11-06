@@ -10,3 +10,5 @@
             $this->load->view( 'main/inc/footer.php');
             
         ?>
+        
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/chat/chat.js"></script>

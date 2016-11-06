@@ -23,11 +23,11 @@
 						<div class="col-md-3 md-margin-bottom-40">
 							<div class="headline"><h2 class="heading-sm">เมนูภายในเว็บ</h2></div>
 							<ul class="list-unstyled link-list">
-								<li><a href="<?=base_url()?>mats/aboutus.php">เกี่ยวกับเรา</a><i class="fa fa-angle-right"></i></li>
-								<li><a href="<?=base_url()?>mats/allProduct.php">สินค้าทั้งหมด</a><i class="fa fa-angle-right"></i></li>
+								<li><a href="<?=base_url()?>/aboutus">เกี่ยวกับเรา</a><i class="fa fa-angle-right"></i></li>
+								<li><a href="<?=base_url()?>search">สินค้าทั้งหมด</a><i class="fa fa-angle-right"></i></li>
 								<li><a href="<?=base_url()?>all_farmers">เกษตรกรทั้งหมด</a><i class="fa fa-angle-right"></i></li>
-								<li><a href="<?=base_url()?>mats/article.php">บทความ</a><i class="fa fa-angle-right"></i></li>
-								<li><a href="<?=base_url()?>mats/contact.php">ติดต่อเรา</a><i class="fa fa-angle-right"></i></li>
+								<li><a href="<?=base_url()?>articles">บทความ</a><i class="fa fa-angle-right"></i></li>
+								<!--<li><a href="<?=base_url()?>mats/contact.php">ติดต่อเรา</a><i class="fa fa-angle-right"></i></li>-->
 							</ul>
 						</div>
 						<!-- End Link List -->
@@ -70,10 +70,10 @@
 
 							<!-- Social Links -->
 							<ul class="social-icons">
-								<li><a href="#" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
-								<li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>
-								<li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>
-								<li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>
+								<li><a href="https://www.facebook.com/greenic.co/" target="_blank" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
+								<!--<li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>-->
+								<!--<li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>-->
+								<!--<li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>-->
 							</ul>
 							<!-- End Social Links -->
 						</div>
@@ -126,7 +126,9 @@
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/stringResource.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/search/search.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/nav/categoryNav.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/nav/articleNav.js"></script>
     <script type="text/javascript" src="<?=base_url()?>mats/mainJs/article/lastArticle.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>mats/mainJs/chat/chatNotice.js"></script>
     <!-- /GreenicJS -->
 
 <!--    <script type="text/javascript">-->

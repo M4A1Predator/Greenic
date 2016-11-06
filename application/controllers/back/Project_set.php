@@ -27,43 +27,69 @@
            */
 
           // Get data
-          $page_number = $this->input->get('page_number');
-          if(!$page_number){
-              $page_number = 1;
-          }
-          $limit = 20;
+            $page = $this->uri->segment(3, null);
             
+            $data['page'] = $page;
+            
+            // Get data
+            $limit = $this->input->get('limit');
+            $page_number = $this->input->get('pageNum');
+            
+            if(!$limit){
+                $limit = 10;
+            }
+            
+            if(!$page_number or !is_numeric($page_number)){
+                $page_number = 1;
+            }else{
+                $page_number = (int) $page_number;
+            }
+            
+            // Set offset
+            $offset = ($page_number * $limit) - $limit;
+            
+            //Get uri
             $page_name = $this->uri->segment(3);
+            
              // Set filter data
             $filter_assoc = array();
-            $filter_assoc['offset'] = 0;
-            $filter_assoc['limit'] = null;
+            $filter_assoc['offset'] =   $offset;
+            $filter_assoc['limit'] = $limit;
             
             $page = 'allProject';
+            
+            //Set  where
             $where_assoc = array();
+            
              $group_by = '';
             if($farm_id = $this->uri->segment(4)){
                 $farm_id = $this->uri->segment(4);
-             $where_assoc['farm_id'] = $farm_id;
+             $where_assoc['farm_id'] = $farm_id;    
              $group_by = 'project_id';
             }
+            
+            //Get all project
           if($page_name == $this->Page_manage->page_allProject ){
-              
                 $project_data = $this->Project->get_all_project($filter_assoc);
+                $page = 'allProject';
                 
             }else if($page_name == $this->Page_manage->page_allFarm){
                 $project_data = $this->Farm->get_all_farm($filter_assoc);
-                
+               
                 $page = 'allFarm';
+                
             }else if($page_name == $this->Page_manage->page_allCategory){
                 $project_data = $this->Project->get_all_category($filter_assoc);
-               
+                $project_data['count'] = 1;
                 $page = 'allCategory';
+                
             }else if($page_name == $this->Page_manage->page_allUnit){
-                 $project_data = $this->Unit->get_all_unit($filter_assoc);
+                $project_data = $this->Unit->get_all_unit($filter_assoc);
+                 
                 $page = 'allUnit';
+                
             }else if($page_name == $this->Page_manage->page_getFarmId){
-                $project_data = $this->Farm->admin_get_farm_by_id($where_assoc,$group_by);
+                $project_data = $this->Farm->admin_get_farm_by_id($where_assoc,$group_by,$filter_assoc);
                 
                 $page = 'allProject';
             }else{
@@ -77,9 +103,27 @@
                 if (!$project_data) {
                         die('Invalid query: ' . mysql_error());
                     }
+                    
+                    
         
              $data['projects'] = $project_data['result'];
-         
+             $data['page_number'] = $page_number;
+             $data['count_data'] = $project_data['count'];
+             
+              // Set page amount
+            $page_amount = 1;
+            
+            if($project_data['count'] > $limit){
+                
+                if($project_data['count'] % $limit !== 0){
+                    $page_amount = ($project_data['count'] / $limit) + 1;
+                }else{
+                    $page_amount = ($project_data['count']/ $limit);
+                }
+            }
+            
+            $data['page_amount'] = $page_amount;
+            $data['limit'] = $limit;
             // Load view
             $this->load->view('back/index', $data);
         }
@@ -120,7 +164,8 @@
             
         }
         
-          function farm_detail(){
+        function farm_detail(){
+            
             $data = array();
             
             //set value
@@ -138,8 +183,6 @@
             }
             $where_assoc['farm_id'] = $farm_id;
             
-            
-            
             //query
             $farm_data =$this->Farm->admin_get_farm_by_id($where_assoc);
             
@@ -148,7 +191,6 @@
             
             // Load view
             $this->load->view('back/index', $data);
-            
             
         }
     }

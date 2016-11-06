@@ -1,11 +1,74 @@
-<article class="content items-list-page">
+<script>
+function fillter(i){
+var jsonString = null;
+	$.ajax({
+                    type: "POST",
+                    url: "http://localhost/greenic/adminFilter1",
+                    cache: false,
+                    data: {id:$("#filter1").val(),page:i},
+                    success: function (msg) {
+		$.ajax({
+		type: "POST",
+		 url: "http://localhost/greenic/getType",
+		 cache: false,
+		data: {id:$("#filter1").val()},
+		success: function (msg) {
+		jsonString = JSON.parse(msg);
+		$("#filter2").empty();
+		
+		for(var a = 0;a<jsonString.length;a++){
+		
+		$("#filter2").append("<option value="+jsonString[a].category_name+">"+jsonString[a].category_name+"</option>");	
+				}
+			        }
+					 });
+					
+	$("#out").html(msg);
+                      
+                    }
+                });	 
+}
+
+function fillter2(i){
+var jsonString = null;
+	$.ajax({
+                    type: "POST",
+                    url: "http://localhost/greenic/adminFilter2",
+                    cache: false,
+                    data: {id:$("#filter2").val(),page:i},
+                    success: function (msg) {
+		$.ajax({
+		type: "POST",
+		 url: "http://localhost/greenic/getBreed",
+		 cache: false,
+		data: {id:$("#filter2").val(),type:$("#filter1").val()},
+		success: function (msg) {
+		jsonString = JSON.parse(msg);
+		if(!jsonString){$("#filter3").empty();}else
+		$("#filter3").empty();
+		
+		for(var a = 0;a<jsonString.length;a++){
+		
+		$("#filter3").append("<option value=''>"+jsonString[a].category_name+"</option>");	
+				}
+			        }
+					 });
+					
+	$("#out2").html(msg);
+	
+                    }
+                });	 
+}
+</script>
+<span id="out"> 
+<article class="content items-list-page" >
                     <div class="title-search-block">
                         <div class="title-block">
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3 class="title">
 					รายชื่อโปรเจ็คเกษตร
-					<div class="action dropdown">
+					<div class="action dropdown"  hidden>
 						<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							คำสั่งจำนวนมาก						
 						</button>
@@ -20,33 +83,34 @@
                             </div>
                         </div>
                         <div class="items-search">
-                            <form class="form-inline">
+                            <form class="form-inline" action="<?=base_url().'gnc_admin/search'?>" method="get" >
                                 <div class="input-group">
-                                    <input type="text" class="form-control boxed rounded-s" placeholder="ค้นหาโปรเจ็ค">
-                                    <span class="input-group-btn"><button class="btn btn-secondary rounded-s" type="button"><i class="fa fa-search"></i></button></span>
+                                    <input type="text" class="form-control boxed rounded-s" placeholder="ค้นหาโปรเจ็ค" name='keyword'>
+                                    <span class="input-group-btn"><button class="btn btn-secondary rounded-s" type="submit"><i class="fa fa-search"></i></button></span>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="row" style="margin-bottom: 20px;">
+                    <div class="row" style="margin-bottom: 20px;" hidden >
                         <div class="col-sm-3">
-                             <select class="form-control district">
-                                                       <option>เลือกประเภท</option>
-                                                        <option value="vegetable">ผัก</option>
-                                                        <option value="fruit">ผลไม้</option>
-                                                        <option value="animal">สัตว์</option>
+                             <select class="form-control district" onchange='fillter("1")' id="filter1">
+                                                       <option value="%">เลือกประเภท</option>
+                                                        <option value="1">ผัก</option>
+                                                        <option value="2">ผลไม้</option>
+                                                        <option value="3">สัตว์</option>
                                                     </select>
                         </div>
                         <div class="col-sm-3">
-                             <select class="form-control district">
+                             <select class="form-control district" onchange='fillter2("1");' id="filter2"  >
                                                        <option>เลือกชนิด</option>
-                                                        <option value="vegetable">ผัก</option>
-                                                        <option value="fruit">ผลไม้</option>
-                                                        <option value="animal">สัตว์</option>
+                                                        <!--<option value="vegetable">ผัก</option>-->
+                                                        <!--<option value="fruit">ผลไม้</option>-->
+                                                        <!--<option value="animal">สัตว์</option>-->
                                                     </select>
                         </div>
+	        <span id="out2">
                         <div class="col-sm-3">
-                             <select class="form-control district">
+                             <select class="form-control district" id="filter3">
                                                        <option>เลือกสายพันธุ์</option>
                                                         <option value="vegetable">ผัก</option>
                                                         <option value="fruit">ผลไม้</option>
@@ -100,17 +164,19 @@
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
                             </li>
-                            
-	         <?php foreach($projects as $project){ ?>
-                            <li class="item">
+                           
+	         <?php
+	         foreach($projects as $project){ ?>
+			
+                            <li class="item" >
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-							<input type="checkbox" class="checkbox">
+							<input type="checkbox" class="checkbox" name="checkbox[]" value="<?=$project->project_id?>">
 							<span></span>
 						</label> </div>
                                     <div class="item-col fixed item-col-img md">
-                                        <a href="?page=projectDetail">
-                                            <div class="item-img rounded" style="background-image: url(assets/bung.jpg)"></div>
+                                        <a href="<?=base_url()?>gnc_admin/projectDetail/<?=$project->project_id?>">
+                                            <div class="item-img rounded" style="background-image: url(assets/bung.jpg)" <img src="<?=base_url().$project->project_cover_image_path?>" ></div>
                                         </a>
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
@@ -122,7 +188,8 @@
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">ประเภท</div>
-                                        <div> <?=$project->project_type_name?> </div>
+                                        <!--<div> <?=$project->project_type_name?> </div>-->
+                                        <div> <?=get_project_type_thai_text($project->project_type_id)?> </div>
                                     </div>
                                     <div class="item-col item-col-stats no-overflow">
                                         <div class="item-heading">ชนิด</div>
@@ -151,7 +218,7 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" href="<?=base_url()?>gnc_admin/projectRemove/<?=$project->project_id?>" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
                                                         <a class="edit" href="<?=base_url()?>gnc_admin/projectEdit/<?=$project->project_id?>"> <i class="fa fa-pencil"></i> </a>
@@ -167,30 +234,35 @@
                          <?php } ?>
                         </ul>
                     </div>
+		
     <nav class="text-xs-right">
+	
+	<?php
+                    $page_amount = 1;
+                    if($count_data % $limit === 0){
+                        $page_amount = $count_data / $limit;
+                    }else{
+                        $page_amount = ($count_data / $limit) + 1;
+                    }
+                ?>
                         <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="">
-				ก่อนหน้า
-			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="">
-				1
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				2
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				3
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				4
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				5
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				ถัดไป
-			</a> </li>
+                          <?php for($i=1;$i<=$page_amount;$i++){ ?>
+                            <?php
+                                $active_class = '';
+                                if($i === $page_number){
+                                    $active_class = 'active';
+                                }
+                            ?>
+                            <li class="page-item <?=$active_class?>">
+                                <a class="page-link" href="<?=base_url().'gnc_admin/projects/allProject?pageNum='.$i?>"><?=$i?></a
+	           
+	            
+                            </li>
+                            <?php } ?>
+	        
                         </ul>
                     </nav>
-     
+
                 </article>
+ </span>
+</span>

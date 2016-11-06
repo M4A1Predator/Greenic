@@ -29,11 +29,12 @@
             $data['page'] = $page;
             
             // Get project types
-            $project_types = $this->Project_type->get_project_type_with_count_project_admin();
+            $project_types = $this->Project_type->get_project_type_with_count_category_admin();
             
             $all_project_count = 0;
             foreach($project_types as $pt){
-                $all_project_count += (int)$pt->project_count;
+                //$all_project_count += (int)$pt->project_count;
+                $all_project_count += (int)$pt->category_count;
             }
             
             // Set data
@@ -51,22 +52,41 @@
             
             // get data
             $pt_id = $this->uri->segment(3);
+            $keyword = $this->input->get('q');
             
-            // get projects
+            $page_num = $this->input->get('p');
+            if(!$page_num || !is_numeric($page_num)){
+                $page_num = 1;
+            }
+            
+            $limit = 20;
+            $offset = ($limit * $page_num) - $limit;
+            
+            // get categories
             $where_assoc = array();
             if($pt_id){
                 $where_assoc['category_project_type_id'] = $pt_id;
             }
             
+            // Check search
+            if($keyword){
+                $where_assoc['category_name like'] = '%'.$keyword.'%';
+                // Reset type id
+                //$pt_id = 0;
+                //$where_assoc['category_project_type_id'] = $pt_id;
+            }
+            
             // Get category with project count
             $join_project = $this->gnc_query->get_join_table_assoc('project', 'project.project_category_id = category.category_id', 'left');
-            $select = '*, count(project_id) as project_count';
-            $categories = $this->Category->get_filter($select, $where_assoc, [$join_project], null, null, null, 'object', array('group_by' => 'category_id'));
+            $join_project_type = $this->gnc_query->get_join_table_assoc('project_type', 'project_type.project_type_id = category.category_project_type_id', 'left');
+            $select = 'category.*, count(project_id) as project_count';
+            $categories = $this->Category->get_filter($select, $where_assoc, [$join_project, $join_project_type], null, $offset, $limit, 'object', array('group_by' => 'category_id'));
+            $category_count = $this->Category->get_filter_count($select, $where_assoc, [$join_project, $join_project_type], null, $offset, $limit, 'object', array('group_by' => 'category_id'));
             
             // Get category with breed count
             $join_breed = $this->gnc_query->get_join_table_assoc('breed', 'breed.breed_category_id = category.category_id', 'left');
             $select = 'category_id, count(breed_id) as breed_count';
-            $cat_breeds = $this->Category->get_filter($select, $where_assoc, [$join_breed], null, null, null, 'object', array('group_by' => 'category_id'));
+            $cat_breeds = $this->Category->get_filter($select, $where_assoc, [$join_breed], null, $offset, $limit, 'object', array('group_by' => 'category_id'));
             //echo var_dump($cat_breeds);
             //return;
             
@@ -76,9 +96,14 @@
                 $categories[$k]->breed_count = $cat_breeds[$k]->breed_count;
             }
             
+            $page_amount = get_page_amount($category_count, $limit);
+            
             // Set data
             $data['project_type_id'] = $pt_id;
             $data['categories'] = $categories;
+            $data['page_num'] = $page_num;
+            $data['page_amount'] = $page_amount;
+            $data['keyword'] = $keyword;
             
             // Load view
             $this->load->view('back/index', $data);
@@ -198,6 +223,26 @@
             $data['category_name'] = 'กีวี';
             $is_dup = $this->Category->is_dup($data);
             echo var_dump($is_dup);
+        }
+        
+        function remove_category_ajax(){
+            
+            // Get data
+            $category_id = $this->input->post('category_id');
+            
+            // Remove!
+            $where_assoc = array();
+            $where_assoc['category_id'] = $category_id;
+            
+            $res = $this->Category->remove($where_assoc);
+            if(!$res){
+                $err_assoc = array('err'=>'remove failed');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            echo 1;
+            
         }
     
     }

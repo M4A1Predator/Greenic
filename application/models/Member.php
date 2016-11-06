@@ -197,6 +197,28 @@
 
             return $member;
         }
+        
+        function get_member_view_by_id($member_id, $result_type='object'){
+            // Set where clause
+            $where_assoc = array();
+            $where_assoc['member_id'] = $member_id;
+
+            // Get member
+            $members = $this->get_filter('*', $where_assoc, null, null, null, null, $result_type, array('use_view' => $this->table));
+            if(!$members){
+                return null;
+            }
+            
+            $member = $members[0];
+
+            if(is_array($member)){
+                unset($member['password']);
+            }else{
+                $member->password = null;
+            }
+
+            return $member;
+        }
 
 
         function member_authentication($email, $password){
@@ -281,6 +303,35 @@
 
             // Return member assoc
             return $member;
+        }
+        
+        
+        /*
+         *  Check member password
+         *  Use for validate user when
+         *  user want to do an important activity
+         *  
+         */
+        function check_member_password($member_id, $password){
+            
+            // Get member
+            $where_assoc = array();
+            $members = $this->get_filter('*', $where_assoc);
+            if(!$members){
+                return FALSE;
+            }
+            
+            $member = $members[0];
+            
+            // Check password
+            $verify_password = password_verify($password, $member->member_password);
+            
+            if(!$verify_password){
+                return FALSE;
+            }
+            
+            return TRUE;
+            
         }
 
         function change_member_type($member_id, $new_member_type_id){
@@ -495,5 +546,28 @@
 
            return $data;
 
-       }
+        }
+       
+        function get_member_count($member_type_id=0){
+            
+            $where_assoc = array();
+            $where_assoc['member_status_id'] = $this->CI->Status->status_normal_id;
+            if($member_type_id !== 0){
+                $where_assoc['member_type_id'] = $member_type_id;
+            }
+            
+            $this->db->select('count(member_id) as member_count');
+            $this->db->from($this->table);
+            $this->db->where($where_assoc);
+            $query = $this->db->get();
+            
+            $result = $this->get_result($query, 'object');
+            
+            $count = $result[0]->member_count;
+            return $count;
+            
+        }
+        
+        
+       
     }

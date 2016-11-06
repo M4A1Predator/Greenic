@@ -85,7 +85,7 @@ function compareInit(){
                 '<div class="easy-block-v2">' + 
                     '<a href="' + webUrl + 'project/' + project.project_id + '" class="linkFull"></a>' + 
                     //'<div class="easy-bg-v2 rgba-default">มาใหม่</div>' +
-                    '<img width="272"  alt="" src="' + webUrl + project.project_cover_image_path + '">' +
+                    '<img style="width:272px; height: 171px;" alt="" src="' + webUrl + project.project_cover_image_path + '">' +
                     '<h3>' + project.project_name + '</h3>' +
                     '<ul class="list-unstyled">' +
                         '<li><span class="color-green"><i class="fa fa-map-marker" aria-hidden="true"></i></span>' + project.farm_district + ', ' + project.farm_province + '</li>' +

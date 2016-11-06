@@ -38,6 +38,9 @@
             
             // Get data
             $keyword = $this->input->get('keyword');
+            if(!$keyword){
+                $keyword = '';
+            }
             $limit = $this->input->get('limit');
             $offset = $this->input->get('offset');
             $order_type = $this->input->get('order_type');

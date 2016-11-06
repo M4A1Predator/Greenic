@@ -7,12 +7,12 @@
 					สายพันธุ์ทั้งหมด
 					<a href="<?=base_url_admin().'category/'.$category->category_id.'/breed/add'?>" class="btn btn-primary btn-sm rounded-s"><i class="fa fa-plus"></i> เพิ่มสายพันธุ์ใหม่</a><!---->
                     <div class="action dropdown">
-						<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							คำสั่งจำนวนมาก
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-close icon"></i>ลบทั้งหมดที่เลือก</a>
-						</div>
+						<!--<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+						<!--	คำสั่งจำนวนมาก-->
+						<!--</button>-->
+						<!--<div class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+						<!--	<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-close icon"></i>ลบทั้งหมดที่เลือก</a>-->
+						<!--</div>-->
 					</div>
 				</h3>
                                     <p class="title-description"> <?=$category->category_name?> <a class="btn btn-secondary-outline" href="<?=base_url_admin().'project_type/'.$category->category_project_type_id?>"><i class="fa fa-chevron-left"></i> ชนิดทั้งหมด</a></p>
@@ -20,13 +20,13 @@
                             </div>
                         </div>
                         <div class="items-search">
-                            <form class="form-inline">
-                                <div class="input-group"> <input type="text" class="form-control boxed rounded-s" placeholder="ค้นหาสายพันธุ์"> <span class="input-group-btn">
-					<button class="btn btn-secondary rounded-s" type="button">
-						<i class="fa fa-search"></i>
-					</button>
-				</span> </div>
-                            </form>
+<!--                            <form class="form-inline">-->
+<!--                                <div class="input-group"> <input type="text" class="form-control boxed rounded-s" placeholder="ค้นหาสายพันธุ์"> <span class="input-group-btn">-->
+<!--					<button class="btn btn-secondary rounded-s" type="button">-->
+<!--						<i class="fa fa-search"></i>-->
+<!--					</button>-->
+<!--				</span> </div>-->
+<!--                            </form>-->
                         </div>
                     </div>
                     <div class="card items">
@@ -99,9 +99,11 @@
 								</span> </a>
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
+                                                    <?php if((int)$breed->project_count == 0){ ?>
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" id="removeBreedBtn-<?=$breed->breed_id?>" href="#"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
+                                                    <?php } ?>
                                                     <li>
                                                         <a class="edit" href="?page=editBreed"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
@@ -140,3 +142,29 @@
                         </ul>
                     </nav>
                 </article>
+
+<script>
+    
+    $('[id^="removeBreedBtn-"]').click(function (){
+        removeBreedId = getElementIdFromId($(this).prop('id'));
+        param = {
+            breed_id : removeBreedId,
+        };
+        
+        $.ajax({
+            type : 'post',
+            url : webUrl + 'gnc_admin/breed/remove',
+            data : param,
+        }).done(function (data){
+            if (data !== '1') {
+                console.log(data);
+                $('#cannotRemoveModal').modal('toggle');
+                return;
+            }
+            
+            location.reload();
+        });
+        
+    });
+    
+</script>

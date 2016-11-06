@@ -28,10 +28,10 @@
                     <span class="cd-error-message" id="signin-password-error-msg">กรุณากรอกรหัสผ่านให้ถูกต้อง!</span>
                 </p>
 
-                <p class="fieldset">
-                    <input type="checkbox" id="remember-me" checked>
-                    <label for="remember-me">จำฉันไว้ในระบบ</label>
-                </p>
+                <!--<p class="fieldset">-->
+                <!--    <input type="checkbox" id="remember-me" checked>-->
+                <!--    <label for="remember-me">จำฉันไว้ในระบบ</label>-->
+                <!--</p>-->
                 
                 <span id="signin-error-msg"></span>
 
@@ -47,7 +47,7 @@
         <div id="cd-signup"> <!-- sign up form -->
             <form class="cd-form">
                 <p class="social-login">
-                    <span class="social-login-facebook text-center"><a href="#"><i class="fa fa-facebook"></i>สมัครสมาชิกด้วย Facebook</a></span>
+                    <span class="social-login-facebook text-center"><a href="<?=$this->facebook->login_url()?>"><i class="fa fa-facebook"></i>สมัครสมาชิกด้วย Facebook</a></span>
                     
                 </p>
 

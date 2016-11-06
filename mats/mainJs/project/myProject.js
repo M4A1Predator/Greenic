@@ -5,6 +5,7 @@ var projectList = $('.projectList');
 var projectPageList = $('#projectPageList');
 var page = $('#page');
 var pageBtn = $('.pageBtn');
+var memberId = $('#memberId');
 
 setFarmOption();
 setProjectsList();
@@ -35,6 +36,7 @@ function setFarmOption() {
 }
 
 function setProjectsList() {
+    
     farmId = selectFarm.val();
     typeId = selectType.val();
     
@@ -59,6 +61,7 @@ function setProjectsList() {
         
         projectArray = jsonData.result;
         projectCount = parseInt(jsonData.count);
+        console.log(projectCount);
         
         projectArray.forEach(function (project){
             
@@ -81,7 +84,7 @@ function setProjectsList() {
                     '</ul>' +
                     '<a href="' + projectUrl + '" class="btn-u btn-u-sm">ดูโปรเจ็คนี้</a>' + 
                     '<a href="' + editProjectUrl + '" class="btn-u btn-u-blue btn-u-sm"><i class="fa fa-pencil"></i></a> ' + 
-                    '<a class="btn-u btn-u-red btn-u-sm"><i class="fa fa-trash-o"></i></a>' + 
+                    '<a class="btn-u btn-u-red btn-u-sm" id="rmProject-' + project.project_id + '"><i class="fa fa-trash-o"></i></a>' + 
                 '</div>' +
             '</div>';
             
@@ -89,7 +92,7 @@ function setProjectsList() {
         });
         
         //projectPageList.append('<li class="active"><a href="#">1</a></li>');
-        if (projectCount < projectListLimit) {
+        if (projectCount <= projectListLimit) {
             
         }else{
             if (projectCount % limit === 0) {
@@ -116,5 +119,45 @@ function setProjectsList() {
             
         }
         
+        setButtonCallback();
     });
 }
+
+var rmProjectId = 0;
+
+function setButtonCallback() {
+    $('[id^="rmProject"]').click(function (){
+        rmProjectId = getElementIdFromId($(this).prop('id'));
+        console.log(rmProjectId);
+        
+        $('#removeProject').modal('toggle');
+        
+        $('#confirmRemoveBtn').click(function (){
+            removeProject();
+        });
+    });
+}
+
+function removeProject() {
+    
+    param = {
+        member_id : memberId.val(),
+        project_id : rmProjectId,
+    };
+    
+    $.ajax({
+        type : 'post',
+        url : webUrl + 'member/project/remove_project_ajax',
+        data : param,
+    }).done(function (data){
+        if (data !== '1') {
+            console.log(data);
+            return;
+        }
+        
+        location.reload();
+    });
+    
+}
+
+

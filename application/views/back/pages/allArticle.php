@@ -74,7 +74,7 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อบทความ</div>
                                         <div>
-                                            <a href="#viewArticle" target="_blank" class="">
+                                            <a href="<?=base_url_admin().'article/'.$article->article_id?>" class="">
                                                 <h4 class="item-title"><?=$article->article_headline?></h4> </a>
                                         </div>
                                     </div>

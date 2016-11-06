@@ -17,7 +17,10 @@ $(document).ready(function() {
     projectProvince.change(setProjectDistricts);
     
     // Set callbacks
-    selectSortProjectBy.change(setSearchProjects);
+    selectSortProjectBy.change(function (){
+        page.val(1);
+        setSearchProjects();
+    });
     
     function setSearchProjects() {
         
@@ -150,6 +153,7 @@ $(document).ready(function() {
     }
     
     filterAddressBtn.click(function (){
+        page.val(1);
         setSearchProjects();
         $('#fillterBox').modal('toggle');
     });

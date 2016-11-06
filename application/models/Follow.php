@@ -135,4 +135,19 @@
             return $result;
         }
         
+        function get_all_follow_count(){
+            $where_assoc = array();
+            //$where_assoc['follow_status_id'] = $this->CI->Status->status_normal_id;
+            
+            $this->db->select('count(follow_id) as follow_count');
+            $this->db->from($this->table);
+            $this->db->where($where_assoc);
+            $query = $this->db->get();
+            
+            $result = $this->get_result($query, 'object');
+            
+            $count = $result[0]->follow_count;
+            return $count;
+        }
+        
     }

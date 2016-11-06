@@ -55,4 +55,18 @@
         }
         
         
+        function check_owner(){
+            $member_id = $this->session->userdata('member_id');
+            $project_id = $this->input->get('pid');
+            
+            echo $member_id.'<br/>';
+            echo $project_id.'<br/>';
+            echo $num = 14;
+            echo '<br/>';
+            
+            $o = $this->Project->is_project_owner($num, $project_id);
+            echo var_dump($o);
+        }
+        
+        
     }

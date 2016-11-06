@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'session', 'GNC_query', 'GNC_authen', 'Facebook');
+$autoload['libraries'] = array('database', 'session', 'GNC_query', 'GNC_authen', 'Facebook', 'GNC_socket');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'security', 'display_helper');
+$autoload['helper'] = array('url', 'security', 'display_helper', 'query_helper');
 
 /*
 | -------------------------------------------------------------------
@@ -134,4 +134,4 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array('GNC_Model', 'Member', 'Farm', 'Member_type', 'Status', 'Project', 'Project_type',
                            'Project_post', 'Follow','Category', 'Breed', 'Unit', 'Shipment', 'Product_shipment', 'Product_status',
-                           'Activity_type', 'Notification', 'Review', 'Vote_review', 'Article', 'Webdata','Page_manage');
+                           'Activity_type', 'Notification', 'Review', 'Vote_review', 'Article', 'Webdata','Page_manage', 'Conversation','Chat');

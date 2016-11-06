@@ -73,8 +73,8 @@
             <div class="price margin-bottom-20">
                 <a class="btn-u btn-brd btn-u btn-u-lg subCate"><?=$project->project_ppu?> บาท/<?=$project->unit_name?></a>
                 <!--กรณีของหมด-->
-                <?php if($is_owner){ ?>
-                <!--<a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>-->
+                <?php  if($project->project_product_status_id == $this->Product_status->status_out_of_stock_id){ ?>
+                <a class="btn-u btn-u-red btn-u-lg subCate">หยุดจำหน่ายแล้ว</a>
                 <?php } ?>
             </div>
             
@@ -91,16 +91,16 @@
                     <?php } ?>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-cogs"></i> กำลังผลิต: <?=$project->project_quantity?> <?=$project->unit_name?></a>
+                    <a><i class="fa fa-cogs"></i> กำลังผลิต: <?=$project->project_quantity?> <?=$project->unit_name?></a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-truck"></i> การจัดส่ง: <span id="shipmentWay">โปรดติดต่อ</span></a>
+                    <a><i class="fa fa-truck"></i> การจัดส่ง: <span id="shipmentWay">โปรดติดต่อ</span></a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-calendar"></i> เริ่มผลิต: <?=display_date_th($project->project_startdate)?></a>
+                    <a><i class="fa fa-calendar"></i> เริ่มผลิต: <?=display_date_th($project->project_startdate)?></a>
                 </li>
                 <li class="list-group-item">
-                    <a href="#"><i class="fa fa-calendar"></i> พร้อมจำหน่าย: <?=display_date_th($project->project_selldate)?></a>
+                    <a><i class="fa fa-calendar"></i> พร้อมจำหน่าย: <?=display_date_th($project->project_selldate)?></a>
                 </li>
                 <li class="list-group-item">
                 <div class="text-center star margin-bottom-10">
@@ -161,7 +161,7 @@
                                                     </label>
                                                 </section>
                                                 <section class="col col-6">
-                                                    <label class="label">จำนวนที่ซื้อ</label>
+                                                    <label class="label">จำนวนที่ซื้อ (<?=$project->unit_name?>)</label>
                                                     <label class="input">
                                                         <input type="text" name="total" id="voteBuyAmount" placeholder="เช่น 20">
                                                     </label>
@@ -340,7 +340,9 @@
                 </li>
             </ul>
             
-            <a class="btn-u btn-u-lg btn-full  text-center margin-bottom-10" href="chatMain.php">แชทเลย <i class="fa fa-comment" aria-hidden="true"></i></a>
+            <?php if(!$is_owner && $is_sign_in){ ?>
+            <a class="btn-u btn-u-lg btn-full  text-center margin-bottom-10" href="<?=base_url()?>chat/<?=$project->member_id?>">แชทเลย <i class="fa fa-comment" aria-hidden="true"></i></a>
+            <?php } ?>
             
             <div class="text-center"><img style="max-width:100%;" src="<?=base_url()?>mats/assets/img/ads-300.jpg"></div>
 
