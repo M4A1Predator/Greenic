@@ -3,9 +3,17 @@
 <input type="hidden" id="nowBreedId" value="<?=$project->breed_id?>">
 <input type="hidden" id="nowFarmId" value="<?=$project->farm_id?>">
 <input type="hidden" id="nowUnitId" value="<?=$project->unit_id?>">
+<input type="hidden" id="projectId" value="<?=$project->project_id?>">
+
+<?php if($project->project_cover_image_path){
+    $img_cover_path = base_url().$project->project_cover_image_path;
+}else{
+    //$img_cover_path = base_url().'mats/assets/img/search-bg-3.jpg';
+    $img_cover_path = null;
+}?>
 
 <div class="container content-md">
-    <form action="#" method="post" id="sky-form3" class="sky-form" novalidate="novalidate">
+    <form id="sky-form3" class="sky-form" novalidate="novalidate">
         <header>แก้ไขโปรเจ็ค: ผักบุ้งจีน</header>
         
         <fieldset>
@@ -13,13 +21,13 @@
             <section>
                 <label class="label"><strong>สถานะสินค้า</strong></label>
                 <label class="select">
-                            <select name="productStatus">
-                                <option value="CATED0001" selected="">สินค้ารอจำหน่าย</option>
-                                <option value="CATE0008" selected="" >สินค้าพร้อมจำหน่าย</option>
-                                <option value="CATE0025">สินค้าหยุดจำหน่าย</option>
-                            </select>
-                            <i></i>
-                        </label>
+                    <select id="productStatus">
+                        <?php foreach($product_status_arr as $product_status){ ?>
+                            <option value="<?=$product_status['product_status_id']?>" <?=($product_status['product_status_id']==$project->project_product_status_id)?'selected':''?>><?=$product_status['product_status_name_th']?></option>
+                        <?php } ?>
+                    </select>
+                    <i></i>
+                </label>
             </section>
             
             <section>
@@ -90,56 +98,54 @@
                 <section class="col-md-2 col-sm-4">
                         <label class="label"><strong>ราคาต่อ <span style="color:red" class="pUnit"><?=$project->unit_name?></span></strong></label>
                         <label class="input">
-                            <input type="text" name="price" id="price" value="<?=$project->project_ppu?>">
+                            <input type="text" name="price" id="ppu" value="<?=$project->project_ppu?>">
                         </label>
                 </section>
                 <section class="col-md-2 col-sm-4">
                         <label class="label"><strong>กำลังผลิต <span style="color:red" class="pUnit"><?=$project->unit_name?></span></strong></label>
                         <label class="input">
-                            <input type="text" name="productivity" id="productivity" value="<?=$project->project_quantity?>">
+                            <input type="text" name="productivity" id="quantity" value="<?=$project->project_quantity?>">
                         </label>
                 </section>
                 <section class="col-md-2 col-sm-4">
                         <label class="label"><strong>สั่งซื้อขั้นต่ำ <span style="color:red" class="pUnit"><?=$project->unit_name?></span></strong></label>
                         <label class="input">
-                            <input type="text" name="minOrder" id="minOrder" value="<?=$project->project_lowest_order?>">
+                            <input type="text" name="minOrder" id="lowestOrder" value="<?=$project->project_lowest_order?>">
                         </label>
                 </section>
                 <section class="col-md-2 col-sm-4">
-                        <label class="label"><strong>วันที่เริ่มทำ</strong></label>
+                        <label class="label"><strong>วันที่เริ่มทำ(วัน/เดือน/ปี)</strong></label>
                         <label class="input">
                         <i class="icon-append fa fa-calendar"></i>
-                        <input type="text" name="date" id="date" value="<?=display_date_th($project->project_startdate)?>" class="hasDatepicker">
+                        <input type="text" name="date" id="startDate" value="<?=display_date_th($project->project_startdate)?>" class="hasDatepicker">
                     </label>
                 </section>
                 <section class="col-md-2 col-sm-4">
-                        <label class="label"><strong>วันที่พร้อมจำหน่าย </strong></label>
+                        <label class="label"><strong>วันที่พร้อมจำหน่าย(วัน/เดือน/ปี) </strong></label>
                         <label class="input">
                         <i class="icon-append fa fa-calendar"></i>
-                        <input type="text" name="date" id="date" value="<?=display_date_th($project->project_selldate)?>" class="hasDatepicker">
+                        <input type="text" name="date" id="sellDate" value="<?=display_date_th($project->project_selldate)?>" class="hasDatepicker">
                     </label>
                 </section>
             </div>
             <section>
                 <label class="label"><strong>ช่องทางการจัดส่ง</strong></label>
                 <div class="inline-group">
-
-                    <label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i>ไปรษณีย์ไทย</label>
-                    <label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i>kerry express</label>
-                    <label class="checkbox"><input type="checkbox" name="checkbox-inline" checked=""><i></i>จัดส่งเองถึงที่</label>
-                    <label class="checkbox"><input type="checkbox" name="checkbox-inline"><i></i>บริษัทขนส่งเอกชนอื่นๆ</label>
-                    <label class="checkbox"><input type="checkbox" name="checkbox-inline" checked=""><i></i>ตามตกลง</label>
-                    <label class="checkbox"><input type="checkbox" name="checkbox-inline" checked=""><i></i>มารับเอง</label>
+                    <?php foreach($shipment_arr as $shipment){ ?>
+                    <label class="checkbox"><input type="checkbox" class="shipmentWay" name="smw-<?=$shipment['shipment_id']?>"><i></i><?=$shipment['shipment_name']?></label>
+                    <?php } ?>
                 </div>
             </section>
             <div class="row">
-                <!--<div class="col-md-12"><img class="img-responsive" src="assets/img/project-bg-1.jpg"></div>-->
-                <div class="col-md-12"><img class="img-responsive" src="<?=base_url().$project->project_cover_image_path?>"></div>
+                <?php if($img_cover_path){ ?>
+                <div class="col-md-12"><img class="img-responsive" src="<?=$img_cover_path?>"></div>
+                <?php } ?>
                 <section class="col col-6">
                     <label class="label"><strong>รูปประกอบ (รูปหลัก 1 รูป)</strong></label>
                     <section>
                         <label for="file" class="input input-file state-success">
-                            <div class="button state-success"><input type="file" name="file" multiple="" onchange="this.parentNode.nextSibling.value = this.value" class="valid">เลือกไฟล์</div><input type="text" placeholder="กรุณาเลือกไฟล์" readonly="" class="valid">
+                            <div class="button state-success">
+                                <input type="file" id="coverImage" name="file" multiple="" onchange="this.parentNode.nextSibling.value = this.value;" class="valid">เลือกไฟล์</div><input type="text" placeholder="กรุณาเลือกไฟล์" readonly="" class="valid">
                         </label>*เว้นไว้ถ้าไม่ต้องการเปลี่ยนรูป
                     </section>
                 </section>
@@ -150,7 +156,7 @@
         </fieldset>
 
         <footer>
-            <a href="#" class="button">บันทึกการแก้ไข <i class="fa fa-save" aria-hidden="true"></i></a>
+            <a href="#" class="button" id="saveBtn">บันทึกการแก้ไข <i class="fa fa-save" aria-hidden="true"></i></a>
         </footer>
 
         

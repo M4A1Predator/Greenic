@@ -59,6 +59,7 @@
         <!--<script src="<?=base_url()?>mats/backAssets/js/vendor.js"></script>-->
         <!--<script src="<?=base_url()?>mats/backAssets/js/app.js"></script>-->
         <!-- Greenic JS -->
+        <script type="text/javascript" src="<?=base_url()?>mats/mainJs/base.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/backJs/adminBase.js"></script>
         <script type="text/javascript" src="<?=base_url()?>mats/mainJs/helper.js"></script>
         <!-- Greenic JS -->

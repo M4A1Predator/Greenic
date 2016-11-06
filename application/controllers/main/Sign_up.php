@@ -124,8 +124,7 @@
             
             // Prepare email
             $from = $this->config->item('smtp_user');
-            //$to = 'tssniper3@gmail.com';
-            //$to = 'tssniper3@greenic.co';
+            $from = 'greenicwork@gmail.com';
             $to = $member['member_email'];
             
             $this->email->set_newline("\r\n");

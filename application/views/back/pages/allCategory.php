@@ -10,8 +10,8 @@
     </div>
     <div class="card sameheight-item">
         <?php foreach($project_types as $pt){ ?>
-            <a href="<?=base_url().'gnc_admin/category/'.$pt->project_type_id?>" class="btn btn-secondary  btn-lg btn-block"><?=$pt->project_type_name?> (<?=$pt->project_count?>)</a>
+            <a href="<?=base_url().'gnc_admin/project_type/'.$pt->project_type_id?>" class="btn btn-secondary  btn-lg btn-block"><?=get_project_type_thai_text($pt->project_type_id)?> (<?=$pt->project_count?>)</a>
         <?php } ?>
-        <a href="<?=base_url().'gnc_admin/category/0'?>" class="btn btn-primary  btn-lg btn-block">ทั้งหมด (<?=$all_project_count?>)</a>
+        <a href="<?=base_url().'gnc_admin/project_type/0'?>" class="btn btn-primary  btn-lg btn-block">ทั้งหมด (<?=$all_project_count?>)</a>
     </div>
 </article>

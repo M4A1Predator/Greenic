@@ -53,3 +53,7 @@
         return $default_member_img_path;
     }
     
+    function base_url_admin(){
+        return base_url().'gnc_admin/';
+    }
+    

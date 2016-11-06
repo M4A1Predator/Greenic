@@ -107,6 +107,7 @@ $route['member/add_project_step1_ajax'] = 'main/Project_ctrl/add_project_step1_a
 $route['member/add_project_step2_ajax'] = 'main/Project_ctrl/add_project_step2_ajax';
 $route['member/add_project_step3_ajax'] = 'main/Project_ctrl/add_project_step3_ajax';
 $route['member/add_project_post_ajax'] = 'main/Project_post_ctrl/add_project_post_ajax';
+$route['member/edit_project_ajax'] = 'main/Project_ctrl/edit_project_ajax';
 
 $route['member/notice_all_notifications_ajax'] = 'main/Notification_ctrl/notice_all_notifications_ajax';
 
@@ -160,7 +161,17 @@ $route['gnc_admin/editFarm/(:any)'] = 'back/Project_set/farm_detail';
 $route['gnc_admin/projects/getFarmId/(:any)'] = 'back/Project_set/project_list';
 
 $route['gnc_admin/category/allCategory'] = 'back/Category_set/all_project_type_page';
-$route['gnc_admin/category/(:num)'] = 'back/Category_set/all_category_project_page';
+$route['gnc_admin/project_type/(:num)'] = 'back/Category_set/all_category_project_page';
+$route['gnc_admin/category/(:num)/breeds'] = 'back/Breed_set/category_breed_page';
+$route['gnc_admin/category/(:num)/breed/(:num)'] = 'back/Breed_set/edit_breed_page';
+$route['gnc_admin/category/(:num)/breed/(:num)/edit'] = 'back/Breed_set/edit_breed_ajax';
+$route['gnc_admin/category/(:num)/breed/add']['GET'] = 'back/Breed_set/add_breed_page';
+$route['gnc_admin/category/(:num)/breed/add']['POST'] = 'back/Breed_set/add_breed_ajax';
+$route['gnc_admin/category/(:num)/edit']['GET'] = 'back/Category_set/edit_category_page';
+$route['gnc_admin/category/(:num)/edit']['POST'] = 'back/Category_set/edit_category_ajax';
+$route['gnc_admin/category/add']['GET'] = 'back/Category_set/add_category_page';
+$route['gnc_admin/category/add']['POST'] = 'back/Category_set/add_category_ajax';
+$route['gnc_admin/category/is_dup'] = 'back/Category_set/is_dup';
 
 $route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
 $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';

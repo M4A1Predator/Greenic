@@ -5,7 +5,7 @@
                                 <div class="col-md-6">
                                     <h3 class="title">
 					ชนิดของผลผลิต
-					<a href="?page=addSpecies" class="btn btn-primary btn-sm rounded-s"><i class="fa fa-plus"></i> เพิ่มชนิดใหม่</a><!---->
+					<a href="<?=base_url().'gnc_admin/category/add'?>" class="btn btn-primary btn-sm rounded-s"><i class="fa fa-plus"></i> เพิ่มชนิดใหม่</a><!---->
                     <div class="action dropdown">
 						<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							คำสั่งจำนวนมาก
@@ -66,7 +66,7 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อชนิด</div>
                                         <div>
-                                            <a href="?page=allBreed" class="">
+                                            <a href="<?=base_url_admin().'category/'.$category->category_id.'/breeds'?>" class="">
                                                 <h4 class="item-title"><?=$category->category_name?></h4> </a>
                                         </div>
                                     </div>
@@ -80,11 +80,11 @@
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">สายพันธุ์</div>
-                                        <!--<div class="no-overflow"> <a href="?page=allBreed">คลิกเพื่อดูสายพันธุ์ทั้งหมด(4)</a> </div>-->
+                                        <div class="no-overflow"> <a href="<?=base_url().'gnc_admin/category/'.$category->category_id.'/breeds'?>">คลิกเพื่อดูสายพันธุ์ทั้งหมด(<?=$category->breed_count?>)</a> </div>
                                     </div>
                                     <div class="item-col item-col-date">
                                         <div class="item-heading">วันที่ลง</div>
-                                        <!--<div class="no-overflow"> 21 กันยายน 2559 10:45น. </div>-->
+                                        <div class="no-overflow"> <?=$category->category_datetime?> </div>
                                     </div>
                                     <div class="item-col fixed item-col-actions-dropdown">
                                         <div class="item-actions-dropdown">
@@ -99,7 +99,7 @@
                                                         <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=editSpecies"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url().'gnc_admin/category/'.$category->category_id.'/edit'?>"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
