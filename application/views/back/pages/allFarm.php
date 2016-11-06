@@ -8,9 +8,9 @@
                             </div>
                         </div>
                         <div class="items-search">
-                            <form class="form-inline">
-                                <div class="input-group"> <input type="text" class="form-control boxed rounded-s" placeholder="ค้นหาโดยชื่อ-สกุล"> <span class="input-group-btn">
-					<button class="btn btn-secondary rounded-s" type="button">
+                            <form class="form-inline" action="<?=base_url().'gnc_admin/searchFarm'?>" method="get">
+                                <div class="input-group"> <input type="text" class="form-control boxed rounded-s" placeholder="ค้นหาโดยชื่อ-สกุล" name='keyword' > <span class="input-group-btn">
+					<button class="btn btn-secondary rounded-s" type="submit">
 						<i class="fa fa-search"></i>
 					</button>
 				</span> </div>
