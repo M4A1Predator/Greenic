@@ -23,7 +23,7 @@
                                                  <a class="btn btn-primary-outline" href="?page=allFarm">ฟาร์มทั้งหมด (<?=$detail->farm_count?>)</a>
                                                 <!--ไปหน้าโชว์โปรเจ็คทั้งหมด แล้ว fillter โดยชื่อเกษตรกร-->
                                                  <a class="btn btn-info-outline" href="?page=memberProjectShowe">โปรเจ็คทั้งหมด (<?=$detail->project_count?>)</a>
-                                                 <a class="btn btn-warning-outline" href="?page=memberChatShowe">รายการสนทนา (5)</a>
+                                                 <!--<a class="btn btn-warning-outline" href="?page=memberChatShowe">รายการสนทนา (5)</a>-->
                                                     
                                                 <br/>
                                                 <p><b>ที่อยู่:</b> <?=$detail->member_address?> </p>

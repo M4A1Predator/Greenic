@@ -188,7 +188,8 @@ var jsonString = null;
                                     </div>
                                     <div class="item-col item-col-sales">
                                         <div class="item-heading">ประเภท</div>
-                                        <div> <?=$project->project_type_name?> </div>
+                                        <!--<div> <?=$project->project_type_name?> </div>-->
+                                        <div> <?=get_project_type_thai_text($project->project_type_id)?> </div>
                                     </div>
                                     <div class="item-col item-col-stats no-overflow">
                                         <div class="item-heading">ชนิด</div>
