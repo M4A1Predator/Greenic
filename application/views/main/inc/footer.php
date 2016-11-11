@@ -68,14 +68,11 @@
 								<i class="fa fa-envelope"></i>Email: <a href="<?=base_url()?>mats/mailto:info@anybiz.com">support@greenic.co</a>
 							</address>
 
-							<!-- Social Links -->
-							<ul class="social-icons">
-								<li><a href="https://www.facebook.com/greenic.co/" target="_blank" data-original-title="Facebook" class="rounded-x social_facebook"></a></li>
-								<!--<li><a href="#" data-original-title="Twitter" class="rounded-x social_twitter"></a></li>-->
-								<!--<li><a href="#" data-original-title="Goole Plus" class="rounded-x social_googleplus"></a></li>-->
-								<!--<li><a href="#" data-original-title="Linkedin" class="rounded-x social_linkedin"></a></li>-->
-							</ul>
-							<!-- End Social Links -->
+							
+						</div>
+                        <div class="col-md-3 md-margin-bottom-40">
+							<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fgreenic.co%2F%3Ffref%3Dts&tabs&width=260&height=220&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=364297080365030" width="260" height="220" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+							
 						</div>
 						<!-- End Address -->
 					</div>

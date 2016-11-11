@@ -193,4 +193,30 @@
             $this->load->view('back/index', $data);
             
         }
+        
+        // A added
+        function projectRemove(){
+           
+            // Set where assoc
+            $where_assoc = array();
+            $projectId = $this->uri->segment(3);
+            
+            $where_assoc['project_id']=$projectId;
+           
+            // Update
+            $update_result = $this->Project->project_remove($projectId);
+            $filter_assoc = array();
+            $filter_assoc['offset'] =   0;
+            $filter_assoc['limit'] = 10;
+                
+            $project_data = $this->Project->get_all_project($filter_assoc);  
+            $page = 'allProject';
+            
+            $data = array();
+            $data['page'] = $page;
+            $data['projects'] = $project_data['result'];
+            $data['count_data'] = $project_data['count'];
+            $this->load->view('back/index', $data);
+          
+        }
     }

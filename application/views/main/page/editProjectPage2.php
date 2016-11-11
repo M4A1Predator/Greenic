@@ -1,6 +1,6 @@
 <div class="container content-md">
                     <form action="#" method="post" id="sky-form3" class="sky-form" novalidate="novalidate">
-						<header>[2/3] แก้ไขโปรเจ็ค: ผักบุ้งจีน</header>
+						<header>[2/3] แก้ไขโปรเจ็ค</header>
 
 						<fieldset>
 
@@ -24,7 +24,7 @@
 										</label>
 								</section>
                                 <section class="col-md-2 col-sm-4">
-                                        <label class="label"><strong>กำลังผลิต <span style="color:red">กิโลกรัม</span></strong></label>
+                                        <label class="label"><strong>เป็นปริมาณทั้งหมด<span style="color:red">กิโลกรัม</span></strong></label>
 										<label class="input">
 											<input type="text" name="productivity" id="productivity" value="100">
 										</label>
@@ -39,7 +39,7 @@
                                         <label class="label"><strong>วันที่พร้อมจำหน่าย <span style="color:red">(โดยประมาณ)</span></strong></label>
 										<label class="input">
 										<i class="icon-append fa fa-calendar"></i>
-										<input type="text" name="date" id="date" value="10/06/2559" class="hasDatepicker">
+										<input type="date" name="date" id="date" value="10/06/2559" class="hasDatepicker">
 									</label>
 								</section>
 							</div>

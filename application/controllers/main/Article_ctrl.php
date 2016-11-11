@@ -103,6 +103,13 @@
             
             $article = $articles[0];
             
+            // Update view
+            $view_count = (int)$article->article_view;
+            $view_count += 1;
+            $update_where = array( 'article_id' => $article->article_id );
+            $update_data = array( 'article_view' => $view_count );
+            $this->Article->update($update_where, $update_data);
+            
             // Set data
             $data['article'] = $article;
             

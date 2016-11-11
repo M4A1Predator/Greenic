@@ -1,6 +1,8 @@
 $(document).ready(function (){
     
     checkUnreadConversation();
+    checkChatRealtime();
+    
     function checkUnreadConversation() {
         
         $.ajax({
@@ -29,6 +31,30 @@ $(document).ready(function (){
             $('#unreadConversationAmount').html(unreadCountText);
             
         });
+        
+    }
+    
+    
+    function checkChatRealtime() {
+        
+        fullUrl = window.location.href;
+        
+        //console.log(fullUrl.indexOf(webUrl + 'chat/'));
+        
+        if (fullUrl.indexOf(webUrl + 'chat/') !== 0) {
+            var socket = io('https://greenic.co:2053', {secure: true});
+            
+            // Bind events
+            socket.on('response_message', function(data){
+                
+                if (data.chat_member_id !== $('#onlineMemberId').val() ) {
+                    checkUnreadConversation();
+                }
+            });
+            
+        }else{
+            
+        }
         
     }
     

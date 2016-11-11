@@ -12,7 +12,8 @@
         
         function send_message($data){
             try{
-                $client = new Client(new Version1X('http://localhost:3001'));
+                //$client = new Client(new Version1X('http://localhost:3001'));
+                $client = new Client(new Version1X('https://greenic.co:2053'));
                 $client->initialize();
                 $client->emit('send_message', $data);
                 $client->close();

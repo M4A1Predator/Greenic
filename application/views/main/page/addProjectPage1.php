@@ -1,6 +1,6 @@
 <div class="container content-md">
     <form action="#" method="post" id="sky-form3" class="sky-form" novalidate="novalidate">
-        <header>[1/3] สร้างโปรเจ็คเกษตรอินทรีย์</header>
+        <header><button type="button" class="btn btn-defualt btn-circle">1/3</button> เพิ่มสินค้าเกษตรอินทรีย์</header>
 
         <fieldset>
             <section>

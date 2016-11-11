@@ -6,16 +6,16 @@
                                     <h3 class="title">
 					รายการบทความทั้งหมด
 					<a href="<?=base_url().'gnc_admin/article/addArticle'?>" class="btn btn-primary btn-sm rounded-s"><em class="fa fa-plus"></em> เพิ่มบทความ</a><!---->
-                    <div class="action dropdown">
-						<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							คำสั่งจำนวนมาก
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<a class="dropdown-item" href="#"> <i class="fa fa-eye-slash"></i>ไม่เผยแพร่ทั้งหมดที่เลือก</a>
-                            <a class="dropdown-item" href="#"> <i class="fa fa-eye"></i>เผยแพร่ทั้งหมดที่เลือก</a>
-							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-close icon"></i>ลบทั้งหมดที่เลือก</a>
-						</div>
-					</div>
+<!--                    <div class="action dropdown">-->
+<!--						<button class="btn  btn-sm rounded-s btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--							คำสั่งจำนวนมาก-->
+<!--						</button>-->
+<!--						<div class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+<!--							<a class="dropdown-item" href="#"> <i class="fa fa-eye-slash"></i>ไม่เผยแพร่ทั้งหมดที่เลือก</a>-->
+<!--                            <a class="dropdown-item" href="#"> <i class="fa fa-eye"></i>เผยแพร่ทั้งหมดที่เลือก</a>-->
+<!--							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#confirm-modal"><i class="fa fa-close icon"></i>ลบทั้งหมดที่เลือก</a>-->
+<!--						</div>-->
+<!--					</div>-->
 				</h3>
                                     <p class="title-description"> รายการบทความทั้งหมดในเว็บไซต์ </p>
                                 </div>
@@ -102,13 +102,18 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" id="removeArticle-<?=$article->article_id?>" href="#"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="#unshow"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <?php if($article->article_status_id == $this->Status->status_publish_id){ ?>
+                                                        <a class="edit" id="draftArticle-<?=$article->article_id?> href="#"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <?php }else{ ?>
+                                                        <a class="edit" id="publishArticle-<?=$article->article_id?> href="#"> <i class="fa fa-eye-slash"></i> </a>
+                                                        <?php } ?>
+                                                        
                                                     </li>
                                                     <li>
-                                                        <a class="edit" href="?page=editArticle"> <i class="fa fa-pencil"></i> </a>
+                                                        <a class="edit" href="<?=base_url_admin().'article/'.$article->article_id?>"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -135,3 +140,73 @@
                         </ul>
                     </nav>
                 </article>
+
+<script>
+    
+    $('[id^="removeArticle-"]').click(function (){
+        removeItemId = getElementIdFromId($(this).prop('id'));
+        param = {
+            article_id : removeItemId,
+        };
+        
+        $.ajax({
+            type : 'post',
+            url : webUrl + 'gnc_admin/article/remove',
+            data : param,
+        }).done(function (data){
+            if (data !== '1') {
+                console.log(data);
+                $('#cannotRemoveModal').modal('toggle');
+                return;
+            }
+            
+            location.reload();
+        });
+        
+    });
+    
+    $('[id^="draftArticle-"]').click(function (){
+        draftItemId = getElementIdFromId($(this).prop('id'));
+        param = {
+            article_id : draftItemId,
+        };
+        
+        $.ajax({
+            type : 'post',
+            url : webUrl + 'gnc_admin/article/draft',
+            data : param,
+        }).done(function (data){
+            if (data !== '1') {
+                console.log(data);
+                $('#cannotRemoveModal').modal('toggle');
+                return;
+            }
+            
+            location.reload();
+        });
+    });
+    
+    $('[id^="publishArticle-"]').click(function (){
+        publishItemId = getElementIdFromId($(this).prop('id'));
+        param = {
+            article_id : publishItemId,
+        };
+        
+        $.ajax({
+            type : 'post',
+            url : webUrl + 'gnc_admin/article/publish',
+            data : param,
+        }).done(function (data){
+            if (data !== '1') {
+                console.log(data);
+                $('#cannotRemoveModal').modal('toggle');
+                return;
+            }
+            
+            location.reload();
+        });
+    });
+    
+    
+    
+</script>

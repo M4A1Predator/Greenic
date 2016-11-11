@@ -14,7 +14,7 @@
 
 <div class="container content-md">
     <form id="sky-form3" class="sky-form" novalidate="novalidate">
-        <header>แก้ไขโปรเจ็ค: ผักบุ้งจีน</header>
+        <header>แก้ไขโปรเจ็ค: <?=$project->project_name?></header>
         
         <fieldset>
             
@@ -86,8 +86,8 @@
             </section>
             
             <div class="row">
-                <section class="col-md-2 col-sm-4">
-                        <label class="label"><strong>หน่วยที่ขาย</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addUnit" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
+                <section class="col-md-3 col-sm-4">
+                        <label class="label"><strong>หน่วยที่ขาย</strong> <span style="color:green;" data-toggle="modal" data-target="#addUnit" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></span></label>
                         <label class="select">
                             <select name="gender" id="select_unit">
                                 <option value="0" selected="" disabled="">เลือกหน่วย</option>
@@ -95,32 +95,32 @@
                             <i></i>
                         </label>
                 </section>
-                <section class="col-md-2 col-sm-4">
+                <section class="col-md-3 col-sm-4">
                         <label class="label"><strong>ราคาต่อ <span style="color:red" class="pUnit"><?=$project->unit_name?></span></strong></label>
                         <label class="input">
                             <input type="text" name="price" id="ppu" value="<?=$project->project_ppu?>">
                         </label>
                 </section>
-                <section class="col-md-2 col-sm-4">
-                        <label class="label"><strong>กำลังผลิต <span style="color:red" class="pUnit"><?=$project->unit_name?></span></strong></label>
+                <section class="col-md-3 col-sm-4">
+                        <label class="label"><strong>เป็นปริมาณทั้งหมด <span style="color:red" class="pUnit"><?=$project->unit_name?></span></strong></label>
                         <label class="input">
                             <input type="text" name="productivity" id="quantity" value="<?=$project->project_quantity?>">
                         </label>
                 </section>
-                <section class="col-md-2 col-sm-4">
+                <section class="col-md-3 col-sm-4">
                         <label class="label"><strong>สั่งซื้อขั้นต่ำ <span style="color:red" class="pUnit"><?=$project->unit_name?></span></strong></label>
                         <label class="input">
                             <input type="text" name="minOrder" id="lowestOrder" value="<?=$project->project_lowest_order?>">
                         </label>
                 </section>
-                <section class="col-md-2 col-sm-4">
+                <section class="col-md-3 col-sm-4">
                         <label class="label"><strong>วันที่เริ่มทำ(วัน/เดือน/ปี)</strong></label>
                         <label class="input">
                         <i class="icon-append fa fa-calendar"></i>
                         <input type="text" name="date" id="startDate" value="<?=display_date_th($project->project_startdate)?>" class="hasDatepicker">
                     </label>
                 </section>
-                <section class="col-md-2 col-sm-4">
+                <section class="col-md-3 col-sm-4">
                         <label class="label"><strong>วันที่พร้อมจำหน่าย(วัน/เดือน/ปี) </strong></label>
                         <label class="input">
                         <i class="icon-append fa fa-calendar"></i>

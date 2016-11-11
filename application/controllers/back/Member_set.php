@@ -57,6 +57,7 @@
             // Get members
             $where_assoc = array();
             $where_assoc['member_type_id'] = $member_type_id;
+            //$where_assoc['member_status_id !='] = $this->Status->status_removed_id;
 
             // Set filter data
             $filter_assoc = array();
@@ -72,6 +73,15 @@
             }
 
             $data['members'] = $member_data['result'];
+            
+            if(isset($member_data['result2'])){
+                $data['members2'] = $member_data['result2'];
+            }
+            
+            if(isset($member_data['result3'])){
+                $data['members3'] = $member_data['result3'];
+            }
+            
             $data['member_count'] = $member_data['count'];
             $data['page_number'] = $page_number;
             $data['limit'] = $limit;
@@ -97,14 +107,12 @@
             $data['view_use']='member_id';
             $where_assoc = array();
             $where_assoc['member_id'] = $member_id;
+            //$where_assoc['member_status_id !='] = $this->Status->status_removed_id;
 
             $member_data = $this->Member->get_filter('*',$where_assoc);
 
             $data['page'] = $page;
             $data['member_detail'] = $member_data;
-
-
-
 
             // Load view
             $this->load->view('back/index', $data);
@@ -118,6 +126,7 @@
             //get member id
             $member_id = $this->uri->segment(3);
             $where_assoc['member_id'] = $member_id;
+            //$where_assoc['member_status_id !='] = $this->Status->status_removed_id;
 
             //set page
             $page = 'farmerDetail';
@@ -154,7 +163,53 @@
             }
             
             echo 1;
-            
         }
+        
+        function ban_member_ajax(){
+            
+            // Get data
+            $remove_member_id = $this->input->post('remove_member_id');
+            
+            // update
+            $where_assoc = array();
+            $where_assoc['member_id'] = $remove_member_id;
+            
+            $update_data = array();
+            $update_data['member_status_id'] = $this->Status->status_banned_id;
+            
+            $res = $this->Member->update($where_assoc, $update_data);
+            
+            if(!$res){
+                $err_assoc = array('err'=>'update failed');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            echo 1;
+        }
+        
+        function unban_member_ajax(){
+            
+            // Get data
+            $remove_member_id = $this->input->post('remove_member_id');
+            
+            // update
+            $where_assoc = array();
+            $where_assoc['member_id'] = $remove_member_id;
+            
+            $update_data = array();
+            $update_data['member_status_id'] = $this->Status->status_normal_id;
+            
+            $res = $this->Member->update($where_assoc, $update_data);
+            
+            if(!$res){
+                $err_assoc = array('err'=>'update failed');
+                echo json_encode($err_assoc);
+                return;
+            }
+            
+            echo 1;
+        }
+        
 
     }

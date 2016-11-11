@@ -287,4 +287,23 @@
             return $count;
             
         }
+        
+        // A added
+        function project_remove($projectId){
+            
+           // Set where assoc
+            $where_assoc = array();
+            
+            $where_assoc['project_id']=$projectId;
+
+            // Set update data assoc
+            $data_assoc = array();
+            $remove = '5';
+            $data_assoc['project_status_id'] = $remove;
+
+            // Update
+            $update_result = $this->update($where_assoc, $data_assoc);
+
+            return $update_result;
+        }
     }

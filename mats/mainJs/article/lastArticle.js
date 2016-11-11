@@ -24,7 +24,8 @@ $(document).ready(function (){
                         if (sep < 150) {
                             introText = article.article_content.substring(0, (sep + ('</p>'.length)));
                         }else{
-                            introText = article.article_content.substring(0, (sep + 150));
+                            //introText = article.article_content.substring(0, (sep + 150));
+                            introText = article.article_content.substring(0, (150)); // added
                         }
                     }else{
                         introText = article.article_content.substring(0, 150);

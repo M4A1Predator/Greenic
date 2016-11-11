@@ -48,7 +48,7 @@
             // Get articles
             $this->load->library('gnc_query');
             $where_assoc = array();
-            //$where_assoc['article_status_id !='] = $this->Status->status_removed_id;
+            $where_assoc['article_status_id !='] = $this->Status->status_removed_id;
             
             $join_member = $this->gnc_query->get_join_table_assoc('member_public_view', 'member_public_view.member_id = article.article_member_id');
             $join_status = $this->gnc_query->get_join_table_assoc('status', 'status.status_id = article.article_status_id');
@@ -287,6 +287,54 @@
             }
             
             echo 1;
+        }
+        
+        function remove_article(){
+            
+            $article_id = $this->input->post('article_id');
+            
+            $where_assoc = array(
+                'article_id' => $article_id,
+            );
+            
+            $update_data = array();
+            $update_data['article_status_id'] = $this->Status->status_removed_id;
+            
+            $res = $this->Article->update($where_assoc, $update_data);
+            echo 1;
+            
+        }
+        
+        function draft_article_ajax(){
+            
+            $article_id = $this->input->post('article_id');
+            
+            $where_assoc = array(
+                'article_id' => $article_id,
+            );
+            
+            $update_data = array();
+            $update_data['article_status_id'] = $this->Status->status_draft_id;
+            
+            $res = $this->Article->update($where_assoc, $update_data);
+            echo 1;
+            
+        }
+        
+        function publish_article_ajax(){
+            
+            $article_id = $this->input->post('article_id');
+            
+            $where_assoc = array(
+                'article_id' => $article_id,
+            );
+            
+            $update_data = array();
+            $update_data['article_status_id'] = $this->Status->status_publish_id;
+            
+            $res = $this->Article->update($where_assoc, $update_data);
+            echo 1;
+            
         }
     
     }

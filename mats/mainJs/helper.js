@@ -30,7 +30,8 @@ function getDateTimeTextFromMySqlDateText(mySqlDate) {
     date.setMonth(month);
     date.setDate(day);
     
-    dateText = date.getDate() + '/' + (date.getMonth() +1 ) + '/' + (date.getFullYear() + 543) + ' ' + hour + ':' + minute;
+    //dateText = date.getDate() + '/' + (date.getMonth() +1 ) + '/' + (date.getFullYear() + 543) + ' ' + hour + ':' + minute;
+    dateText = date.getDate() + '/' + (date.getMonth() +1 ) + '/' + (date.getFullYear() + 543) + ' ' + date.getHours() + ':' + minute;
     return dateText;
 }
 
@@ -54,11 +55,13 @@ function getMonthThaiText(mySqlDate) {
 function getMySqlDateString(dateString) {
     
     var re = /^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$/;
+    //var re = /^[0-9]{1,2}\-[0-9]{1,2}\-[0-9]{4}$/;
     if(re.test(dateString) === false){
         return false;
     }
     
     dateArray = dateString.split('/');
+    //dateArray = dateString.split('-');
     
     for (i=0; i<dateArray.length; i++) {
         if (isNaN(dateArray[i])) {
@@ -78,7 +81,7 @@ function getMySqlDateString(dateString) {
 
 function getDateTimeText() {
     date = new Date();
-    dateText = date.getDate() + '/' + (date.getMonth() +1 ) + '/' + (date.getFullYear() + 543) + ' ' + (date.getHours() + 1) + ':' + (date.getMinutes());
+    dateText = date.getDate() + '/' + (date.getMonth() +1 ) + '/' + (date.getFullYear() + 543) + ' ' + (date.getHours()) + ':' + (date.getMinutes());
     return dateText;
 }
 

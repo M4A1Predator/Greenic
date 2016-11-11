@@ -13,10 +13,19 @@
         function get_all_farm($filter_assoc=array(), $result_type='object'){
         //Set form
             $from_table = 'farm';
-             // Set where
-             $where_assoc = array();
+            // Set where
+            $where_assoc = array();
             $where_assoc['farm.farm_status_id'] = $this->Status->status_normal_id;
-
+            
+            $offset = 0;
+            $limit = null;
+            if(isset($filter_assoc['offset'])){
+                $offset = $filter_assoc['offset'];
+            }
+            
+            if(isset($filter_assoc['limit'])){
+                $limit = $filter_assoc['limit'];
+            }
 
             // Set order
             $order_by = 'farm_id DESC';
@@ -29,6 +38,8 @@
             $this->db->join('member', 'farm.farm_member_id = member.member_id', 'left');
             $this->db->where($where_assoc);
             $this->db->order_by($order_by);
+            $this->db->offset($offset);
+            $this->db->limit($limit);
             $this->db->group_by($group_by);
 
             $query = $this->db->get();
@@ -46,7 +57,6 @@
             $count = $this->db->count_all_results();
             
             
-
             $data['result'] = $result;
             $data['count'] = $count;
             return $data;

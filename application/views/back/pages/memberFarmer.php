@@ -62,8 +62,14 @@
                                     </div>
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
                                 </div>
-
+                            <?php $c=0; ?>
                             <?php foreach($members as $member){ ?>
+                            <?php if($member->member_status_id == $this->Status->status_banned_id){
+                                    $member_state = ' (banned)';
+                                }else{
+                                    $member_state = '';
+                                }
+                            ?>
                             <li class="item">
                                 <div class="item-row">
                                     <div class="item-col fixed item-col-check">
@@ -80,7 +86,7 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                         <div class="item-heading">ชื่อ-สกุล</div>
                                         <div>
-                                            <a href="<?=base_url()?>gnc_admin/farmerDetail/<?=$member->member_id?>" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title"><?=$member->member_firstname?> <?=$member->member_lastname?></h4> </a>
+                                            <a href="<?=base_url()?>gnc_admin/farmerDetail/<?=$member->member_id?>" title="คลิกเพื่อดูข้อมูลสมาชิก"><h4 class="item-title"><?=$member->member_firstname?> <?=$member->member_lastname?></h4> <?=$member_state?></a>
                                         </div>
                                     </div>
                                     <div class="item-col item-col-sales">
@@ -90,11 +96,11 @@
 
                                     <div class="item-col item-col-category no-overflow">
                                         <div class="item-heading">จำนวนฟาร์ม</div>
-                                        <div class="no-overflow"><a href="<?=base_url()?>gnc_admin/projects/getFarmId/<?=$member->farm_id?>" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> <?=$member->farm_count?> ฟาร์ม</a></div>
+                                        <div class="no-overflow"><a href="<?=base_url()?>gnc_admin/projects/getFarmId/<?=$member->farm_id?>" title="คลิกเพื่อดูฟาร์มทั้งหมดของสมาชิกท่านนี้"> <?=$members3[$c]->farm_count?> ฟาร์ม</a></div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">จำนวนโปรเจ็ค</div>
-                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้">23 โปรเจ็ค</a> </div>
+                                        <div class="no-overflow"> <a href="?page=memberProjectShow" title="ดูโปรเจ็คทั้งหมดของสมาชิกคนนี้"><?=$members2[$c]->project_count?> โปรเจ็ค</a> </div>
                                     </div>
                                     <div class="item-col item-col-author">
                                         <div class="item-heading">ที่อยู่</div>
@@ -114,10 +120,16 @@
                                              <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
+                                                        <a class="remove" id="removeMember-<?=$member->member_id?>" href="#"  title="ลบสมาชิกคนนี้"> <i class="fa fa-trash-o "></i> </a>
                                                     </li>
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <?php if($member->member_status_id == $this->Status->status_normal_id){ ?>
+                                                        <a class="remove" id="banMember-<?=$member->member_id?>" href="#" title="ระงับการใช้งานชั่วคราว"> <i class="fa fa-ban"></i> </a>
+                                                        <?php } ?>
+                                                        <?php if($member->member_status_id == $this->Status->status_banned_id){ ?>
+                                                        <a class="" id="unbanMember-<?=$member->member_id?>" href="#" title=""> <i class="fa fa-child"></i> </a>
+                                                        <?php } ?>
+                                                        
                                                     </li>
                                                     <li>
                                                         <a class="edit" href="?page=memberEdit" title="แก้ไขข้อมูล"> <i class="fa fa-pencil"></i> </a>
@@ -128,6 +140,7 @@
                                     </div>
                                 </div>
                             </li>
+                            <?php $c += 1; ?>
                             <?php } ?>
                             </ul>
                     </div>
@@ -150,3 +163,78 @@
                         </ul>
                     </nav>
                 </article>
+
+
+<script>
+    
+    $('[id^="removeMember-"]').click(function (){
+        removeItemId = getElementIdFromId($(this).prop('id'));
+        param = {
+            remove_member_id : removeItemId,
+        };
+        console.log(param);
+        
+        $.ajax({
+            type : 'post',
+            url : webUrl + 'gnc_admin/member/remove',
+            data : param,
+        }).done(function (data){
+            if (data !== '1') {
+                console.log(data);
+                $('#cannotRemoveModal').modal('toggle');
+                return;
+            }
+            
+            location.reload();
+        });
+        
+    });
+    
+    $('[id^="banMember-"]').click(function (){
+        removeItemId = getElementIdFromId($(this).prop('id'));
+        param = {
+            remove_member_id : removeItemId,
+        };
+        console.log(param);
+        
+        $.ajax({
+            type : 'post',
+            url : webUrl + 'gnc_admin/member/ban',
+            data : param,
+        }).done(function (data){
+            if (data !== '1') {
+                console.log(data);
+                $('#cannotRemoveModal').modal('toggle');
+                return;
+            }
+            
+            location.reload();
+        });
+        
+    });
+    
+    $('[id^="unbanMember-"]').click(function (){
+        removeItemId = getElementIdFromId($(this).prop('id'));
+        param = {
+            remove_member_id : removeItemId,
+        };
+        console.log(param);
+        
+        $.ajax({
+            type : 'post',
+            url : webUrl + 'gnc_admin/member/unban',
+            data : param,
+        }).done(function (data){
+            if (data !== '1') {
+                console.log(data);
+                $('#cannotRemoveModal').modal('toggle');
+                return;
+            }
+            
+            location.reload();
+        });
+        
+    });
+    
+    
+</script>

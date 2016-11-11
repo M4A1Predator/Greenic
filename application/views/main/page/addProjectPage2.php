@@ -1,12 +1,12 @@
 <div class="container content-md">
                     <form action="#" method="post" id="sky-form3" class="sky-form" novalidate="novalidate">
-						<header>[2/3] สร้างโปรเจ็คเกษตรอินทรีย์</header>
+						<header><button type="button" class="btn btn-defualt btn-circle">2/3</button> เพิ่มสินค้าเกษตรอินทรีย์</header>
 
 						<fieldset>
 
                             <div class="row">
-								<section class="col-md-2 col-sm-4">
-                                        <label class="label"><strong>หน่วยที่ขาย</strong> <button class="btn btn-xs rounded btn-success" data-toggle="modal" data-target="#addUnit" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></button></label>
+								<section class="col-md-3 col-sm-4">
+                                        <label class="label"><strong>หน่วยที่ขาย</strong> <span style="color:green;" data-toggle="modal" data-target="#addUnit" type="button">เพิ่มใหม่ <i class="fa fa-plus" aria-hidden="true"></i></span></label>
 										<label class="select">
 											<select name="select_unit" id="select_unit">
 												<option value="0" selected="" disabled="">เลือกหน่วย</option>
@@ -17,32 +17,32 @@
 											<i></i>
 										</label>
 								</section>
-                                <section class="col-md-2 col-sm-4">
+                                <section class="col-md-3 col-sm-4">
                                         <label class="label"><strong>ราคาต่อ <span class="pUnit" style="color:red">กิโลกรัม</span></strong></label>
 										<label class="input">
 											<input type="text" name="price" id="ppu" placeholder="1000">
 										</label>
 								</section>
-                                <section class="col-md-2 col-sm-4">
-                                        <label class="label"><strong>กำลังผลิต <span class="pUnit" style="color:red">กิโลกรัม</span></strong></label>
+                                <section class="col-md-3 col-sm-4">
+                                        <label class="label"><strong>เป็นปริมาณทั้งหมด <span class="pUnit" style="color:red">กิโลกรัม</span></strong></label>
 										<label class="input">
 											<input type="text" name="productivity" id="quantity" placeholder="500">
 										</label>
 								</section>
-								<section class="col-md-2 col-sm-4">
+								<section class="col-md-3 col-sm-4">
                                         <label class="label"><strong>สั่งซื้อขั้นต่ำ <span class="pUnit" style="color:red">กิโลกรัม</span></strong></label>
 										<label class="input">
 											<input type="text" name="minOrder" id="lowest_order" placeholder="10">
 										</label>
 								</section>
-                                <section class="col-md-2 col-sm-4">
+                                <section class="col-md-3 col-sm-4">
                                         <label class="label"><strong>วันที่เริ่มทำ</strong></label>
 										<label class="input">
 										<i class="icon-append fa fa-calendar"></i>
 										<input type="text" name="date" id="startDate" placeholder="เช่น 10/05/2559" class="hasDatepicker">
 									</label>
 								</section>
-                                <section class="col-md-2 col-sm-4">
+                                <section class="col-md-3 col-sm-4">
                                         <label class="label"><strong>วันที่พร้อมจำหน่าย <span style="color:red">(โดยประมาณ)</span></strong></label>
 										<label class="input">
 										<i class="icon-append fa fa-calendar"></i>

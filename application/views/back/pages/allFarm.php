@@ -116,12 +116,12 @@
                     </div>
 	
 	<?php
-                    $page_amount = 1;
-                    if($count_data % $limit === 0){
-                        $page_amount = $count_data / $limit;
-                    }else{
-                        $page_amount = ($count_data / $limit) + 1;
-                    }
+                    //$page_amount = 1;
+                    //if($count_data % $limit === 0){
+                    //    $page_amount = $count_data / $limit;
+                    //}else{
+                    //    $page_amount = ($count_data / $limit) + 1;
+                    //}
                 ?>
 	
                     <nav class="text-xs-right">

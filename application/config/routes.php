@@ -161,7 +161,9 @@ $route['gnc_admin/members/(:any)'] = 'back/Member_set/member_list_page';
 $route['gnc_admin/basicDetail/(:any)'] = 'back/Member_set/member_detail';
 $route['gnc_admin/memberEdit/(:any)'] = 'back/Member_set/member_detail';
 $route['gnc_admin/farmerDetail/(:any)'] = 'back/Member_set/farmer_detail';
-
+$route['gnc_admin/member/remove']['post'] = 'back/Member_set/remove_member_ajax';
+$route['gnc_admin/member/ban']['post'] = 'back/Member_set/ban_member_ajax';
+$route['gnc_admin/member/unban']['post'] = 'back/Member_set/unban_member_ajax';
 
 //Project_set
 $route['gnc_admin/projects/(:any)'] = 'back/Project_set/project_list';
@@ -196,6 +198,9 @@ $route['gnc_admin/unit/remove'] = 'back/Unit_set/remove_unit_ajax';
 $route['gnc_admin/article/allArticle'] = 'back/Article_set/all_article_page';
 $route['gnc_admin/article/addArticle'] = 'back/Article_set/add_atricle_page';
 $route['gnc_admin/article/(:num)'] = 'back/Article_set/edit_article_page/$1';
+$route['gnc_admin/article/draft']['post'] = 'back/Article_set/draft_article_ajax';
+$route['gnc_admin/article/remove']['post'] = 'back/Article_set/remove_article';
+$route['gnc_admin/article/publish']['post'] = 'back/Article_set/publish_article_ajax';
 
 $route['gnc_admin/webdata/about'] = 'back/Webdata_set/about_page';
 $route['gnc_admin/webdata/terms'] = 'back/Webdata_set/terms_page';

@@ -372,6 +372,7 @@
             // Set where
             $where_assoc = array();
             $where_assoc['member_type_id'] = $this->Member_type->member_normal_id;
+            $where_assoc['member_status_id !='] = $this->Status->status_removed_id;
 
             // Build query
             $this->db->select('*, count(follow_id) as follow_count');
@@ -414,6 +415,7 @@
             // Set where
             $where_assoc = array();
             $where_assoc['member_type_id'] = $this->Member_type->member_farmer_id;
+            $where_assoc['member_status_id !='] = $this->Status->status_removed_id;
 
             // Build query
             $this->db->select('*, count(follow_id) as follow_count, count(farm_id) as farm_count');
@@ -428,6 +430,33 @@
 
             $query = $this->db->get();
             $result = $this->get_result($query, $result_type);
+            
+            // Build query 2
+            $this->db->select('*, count(project_id) as project_count');
+            $this->db->from($this->view);
+            $this->db->join('farm', 'farm.farm_member_id = member_view.member_id', 'left');
+            $this->db->join('project', 'project.project_farm_id = farm.farm_id', 'left');
+            $this->db->where($where_assoc);
+            $this->db->group_by('member_view.member_id');
+            $this->db->offset($offset);
+            $this->db->limit($limit);
+            
+            $query = $this->db->get();
+            $result2 = $this->get_result($query, $result_type);
+            
+            // Build query 3
+            $this->db->select('*, count(farm_id) as farm_count');
+            $this->db->from($this->view);
+            $this->db->join('farm', 'farm.farm_member_id = member_view.member_id', 'left');
+            $this->db->where($where_assoc);
+            $this->db->group_by('member_view.member_id');
+            $this->db->offset($offset);
+            $this->db->limit($limit);
+            
+            $query = $this->db->get();
+            $result3 = $this->get_result($query, $result_type);
+            
+            //----------
 
             // Get count
             $this->db->select('*, count(follow_id) as follow_count, count(farm_id) as farm_count, count(project_id) as project_count');
@@ -441,6 +470,8 @@
 
             // Set data
             $data['result'] = $result;
+            $data['result2'] = $result2;
+            $data['result3'] = $result3;
             $data['count'] = $count;
 
             return $data;
@@ -525,8 +556,7 @@
             *  get member farmer list
             *
             */
-
-
+            
            // Build query
            $this->db->select('*, count(project_id) as project_count, count(farm_id) as farm_count');
            $this->db->from($this->view);
@@ -534,12 +564,11 @@
            $this->db->join('farm', 'farm.farm_member_id = member_view.member_id', 'left');
            $this->db->join('project', 'project.project_farm_id = farm.farm_id', 'left');
            $this->db->where($where_assoc);
+           //$this->db->where('project.project_status_id', $this->CI->Status->status_normal_id);
            $this->db->group_by('member_view.member_id');
-
 
            $query = $this->db->get();
            $result = $this->get_result($query, $result_type);
-
 
            $data['result'] = $result;
            //$data['count'] = $count;

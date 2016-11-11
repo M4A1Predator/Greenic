@@ -48,7 +48,7 @@ $(document).ready(function (){
                         if (sep < 150) {
                             introText = article.article_content.substring(0, (sep + ('</p>'.length)));
                         }else{
-                            introText = article.article_content.substring(0, (sep + 150));
+                            introText = article.article_content.substring(0, (150));
                         }
                         
                     }else{
@@ -66,7 +66,7 @@ $(document).ready(function (){
                     content += '<a class="btn-more hover-effect" href="' + articleUrl + '">อ่านเรื่องนี้ +</a>';
                 content += '</div>';
                 content += '<div class="caption">';
-                    content += '<h3><a class="hover-effect" href="showArticle.php">' + article.article_headline + '</a></h3>';
+                    content += '<h3><a class="hover-effect" href="' + articleUrl + '">' + article.article_headline + '</a></h3>';
                     content += '<p>' + introText + '</p>';
                     content += '</div>';
                 content += '</div>';

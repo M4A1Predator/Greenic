@@ -1,6 +1,6 @@
 <div class="container content-md">
     <form action="#" method="post" id="sky-form3" class="sky-form" novalidate="novalidate">
-        <header>[3/3] สร้างโปรเจ็คเกษตรอินทรีย์</header>
+        <header><button type="button" class="btn btn-defualt btn-circle">3/3</button> เพิ่มสินค้าเกษตรอินทรีย์</header>
 
         <fieldset>
 
@@ -10,7 +10,10 @@
                     <label class="label"><strong>รูปประกอบ (รูปหลัก 1 รูป)</strong></label>
                     <section>
                         <label for="file" class="input input-file state-success">
-                            <div class="button state-success"><input type="file" id="coverImage" name="file" multiple="" onchange="this.parentNode.nextSibling.value = this.value;" class="valid">เลือกไฟล์</div><input type="text" placeholder="กรุณาเลือกไฟล์" readonly="" class="valid">
+                            <div class="button state-success">
+                                <input type="file" id="coverImage" name="file" multiple="" onchange="this.parentNode.nextSibling.value = this.value;" class="valid">เลือกไฟล์
+                            </div>
+                            <input id="coverImageFileText" type="text" placeholder="กรุณาเลือกไฟล์" readonly="" class="valid">
                         </label>
                     </section>
                 </section>
@@ -21,7 +24,6 @@
                 <!--        <input type="text" maxlength="6" name="captcha" id="captcha">-->
                 <!--    </label>-->
                 <!--</section>-->
-            
             </div>
             
 
@@ -33,12 +35,12 @@
         </fieldset>
 
         <footer>
-            <button type="submit" id="addProject3Btn" class="button">สร้างโปรเจ็ค <i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button type="submit" id="addProject3Btn" class="button">ลงสินค้า <i class="fa fa-plus" aria-hidden="true"></i></button>
         </footer>
 
         <div class="message">
             <i class="rounded-x fa fa-check"></i>
-            <p>สร้างโปรเจ็คเรียบร้อยแล้ว!</p>
+            <p>ลงสินค้าใหม่เรียบร้อยแล้ว!</p>
         </div>
     </form>
 </div>

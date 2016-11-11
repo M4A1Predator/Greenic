@@ -18,7 +18,7 @@ $(document).ready(function (){
     showOldMessageList();
     
     // SOCKET!
-    var socket = io('http://127.0.0.1:3001');
+    var socket = io('https://greenic.co:2053', {secure: true});
     
     // Bind events
     socket.on('response_message', function(data){
@@ -75,7 +75,7 @@ $(document).ready(function (){
                  content += '<div class="chat-body clearfix">';
                      content += '<div class="header">';
                          content += '<small class="text-muted">';
-                            content += '<span class="glyphicon glyphicon-time"></span>' + 'now';
+                            content += '<span class="glyphicon glyphicon-time"></span>' + getDateTimeText();
                             content += '</small>';
                             content += '<strong class="pull-right primary-font">' + memberName + '</strong>';
                      content += '</div>';

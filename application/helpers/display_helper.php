@@ -42,7 +42,8 @@
             return '';
         }
         
-        $type_arr = ['ผัก', 'ผลไม้', 'สัตว์'];
+        //$type_arr = ['ผัก', 'ผลไม้', 'สัตว์'];
+        $type_arr = ['พืช/ผัก', 'ผลไม้', 'สัตว์'];
         
         return $type_arr[$project_type_id - 1];
         

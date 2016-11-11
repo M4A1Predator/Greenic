@@ -35,3 +35,12 @@ function addProject3(e) {
         }
     });
 }
+
+coverImage.change(function (){
+    
+    f = coverImage.prop('files')[0];
+    if (f) {
+        $('#coverImageFileText').val(f.name);
+    }
+    
+});

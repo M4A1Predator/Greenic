@@ -4,13 +4,10 @@
 	<div class="blog-topbar">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 col-xs-8 hidden-xs">
+				<div class="col-sm-6 col-xs-8 hidden-xs hidden-sm">
 					<ul class="topbar-list-contact topbar-log_reg">
 						<li>
-							<i class="fa fa-envelope"></i> Email: support@greenic.co
-						</li>
-						<li>
-							<i class="fa fa-phone"></i> Hotline: 083 000 9691
+							<i class="fa fa-envelope"></i> support@greenic.co
 						</li>
 					</ul>
 					
@@ -28,10 +25,10 @@
                         <!--<a href="<?=base_url().$this->lang->line('sign_out_uri')?>"><i class="fa fa-sign-out"></i></a>-->
                     </li>
 					<!--<li class=""><a href="<?=base_url()?>chat"><i class="fa fa-comment" aria-hidden="true"></i> กล่องแชท<span></span></a></li>-->
-                    <li class=""><a href="<?=base_url().$this->lang->line('add_project')?>"><i class="fa fa-plus" aria-hidden="true"></i> สร้างโปรเจ็ค</a></li>
+                    <li class=""><a href="<?=base_url().$this->lang->line('add_project')?>"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่มสินค้าใหม่</a></li>
                     <?php if($this->session->userdata('member_type_name') == $this->Member_type->member_farmer || $this->session->userdata('member_type_name') == $this->Member_type->member_admin){ ?>
 					<!--เริ่ม..ถ้ามีโปรเจ็ก 1 โปรเจ็คขึ้นไปจึงจะแสดง-->
-					<li class=""><a href="<?=base_url()?>my_projects"><i class="fa fa-product-hunt" aria-hidden="true"></i> โปรเจ็คของคุณ</a></li>
+					<li class=""><a href="<?=base_url()?>my_projects"><i class="fa fa-product-hunt" aria-hidden="true"></i> สินค้าของคุณ</a></li>
                     <?php } ?>
 					
 				</ul>
@@ -58,4 +55,4 @@
 	<?php $this->load->view( 'main/inc/nav.php'); ?>
 	<!-- End Navbar -->
 </div>
-<!--<input type="hidden" id="memberId" value="<?=$this->session->userdata('member_id')?>" />-->
+<input type="hidden" id="onlineMemberId" value="<?=$this->session->userdata('member_id')?>" />
